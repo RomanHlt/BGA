@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bojo7hcrqlqmp"
-path="res://.godot/imported/Son ON.png-58da19c204f5fa87ea3c25dc0bf0fe88.ctex"
+path="res://.godot/imported/Son ON.png-23d09656ec7f9dbaaefed2780ece7875.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Button/Son ON.png"
-dest_files=["res://.godot/imported/Son ON.png-58da19c204f5fa87ea3c25dc0bf0fe88.ctex"]
+source_file="res://UI/art/Button/Son ON.png"
+dest_files=["res://.godot/imported/Son ON.png-23d09656ec7f9dbaaefed2780ece7875.ctex"]
 
 [params]
 

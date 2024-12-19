@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cobvesca8xnwg"
-path="res://.godot/imported/LittleGuy.ttf-736a362af39dbdfa1919d5180465daff.fontdata"
+path="res://.godot/imported/LittleGuy.ttf-ffdf2e784b19da592961926e1b0c3b16.fontdata"
 
 [deps]
 
-source_file="res://art/Font/LittleGuy.ttf"
-dest_files=["res://.godot/imported/LittleGuy.ttf-736a362af39dbdfa1919d5180465daff.fontdata"]
+source_file="res://UI/art/Font/LittleGuy.ttf"
+dest_files=["res://.godot/imported/LittleGuy.ttf-ffdf2e784b19da592961926e1b0c3b16.fontdata"]
 
 [params]
 

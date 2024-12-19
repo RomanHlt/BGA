@@ -1,8 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dsuiorqn10kmd"]
 
-[ext_resource type="PackedScene" uid="uid://b4lqkleihws3b" path="res://scene/Mana.tscn" id="1_j6vfu"]
-[ext_resource type="Script" path="res://script/ui.gd" id="1_v6gsl"]
-[ext_resource type="Texture2D" uid="uid://bnl6jjm0oveqv" path="res://art/format png/mana base.png" id="4_eitl2"]
+[ext_resource type="PackedScene" uid="uid://b4lqkleihws3b" path="res://UI/scene/Mana.tscn" id="1_j6vfu"]
+[ext_resource type="Script" path="res://UI/script/ui.gd" id="1_v6gsl"]
+[ext_resource type="Texture2D" uid="uid://bnl6jjm0oveqv" path="res://UI/art/format png/mana base.png" id="4_eitl2"]
+
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nc6rb"]
 

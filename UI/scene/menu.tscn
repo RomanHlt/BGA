@@ -1,8 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://8cva35drpb0f"]
 
-[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="1_v7po0"]
-[ext_resource type="Script" path="res://script/son.gd" id="2_cfmwf"]
-[ext_resource type="Texture2D" uid="uid://bojo7hcrqlqmp" path="res://art/Button/Son ON.png" id="3_ptnv5"]
+[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://UI/art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="1_v7po0"]
+[ext_resource type="Script" path="res://UI/script/son.gd" id="2_cfmwf"]
+[ext_resource type="Texture2D" uid="uid://bojo7hcrqlqmp" path="res://UI/art/Button/Son ON.png" id="3_ptnv5"]
+
 
 [sub_resource type="Theme" id="Theme_q8rse"]
 Label/colors/font_color = Color(1, 0, 0.733333, 1)

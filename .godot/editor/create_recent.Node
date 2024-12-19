@@ -1,8 +1,8 @@
+CanvasLayer
 CollisionShape2D
 Area2D
 CanvasModulate
 CanvasGroup
-CanvasLayer
 TileMapLayer
 ParallaxLayer
 Parallax2D
