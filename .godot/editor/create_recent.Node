@@ -1,0 +1,14 @@
+CollisionShape2D
+Area2D
+CanvasModulate
+CanvasGroup
+CanvasLayer
+TileMapLayer
+ParallaxLayer
+Parallax2D
+ParallaxBackground
+Camera3D
+AnimationPlayer
+Sprite2D
+Camera2D
+AnimatedSprite2D
