@@ -1,2 +1,6 @@
 res://Nodes/Map.tscn
 res://Nodes/Player.tscn
+res://Nodes/followPlayer.gd
+res://Nodes/PlayerLayerManager.gd
+res://scripts/player.gd
+res://scripts/layerJumpManager.gd

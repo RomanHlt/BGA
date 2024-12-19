@@ -1,5 +1,5 @@
-CollisionShape2D
 Area2D
+CollisionShape2D
 CanvasModulate
 CanvasGroup
 CanvasLayer

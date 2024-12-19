@@ -22,11 +22,17 @@ var input_buffer : Timer
 var coyote_timer : Timer
 var coyote_jump_available : bool = true
 
-@export var layers_count :int = 1
-var current_layer:int = 1
+
+var deeperChecker
+var closerChecker
+var canGoDeeper:bool = true
+var canGoCloser:bool = true
 
 
 func _ready():
+	#setup the layer checkers
+	deeperChecker = $deeperChecker
+	closerChecker = $closerChecker
 	#setup input buffer timer
 	input_buffer = Timer.new()
 	input_buffer.wait_time = INPUT_BUFFER_PATIENCE
@@ -39,6 +45,7 @@ func _ready():
 	coyote_timer.one_shot = true
 	add_child(coyote_timer)
 	coyote_timer.timeout.connect(coyote_timeout)
+	
 
 func _process(delta: float) -> void:
 	if velocity.y == 0:
@@ -111,3 +118,17 @@ func lookAtLeft(dir:bool):
 	else:
 		$Sprite2D.flip_h = false
 		$Sprite2D.offset.x = 0
+
+
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	canGoDeeper = false
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	canGoDeeper = true
+
+
+func _on_closer_checker_body_entered(body: Node2D) -> void:
+	canGoCloser = false
+func _on_closer_checker_body_exited(body: Node2D) -> void:
+	canGoCloser = true

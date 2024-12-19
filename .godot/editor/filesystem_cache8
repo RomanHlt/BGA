@@ -1,7 +1,8 @@
 6dcd580d9bf2a9dbe66cc9f994d3620b
-::res://::1734613647
+::res://::1734616789
 icon.svg::CompressedTexture2D::7047324791908162380::1733400738::1733400754::1::::<><>::
 playerSimpleMvt.gd::GDScript::-1::1734023100::0::1::::<>CharacterBody2D<>::
+README.md::TextFile::-1::1734615844::0::1::::<><>::
 ::res://addons/::1734613573
 ::res://addons/AsepriteWizard/::1734613573
 plugin.cfg::TextFile::-1::1732249624::0::1::::<><>::
@@ -110,11 +111,11 @@ BariSpritesheet.png::CompressedTexture2D::7028422463061193117::1733911908::17339
 Bari_animated.aseprite::PackedDataContainer::6373685205150818172::1733919608::1733919610::1::::<><>::
 satiro-Sheet v1.1.png::CompressedTexture2D::23766076591050583::1733405699::1733405771::1::::<><>::
 Terrain (16x16).png::CompressedTexture2D::7676978769008264271::1733403122::1733403174::1::::<><>::
-::res://Nodes/::1734613574
+::res://Nodes/::1734613650
 Bari_animated.png::CompressedTexture2D::7728066499119674165::1733919612::1733919612::1::::<><>::
 followPlayer.gd::GDScript::-1::1734528912::0::1::::<>Camera2D<>::
-Map.tscn::PackedScene::5732384789093434210::1734529338::0::1::::<><>::res://Nodes/PlayerLayerManager.gd<>uid://dhm1yo28jjap0::::res://Assets/Texture/Terrain (16x16).png<>uid://dmnpm6nnnf4kg::::res://Nodes/Player.tscn<>res://Nodes/followPlayer.gd
-Player.tscn::PackedScene::8029298918871399718::1734529338::0::1::::<><>::res://scripts/player.gd<>uid://didsej3ou06sn::::res://Nodes/Bari_animated.png
+Map.tscn::PackedScene::5732384789093434210::1734613650::0::1::::<><>::res://Nodes/PlayerLayerManager.gd<>uid://dhm1yo28jjap0::::res://Assets/Texture/Terrain (16x16).png<>uid://dmnpm6nnnf4kg::::res://Nodes/Player.tscn<>res://Nodes/followPlayer.gd
+Player.tscn::PackedScene::8029298918871399718::1734613650::0::1::::<><>::res://scripts/player.gd<>uid://didsej3ou06sn::::res://Nodes/Bari_animated.png
 PlayerLayerManager.gd::GDScript::-1::1734098963::0::1::::<>Node2D<>::
 ::res://scripts/::1734613574
 player.gd::GDScript::-1::1734022340::0::1::::<>CharacterBody2D<>::
