@@ -1,0 +1,353 @@
+[gd_scene load_steps=16 format=3 uid="uid://8cva35drpb0f"]
+
+[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="1_v7po0"]
+[ext_resource type="Script" path="res://script/son.gd" id="2_cfmwf"]
+[ext_resource type="Texture2D" uid="uid://bojo7hcrqlqmp" path="res://art/Button/Son ON.png" id="3_ptnv5"]
+
+[sub_resource type="Theme" id="Theme_q8rse"]
+Label/colors/font_color = Color(1, 0, 0.733333, 1)
+Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
+Label/constants/shadow_outline_size = 20
+Label/fonts/font = ExtResource("1_v7po0")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqjt2"]
+content_margin_top = 7.0
+bg_color = Color(0.501961, 0, 0.376471, 1)
+border_width_bottom = 3
+border_color = Color(0.401794, 1.04203e-05, 0.298874, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_left = 10.0
+expand_margin_top = 3.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l70ji"]
+content_margin_top = 7.0
+bg_color = Color(0.501961, 0, 0.376471, 1)
+border_width_bottom = 7
+border_color = Color(0.401794, 1.04203e-05, 0.298874, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_left = 10.0
+expand_margin_top = 7.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8vut"]
+bg_color = Color(0.501961, 0, 0.376471, 1)
+border_width_bottom = 10
+border_color = Color(0.401794, 1.04203e-05, 0.298874, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fx1l"]
+content_margin_top = 7.0
+bg_color = Color(0.501961, 0, 0.376471, 1)
+border_width_bottom = 3
+border_color = Color(0.401794, 1.04203e-05, 0.298874, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_left = 10.0
+expand_margin_top = 3.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_tnn5a"]
+Button/colors/font_color = Color(1, 0, 0.733333, 1)
+Button/colors/font_focus_color = Color(0.86346, 2.21401e-06, 0.489164, 1)
+Button/colors/font_hover_color = Color(0.862745, 0, 0.490196, 1)
+Button/colors/font_pressed_color = Color(0.862745, 0, 0.490196, 1)
+Button/fonts/font = ExtResource("1_v7po0")
+Button/styles/focus = SubResource("StyleBoxFlat_nqjt2")
+Button/styles/hover = SubResource("StyleBoxFlat_l70ji")
+Button/styles/normal = SubResource("StyleBoxFlat_s8vut")
+Button/styles/pressed = SubResource("StyleBoxFlat_8fx1l")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dyi7t"]
+content_margin_top = 7.0
+bg_color = Color(0.501961, 0, 0.376471, 1)
+border_width_bottom = 3
+border_color = Color(0.401794, 1.04203e-05, 0.298874, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7pjs"]
+content_margin_top = 7.0
+bg_color = Color(0.501961, 0, 0.376471, 1)
+border_width_bottom = 7
+border_color = Color(0.401794, 1.04203e-05, 0.298874, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpjg3"]
+bg_color = Color(0.345098, 0.254902, 0.337255, 1)
+border_width_bottom = 7
+border_color = Color(0.313726, 0.227451, 0.305882, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xp5p"]
+bg_color = Color(0.501961, 0, 0.376471, 1)
+border_width_bottom = 10
+border_color = Color(0.401794, 1.04203e-05, 0.298874, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dcge6"]
+bg_color = Color(0.344955, 0.256136, 0.33687, 1)
+border_width_bottom = 10
+border_color = Color(0.312229, 0.22882, 0.304998, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="Theme" id="Theme_e4n0l"]
+Button/colors/font_color = Color(1, 0, 0.733333, 1)
+Button/colors/font_focus_color = Color(0.86346, 2.21401e-06, 0.489164, 1)
+Button/colors/font_hover_color = Color(0.862745, 0, 0.490196, 1)
+Button/colors/font_pressed_color = Color(0.862745, 0, 0.490196, 1)
+Button/fonts/font = ExtResource("1_v7po0")
+Button/styles/focus = SubResource("StyleBoxFlat_dyi7t")
+Button/styles/hover = SubResource("StyleBoxFlat_i7pjs")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_mpjg3")
+Button/styles/normal = SubResource("StyleBoxFlat_3xp5p")
+Button/styles/pressed = SubResource("StyleBoxFlat_dcge6")
+
+[node name="Menu" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Titre" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 200.0
+grow_horizontal = 2
+theme = SubResource("Theme_q8rse")
+theme_override_font_sizes/font_size = 50
+text = "TITRE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 96.0
+offset_right = 125.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = SubResource("Theme_tnn5a")
+theme_override_font_sizes/font_size = 25
+text = "Options
+"
+
+[node name="Reprendre" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 196.0
+offset_right = 125.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = SubResource("Theme_tnn5a")
+theme_override_font_sizes/font_size = 25
+text = "Reprendre"
+
+[node name="Son" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -423.0
+offset_top = -135.0
+offset_right = -383.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_cfmwf")
+
+[node name="Barre 1" type="Button" parent="Son"]
+texture_filter = 1
+offset_left = -8.0
+offset_right = 17.0
+offset_bottom = 75.0
+focus_mode = 0
+theme = SubResource("Theme_e4n0l")
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+
+[node name="Barre 2" type="Button" parent="Son"]
+texture_filter = 1
+offset_left = 42.0
+offset_right = 67.0
+offset_bottom = 75.0
+focus_mode = 0
+theme = SubResource("Theme_e4n0l")
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+
+[node name="Barre 3" type="Button" parent="Son"]
+texture_filter = 1
+offset_left = 92.0
+offset_right = 117.0
+offset_bottom = 75.0
+focus_mode = 0
+theme = SubResource("Theme_e4n0l")
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+
+[node name="Barre 4" type="Button" parent="Son"]
+texture_filter = 1
+offset_left = 142.0
+offset_right = 167.0
+offset_bottom = 75.0
+focus_mode = 0
+theme = SubResource("Theme_e4n0l")
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+
+[node name="Barre 5" type="Button" parent="Son"]
+texture_filter = 1
+offset_left = 192.0
+offset_right = 217.0
+offset_bottom = 75.0
+focus_mode = 0
+theme = SubResource("Theme_e4n0l")
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+
+[node name="TextureRect" type="TextureRect" parent="Son"]
+layout_mode = 0
+offset_left = -99.0
+offset_top = -3.0
+offset_right = -59.0
+offset_bottom = 37.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_ptnv5")
+
+[node name="Musique" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -422.0
+offset_top = -17.0
+offset_right = -422.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_cfmwf")
+
+[node name="Barre 1" type="Button" parent="Musique"]
+texture_filter = 1
+offset_left = -8.0
+offset_right = 17.0
+offset_bottom = 75.0
+focus_mode = 0
+theme = SubResource("Theme_e4n0l")
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+
+[node name="Barre 2" type="Button" parent="Musique"]
+texture_filter = 1
+offset_left = 42.0
+offset_right = 67.0
+offset_bottom = 75.0
+focus_mode = 0
+theme = SubResource("Theme_e4n0l")
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+
+[node name="Barre 3" type="Button" parent="Musique"]
+texture_filter = 1
+offset_left = 92.0
+offset_right = 117.0
+offset_bottom = 75.0
+focus_mode = 0
+theme = SubResource("Theme_e4n0l")
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+
+[node name="Barre 4" type="Button" parent="Musique"]
+texture_filter = 1
+offset_left = 142.0
+offset_right = 167.0
+offset_bottom = 75.0
+focus_mode = 0
+theme = SubResource("Theme_e4n0l")
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+
+[node name="Barre 5" type="Button" parent="Musique"]
+texture_filter = 1
+offset_left = 192.0
+offset_right = 217.0
+offset_bottom = 75.0
+focus_mode = 0
+theme = SubResource("Theme_e4n0l")
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+
+[node name="TextureRect" type="TextureRect" parent="Musique"]
+offset_left = -99.0
+offset_top = -3.0
+offset_right = -59.0
+offset_bottom = 37.0
+scale = Vector2(2, 2)
+
+[connection signal="toggled" from="Son/Barre 1" to="Son" method="_on_barre_1_toggled"]
+[connection signal="toggled" from="Son/Barre 2" to="Son" method="_on_barre_2_toggled"]
+[connection signal="toggled" from="Son/Barre 3" to="Son" method="_on_barre_3_toggled"]
+[connection signal="toggled" from="Son/Barre 4" to="Son" method="_on_barre_4_toggled"]
+[connection signal="toggled" from="Son/Barre 5" to="Son" method="_on_barre_5_toggled"]
+[connection signal="toggled" from="Musique/Barre 1" to="Musique" method="_on_barre_1_toggled"]
+[connection signal="toggled" from="Musique/Barre 2" to="Musique" method="_on_barre_2_toggled"]
+[connection signal="toggled" from="Musique/Barre 3" to="Musique" method="_on_barre_3_toggled"]
+[connection signal="toggled" from="Musique/Barre 4" to="Musique" method="_on_barre_4_toggled"]
+[connection signal="toggled" from="Musique/Barre 5" to="Musique" method="_on_barre_5_toggled"]

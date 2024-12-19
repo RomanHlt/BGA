@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsuiorqn10kmd"]
+
+[ext_resource type="PackedScene" uid="uid://b4lqkleihws3b" path="res://scene/Mana.tscn" id="1_j6vfu"]
+[ext_resource type="Script" path="res://script/ui.gd" id="1_v6gsl"]
+[ext_resource type="Texture2D" uid="uid://bnl6jjm0oveqv" path="res://art/format png/mana base.png" id="4_eitl2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nc6rb"]
+
+[sub_resource type="Theme" id="Theme_vu1fb"]
+Panel/styles/panel = SubResource("StyleBoxEmpty_nc6rb")
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v6gsl")
+
+[node name="PlayerInfoBox" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 224.0
+offset_bottom = 424.0
+theme = SubResource("Theme_vu1fb")
+
+[node name="Mana UI" type="Sprite2D" parent="PlayerInfoBox"]
+texture_filter = 1
+position = Vector2(100, 100)
+scale = Vector2(5, 5)
+texture = ExtResource("4_eitl2")
+
+[node name="Mana 0" parent="PlayerInfoBox/Mana UI" instance=ExtResource("1_j6vfu")]
+position = Vector2(-7.89762e-07, -1.69873e-06)
+
+[node name="Mana 1" parent="PlayerInfoBox/Mana UI" instance=ExtResource("1_j6vfu")]
+
+[node name="Mana 2" parent="PlayerInfoBox/Mana UI" instance=ExtResource("1_j6vfu")]
+
+[node name="Mana 3" parent="PlayerInfoBox/Mana UI" instance=ExtResource("1_j6vfu")]
+
+[node name="Mana 4" parent="PlayerInfoBox/Mana UI" instance=ExtResource("1_j6vfu")]
