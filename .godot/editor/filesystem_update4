@@ -1,14 +1,5 @@
-res://UI/scene/menu.tscn
-res://UI/script/son.gd
 res://UI/scene/options.tscn
 res://UI/scene/statistiques.tscn
-res://UI/scene/ecran_d'accueil.tscn
 res://UI/scene/progrès.tscn
-res://UI/script/menu.gd
-res://UI/script/options.gd
-res://UI/script/statistiques.gd
-res://UI/script/progrès.gd
-res://UI/script/ecran_d'accueil.gd
-res://UI/script/globals_options.gd
-res://UI/script/musique.gd
-res://UI/menu.tscn
+res://UI/scene/ecran_d'accueil.tscn
+res://UI/scene/menu.tscn
