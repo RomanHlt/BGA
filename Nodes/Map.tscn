@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://cnw2smg07vj43"]
+[gd_scene load_steps=12 format=4 uid="uid://cnw2smg07vj43"]
 
 [ext_resource type="Script" path="res://Nodes/PlayerLayerManager.gd" id="1_grm2m"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://Assets/Texture/Terrain (16x16).png" id="1_kg0r5"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://Nodes/Player.tscn" id="2_tk07c"]
 [ext_resource type="Script" path="res://Nodes/followPlayer.gd" id="4_kfafa"]
+[ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://UI/scene/menu.tscn" id="5_1b0dp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nho2a"]
 texture = ExtResource("1_kg0r5")
@@ -140,3 +141,8 @@ process_callback = 0
 limit_smoothed = true
 position_smoothing_speed = 10.0
 script = ExtResource("4_kfafa")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Menu" parent="CanvasLayer" instance=ExtResource("5_1b0dp")]

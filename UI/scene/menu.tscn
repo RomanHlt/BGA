@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://8cva35drpb0f"]
+[gd_scene load_steps=10 format=3 uid="uid://8cva35drpb0f"]
 
 [ext_resource type="Script" path="res://UI/script/menu.gd" id="1_5ecrs"]
 [ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://UI/art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="1_v7po0"]
@@ -9,7 +9,17 @@ Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
 Label/constants/shadow_outline_size = 20
 Label/fonts/font = ExtResource("1_v7po0")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8tjx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abvc2"]
+content_margin_top = 7.0
+bg_color = Color(0.326738, 0.26043, 0.298994, 1)
+border_width_bottom = 3
+border_color = Color(0.237021, 0.177179, 0.215978, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wurx1"]
 content_margin_top = 7.0
 bg_color = Color(0.501961, 0, 0.376471, 1)
 border_width_bottom = 3
@@ -23,7 +33,7 @@ expand_margin_top = 3.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhvnu"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdlf6"]
 content_margin_top = 7.0
 bg_color = Color(0.501961, 0, 0.376471, 1)
 border_width_bottom = 7
@@ -37,7 +47,7 @@ expand_margin_top = 7.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibk4g"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26any"]
 bg_color = Color(0.501961, 0, 0.376471, 1)
 border_width_bottom = 10
 border_color = Color(0.401794, 1.04203e-05, 0.298874, 1)
@@ -50,7 +60,7 @@ expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqd32"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hbld"]
 content_margin_top = 7.0
 bg_color = Color(0.501961, 0, 0.376471, 1)
 border_width_bottom = 3
@@ -64,16 +74,18 @@ expand_margin_top = 3.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
-[sub_resource type="Theme" id="Theme_tnn5a"]
+[sub_resource type="Theme" id="Theme_d8se8"]
 Button/colors/font_color = Color(1, 0, 0.733333, 1)
 Button/colors/font_focus_color = Color(0.86346, 2.21401e-06, 0.489164, 1)
 Button/colors/font_hover_color = Color(0.862745, 0, 0.490196, 1)
 Button/colors/font_pressed_color = Color(0.862745, 0, 0.490196, 1)
+Button/font_sizes/font_size = 23
 Button/fonts/font = ExtResource("1_v7po0")
-Button/styles/focus = SubResource("StyleBoxFlat_f8tjx")
-Button/styles/hover = SubResource("StyleBoxFlat_hhvnu")
-Button/styles/normal = SubResource("StyleBoxFlat_ibk4g")
-Button/styles/pressed = SubResource("StyleBoxFlat_lqd32")
+Button/styles/disabled = SubResource("StyleBoxFlat_abvc2")
+Button/styles/focus = SubResource("StyleBoxFlat_wurx1")
+Button/styles/hover = SubResource("StyleBoxFlat_qdlf6")
+Button/styles/normal = SubResource("StyleBoxFlat_26any")
+Button/styles/pressed = SubResource("StyleBoxFlat_3hbld")
 
 [node name="Menu" type="Control"]
 texture_filter = 1
@@ -93,7 +105,7 @@ offset_bottom = 200.0
 grow_horizontal = 2
 theme = SubResource("Theme_q8rse")
 theme_override_font_sizes/font_size = 50
-text = "BARRY'S GREAT ADVENTURE"
+text = "Barry's Great Adventure"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -112,8 +124,7 @@ offset_bottom = -74.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-theme = SubResource("Theme_tnn5a")
-theme_override_font_sizes/font_size = 25
+theme = SubResource("Theme_d8se8")
 text = "Reprendre"
 
 [node name="Options" type="Button" parent="."]
@@ -131,7 +142,7 @@ offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-theme = SubResource("Theme_tnn5a")
+theme = SubResource("Theme_d8se8")
 theme_override_font_sizes/font_size = 25
 text = "Options
 "
@@ -151,7 +162,7 @@ offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-theme = SubResource("Theme_tnn5a")
+theme = SubResource("Theme_d8se8")
 theme_override_font_sizes/font_size = 25
 text = "Statistiques"
 
@@ -170,7 +181,7 @@ offset_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-theme = SubResource("Theme_tnn5a")
+theme = SubResource("Theme_d8se8")
 theme_override_font_sizes/font_size = 25
 text = "Progrès
 "
@@ -190,9 +201,9 @@ offset_bottom = 280.095
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-theme = SubResource("Theme_tnn5a")
+theme = SubResource("Theme_d8se8")
 theme_override_font_sizes/font_size = 25
-text = "Quitter la partie"
+text = "Quitter la Partie"
 
 [connection signal="pressed" from="Reprendre" to="." method="_on_reprendre_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]

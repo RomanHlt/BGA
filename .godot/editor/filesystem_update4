@@ -11,3 +11,4 @@ res://UI/script/progrès.gd
 res://UI/script/ecran_d'accueil.gd
 res://UI/script/globals_options.gd
 res://UI/script/musique.gd
+res://UI/menu.tscn

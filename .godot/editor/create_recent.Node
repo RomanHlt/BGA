@@ -1,10 +1,13 @@
+<<<<<<< HEAD
 CheckButton
 Button
+=======
+CanvasLayer
+>>>>>>> 5f4549e8c4875baf41f4c7199a97db96b40c2b3c
 CollisionShape2D
 Area2D
 CanvasModulate
 CanvasGroup
-CanvasLayer
 TileMapLayer
 ParallaxLayer
 Parallax2D

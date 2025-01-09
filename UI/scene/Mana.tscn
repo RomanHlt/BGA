@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" path="res://UI/script/Mana.gd" id="1_ahjk4"]
 [ext_resource type="Texture2D" uid="uid://2hc50vdvlven" path="res://UI/scene/mana.png" id="3_o6qsr"]
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5f4549e8c4875baf41f4c7199a97db96b40c2b3c
 
 [sub_resource type="Animation" id="Animation_8crvx"]
 length = 3.0
