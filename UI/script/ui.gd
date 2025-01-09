@@ -14,17 +14,7 @@ func change_mana(n):
 
 func _input(event: InputEvent) -> void:
 	"""[FONCTION TEST A SUPPRIMER] | Test de l'UI du mana"""
-	if event.is_action_pressed("test mana 0"):
-		$"PlayerInfoBox/Mana UI/Mana 0".anime(0)
-	elif event.is_action_pressed("test mana 1"):
-		$"PlayerInfoBox/Mana UI/Mana 1".anime(1)
-	elif event.is_action_pressed("test mana 2"):
-		$"PlayerInfoBox/Mana UI/Mana 2".anime(2)
-	elif event.is_action_pressed("test mana 3"):
-		$"PlayerInfoBox/Mana UI/Mana 3".anime(3)
-	elif event.is_action_pressed("test mana 4"):
-		$"PlayerInfoBox/Mana UI/Mana 4".anime(4)
-	elif event.is_action_pressed("ui_down"):
+	if event.is_action_pressed("ui_down"):
 		start_animations()
 
 func start_animations():

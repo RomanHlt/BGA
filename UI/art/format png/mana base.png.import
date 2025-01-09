@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnl6jjm0oveqv"
-path="res://.godot/imported/mana base.png-b9efd0c87f939c4d2075c7daffd53830.ctex"
+path="res://.godot/imported/mana base.png-f77091a1f0fbf2443a380f670d5de7f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/format png/mana base.png"
-dest_files=["res://.godot/imported/mana base.png-b9efd0c87f939c4d2075c7daffd53830.ctex"]
+source_file="res://UI/art/format png/mana base.png"
+dest_files=["res://.godot/imported/mana base.png-f77091a1f0fbf2443a380f670d5de7f4.ctex"]
 
 [params]
 

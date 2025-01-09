@@ -3,12 +3,12 @@
 importer="aseprite_wizard.plugin.noop"
 type="PackedDataContainer"
 uid="uid://hi0es7agx541"
-path="res://.godot/imported/mana 3 stat.aseprite-c2a88f97386ebf29597af655421a61cd.res"
+path="res://.godot/imported/mana 3 stat.aseprite-a07d1a91ae36d6afb3a1db3697556726.res"
 
 [deps]
 
-source_file="res://art/format asprit/mana 3 stat.aseprite"
-dest_files=["res://.godot/imported/mana 3 stat.aseprite-c2a88f97386ebf29597af655421a61cd.res"]
+source_file="res://UI/art/format asprit/mana 3 stat.aseprite"
+dest_files=["res://.godot/imported/mana 3 stat.aseprite-a07d1a91ae36d6afb3a1db3697556726.res"]
 
 [params]
 

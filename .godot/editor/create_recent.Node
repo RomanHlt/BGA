@@ -1,3 +1,5 @@
+CheckButton
+Button
 CollisionShape2D
 Area2D
 CanvasModulate
@@ -11,4 +13,3 @@ Camera3D
 AnimationPlayer
 Sprite2D
 Camera2D
-AnimatedSprite2D
