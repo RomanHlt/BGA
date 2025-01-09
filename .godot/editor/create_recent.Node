@@ -1,11 +1,15 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 CheckButton
 Button
 =======
 CanvasLayer
 >>>>>>> 5f4549e8c4875baf41f4c7199a97db96b40c2b3c
 CollisionShape2D
+=======
+>>>>>>> b71b664a30b8d040299026db512412d14ee86ecc
 Area2D
+CollisionShape2D
 CanvasModulate
 CanvasGroup
 TileMapLayer

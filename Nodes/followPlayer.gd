@@ -2,7 +2,7 @@ extends Camera2D
 
 var PLAYER:CharacterBody2D
 var PLAYER_POSITION = 0
-var SLOW_DOWN_RADIUS = 1000.0
+var SLOW_DOWN_RADIUS = 20.0
 const MAX_SPEED = 2000.0
 
 var _velocity = Vector2.ZERO

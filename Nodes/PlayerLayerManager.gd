@@ -26,9 +26,17 @@ func _process(delta: float) -> void:
 		print("Z_Index: ",player.z_index, " | Collisions: ", player.collision_mask)
 
 func goToLayer(layer:int = 0):
-	#var camPos = player.get_node("Camera2D").position
-	player.reparent(Layers[layer])
-	player.collision_mask = 2**layer
-	player.z_index = -layer
-	currentPlayerLayer=layer
-	#player.get_node("Camera2D").position = camPos
+	if player.canGoDeeper == true and -player.z_index < layer:
+		player.reparent(Layers[layer])
+		player.collision_mask = 2**layer
+		player.z_index = -layer
+		player.deeperChecker.collision_mask = 2**(layer+1)
+		player.closerChecker.collision_mask = 2**(layer-1)
+		currentPlayerLayer=layer
+	if player.canGoCloser == true and -player.z_index > layer:
+		player.reparent(Layers[layer])
+		player.collision_mask = 2**layer
+		player.deeperChecker.collision_mask = 2**(layer+1)
+		player.closerChecker.collision_mask = 2**(layer-1)
+		player.z_index = -layer
+		currentPlayerLayer=layer

@@ -15,9 +15,17 @@ run/main_scene="res://Nodes/Map.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+<<<<<<< HEAD
 [autoload]
 
 GlobalsOptions="*res://UI/script/globals_options.gd"
+=======
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/resizable=false
+>>>>>>> b71b664a30b8d040299026db512412d14ee86ecc
 
 [editor_plugins]
 
