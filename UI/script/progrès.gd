@@ -4,6 +4,8 @@ extends Control
 func _on_retour_pressed() -> void:
 	"""Retour au menu pause / Retour à l'écran d'accueil. Dépend de l'endroit où a été ouvert l'option"""
 	if GlobalsOptions.open_from_accueil == true:
-		get_tree().change_scene_to_file("res://UI/scene/ecran_d'accueil.tscn")
+		get_tree().root.get_node("/root/Ecran d'accueil/Menu d'accueil").visible = true
+		self.visible = false
 	else:
-		get_tree().change_scene_to_file("res://UI/scene/menu.tscn")
+		get_tree().root.get_node("/root/Map/CanvasLayer/Menu").visible = true
+		self.visible = false

@@ -9,7 +9,7 @@ var _velocity = Vector2.ZERO
 var _anchor_position = Vector2.ZERO
 
 func _ready() -> void:
-	PLAYER = get_node("/root/Node2D/Player")
+	PLAYER = get_node("/root/Map/Player")
 	PLAYER_POSITION = PLAYER.position
 
 func _physics_process(delta):

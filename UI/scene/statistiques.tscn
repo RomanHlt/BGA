@@ -96,6 +96,14 @@ text = "Statistiques"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="nbSauts" type="Label" parent="."]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 307.0
+offset_right = 649.0
+offset_bottom = 330.0
+text = "Nombre de sauts : 0"
+
 [node name="Retour" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 1

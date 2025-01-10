@@ -1,10 +1,14 @@
-[gd_scene load_steps=12 format=4 uid="uid://cnw2smg07vj43"]
+[gd_scene load_steps=16 format=4 uid="uid://cnw2smg07vj43"]
 
 [ext_resource type="Script" path="res://Nodes/PlayerLayerManager.gd" id="1_grm2m"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://Assets/Texture/Terrain (16x16).png" id="1_kg0r5"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://Nodes/Player.tscn" id="2_tk07c"]
 [ext_resource type="Script" path="res://Nodes/followPlayer.gd" id="4_kfafa"]
 [ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://UI/scene/menu.tscn" id="5_1b0dp"]
+[ext_resource type="PackedScene" uid="uid://5q55qevow2dp" path="res://UI/scene/Menu_d'accueil.tscn" id="6_6ngbo"]
+[ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://UI/scene/options.tscn" id="7_avs1v"]
+[ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://UI/scene/progrès.tscn" id="8_lrs4m"]
+[ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://UI/scene/statistiques.tscn" id="9_w4wgb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nho2a"]
 texture = ExtResource("1_kg0r5")
@@ -85,7 +89,7 @@ physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_8nnty")
 
-[node name="Node2D" type="Node2D"]
+[node name="Map" type="Node2D"]
 position = Vector2(94, -137)
 script = ExtResource("1_grm2m")
 
@@ -145,6 +149,19 @@ position_smoothing_speed = 15.0
 script = ExtResource("4_kfafa")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
+process_mode = 3
 
 [node name="Menu" parent="CanvasLayer" instance=ExtResource("5_1b0dp")]
+visible = false
+
+[node name="Options" parent="CanvasLayer" instance=ExtResource("7_avs1v")]
+visible = false
+
+[node name="Progrès" parent="CanvasLayer" instance=ExtResource("8_lrs4m")]
+visible = false
+
+[node name="Statistiques" parent="CanvasLayer" instance=ExtResource("9_w4wgb")]
+visible = false
+
+[node name="Ecran d\'accueil" parent="CanvasLayer" instance=ExtResource("6_6ngbo")]
+visible = false
