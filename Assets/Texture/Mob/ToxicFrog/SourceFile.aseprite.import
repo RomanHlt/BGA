@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cnpak42f2uhmr"
+path="res://.godot/imported/SourceFile.aseprite-54c3978e77d613761d430301e9016dd8.res"
+
+[deps]
+
+source_file="res://Assets/Texture/Mob/ToxicFrog/SourceFile.aseprite"
+dest_files=["res://.godot/imported/SourceFile.aseprite-54c3978e77d613761d430301e9016dd8.res"]
+
+[params]
+

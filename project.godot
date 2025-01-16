@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GlobalsOptions="*res://UI/script/globals_options.gd"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+
 [input]
 
 move_right={

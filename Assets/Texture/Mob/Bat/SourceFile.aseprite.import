@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://qrc4vsbusgfn"
+path="res://.godot/imported/SourceFile.aseprite-5190868ec1f18073d6e08bc56cf47c08.res"
+
+[deps]
+
+source_file="res://Assets/Texture/Mob/Bat/SourceFile.aseprite"
+dest_files=["res://.godot/imported/SourceFile.aseprite-5190868ec1f18073d6e08bc56cf47c08.res"]
+
+[params]
+
