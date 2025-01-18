@@ -18,7 +18,8 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	pass
+	var horizontal_input = Input.get_axis("move_left","move_right")
+	var jump_attempted = Input.is_action_just_pressed("jump")
 
 
 func lookAtLeft(dir:bool):

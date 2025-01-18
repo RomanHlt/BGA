@@ -1,5 +1,5 @@
 res://Nodes/Map.tscn
-res://scripts/player.gd
+res://scripts/playerMvt.gd
 res://UI/scene/menu.tscn
 res://UI/scene/Menu_d'accueil.tscn
 res://UI/scene/ecran_d'accueil.tscn
