@@ -1,7 +1,16 @@
 res://Nodes/Map.tscn
-res://scripts/playerMvt.gd
 res://UI/scene/menu.tscn
 res://UI/scene/Menu_d'accueil.tscn
 res://UI/scene/ecran_d'accueil.tscn
 res://UI/scene/progrès.tscn
 res://UI/scene/options.tscn
+res://gravity_component.gd
+res://Nodes/Player.tscn
+res://scripts/player.gd
+res://Nodes/Components/gravity_component.tscn
+res://scripts/input_component.gd
+res://scripts/movement_component.gd
+res://Nodes/Components/input_component.tscn
+res://Nodes/Components/movement_component.tscn
+res://scripts/jump_component.gd
+res://Nodes/Components/jump_component.tscn

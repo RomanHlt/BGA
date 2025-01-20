@@ -49,11 +49,11 @@ func _ready():
 func _process(delta: float) -> void:
 	if velocity.y == 0:
 		if velocity.x > 0:
-			lookAtLeft(false)
+			#lookAtLeft(false)
 			$AnimationPlayer.play("RUN")
 			
 		elif velocity.x < 0:
-			lookAtLeft(true)
+			#lookAtLeft(true)
 			$AnimationPlayer.play("RUN")
 		else:
 			$AnimationPlayer.play("IDLE")
