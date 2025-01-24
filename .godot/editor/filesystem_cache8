@@ -1,5 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1737373664
+::res://::1737720332
+gravity_component.gd::GDScript::-1::1737375015::0::1::::GravityComponent<>Node2D<>::
 icon.svg::CompressedTexture2D::7047324791908162380::1733400738::1737369828::1::::<><>::
 playerSimpleMvt.gd::GDScript::-1::1734023100::0::1::::<>CharacterBody2D<>::
 README.md::TextFile::-1::1734615844::0::1::::<><>::
@@ -109,14 +110,26 @@ BARI.png::CompressedTexture2D::6664811137854837531::1733406027::1737369828::1:::
 BariSpritesheet.png::CompressedTexture2D::7028422463061193117::1733911908::1737369828::1::::<><>::
 satiro-Sheet v1.1.png::CompressedTexture2D::23766076591050583::1733405699::1737369828::1::::<><>::
 Terrain (16x16).png::CompressedTexture2D::7676978769008264271::1733403122::1737369828::1::::<><>::
-::res://Nodes/::1737373710
+::res://Nodes/::1737667907
 Bari_animated.png::CompressedTexture2D::7728066499119674165::1733919612::1737369828::1::::<><>::
 followPlayer.gd::GDScript::-1::1737196148::0::1::::<>Camera2D<>::
-Map.tscn::PackedScene::5732384789093434210::1737373710::0::1::::<><>::uid://dhm1yo28jjap0::::res://Assets/Texture/Terrain (16x16).png<>res://Nodes/PlayerLayerManager.gd<>uid://dmnpm6nnnf4kg::::res://Nodes/Player.tscn<>res://Nodes/followPlayer.gd<>uid://8cva35drpb0f::::res://UI/scene/menu.tscn<>uid://5q55qevow2dp::::res://UI/scene/Menu_d'accueil.tscn<>uid://bs2h0e4x7qqbw::::res://UI/scene/options.tscn<>uid://cfsxrmrubahlm::::res://UI/scene/progrès.tscn<>uid://ccyfa7snu7bof::::res://UI/scene/statistiques.tscn
-Player.tscn::PackedScene::8029298918871399718::1737196148::0::1::::<><>::res://scripts/player.gd<>uid://didsej3ou06sn::::res://Nodes/Bari_animated.png
+Map.tscn::PackedScene::5732384789093434210::1737666632::0::1::::<><>::uid://dhm1yo28jjap0::::res://Assets/Texture/Terrain (16x16).png<>res://Nodes/PlayerLayerManager.gd<>uid://dmnpm6nnnf4kg::::res://Nodes/Player.tscn<>res://Nodes/followPlayer.gd<>uid://8cva35drpb0f::::res://UI/scene/menu.tscn<>uid://5q55qevow2dp::::res://UI/scene/Menu_d'accueil.tscn<>uid://bs2h0e4x7qqbw::::res://UI/scene/options.tscn<>uid://cfsxrmrubahlm::::res://UI/scene/progrès.tscn<>uid://ccyfa7snu7bof::::res://UI/scene/statistiques.tscn
+Player.tscn::PackedScene::8029298918871399718::1737667907::0::1::::<><>::res://scripts/player.gd<>uid://didsej3ou06sn::::res://Nodes/Bari_animated.png<>uid://wqlcrjmdxwdb::::res://Nodes/Components/gravity_component.tscn<>uid://ks173cmm3lsc::::res://Nodes/Components/input_component.tscn<>uid://bqnm2cty672tn::::res://Nodes/Components/movement_component.tscn<>uid://dl03bv2s0el6b::::res://Nodes/Components/animation_component.tscn<>uid://codccv1hd133u::::res://Nodes/Components/advanced_jump_component.tscn
 PlayerLayerManager.gd::GDScript::-1::1737196148::0::1::::<>Node2D<>::
-::res://scripts/::1737370133
-player.gd::GDScript::-1::1737196223::0::1::::<>CharacterBody2D<>::
+::res://Nodes/Components/::1737668074
+advanced_jump_component.tscn::PackedScene::5761804460632557596::1737668074::0::1::::<><>::res://scripts/advanced_jump_component.gd
+animation_component.tscn::PackedScene::7984651782092008955::1737666633::0::1::::<><>::res://scripts/animation_component.gd
+gravity_component.tscn::PackedScene::1577856969960265575::1737666633::0::1::::<><>::res://gravity_component.gd
+input_component.tscn::PackedScene::740684497476072370::1737666633::0::1::::<><>::res://scripts/input_component.gd
+jump_component.tscn::PackedScene::2723910531606042147::1737666633::0::1::::<><>::res://scripts/jump_component.gd
+movement_component.tscn::PackedScene::3537056048584176431::1737666633::0::1::::<><>::res://scripts/movement_component.gd
+::res://scripts/::1737667892
+advanced_jump_component.gd::GDScript::-1::1737667892::0::1::::AdvancedJumpComponent<>Node2D<>::
+animation_component.gd::GDScript::-1::1737409346::0::1::::AnimationComponent<>Node2D<>::
+input_component.gd::GDScript::-1::1737635424::0::1::::InputComponent<>Node2D<>::
+jump_component.gd::GDScript::-1::1737377780::0::1::::JumpComponent<>Node2D<>::
+movement_component.gd::GDScript::-1::1737410578::0::1::::MovementComponent<>Node2D<>::
+player.gd::GDScript::-1::1737635610::0::1::::<>CharacterBody2D<>::
 playerMvt.gd::GDScript::-1::1737370133::0::1::::<>CharacterBody2D<>::
 ::res://UI/::1737034000
 ::res://UI/art/::1737369828
@@ -150,16 +163,16 @@ mana 3 stat.png::CompressedTexture2D::5539337063782914485::1737034000::173736982
 mana 4 stat.png::CompressedTexture2D::4896469034046839383::1737034000::1737369828::1::::<><>::
 mana base.png::CompressedTexture2D::3323482597606313197::1737034000::1737369828::1::::<><>::
 mana.png::CompressedTexture2D::7864026221690365766::1737034000::1737369828::1::::<><>::
-::res://UI/scene/::1737373710
-ecran_d'accueil.tscn::PackedScene::8227558803166441881::1737373710::0::1::::<><>::uid://5q55qevow2dp::::res://UI/scene/Menu_d'accueil.tscn<>uid://bs2h0e4x7qqbw::::res://UI/scene/options.tscn<>uid://cfsxrmrubahlm::::res://UI/scene/progrès.tscn<>uid://ccyfa7snu7bof::::res://UI/scene/statistiques.tscn<>res://UI/script/tempo.gd
+::res://UI/scene/::1737666633
+ecran_d'accueil.tscn::PackedScene::8227558803166441881::1737666633::0::1::::<><>::uid://5q55qevow2dp::::res://UI/scene/Menu_d'accueil.tscn<>uid://bs2h0e4x7qqbw::::res://UI/scene/options.tscn<>uid://cfsxrmrubahlm::::res://UI/scene/progrès.tscn<>uid://ccyfa7snu7bof::::res://UI/scene/statistiques.tscn<>res://UI/script/tempo.gd
 mana 3 stat.png::CompressedTexture2D::3465241028142287254::1737034000::1737369828::1::::<><>::
 mana base.png::CompressedTexture2D::5090353906857497142::1737034000::1737369828::1::::<><>::
 mana.png::CompressedTexture2D::1909725775997445041::1737034000::1737369828::1::::<><>::
 Mana.tscn::PackedScene::4445595218623803553::1737196148::0::1::::<><>::res://UI/script/Mana.gd<>uid://2hc50vdvlven::::res://UI/scene/mana.png
-menu.tscn::PackedScene::2321637169568836035::1737373710::0::1::::<><>::res://UI/script/menu.gd<>uid://bn43t0lpdvrl4::::res://UI/art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf
-Menu_d'accueil.tscn::PackedScene::2140571284332637329::1737373710::0::1::::<><>::res://UI/script/menu_d'accueil.gd<>uid://bn43t0lpdvrl4::::res://UI/art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf
-options.tscn::PackedScene::3706027988315439128::1737373710::0::1::::<><>::res://UI/script/son.gd<>res://UI/script/options.gd<>uid://bn43t0lpdvrl4::::res://UI/art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf<>uid://bojo7hcrqlqmp::::res://UI/art/Button/Son ON.png<>uid://wee22puu0o52::::res://UI/art/Button/Son OFF.png<>uid://1ibi2u8scukw::::res://UI/art/Button/Musique ON.png<>uid://dmfa4qkclpbfc::::res://UI/art/Button/Musique OFF.png<>res://UI/script/musique.gd
-progrès.tscn::PackedScene::5162371891931381998::1737373710::0::1::::<><>::res://UI/script/progrès.gd<>uid://bn43t0lpdvrl4::::res://UI/art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf
+menu.tscn::PackedScene::2321637169568836035::1737666632::0::1::::<><>::res://UI/script/menu.gd<>uid://bn43t0lpdvrl4::::res://UI/art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf
+Menu_d'accueil.tscn::PackedScene::2140571284332637329::1737666633::0::1::::<><>::res://UI/script/menu_d'accueil.gd<>uid://bn43t0lpdvrl4::::res://UI/art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf
+options.tscn::PackedScene::3706027988315439128::1737666633::0::1::::<><>::res://UI/script/son.gd<>res://UI/script/options.gd<>uid://bn43t0lpdvrl4::::res://UI/art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf<>uid://bojo7hcrqlqmp::::res://UI/art/Button/Son ON.png<>uid://wee22puu0o52::::res://UI/art/Button/Son OFF.png<>uid://1ibi2u8scukw::::res://UI/art/Button/Musique ON.png<>uid://dmfa4qkclpbfc::::res://UI/art/Button/Musique OFF.png<>res://UI/script/musique.gd
+progrès.tscn::PackedScene::5162371891931381998::1737666633::0::1::::<><>::res://UI/script/progrès.gd<>uid://bn43t0lpdvrl4::::res://UI/art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf
 statistiques.tscn::PackedScene::4963069414895864517::1737196148::0::1::::<><>::uid://bn43t0lpdvrl4::::res://UI/art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf<>res://UI/script/statistiques.gd
 UI.tscn::PackedScene::8464460446942104779::1737196148::0::1::::<><>::uid://b4lqkleihws3b::::res://UI/scene/Mana.tscn<>res://UI/script/ui.gd<>uid://bnl6jjm0oveqv::::res://UI/art/format png/mana base.png
 ::res://UI/script/::1737196148

@@ -1,11 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://dmnpm6nnnf4kg"]
+[gd_scene load_steps=21 format=3 uid="uid://dmnpm6nnnf4kg"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1sa3q"]
 [ext_resource type="Texture2D" uid="uid://didsej3ou06sn" path="res://Nodes/Bari_animated.png" id="2_x2l0n"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://Nodes/Components/gravity_component.tscn" id="3_l1u33"]
 [ext_resource type="PackedScene" uid="uid://ks173cmm3lsc" path="res://Nodes/Components/input_component.tscn" id="4_03rw7"]
 [ext_resource type="PackedScene" uid="uid://bqnm2cty672tn" path="res://Nodes/Components/movement_component.tscn" id="5_3jvcs"]
-[ext_resource type="PackedScene" uid="uid://be2qn5hghb0f4" path="res://Nodes/Components/jump_component.tscn" id="6_wfdg8"]
+[ext_resource type="PackedScene" uid="uid://dl03bv2s0el6b" path="res://Nodes/Components/animation_component.tscn" id="7_blyk2"]
+[ext_resource type="PackedScene" uid="uid://codccv1hd133u" path="res://Nodes/Components/advanced_jump_component.tscn" id="7_eboik"]
 
 [sub_resource type="Animation" id="Animation_u7f4o"]
 length = 0.6
@@ -167,13 +168,14 @@ height = 14.0
 radius = 4.0
 height = 14.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "jump_component")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "advanced_jump_component", "animation_component")]
 slide_on_ceiling = false
 script = ExtResource("1_1sa3q")
 gravity_component = NodePath("GravityComponent")
 input_component = NodePath("InputComponent")
 movement_component = NodePath("MovementComponent")
-jump_component = NodePath("JumpComponent")
+advanced_jump_component = NodePath("AdvancedJumpComponent")
+animation_component = NodePath("AnimationComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -230,12 +232,22 @@ position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_504fc")
 
 [node name="GravityComponent" parent="." instance=ExtResource("3_l1u33")]
+gravity = 1200.0
 
 [node name="InputComponent" parent="." instance=ExtResource("4_03rw7")]
 
 [node name="MovementComponent" parent="." instance=ExtResource("5_3jvcs")]
+speed = 150.0
+ground_accel_speed = 150.0
+ground_decel_speed = 150.0
+air_decel_speed = 10.0
 
-[node name="JumpComponent" parent="." instance=ExtResource("6_wfdg8")]
+[node name="AnimationComponent" parent="." node_paths=PackedStringArray("animator", "sprite") instance=ExtResource("7_blyk2")]
+animator = NodePath("../AnimationPlayer")
+sprite = NodePath("../Sprite2D")
+
+[node name="AdvancedJumpComponent" parent="." instance=ExtResource("7_eboik")]
+jump_velocity = -400.0
 
 [connection signal="body_entered" from="deeperChecker" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="deeperChecker" to="." method="_on_area_2d_body_exited"]
