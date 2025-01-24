@@ -246,7 +246,8 @@ air_decel_speed = 10.0
 animator = NodePath("../AnimationPlayer")
 sprite = NodePath("../Sprite2D")
 
-[node name="AdvancedJumpComponent" parent="." instance=ExtResource("7_eboik")]
+[node name="AdvancedJumpComponent" parent="." node_paths=PackedStringArray("sprite2D") instance=ExtResource("7_eboik")]
+sprite2D = NodePath("../Sprite2D")
 jump_velocity = -400.0
 
 [connection signal="body_entered" from="deeperChecker" to="." method="_on_area_2d_body_entered"]

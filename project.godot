@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GlobalsOptions="*res://UI/script/globals_options.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 move_right={
