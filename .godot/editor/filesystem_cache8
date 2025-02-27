@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1737720332
+::res://::1740662120
 gravity_component.gd::GDScript::-1::1737375015::0::1::::GravityComponent<>Node2D<>::
 icon.svg::CompressedTexture2D::7047324791908162380::1733400738::1737369828::1::::<><>::
 playerSimpleMvt.gd::GDScript::-1::1734023100::0::1::::<>CharacterBody2D<>::
@@ -110,26 +110,26 @@ BARI.png::CompressedTexture2D::6664811137854837531::1733406027::1737369828::1:::
 BariSpritesheet.png::CompressedTexture2D::7028422463061193117::1733911908::1737369828::1::::<><>::
 satiro-Sheet v1.1.png::CompressedTexture2D::23766076591050583::1733405699::1737369828::1::::<><>::
 Terrain (16x16).png::CompressedTexture2D::7676978769008264271::1733403122::1737369828::1::::<><>::
-::res://Nodes/::1737667907
+::res://Nodes/::1738866230
 Bari_animated.png::CompressedTexture2D::7728066499119674165::1733919612::1737369828::1::::<><>::
 followPlayer.gd::GDScript::-1::1737196148::0::1::::<>Camera2D<>::
 Map.tscn::PackedScene::5732384789093434210::1737666632::0::1::::<><>::uid://dhm1yo28jjap0::::res://Assets/Texture/Terrain (16x16).png<>res://Nodes/PlayerLayerManager.gd<>uid://dmnpm6nnnf4kg::::res://Nodes/Player.tscn<>res://Nodes/followPlayer.gd<>uid://8cva35drpb0f::::res://UI/scene/menu.tscn<>uid://5q55qevow2dp::::res://UI/scene/Menu_d'accueil.tscn<>uid://bs2h0e4x7qqbw::::res://UI/scene/options.tscn<>uid://cfsxrmrubahlm::::res://UI/scene/progrès.tscn<>uid://ccyfa7snu7bof::::res://UI/scene/statistiques.tscn
-Player.tscn::PackedScene::8029298918871399718::1737667907::0::1::::<><>::res://scripts/player.gd<>uid://didsej3ou06sn::::res://Nodes/Bari_animated.png<>uid://wqlcrjmdxwdb::::res://Nodes/Components/gravity_component.tscn<>uid://ks173cmm3lsc::::res://Nodes/Components/input_component.tscn<>uid://bqnm2cty672tn::::res://Nodes/Components/movement_component.tscn<>uid://dl03bv2s0el6b::::res://Nodes/Components/animation_component.tscn<>uid://codccv1hd133u::::res://Nodes/Components/advanced_jump_component.tscn
+Player.tscn::PackedScene::8029298918871399718::1738866230::0::1::::<><>::res://scripts/player.gd<>uid://didsej3ou06sn::::res://Nodes/Bari_animated.png<>uid://wqlcrjmdxwdb::::res://Nodes/Components/gravity_component.tscn<>uid://ks173cmm3lsc::::res://Nodes/Components/input_component.tscn<>uid://bqnm2cty672tn::::res://Nodes/Components/movement_component.tscn<>uid://dl03bv2s0el6b::::res://Nodes/Components/animation_component.tscn<>uid://codccv1hd133u::::res://Nodes/Components/advanced_jump_component.tscn
 PlayerLayerManager.gd::GDScript::-1::1737196148::0::1::::<>Node2D<>::
-::res://Nodes/Components/::1737668074
-advanced_jump_component.tscn::PackedScene::5761804460632557596::1737668074::0::1::::<><>::res://scripts/advanced_jump_component.gd
-animation_component.tscn::PackedScene::7984651782092008955::1737666633::0::1::::<><>::res://scripts/animation_component.gd
+::res://Nodes/Components/::1738866230
+advanced_jump_component.tscn::PackedScene::5761804460632557596::1738866230::0::1::::<><>::res://scripts/advanced_jump_component.gd
+animation_component.tscn::PackedScene::7984651782092008955::1738866230::0::1::::<><>::res://scripts/animation_component.gd
 gravity_component.tscn::PackedScene::1577856969960265575::1737666633::0::1::::<><>::res://gravity_component.gd
 input_component.tscn::PackedScene::740684497476072370::1737666633::0::1::::<><>::res://scripts/input_component.gd
 jump_component.tscn::PackedScene::2723910531606042147::1737666633::0::1::::<><>::res://scripts/jump_component.gd
 movement_component.tscn::PackedScene::3537056048584176431::1737666633::0::1::::<><>::res://scripts/movement_component.gd
-::res://scripts/::1737667892
-advanced_jump_component.gd::GDScript::-1::1737667892::0::1::::AdvancedJumpComponent<>Node2D<>::
-animation_component.gd::GDScript::-1::1737409346::0::1::::AnimationComponent<>Node2D<>::
+::res://scripts/::1738667922
+advanced_jump_component.gd::GDScript::-1::1738667922::0::1::::AdvancedJumpComponent<>Node2D<>::
+animation_component.gd::GDScript::-1::1737735625::0::1::::AnimationComponent<>Node2D<>::
 input_component.gd::GDScript::-1::1737635424::0::1::::InputComponent<>Node2D<>::
 jump_component.gd::GDScript::-1::1737377780::0::1::::JumpComponent<>Node2D<>::
 movement_component.gd::GDScript::-1::1737410578::0::1::::MovementComponent<>Node2D<>::
-player.gd::GDScript::-1::1737635610::0::1::::<>CharacterBody2D<>::
+player.gd::GDScript::-1::1737735390::0::1::::<>CharacterBody2D<>::
 playerMvt.gd::GDScript::-1::1737370133::0::1::::<>CharacterBody2D<>::
 ::res://UI/::1737034000
 ::res://UI/art/::1737369828

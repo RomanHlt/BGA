@@ -11,6 +11,8 @@ extends Node2D
 @export_subgroup("Settings")
 @export var jump_velocity: float = -350
 @export var wall_jump_backward: float=100
+@export var wall_jump_max: int
+var wall_jump_streak:int = 0
 
 var is_going_up: bool = false
 var is_jumping:bool=false
@@ -51,6 +53,7 @@ func handle_jump_buffer(body:CharacterBody2D, want_to_jump:bool) -> void:
 	if want_to_jump and not body.is_on_floor():
 		jump_buffer_timer.start()
 	if body.is_on_floor() and not jump_buffer_timer.is_stopped():
+		print("walljump")
 		jump(body)
 	
 func handle_variable_jump_height(body:CharacterBody2D, jump_released:bool) -> void:
@@ -63,7 +66,7 @@ func jump(body: CharacterBody2D) -> void:
 	is_jumping=true
 	coyote_timer.stop()
 	wall_jump_buffer.stop()
-	if body.is_on_wall():
+	if body.is_on_wall() or wall_jump_buffer.is_stopped():
 		if sprite2D.flip_h:
 			body.velocity.x += wall_jump_backward
 			sprite2D.flip_h = false

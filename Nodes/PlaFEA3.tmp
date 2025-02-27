@@ -240,7 +240,6 @@ gravity = 1200.0
 speed = 150.0
 ground_accel_speed = 150.0
 ground_decel_speed = 150.0
-air_accel_speed = 12.0
 air_decel_speed = 10.0
 
 [node name="AnimationComponent" parent="." node_paths=PackedStringArray("animator", "sprite") instance=ExtResource("7_blyk2")]
@@ -250,7 +249,6 @@ sprite = NodePath("../Sprite2D")
 [node name="AdvancedJumpComponent" parent="." node_paths=PackedStringArray("sprite2D") instance=ExtResource("7_eboik")]
 sprite2D = NodePath("../Sprite2D")
 jump_velocity = -400.0
-wall_jump_max = 3
 
 [connection signal="body_entered" from="deeperChecker" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="deeperChecker" to="." method="_on_area_2d_body_exited"]
