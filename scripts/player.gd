@@ -12,6 +12,7 @@ var deeperChecker
 var closerChecker
 var canGoDeeper:bool = true
 var canGoCloser:bool = true
+var layerJump:bool = false
 
 
 func _ready():

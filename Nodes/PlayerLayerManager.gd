@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 
 func goToLayer(layer:int = 0):
 	if player.canGoDeeper == true and -player.z_index < layer:
+		player.layerJump = true
 		player.reparent(Layers[layer])
 		player.collision_mask = 2**layer
 		player.z_index = -layer
@@ -34,6 +35,7 @@ func goToLayer(layer:int = 0):
 		player.closerChecker.collision_mask = 2**(layer-1)
 		currentPlayerLayer=layer
 	if player.canGoCloser == true and -player.z_index > layer:
+		player.layerJump = true
 		player.reparent(Layers[layer])
 		player.collision_mask = 2**layer
 		player.deeperChecker.collision_mask = 2**(layer+1)

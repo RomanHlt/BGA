@@ -53,7 +53,6 @@ func handle_jump_buffer(body:CharacterBody2D, want_to_jump:bool) -> void:
 	if want_to_jump and not body.is_on_floor():
 		jump_buffer_timer.start()
 	if body.is_on_floor() and not jump_buffer_timer.is_stopped():
-		print("walljump")
 		jump(body)
 	
 func handle_variable_jump_height(body:CharacterBody2D, jump_released:bool) -> void:
@@ -65,8 +64,7 @@ func jump(body: CharacterBody2D) -> void:
 	jump_buffer_timer.stop()
 	is_jumping=true
 	coyote_timer.stop()
-	wall_jump_buffer.stop()
-	if body.is_on_wall() or wall_jump_buffer.is_stopped():
+	if body.is_on_wall() and not(wall_jump_buffer.is_stopped()):
 		if sprite2D.flip_h:
 			body.velocity.x += wall_jump_backward
 			sprite2D.flip_h = false
@@ -75,3 +73,4 @@ func jump(body: CharacterBody2D) -> void:
 			body.velocity.x += -wall_jump_backward
 			sprite2D.flip_h = true
 			sprite2D.offset.x = 4
+		wall_jump_buffer.stop()

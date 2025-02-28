@@ -252,6 +252,7 @@ sprite2D = NodePath("../Sprite2D")
 jump_velocity = -400.0
 wall_jump_max = 3
 
+[connection signal="animation_finished" from="AnimationPlayer" to="AnimationComponent" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="deeperChecker" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="deeperChecker" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="closerChecker" to="." method="_on_closer_checker_body_entered"]
