@@ -1,6 +1,8 @@
+res://scripts
+res://Assets/Texture/Map/3 Objects/Pointers
+res://Nodes
 res://UI/script
 res://UI/scene
-res://Nodes
 <<<<<<< HEAD
 res://UI
 res://UI/art/Button
@@ -8,5 +10,4 @@ res://UI/art/format asprit
 res://Assets/Texture
 =======
 >>>>>>> b71b664a30b8d040299026db512412d14ee86ecc
-res://scripts
 res://Assets/Texture
