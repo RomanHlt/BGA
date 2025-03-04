@@ -1,3 +1,4 @@
+Timer
 Button
 Label
 CheckButton
@@ -11,4 +12,3 @@ TileMapLayer
 ParallaxLayer
 Parallax2D
 ParallaxBackground
-Camera3D
