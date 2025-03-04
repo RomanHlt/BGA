@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dmnpm6nnnf4kg"]
+[gd_scene load_steps=20 format=3 uid="uid://dmnpm6nnnf4kg"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1sa3q"]
 [ext_resource type="Texture2D" uid="uid://didsej3ou06sn" path="res://Nodes/Bari_animated.png" id="2_x2l0n"]
@@ -151,15 +151,6 @@ _data = {
 radius = 4.0
 height = 13.0
 
-[sub_resource type="GDScript" id="GDScript_fvfr8"]
-script/source = "extends Area2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-"
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hvfyw"]
 radius = 4.0
 height = 14.0
@@ -217,7 +208,6 @@ shape = SubResource("CapsuleShape2D_k6vah")
 [node name="deeperChecker" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
-script = SubResource("GDScript_fvfr8")
 
 [node name="PathChecker" type="CollisionShape2D" parent="deeperChecker"]
 position = Vector2(0, -7)
