@@ -1,4 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
+<<<<<<< HEAD
 ::res://::1741266565
 icon.svg::CompressedTexture2D::7047324791908162380::1740666801::1740670684::1::::<><>::
 playerSimpleMvt.gd::GDScript::-1::1740666801::0::1::::<>CharacterBody2D<>::
@@ -330,3 +331,193 @@ son.gd::GDScript::-1::1740666801::0::1::::<>Control<>::
 statistiques.gd::GDScript::-1::1740666801::0::1::::<>Control<>::
 tempo.gd::GDScript::-1::1740666801::0::1::::<>Button<>::
 ui.gd::GDScript::-1::1740666801::0::1::::<>Control<>::
+=======
+::res://::1741086190
+gravity_component.gd::GDScript::-1::1740738775::0::1::::GravityComponent<>Node2D<>::
+icon.svg::CompressedTexture2D::7047324791908162380::1733400738::1740738915::1::::<><>::
+playerSimpleMvt.gd::GDScript::-1::1734023100::0::1::::<>CharacterBody2D<>::
+README.md::TextFile::-1::1734615844::0::1::::<><>::
+::res://addons/::1734613573
+::res://addons/AsepriteWizard/::1734613573
+plugin.cfg::TextFile::-1::1732249624::0::1::::<><>::
+plugin.gd::GDScript::-1::1732249624::0::1::::<>EditorPlugin<>::
+::res://addons/AsepriteWizard/aseprite/::1734613573
+aseprite.gd::GDScript::-1::1732249624::0::1::::<>RefCounted<>::
+file_exporter.gd::GDScript::-1::1732249624::0::1::::<>RefCounted<>::
+::res://addons/AsepriteWizard/config/::1734613573
+config.gd::GDScript::-1::1733918978::0::1::::<>RefCounted<>::
+config_dialog.gd::GDScript::-1::1732249624::0::1::::<>PopupPanel<>::
+config_dialog.tscn::PackedScene::8959845410224223728::1732249624::0::1::::<><>::res://addons/AsepriteWizard/config/config_dialog.gd
+result_codes.gd::GDScript::-1::1732249624::0::1::::<>RefCounted<>::
+wizard_config.gd::GDScript::-1::1732249624::0::1::::<>RefCounted<>::
+::res://addons/AsepriteWizard/creators/::1734613573
+base_sprite_resource_creator.gd::GDScript::-1::1732249624::0::1::::<>RefCounted<>::
+::res://addons/AsepriteWizard/creators/animation_player/::1734613573
+animation_creator.gd::GDScript::-1::1732249624::0::1::::<><>::
+sprite_animation_creator.gd::GDScript::-1::1732249624::0::1::::<><>::
+texture_rect_animation_creator.gd::GDScript::-1::1732249624::0::1::::<><>::
+::res://addons/AsepriteWizard/creators/sprite_frames/::1734613573
+sprite_frames_creator.gd::GDScript::-1::1732249624::0::1::::<><>::
+::res://addons/AsepriteWizard/creators/static_texture/::1734613573
+texture_creator.gd::GDScript::-1::1732249624::0::1::::<><>::
+::res://addons/AsepriteWizard/export/::1734613573
+metadata_export_plugin.gd::GDScript::-1::1732249624::0::1::::<>EditorExportPlugin<>::
+::res://addons/AsepriteWizard/importers/::1734613573
+file_system_helper.gd::GDScript::-1::1732249624::0::1::::<>Node<>::
+noop_import_plugin.gd::GDScript::-1::1732249624::0::1::::<>EditorImportPlugin<>::
+sprite_frames_import_plugin.gd::GDScript::-1::1732249624::0::1::::<>EditorImportPlugin<>::
+static_texture_import_plugin.gd::GDScript::-1::1732249624::0::1::::<>EditorImportPlugin<>::
+tileset_texture_import_plugin.gd::GDScript::-1::1732249624::0::1::::<>EditorImportPlugin<>::
+::res://addons/AsepriteWizard/interface/::1734613574
+::res://addons/AsepriteWizard/interface/docks/::1734613573
+base_inspector_dock.gd::GDScript::-1::1732249624::0::1::::<>PanelContainer<>::
+dock_fields.gd::GDScript::-1::1732249624::0::1::::<>MarginContainer<>::
+dock_fields.tscn::PackedScene::1452043402822489973::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/docks/dock_fields.gd<>uid://x1f1t87m582u::::res://addons/AsepriteWizard/interface/shared/animation_player_drop_button.tscn<>uid://dj1uo3blocr8e::::res://addons/AsepriteWizard/interface/shared/source_drop_button.tscn<>uid://cwvgnm3o7eed2::::res://addons/AsepriteWizard/interface/shared/dir_drop_button.tscn<>uid://ddlr2qc0atcfm::::res://addons/AsepriteWizard/interface/docks/multi_layer_select_field.tscn
+layer_select_field.gd::GDScript::-1::1732249624::0::1::::<>HBoxContainer<>::
+layer_select_field.tscn::PackedScene::4738236288135673184::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/docks/layer_select_field.gd
+multi_layer_select_field.gd::GDScript::-1::1732249624::0::1::::<>VBoxContainer<>::
+multi_layer_select_field.tscn::PackedScene::7393617987200365942::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/docks/multi_layer_select_field.gd<>uid://b8ricawxf4kxs::::res://addons/AsepriteWizard/interface/docks/layer_select_field.tscn
+::res://addons/AsepriteWizard/interface/docks/animated_sprite/::1734613573
+animated_sprite_inspector_dock.gd::GDScript::-1::1732249624::0::1::::<><>::
+animated_sprite_inspector_dock.tscn::PackedScene::1482828111488489973::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/docks/animated_sprite/animated_sprite_inspector_dock.gd<>uid://uxm7b02wry10::::res://addons/AsepriteWizard/interface/docks/dock_fields.tscn
+inspector_plugin.gd::GDScript::-1::1732249624::0::1::::<>EditorInspectorPlugin<>::
+::res://addons/AsepriteWizard/interface/docks/sprite/::1734613573
+inspector_plugin.gd::GDScript::-1::1732249624::0::1::::<>EditorInspectorPlugin<>::
+sprite_inspector_dock.gd::GDScript::-1::1732249624::0::1::::<><>::
+sprite_inspector_dock.tscn::PackedScene::2998581922542402478::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/docks/sprite/sprite_inspector_dock.gd<>uid://uxm7b02wry10::::res://addons/AsepriteWizard/interface/docks/dock_fields.tscn
+::res://addons/AsepriteWizard/interface/docks/wizard/::1734613574
+as_wizard_dock_container.gd::GDScript::-1::1732249624::0::1::::<>TabContainer<>::
+as_wizard_dock_container.tscn::PackedScene::4764297739002286173::1732249624::0::1::::<><>::uid://c5dwobjd34w3p::::res://addons/AsepriteWizard/interface/docks/wizard/as_wizard_window.tscn<>res://addons/AsepriteWizard/interface/docks/wizard/as_wizard_dock_container.gd<>uid://cyoin5ncul0fm::::res://addons/AsepriteWizard/interface/docks/wizard/sprite_frames_import_history.tscn<>uid://bfhsdslj8kt7b::::res://addons/AsepriteWizard/interface/docks/wizard/imported_sprite_frames.tscn
+as_wizard_window.gd::GDScript::-1::1732249624::0::1::::<>PanelContainer<>::
+as_wizard_window.tscn::PackedScene::6886060651346363495::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/docks/wizard/as_wizard_window.gd
+imported_sprite_frames.gd::GDScript::-1::1732249624::0::1::::<>PanelContainer<>::
+imported_sprite_frames.tscn::PackedScene::2752914772279777613::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/docks/wizard/imported_sprite_frames.gd<>uid://cisgsfvp4nf1g::::res://addons/AsepriteWizard/interface/shared/tree/resource_tree.tscn<>uid://q7eyyg2kvvv2::::res://addons/AsepriteWizard/interface/docks/wizard/resource_tree_single_item.tscn<>uid://fscemkx5w1dw::::res://addons/AsepriteWizard/interface/docks/wizard/resource_tree_multiple_items.tscn<>uid://qgmln507kjnm::::res://addons/AsepriteWizard/interface/shared/tree/tree_selection_confirmation_warning.tscn
+resource_tree_multiple_items.gd::GDScript::-1::1732249624::0::1::::<>VBoxContainer<>::
+resource_tree_multiple_items.tscn::PackedScene::388232241738635988::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/docks/wizard/resource_tree_multiple_items.gd
+resource_tree_single_item.gd::GDScript::-1::1732249624::0::1::::<>VBoxContainer<>::
+resource_tree_single_item.tscn::PackedScene::1189368584433414497::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/docks/wizard/resource_tree_single_item.gd<>uid://c1l0bk12iwln3::::res://addons/AsepriteWizard/interface/shared/tree/inline_warning_panel.tscn
+sprite_frames_import_history.gd::GDScript::-1::1732249624::0::1::::<>PanelContainer<>::
+sprite_frames_import_history.tscn::PackedScene::6486785450419732274::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/docks/wizard/sprite_frames_import_history.gd
+wizard_import_helper.gd::GDScript::-1::1732249624::0::1::::<>Node<>::
+::res://addons/AsepriteWizard/interface/docks/wizard/wizard_nodes/::1734613574
+details.gd::GDScript::-1::1732249624::0::1::::<>VBoxContainer<>::
+details.tscn::PackedScene::4230025582002195470::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/docks/wizard/wizard_nodes/details.gd
+import_date.gd::GDScript::-1::1732249624::0::1::::<>Label<>::
+import_date.tscn::PackedScene::3701966676920363124::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/docks/wizard/wizard_nodes/import_date.gd
+list_actions.gd::GDScript::-1::1732249624::0::1::::<>HBoxContainer<>::
+list_actions.tscn::PackedScene::-1::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/docks/wizard/wizard_nodes/list_actions.gd
+output_path.tscn::PackedScene::-1::1732249624::0::1::::<><>::
+source_path.gd::GDScript::-1::1732249624::0::1::::<>LineEdit<>::
+source_path.tscn::PackedScene::-1::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/docks/wizard/wizard_nodes/source_path.gd
+::res://addons/AsepriteWizard/interface/imports_manager/::1734613574
+aseprite_imports_manager.gd::GDScript::-1::1732249624::0::1::::<>Window<>::
+aseprite_imports_manager.tscn::PackedScene::1803923898729981441::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/imports_manager/aseprite_imports_manager.gd
+dock_imports_panel.gd::GDScript::-1::1732249624::0::1::::<>Panel<>::
+dock_imports_panel.tscn::PackedScene::158833016359251406::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/imports_manager/dock_imports_panel.gd<>uid://cisgsfvp4nf1g::::res://addons/AsepriteWizard/interface/shared/tree/resource_tree.tscn<>uid://qgmln507kjnm::::res://addons/AsepriteWizard/interface/shared/tree/tree_selection_confirmation_warning.tscn<>uid://dnlk2yep7teea::::res://addons/AsepriteWizard/interface/imports_manager/tree_selection_single_item.tscn<>uid://bhtu6mlwmthqo::::res://addons/AsepriteWizard/interface/imports_manager/tree_selection_multiple_items.tscn
+import_helper.gd::GDScript::-1::1732249624::0::1::::<>RefCounted<>::
+import_panels.gd::GDScript::-1::1732249624::0::1::::<>MarginContainer<>::
+import_panels.tscn::PackedScene::2396348643686595639::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/imports_manager/import_panels.gd<>uid://ci67r2f2btg5::::res://addons/AsepriteWizard/interface/imports_manager/dock_imports_panel.tscn
+tree_filter_field.gd::GDScript::-1::1732249624::0::1::::<>LineEdit<>::
+tree_selection_multiple_items.gd::GDScript::-1::1732249624::0::1::::<>VBoxContainer<>::
+tree_selection_multiple_items.tscn::PackedScene::2918236114242265634::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/imports_manager/tree_selection_multiple_items.gd
+tree_selection_single_item.gd::GDScript::-1::1732249624::0::1::::<>VBoxContainer<>::
+tree_selection_single_item.tscn::PackedScene::8095081827496145296::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/imports_manager/tree_selection_single_item.gd<>uid://c1l0bk12iwln3::::res://addons/AsepriteWizard/interface/shared/tree/inline_warning_panel.tscn
+::res://addons/AsepriteWizard/interface/shared/::1734613574
+animation_player_drop_button.gd::GDScript::-1::1732249624::0::1::::<>Button<>::
+animation_player_drop_button.tscn::PackedScene::1668368291279044894::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/shared/animation_player_drop_button.gd
+dir_drop_button.gd::GDScript::-1::1732249624::0::1::::<>Button<>::
+dir_drop_button.tscn::PackedScene::6360736051749278321::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/shared/dir_drop_button.gd
+source_drop_button.gd::GDScript::-1::1732249624::0::1::::<>Button<>::
+source_drop_button.tscn::PackedScene::7845876279114352826::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/shared/source_drop_button.gd
+::res://addons/AsepriteWizard/interface/shared/tree/::1734613574
+inline_warning_panel.gd::GDScript::-1::1732249624::0::1::::<>PanelContainer<>::
+inline_warning_panel.tscn::PackedScene::6621979734519509394::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/shared/tree/inline_warning_panel.gd
+resource_tree.gd::GDScript::-1::1732249624::0::1::::<>VBoxContainer<>::
+resource_tree.tscn::PackedScene::5371907658088870246::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/shared/tree/resource_tree.gd<>res://addons/AsepriteWizard/interface/imports_manager/tree_filter_field.gd
+tree_selection_confirmation_warning.gd::GDScript::-1::1732249624::0::1::::<>VBoxContainer<>::
+tree_selection_confirmation_warning.tscn::PackedScene::1136156742705764826::1732249624::0::1::::<><>::res://addons/AsepriteWizard/interface/shared/tree/tree_selection_confirmation_warning.gd
+::res://Assets/::1734613574
+::res://Assets/Texture/::1740738915
+BARI2.png::CompressedTexture2D::1172023416930713558::1733872435::1740738915::1::::<><>::
+BARI.png::CompressedTexture2D::6664811137854837531::1733406027::1740738915::1::::<><>::
+BariSpritesheet.png::CompressedTexture2D::7028422463061193117::1733911908::1740738915::1::::<><>::
+satiro-Sheet v1.1.png::CompressedTexture2D::23766076591050583::1733405699::1740738915::1::::<><>::
+Terrain (16x16).png::CompressedTexture2D::7676978769008264271::1733403122::1740738915::1::::<><>::
+::res://Nodes/::1741085988
+Bari_animated.png::CompressedTexture2D::7728066499119674165::1733919612::1740738915::1::::<><>::
+followPlayer.gd::GDScript::-1::1737196148::0::1::::<>Camera2D<>::
+Map.tscn::PackedScene::5732384789093434210::1741085988::0::1::::<><>::uid://dhm1yo28jjap0::::res://Assets/Texture/Terrain (16x16).png<>res://Nodes/PlayerLayerManager.gd<>uid://dmnpm6nnnf4kg::::res://Nodes/Player.tscn<>res://Nodes/followPlayer.gd<>uid://8cva35drpb0f::::res://UI/scene/menu.tscn<>uid://5q55qevow2dp::::res://UI/scene/Menu_d'accueil.tscn<>uid://bs2h0e4x7qqbw::::res://UI/scene/options.tscn<>uid://cfsxrmrubahlm::::res://UI/scene/progrès.tscn<>uid://ccyfa7snu7bof::::res://UI/scene/statistiques.tscn
+Player.tscn::PackedScene::8029298918871399718::1741085988::0::1::::<><>::res://scripts/player.gd<>uid://didsej3ou06sn::::res://Nodes/Bari_animated.png<>uid://wqlcrjmdxwdb::::res://Nodes/Components/gravity_component.tscn<>uid://ks173cmm3lsc::::res://Nodes/Components/input_component.tscn<>uid://bqnm2cty672tn::::res://Nodes/Components/movement_component.tscn<>uid://dl03bv2s0el6b::::res://Nodes/Components/animation_component.tscn<>uid://codccv1hd133u::::res://Nodes/Components/advanced_jump_component.tscn
+PlayerLayerManager.gd::GDScript::-1::1740752254::0::1::::<>Node2D<>::
+::res://Nodes/Components/::1741085988
+advanced_jump_component.tscn::PackedScene::5761804460632557596::1741085988::0::1::::<><>::res://scripts/advanced_jump_component.gd
+animation_component.tscn::PackedScene::7984651782092008955::1741085988::0::1::::<><>::res://scripts/animation_component.gd
+gravity_component.tscn::PackedScene::1577856969960265575::1740738775::0::1::::<><>::res://gravity_component.gd
+input_component.tscn::PackedScene::740684497476072370::1740738775::0::1::::<><>::res://scripts/input_component.gd
+jump_component.tscn::PackedScene::2723910531606042147::1740738775::0::1::::<><>::res://scripts/jump_component.gd
+movement_component.tscn::PackedScene::3537056048584176431::1740738775::0::1::::<><>::res://scripts/movement_component.gd
+::res://scripts/::1740754041
+advanced_jump_component.gd::GDScript::-1::1740739468::0::1::::AdvancedJumpComponent<>Node2D<>::
+animation_component.gd::GDScript::-1::1740752182::0::1::::AnimationComponent<>Node2D<>::
+input_component.gd::GDScript::-1::1740752731::0::1::::InputComponent<>Node2D<>::
+jump_component.gd::GDScript::-1::1740738775::0::1::::JumpComponent<>Node2D<>::
+movement_component.gd::GDScript::-1::1740754041::0::1::::MovementComponent<>Node2D<>::
+player.gd::GDScript::-1::1740752779::0::1::::<>CharacterBody2D<>::
+playerMvt.gd::GDScript::-1::1740738775::0::1::::<>CharacterBody2D<>::
+::res://UI/::1737034000
+::res://UI/art/::1740738915
+icon.svg::CompressedTexture2D::9139460189098166072::1737034000::1740738915::1::::<><>::
+::res://UI/art/Button/::1740738915
+Musique OFF.png::CompressedTexture2D::8011902707457040536::1737196148::1740738915::1::::<><>::
+Musique ON.png::CompressedTexture2D::1841501410515393162::1737196148::1740738915::1::::<><>::
+Son OFF.png::CompressedTexture2D::1552704597698404759::1737196148::1740738915::1::::<><>::
+Son ON.png::CompressedTexture2D::3388551449263074271::1737034000::1740738915::1::::<><>::
+::res://UI/art/Font/::1740738915
+LittleGuy.ttf::FontFile::5758832704651360878::1737034000::1740738915::1::::<><>::
+::res://UI/art/Font/KAPH/::1737034000
+License.txt::TextFile::-1::1737034000::0::1::::<><>::
+::res://UI/art/Font/KAPH/OpenType (.otf)/::1740738915
+Kaph-Italic.otf::FontFile::3360477942499897551::1737034000::1740738915::1::::<><>::
+Kaph-Regular.otf::FontFile::1356384128053536238::1737034000::1740738915::1::::<><>::
+::res://UI/art/Font/KAPH/TrueType (.ttf)/::1740738915
+Kaph-Italic.ttf::FontFile::8809772449516437807::1737034000::1740738915::1::::<><>::
+Kaph-Regular.ttf::FontFile::8441207305734812927::1737034000::1740738915::1::::<><>::
+::res://UI/art/Font/KAPH/Web Open Font Format (.woff)/::1740738915
+Kaph-Italic.woff::FontFile::6318429056381091135::1737034000::1740738915::1::::<><>::
+Kaph-Italic.woff2::FontFile::2989017937036207005::1737034000::1740738915::1::::<><>::
+Kaph-Regular.woff::FontFile::510238266437818329::1737034000::1740738915::1::::<><>::
+Kaph-Regular.woff2::FontFile::3065514969429697871::1737034000::1740738915::1::::<><>::
+::res://UI/art/format asprit/::1737196094
+::res://UI/art/format png/::1740738915
+mana 0 stat.png::CompressedTexture2D::6330057564898226958::1737034000::1740738915::1::::<><>::
+mana 1 stat.png::CompressedTexture2D::4078039451248778859::1737034000::1740738915::1::::<><>::
+mana 2 stat.png::CompressedTexture2D::1332210745873839071::1737034000::1740738915::1::::<><>::
+mana 3 stat.png::CompressedTexture2D::5539337063782914485::1737034000::1740738915::1::::<><>::
+mana 4 stat.png::CompressedTexture2D::4896469034046839383::1737034000::1740738915::1::::<><>::
+mana base.png::CompressedTexture2D::3323482597606313197::1737034000::1740738915::1::::<><>::
+mana.png::CompressedTexture2D::7864026221690365766::1737034000::1740738915::1::::<><>::
+::res://UI/scene/::1740738915
+ecran_d'accueil.tscn::PackedScene::8227558803166441881::1737666633::0::1::::<><>::uid://5q55qevow2dp::::res://UI/scene/Menu_d'accueil.tscn<>uid://bs2h0e4x7qqbw::::res://UI/scene/options.tscn<>uid://cfsxrmrubahlm::::res://UI/scene/progrès.tscn<>uid://ccyfa7snu7bof::::res://UI/scene/statistiques.tscn<>res://UI/script/tempo.gd
+mana 3 stat.png::CompressedTexture2D::3465241028142287254::1737034000::1740738915::1::::<><>::
+mana base.png::CompressedTexture2D::5090353906857497142::1737034000::1740738915::1::::<><>::
+mana.png::CompressedTexture2D::1909725775997445041::1737034000::1740738915::1::::<><>::
+Mana.tscn::PackedScene::4445595218623803553::1737196148::0::1::::<><>::res://UI/script/Mana.gd<>uid://2hc50vdvlven::::res://UI/scene/mana.png
+menu.tscn::PackedScene::2321637169568836035::1737666632::0::1::::<><>::res://UI/script/menu.gd<>uid://bn43t0lpdvrl4::::res://UI/art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf
+Menu_d'accueil.tscn::PackedScene::2140571284332637329::1737666633::0::1::::<><>::res://UI/script/menu_d'accueil.gd<>uid://bn43t0lpdvrl4::::res://UI/art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf
+options.tscn::PackedScene::3706027988315439128::1737666633::0::1::::<><>::res://UI/script/son.gd<>res://UI/script/options.gd<>uid://bn43t0lpdvrl4::::res://UI/art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf<>uid://bojo7hcrqlqmp::::res://UI/art/Button/Son ON.png<>uid://wee22puu0o52::::res://UI/art/Button/Son OFF.png<>uid://1ibi2u8scukw::::res://UI/art/Button/Musique ON.png<>uid://dmfa4qkclpbfc::::res://UI/art/Button/Musique OFF.png<>res://UI/script/musique.gd
+progrès.tscn::PackedScene::5162371891931381998::1737666633::0::1::::<><>::res://UI/script/progrès.gd<>uid://bn43t0lpdvrl4::::res://UI/art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf
+statistiques.tscn::PackedScene::4963069414895864517::1737196148::0::1::::<><>::uid://bn43t0lpdvrl4::::res://UI/art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf<>res://UI/script/statistiques.gd
+UI.tscn::PackedScene::8464460446942104779::1737196148::0::1::::<><>::uid://b4lqkleihws3b::::res://UI/scene/Mana.tscn<>res://UI/script/ui.gd<>uid://bnl6jjm0oveqv::::res://UI/art/format png/mana base.png
+::res://UI/script/::1737196148
+globals_options.gd::GDScript::-1::1737196148::0::1::::<>Node<>::
+Mana.gd::GDScript::-1::1737034000::0::1::::<>Node2D<>::
+menu.gd::GDScript::-1::1737196148::0::1::::<>Control<>::
+menu_d'accueil.gd::GDScript::-1::1737196148::0::1::::<>Control<>::
+musique.gd::GDScript::-1::1737196148::0::1::::<>Control<>::
+options.gd::GDScript::-1::1737196148::0::1::::<>Control<>::
+progrès.gd::GDScript::-1::1737196148::0::1::::<>Control<>::
+son.gd::GDScript::-1::1737196148::0::1::::<>Control<>::
+statistiques.gd::GDScript::-1::1737196148::0::1::::<>Control<>::
+tempo.gd::GDScript::-1::1737196148::0::1::::<>Button<>::
+ui.gd::GDScript::-1::1737196148::0::1::::<>Control<>::
+>>>>>>> c34df9bda7df58bc20a1c213326ad322fcb5db9c

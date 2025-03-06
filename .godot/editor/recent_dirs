@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 res://Nodes
 res://Assets/Texture/Map/3 Objects/Ladders
 res://scripts
 res://Assets/Texture/Map/3 Objects/Pointers
+=======
+res://scripts
+res://Nodes/Components
+>>>>>>> c34df9bda7df58bc20a1c213326ad322fcb5db9c
 res://UI/script
 res://UI/scene
 <<<<<<< HEAD

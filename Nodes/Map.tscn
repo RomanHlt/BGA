@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=4 uid="uid://cnw2smg07vj43"]
 
-[ext_resource type="Script" path="res://Nodes/PlayerLayerManager.gd" id="1_grm2m"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://Assets/Texture/Terrain (16x16).png" id="1_kg0r5"]
+[ext_resource type="Script" path="res://Nodes/PlayerLayerManager.gd" id="1_pgv5y"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://Nodes/Player.tscn" id="2_tk07c"]
 [ext_resource type="Script" path="res://Nodes/followPlayer.gd" id="4_kfafa"]
 [ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://UI/scene/menu.tscn" id="5_1b0dp"]
@@ -94,7 +94,7 @@ sources/0 = SubResource("TileSetAtlasSource_8nnty")
 
 [node name="Map" type="Node2D"]
 position = Vector2(94, -137)
-script = ExtResource("1_grm2m")
+script = ExtResource("1_pgv5y")
 
 [node name="Player" parent="." instance=ExtResource("2_tk07c")]
 show_behind_parent = true
