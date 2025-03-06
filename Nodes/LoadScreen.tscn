@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://by6auola70ldk"]
+
+[ext_resource type="Script" path="res://scripts/LoadScreen.gd" id="1_il750"]
+[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://UI/art/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="2_fdf3p"]
+
+[sub_resource type="Theme" id="Theme_bvhac"]
+Label/colors/font_color = Color(1, 0, 0.733333, 1)
+Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
+Label/constants/shadow_outline_size = 20
+Label/fonts/font = ExtResource("2_fdf3p")
+
+[sub_resource type="Theme" id="Theme_yhfhe"]
+Label/colors/font_color = Color(1, 0, 0.733333, 1)
+Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
+Label/constants/shadow_outline_size = 10
+Label/fonts/font = ExtResource("2_fdf3p")
+
+[node name="LoadScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_il750")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Titre" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 200.0
+grow_horizontal = 2
+theme = SubResource("Theme_bvhac")
+theme_override_font_sizes/font_size = 50
+text = "Titre"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sous titre" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -29.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_yhfhe")
+theme_override_font_sizes/font_size = 20
+text = "Sous titre"
+horizontal_alignment = 1
+vertical_alignment = 1

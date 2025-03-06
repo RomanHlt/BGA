@@ -1,5 +1,7 @@
-Panel
+ColorRect
+CanvasModulate
 CanvasLayer
+Panel
 Label
 CollisionShape2D
 Area2D
@@ -7,9 +9,7 @@ Node2D
 Sprite2D
 Button
 CheckButton
-CanvasModulate
 CanvasGroup
 TileMapLayer
 ParallaxLayer
 Parallax2D
-ParallaxBackground
