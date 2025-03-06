@@ -1,0 +1,5 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsuiorqn10kmd"]
+
+[ext_resource type="PackedScene" uid="uid://b4lqkleihws3b" path="res://UI/SCENES/Mana.tscn" id="1_j6vfu"]
+[ext_resource type="Script" path="res://UI/SCRIPTS/ui.gd" id="1_v6gsl"]
+[ext_resource type="Texture2D" uid="uid://bnl6jjm0oveqv" path="res://UI/ASSETS/format png/mana base.png" id="4_eitl2"]

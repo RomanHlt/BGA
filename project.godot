@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="BGA"
-run/main_scene="res://UI/scene/ecran_d'accueil.tscn"
+run/main_scene="res://UI/SCENES/ecran_d'accueil.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://APP/icon.svg"
 
 [autoload]
 
-GlobalsOptions="*res://UI/script/globals_options.gd"
+GlobalsOptions="*res://UI/SCRIPTS/globals_options.gd"
 
 [display]
 
