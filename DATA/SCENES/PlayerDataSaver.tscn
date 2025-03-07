@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://boduveuou45cp"]
+
+[ext_resource type="Script" path="res://DATA/SCRIPTS/playerStats.gd" id="1_cx17e"]
+[ext_resource type="JSON" path="res://DATA/SAVES/save00.json" id="2_fi4wb"]
+
+[node name="PlayerDataSaver" type="Node2D"]
+script = ExtResource("1_cx17e")
+save_file = ExtResource("2_fi4wb")
