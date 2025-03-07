@@ -1,4 +1,0 @@
-NOM :
-VERSION :
-
-DESCRIPTION :

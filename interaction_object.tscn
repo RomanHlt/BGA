@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cci4shv83bsu6"]
 
 [ext_resource type="Script" path="res://interaction_object.gd" id="1_mtljt"]
-[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://UI/ASSETS/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="2_ttga7"]
+[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="2_ttga7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgah1"]
 size = Vector2(20, 18)

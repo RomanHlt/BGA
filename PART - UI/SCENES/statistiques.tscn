@@ -1,0 +1,126 @@
+[gd_scene load_steps=9 format=3 uid="uid://ccyfa7snu7bof"]
+
+[ext_resource type="FontFile" path="res://UI/ASSETS/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="1_2h7nt"]
+[ext_resource type="Script" path="res://PART - UI/SCRIPTS/statistiques.gd" id="1_rbu1e"]
+
+[sub_resource type="Theme" id="Theme_rrqip"]
+Label/colors/font_color = Color(1, 0, 0.733333, 1)
+Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
+Label/constants/shadow_outline_size = 20
+Label/fonts/font = ExtResource("1_2h7nt")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdy1x"]
+content_margin_top = 7.0
+bg_color = Color(0.501961, 0, 0.376471, 1)
+border_width_bottom = 3
+border_color = Color(0.401794, 1.04203e-05, 0.298874, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_left = 10.0
+expand_margin_top = 3.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swei8"]
+content_margin_top = 7.0
+bg_color = Color(0.501961, 0, 0.376471, 1)
+border_width_bottom = 7
+border_color = Color(0.401794, 1.04203e-05, 0.298874, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_left = 10.0
+expand_margin_top = 7.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rg35y"]
+bg_color = Color(0.501961, 0, 0.376471, 1)
+border_width_bottom = 10
+border_color = Color(0.401794, 1.04203e-05, 0.298874, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vt6l0"]
+content_margin_top = 7.0
+bg_color = Color(0.501961, 0, 0.376471, 1)
+border_width_bottom = 3
+border_color = Color(0.401794, 1.04203e-05, 0.298874, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_left = 10.0
+expand_margin_top = 3.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_6m3nq"]
+Button/colors/font_color = Color(1, 0, 0.733333, 1)
+Button/colors/font_focus_color = Color(0.86346, 2.21401e-06, 0.489164, 1)
+Button/colors/font_hover_color = Color(0.862745, 0, 0.490196, 1)
+Button/colors/font_pressed_color = Color(0.862745, 0, 0.490196, 1)
+Button/fonts/font = ExtResource("1_2h7nt")
+Button/styles/focus = SubResource("StyleBoxFlat_cdy1x")
+Button/styles/hover = SubResource("StyleBoxFlat_swei8")
+Button/styles/normal = SubResource("StyleBoxFlat_rg35y")
+Button/styles/pressed = SubResource("StyleBoxFlat_vt6l0")
+
+[node name="Statistiques" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rbu1e")
+
+[node name="Titre" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 200.0
+grow_horizontal = 2
+theme = SubResource("Theme_rrqip")
+theme_override_font_sizes/font_size = 50
+text = "Statistiques"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="nbSauts" type="Label" parent="."]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 307.0
+offset_right = 649.0
+offset_bottom = 330.0
+text = "Nombre de sauts : 0"
+
+[node name="Retour" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = 232.0
+offset_right = 160.0
+offset_bottom = 280.095
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = SubResource("Theme_6m3nq")
+theme_override_font_sizes/font_size = 25
+text = "Retour"
+
+[connection signal="pressed" from="Retour" to="." method="_on_retour_pressed"]
