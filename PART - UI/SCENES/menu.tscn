@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://8cva35drpb0f"]
 
 [ext_resource type="Script" path="res://PART - UI/SCRIPTS/menu.gd" id="1_5ecrs"]
-[ext_resource type="FontFile" path="res://UI/ASSETS/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="1_v7po0"]
+[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="1_v7po0"]
 
 [sub_resource type="Theme" id="Theme_q8rse"]
 Label/colors/font_color = Color(1, 0, 0.733333, 1)

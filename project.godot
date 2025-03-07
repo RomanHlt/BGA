@@ -18,6 +18,7 @@ config/icon="res://GLOBAL - APP/icon.svg"
 [autoload]
 
 GlobalsOptions="*res://PART - BASE/SCRIPTS/globals_options.gd"
+PlayerDataSaver="*res://GLOBAL - DATA/SCENES/PlayerDataSaver.tscn"
 
 [display]
 
