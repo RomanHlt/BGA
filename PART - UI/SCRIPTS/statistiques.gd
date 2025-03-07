@@ -2,7 +2,7 @@ extends Control
 
 
 func update_stats() -> void:
-	$"nbSauts".text = "Nombre de sauts : " + str(GlobalsOptions.nb_sauts)
+	$"nbSauts".text = "Nombre de sauts : " + str(GlobalsStats.nb_sauts)
 
 func _on_retour_pressed() -> void:
 	"""Retour au menu pause / Retour à l'écran d'accueil. Dépend de l'endroit où a été ouvert l'option"""

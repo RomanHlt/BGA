@@ -1,5 +1,7 @@
 extends Control
 
+@export_category("Scene")
+@export var accueil : PackedScene
 
 func _on_reprendre_pressed() -> void:
 	# Desactiver le menu
@@ -30,4 +32,4 @@ func _on_progres_pressed() -> void:
 func _on_quitter_la_partie_pressed() -> void:
 	GlobalsOptions.ingame = false
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://UI/scene/ecran_d'accueil.tscn")
+	get_tree().change_scene_to_packed(accueil)

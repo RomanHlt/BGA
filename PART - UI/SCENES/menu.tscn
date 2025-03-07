@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://8cva35drpb0f"]
+[gd_scene load_steps=11 format=3 uid="uid://8cva35drpb0f"]
 
 [ext_resource type="Script" path="res://PART - UI/SCRIPTS/menu.gd" id="1_5ecrs"]
 [ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="1_v7po0"]
+[ext_resource type="PackedScene" uid="uid://dphqxrj3qkaaj" path="res://PART - UI/SCENES/ecran_d'accueil.tscn" id="2_0j86u"]
 
 [sub_resource type="Theme" id="Theme_q8rse"]
 Label/colors/font_color = Color(1, 0, 0.733333, 1)
@@ -97,6 +98,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5ecrs")
+accueil = ExtResource("2_0j86u")
 
 [node name="Titre" type="Label" parent="."]
 layout_mode = 1

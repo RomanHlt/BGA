@@ -18,6 +18,10 @@ config/icon="res://GLOBAL - APP/icon.svg"
 [autoload]
 
 GlobalsOptions="*res://PART - BASE/SCRIPTS/globals_options.gd"
+GlobalsStats="*res://PART - BASE/SCRIPTS/globals_stats.gd"
+GlobalsProgres="*res://PART - BASE/SCRIPTS/globals_progres.gd"
+GlobalsLvls="*res://PART - BASE/SCRIPTS/globals_levels.gd"
+Main="*res://PART - BASE/SCENES/main.tscn"
 
 [display]
 
