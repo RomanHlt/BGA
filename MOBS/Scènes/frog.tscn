@@ -9,8 +9,11 @@
 [sub_resource type="GDScript" id="GDScript_fu2yt"]
 script/source = "extends CharacterBody2D
 
-@export var SPEED : float
+class_name FrogEnemy
 
+@export var SPEED : float
+var direction : Vector2
+var dead : bool = false
 @export_category(\"Nodes\")
 @export var gravityComponent : GravityComponent
 
@@ -18,6 +21,39 @@ func _physics_process(delta: float) -> void:
 	gravityComponent.handle_gravity(self, delta)
 	
 	move_and_slide()
+
+func _process(delta: float) -> void:
+	_move(delta)
+	_handle_animation()
+	move_and_slide()
+
+func _move(delta):
+	if !dead:
+		velocity += direction * SPEED *delta
+	elif dead:
+		velocity.x = 0
+		$AnimatedSprite2D.play(\"death\")
+
+func _handle_animation():
+	var anim_spire = $AnimatedSprite2D
+	if !dead:
+		$AnimatedSprite2D.play(\"jump\")
+		if direction.x == -1:
+			anim_spire.flip_h = true
+		elif direction.x == 1:
+			anim_spire.flip_h = false
+	
+
+func _on_direction_timer_timeout() -> void:
+	$DirectionTimer.wait_time = _choose([1.5, 2.0, 2.5])
+	direction = _choose([Vector2.RIGHT, Vector2.LEFT])
+	velocity = direction
+	
+
+func _choose(array):
+	array.shuffle()
+	return array.front()
+	
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rbo5x"]
@@ -259,6 +295,7 @@ size = Vector2(21, 17)
 [node name="frog" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent")]
 texture_filter = 1
 script = SubResource("GDScript_fu2yt")
+SPEED = 10.0
 gravityComponent = NodePath("GravityComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -270,3 +307,8 @@ position = Vector2(-2.5, 0.5)
 shape = SubResource("RectangleShape2D_vw250")
 
 [node name="GravityComponent" parent="." instance=ExtResource("5_14v20")]
+
+[node name="DirectionTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
