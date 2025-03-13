@@ -2,11 +2,11 @@ extends Control
 
 
 func update_stats() -> void:
-	$"nbSauts".text = "Nombre de sauts : " + str(GlobalsOptions.nb_sauts)
+	$"nbSauts".text = "Nombre de sauts : " + str(Main.get_node("Globals Options").nb_sauts)
 
 func _on_retour_pressed() -> void:
 	"""Retour au menu pause / Retour à l'écran d'accueil. Dépend de l'endroit où a été ouvert l'option"""
-	if GlobalsOptions.open_from_accueil == true:
+	if Main.get_node("Globals Options").open_from_accueil == true:
 		get_tree().root.get_node("/root/Ecran d'accueil/Menu d'accueil").visible = true
 		self.visible = false
 	else:

@@ -32,6 +32,11 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_2fkf4")
+dico = {
+"0.1": "res://PART - LEVELS/SCENES/Map.tscn",
+"0.2": "res://PART - LEVELS/SCENES/MapTest.tscn"
+}
+loadscene_path = "res://LoadScreen.tscn"
 
 [node name="Globals Options" type="Control" parent="."]
 layout_mode = 3

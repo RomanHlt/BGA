@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://cnw2smg07vj43"]
+[gd_scene load_steps=18 format=4 uid="uid://cnw2smg07vj43"]
 
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="1_kg0r5"]
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManager.gd" id="1_pgv5y"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="7_avs1v"]
 [ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://PART - UI/SCENES/progrès.tscn" id="8_lrs4m"]
 [ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="9_w4wgb"]
-[ext_resource type="PackedScene" uid="uid://by6auola70ldk" path="res://LoadScreen.tscn" id="12_xbihu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nho2a"]
 texture = ExtResource("1_kg0r5")
@@ -133,8 +132,6 @@ tile_set = SubResource("TileSet_27wmd")
 position = Vector2(193, 134)
 layer = 1
 sprite = ExtResource("5_701ym")
-next_scene = "C:/Users/schul/Documents/BGA/Nodes/MapTest.tscn"
-loading_scene = ExtResource("12_xbihu")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 modulate = Color(0.672752, 0.672752, 0.672751, 1)

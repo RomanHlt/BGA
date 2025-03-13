@@ -31,6 +31,7 @@ Label/fonts/font = ExtResource("2_fdf3p")
 [node name="lvl_changer" type="Area2D"]
 texture_filter = 1
 script = ExtResource("1_il750")
+id_next_lvl = "0.2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
