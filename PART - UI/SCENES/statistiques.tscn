@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ccyfa7snu7bof"]
 
-[ext_resource type="FontFile" path="res://UI/ASSETS/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="1_2h7nt"]
+[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="1_2h7nt"]
 [ext_resource type="Script" path="res://PART - UI/SCRIPTS/statistiques.gd" id="1_rbu1e"]
 
 [sub_resource type="Theme" id="Theme_rrqip"]

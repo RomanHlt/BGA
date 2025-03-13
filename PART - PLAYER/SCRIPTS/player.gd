@@ -7,6 +7,8 @@ signal pathObstrued
 @export var movement_component:MovementComponent
 @export var advanced_jump_component: AdvancedJumpComponent
 @export var animation_component: AnimationComponent
+@export_subgroup("Data")
+@export var data: PlayerData
 
 var deeperChecker
 var closerChecker

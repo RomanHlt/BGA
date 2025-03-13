@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://PART - UI/SCRIPTS/son.gd" id="1_4fixb"]
 [ext_resource type="Script" path="res://PART - UI/SCRIPTS/options.gd" id="1_mc4k5"]
-[ext_resource type="FontFile" path="res://UI/ASSETS/Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="2_1p55h"]
+[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="2_1p55h"]
 [ext_resource type="Texture2D" uid="uid://bojo7hcrqlqmp" path="res://PART - UI/ASSETS/Button/Son ON.png" id="3_o3h6e"]
 [ext_resource type="Texture2D" uid="uid://wee22puu0o52" path="res://PART - UI/ASSETS/Button/Son OFF.png" id="4_kqaxt"]
 [ext_resource type="Texture2D" uid="uid://1ibi2u8scukw" path="res://PART - UI/ASSETS/Button/Musique ON.png" id="5_hedk8"]
