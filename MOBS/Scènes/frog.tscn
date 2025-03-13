@@ -1,9 +1,24 @@
-[gd_scene load_steps=37 format=3 uid="uid://d2u5qx4ykvymb"]
+[gd_scene load_steps=39 format=3 uid="uid://d2u5qx4ykvymb"]
 
 [ext_resource type="Texture2D" uid="uid://y5gw53ritm14" path="res://MOBS/Assets/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Attack.png" id="1_lm8p0"]
 [ext_resource type="Texture2D" uid="uid://dupqbtsxf6dj6" path="res://MOBS/Assets/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Explosion.png" id="2_c2a26"]
 [ext_resource type="Texture2D" uid="uid://ckmlrrpvrjv2u" path="res://MOBS/Assets/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Idle.png" id="3_walh1"]
 [ext_resource type="Texture2D" uid="uid://8o31hfb3j22b" path="res://MOBS/Assets/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Hop.png" id="4_2ubsw"]
+[ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://COMPONENT/SCENES/gravity_component.tscn" id="5_14v20"]
+
+[sub_resource type="GDScript" id="GDScript_fu2yt"]
+script/source = "extends CharacterBody2D
+
+@export var SPEED : float
+
+@export_category(\"Nodes\")
+@export var gravityComponent : GravityComponent
+
+func _physics_process(delta: float) -> void:
+	gravityComponent.handle_gravity(self, delta)
+	
+	move_and_slide()
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rbo5x"]
 atlas = ExtResource("1_lm8p0")
@@ -241,8 +256,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vw250"]
 size = Vector2(21, 17)
 
-[node name="frog" type="CharacterBody2D"]
+[node name="frog" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent")]
 texture_filter = 1
+script = SubResource("GDScript_fu2yt")
+gravityComponent = NodePath("GravityComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lfla5")
@@ -251,3 +268,5 @@ animation = &"death"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, 0.5)
 shape = SubResource("RectangleShape2D_vw250")
+
+[node name="GravityComponent" parent="." instance=ExtResource("5_14v20")]
