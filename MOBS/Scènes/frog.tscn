@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://d2u5qx4ykvymb"]
+[gd_scene load_steps=40 format=3 uid="uid://d2u5qx4ykvymb"]
 
 [ext_resource type="Texture2D" uid="uid://y5gw53ritm14" path="res://MOBS/Assets/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Attack.png" id="1_lm8p0"]
 [ext_resource type="Texture2D" uid="uid://dupqbtsxf6dj6" path="res://MOBS/Assets/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Explosion.png" id="2_c2a26"]
@@ -14,6 +14,7 @@ class_name FrogEnemy
 @export var SPEED : float
 var direction : Vector2
 var dead : bool = false
+var taking_damage : bool = false
 @export_category(\"Nodes\")
 @export var gravityComponent : GravityComponent
 
@@ -32,28 +33,33 @@ func _move(delta):
 		velocity += direction * SPEED *delta
 	elif dead:
 		velocity.x = 0
-		$AnimatedSprite2D.play(\"death\")
 
 func _handle_animation():
 	var anim_spire = $AnimatedSprite2D
-	if !dead:
+	if !dead and !direction.x == 0:
 		$AnimatedSprite2D.play(\"jump\")
 		if direction.x == -1:
 			anim_spire.flip_h = true
 		elif direction.x == 1:
 			anim_spire.flip_h = false
+	elif !dead and direction.x == 0:
+		$AnimatedSprite2D.play(\"idle\")
+	elif dead :
+		$AnimatedSprite2D.play(\"death\")
 	
 
 func _on_direction_timer_timeout() -> void:
 	$DirectionTimer.wait_time = _choose([1.5, 2.0, 2.5])
-	direction = _choose([Vector2.RIGHT, Vector2.LEFT])
+	direction = _choose([Vector2.RIGHT, Vector2.LEFT, Vector2(0,0)])
 	velocity = direction
 	
 
 func _choose(array):
 	array.shuffle()
 	return array.front()
-	
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rbo5x"]
@@ -290,7 +296,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vw250"]
-size = Vector2(21, 17)
+size = Vector2(21, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wn54a"]
+radius = 12.5399
 
 [node name="frog" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent")]
 texture_filter = 1
@@ -300,10 +309,10 @@ gravityComponent = NodePath("GravityComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lfla5")
-animation = &"death"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, 0.5)
+position = Vector2(-2.5, 1.5)
 shape = SubResource("RectangleShape2D_vw250")
 
 [node name="GravityComponent" parent="." instance=ExtResource("5_14v20")]
@@ -311,4 +320,11 @@ shape = SubResource("RectangleShape2D_vw250")
 [node name="DirectionTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-2.5, 0)
+shape = SubResource("CircleShape2D_wn54a")
+
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
