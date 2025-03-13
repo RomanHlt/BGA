@@ -15,6 +15,7 @@ var closerChecker
 var canGoDeeper:bool = true
 var canGoCloser:bool = true
 var layerJump:bool = false
+var fire:bool = false
 
 
 func _ready():
@@ -24,7 +25,9 @@ func _ready():
 
 
 func _process(delta: float) -> void:
-	pass
+	if input_component.get_fire():
+		print("Pouette")
+		fire = true
 
 func _physics_process(delta: float) -> void:
 	gravity_component.handle_gravity(self,delta)
