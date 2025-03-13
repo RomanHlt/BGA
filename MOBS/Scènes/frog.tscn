@@ -44,8 +44,6 @@ func _handle_animation():
 			anim_spire.flip_h = false
 	elif !dead and direction.x == 0:
 		$AnimatedSprite2D.play(\"idle\")
-	elif dead :
-		$AnimatedSprite2D.play(\"death\")
 	
 
 func _on_direction_timer_timeout() -> void:
@@ -58,8 +56,19 @@ func _choose(array):
 	array.shuffle()
 	return array.front()
 
-func _on_hit_box_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
+func _on_frog_dealing_damage_area_entered(area: Area2D) -> void:
+	if area.name == \"PlayerDamageZone\":
+		dead = true 
+		_death()
+		
+
+func _death():
+	if dead == true:
+		$AnimatedSprite2D.play(\"death\")
+		collision_layer = 0
+		await ($AnimatedSprite2D.animation_finished)
+		self.queue_free()
+		
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rbo5x"]
@@ -235,7 +244,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rmwvt")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 9.0
 }, {
@@ -298,8 +307,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vw250"]
 size = Vector2(21, 15)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wn54a"]
-radius = 12.5399
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1xqf"]
+size = Vector2(11, 4.5)
 
 [node name="frog" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent")]
 texture_filter = 1
@@ -309,7 +318,7 @@ gravityComponent = NodePath("GravityComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lfla5")
-animation = &"idle"
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, 1.5)
@@ -320,11 +329,13 @@ shape = SubResource("RectangleShape2D_vw250")
 [node name="DirectionTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="FrogDealingDamage" type="Area2D" parent="."]
+position = Vector2(0, -1)
+collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(-2.5, 0)
-shape = SubResource("CircleShape2D_wn54a")
+[node name="DamageShape" type="CollisionShape2D" parent="FrogDealingDamage"]
+position = Vector2(-1.5, -6)
+shape = SubResource("RectangleShape2D_f1xqf")
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
-[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_entered" from="FrogDealingDamage" to="." method="_on_frog_dealing_damage_area_entered"]

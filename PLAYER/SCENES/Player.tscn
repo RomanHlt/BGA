@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dmnpm6nnnf4kg"]
+[gd_scene load_steps=21 format=3 uid="uid://dmnpm6nnnf4kg"]
 
 [ext_resource type="Script" path="res://PLAYER/SCRIPTS/player.gd" id="1_1sa3q"]
 [ext_resource type="Texture2D" uid="uid://didsej3ou06sn" path="res://PLAYER/ASSETS/Bari_animated.png" id="2_x2l0n"]
@@ -159,6 +159,10 @@ height = 14.0
 radius = 4.0
 height = 14.0
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8cjfj"]
+a = Vector2(4, -1)
+b = Vector2(-5, -1)
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "advanced_jump_component", "animation_component")]
 slide_on_ceiling = false
 script = ExtResource("1_1sa3q")
@@ -201,7 +205,7 @@ libraries = {
 "": SubResource("AnimationLibrary_qtt1a")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6.5)
 shape = SubResource("CapsuleShape2D_k6vah")
 
@@ -241,6 +245,11 @@ sprite = NodePath("../Sprite2D")
 sprite2D = NodePath("../Sprite2D")
 jump_velocity = -400.0
 wall_jump_max = 3
+
+[node name="PlayerDamageZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDamageZone"]
+shape = SubResource("SegmentShape2D_8cjfj")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationComponent" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="deeperChecker" to="." method="_on_area_2d_body_entered"]
