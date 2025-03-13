@@ -9,25 +9,25 @@ func _on_reprendre_pressed() -> void:
 
 
 func _on_options_pressed() -> void:
-	GlobalsOptions.open_from_accueil = false
+	Main.get_node("Globals Options").open_from_accueil = false
 	get_tree().root.get_node("/root/Map/CanvasLayer/Options").visible = true
 	get_tree().root.get_node("/root/Map/CanvasLayer/Menu").visible = false
 
 
 func _on_statistiques_pressed() -> void:
-	GlobalsOptions.open_from_accueil = false
+	Main.get_node("Globals Options").open_from_accueil = false
 	get_tree().root.get_node("/root/Map/CanvasLayer/Statistiques").update_stats()
 	get_tree().root.get_node("/root/Map/CanvasLayer/Statistiques").visible = true
 	get_tree().root.get_node("/root/Map/CanvasLayer/Menu").visible = false
 
 
 func _on_progres_pressed() -> void:
-	GlobalsOptions.open_from_accueil = false
+	Main.get_node("Globals Options").open_from_accueil = false
 	get_tree().root.get_node("/root/Map/CanvasLayer/Progrès").visible = true
 	get_tree().root.get_node("/root/Map/CanvasLayer/Menu").visible = false
 
 
 func _on_quitter_la_partie_pressed() -> void:
-	GlobalsOptions.ingame = false
+	Main.get_node("Globals Options").ingame = false
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://UI/scene/ecran_d'accueil.tscn")

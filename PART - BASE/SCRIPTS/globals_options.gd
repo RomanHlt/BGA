@@ -1,5 +1,4 @@
-extends Node
-
+extends Control
 
 func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS # Le script autoload ne sera pas afecté par les pauses.
@@ -12,10 +11,6 @@ var Son_disable = false # Son coupé
 
 var Musique = 3 # Musique (0-5)
 var Musique_disable = false # Musique coupée
-
-
-# Variables stats et Progrès
-var nb_sauts = 0
 
 
 # Variables autre
@@ -37,7 +32,3 @@ func _input(event: InputEvent) -> void:
 		else:	# Si aucun menu n'est ouvert, on montre le menu principal
 			menus[0].visible = true
 			get_tree().paused = true # Mettre en pause le jeu
-	
-	# Stats
-	if event.is_action_pressed("jump"):
-		nb_sauts += 1

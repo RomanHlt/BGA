@@ -5,4 +5,4 @@ extends Button
 
 func _on_pressed() -> void:
 	get_tree().change_scene_to_packed(map)
-	GlobalsOptions.ingame = true
+	Main.get_node("Globals Options").ingame = true

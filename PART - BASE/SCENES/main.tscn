@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://bclxknnv5k8la"]
+
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_stats.gd" id="1_bawku"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_progres.gd" id="2_rrlfl"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_levels.gd" id="3_2fkf4"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_options.gd" id="4_35fso"]
+
+[node name="MAIN" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Globals Stats" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bawku")
+
+[node name="Globals Progres" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_rrlfl")
+
+[node name="Globals Levels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_2fkf4")
+dico = {
+"0.1": "res://PART - LEVELS/SCENES/Map.tscn",
+"0.2": "res://PART - LEVELS/SCENES/MapTest.tscn"
+}
+loadscene_path = "res://LoadScreen.tscn"
+
+[node name="Globals Options" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_35fso")
