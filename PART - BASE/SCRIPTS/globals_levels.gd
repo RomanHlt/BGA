@@ -6,6 +6,7 @@ extends Control
 func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS # Le script autoload ne sera pas afecté par les pauses.
 
-func change_lvl(id):
+func change_lvl(id, titre, sous_titre):
 	var new_lvl_path = dico[id]
+	Main.get_node("LoadScreen/Scene transition").modification(titre, sous_titre)
 	Main.get_node("LoadScreen/Scene transition").change_scene(new_lvl_path)
