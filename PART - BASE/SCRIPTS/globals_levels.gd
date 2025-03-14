@@ -8,5 +8,4 @@ func _ready() -> void:
 
 func change_lvl(id):
 	var new_lvl_path = dico[id]
-	Main.get_child(4)
-	#change_scene(new_lvl_path)
+	Main.get_node("LoadScreen/Scene transition").change_scene(new_lvl_path)
