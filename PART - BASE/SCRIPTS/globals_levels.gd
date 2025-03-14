@@ -8,4 +8,5 @@ func _ready() -> void:
 
 func change_lvl(id):
 	var new_lvl_path = dico[id]
-	get_tree().change_scene_to_file(new_lvl_path)
+	Main.get_child(4)
+	#change_scene(new_lvl_path)
