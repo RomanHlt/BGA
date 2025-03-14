@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bur84tokxk05"]
+
+[ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/bullet.gd" id="1_vfxpm"]
+[ext_resource type="Texture2D" uid="uid://dvksmbv44rg6e" path="res://PART - PLAYER/ASSETS/bullet.png" id="2_eolct"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a46pn"]
+radius = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gf3u8"]
+size = Vector2(6.25, 4)
+
+[node name="bullet" type="RigidBody2D" node_paths=PackedStringArray("area")]
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_vfxpm")
+area = NodePath("Area2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, 0)
+texture = ExtResource("2_eolct")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="HeadCollider" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(10, 0)
+shape = SubResource("CircleShape2D_a46pn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.125, 0)
+shape = SubResource("RectangleShape2D_gf3u8")
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

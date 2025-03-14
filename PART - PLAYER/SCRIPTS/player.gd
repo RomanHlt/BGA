@@ -7,6 +7,7 @@ signal pathObstrued
 @export var movement_component:MovementComponent
 @export var advanced_jump_component: AdvancedJumpComponent
 @export var animation_component: AnimationComponent
+@export var weapon_component: WeaponComponent
 @export_subgroup("Data")
 @export var data: PlayerData
 
@@ -20,13 +21,15 @@ var fire:bool = false
 
 func _ready():
 	#setup the layer checkers
+	print($Sprite2D.scale)
 	deeperChecker = $deeperChecker
 	closerChecker = $closerChecker
 
 
 func _process(delta: float) -> void:
+	print($Sprite2D.scale)
+
 	if input_component.get_fire():
-		print("Pouette")
 		fire = true
 
 func _physics_process(delta: float) -> void:
@@ -34,16 +37,15 @@ func _physics_process(delta: float) -> void:
 	movement_component.handle_horizontal_movement(self, input_component.input_horizontal, input_component.get_run())
 	advanced_jump_component.handle_jump(self, input_component.get_jump_input(),input_component.get_jump_input_released())
 	animation_component.handle_move_animation(self, input_component.input_horizontal)
+	weapon_component._handle_fire(self, input_component.get_fire())
 	move_and_slide()
 
 
 func lookAtLeft(dir:bool):
 	if dir:
-		$Sprite2D.flip_h = true
-		$Sprite2D.offset.x = 4
+		scale.x = -1
 	else:
-		$Sprite2D.flip_h = false
-		$Sprite2D.offset.x = 0
+		scale.x =1
 
 
 # Layer Checkers
