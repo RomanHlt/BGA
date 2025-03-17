@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4c63xe1mwirr"
-path="res://.godot/imported/Bari_animated.png-5c96a5f033a002a94d6b5301bf8994b7.ctex"
+uid="uid://dvksmbv44rg6e"
+path="res://.godot/imported/bullet.png-2613236439c5f1636e80845888c174ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - PLAYER/ASSETS/Bari_animated.png"
-dest_files=["res://.godot/imported/Bari_animated.png-5c96a5f033a002a94d6b5301bf8994b7.ctex"]
+source_file="res://PART - PLAYER/ASSETS/bullet.png"
+dest_files=["res://.godot/imported/bullet.png-2613236439c5f1636e80845888c174ab.ctex"]
 
 [params]
 

@@ -212,7 +212,7 @@ position = Vector2(-2, -11)
 texture = ExtResource("2_x2l0n")
 hframes = 8
 vframes = 7
-frame = 43
+frame = 47
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -280,11 +280,10 @@ sprite2D = NodePath("../Sprite2D")
 jump_velocity = -400.0
 wall_jump_max = 3
 
-[node name="WeaponComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("9_3rr8y")]
-sprite = NodePath("../Sprite2D")
+[node name="WeaponComponent" parent="." instance=ExtResource("9_3rr8y")]
 
 [node name="BulletSource" type="Marker2D" parent="WeaponComponent"]
-position = Vector2(14, -12)
+position = Vector2(13, -9)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationComponent" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="deeperChecker" to="." method="_on_area_2d_body_entered"]
