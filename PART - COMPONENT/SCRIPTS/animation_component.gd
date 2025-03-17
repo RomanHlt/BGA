@@ -5,7 +5,6 @@ extends Node2D
 @export var animator: AnimationPlayer
 @export var sprite: Sprite2D
 
-
 func _ready() -> void:
 	animator.get_animation("DASH").loop_mode = Animation.LOOP_NONE #rendre DASH unique
 	animator.get_animation("Trumpet").loop_mode = Animation.LOOP_NONE #rendre DASH unique
@@ -19,6 +18,7 @@ func handle_horizontal_flip(move_direction: float) -> void:
 	else: 
 		sprite.flip_h = true
 		sprite.offset.x = 4
+
 	
 func handle_move_animation(body:CharacterBody2D, move_direction:float)->void:
 	handle_horizontal_flip(move_direction)

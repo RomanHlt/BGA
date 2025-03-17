@@ -27,8 +27,6 @@ func _ready():
 
 
 func _process(delta: float) -> void:
-	print($Sprite2D.scale)
-
 	if input_component.get_fire():
 		fire = true
 
@@ -39,13 +37,6 @@ func _physics_process(delta: float) -> void:
 	animation_component.handle_move_animation(self, input_component.input_horizontal)
 	weapon_component._handle_fire(self, input_component.get_fire())
 	move_and_slide()
-
-
-func lookAtLeft(dir:bool):
-	if dir:
-		scale.x = -1
-	else:
-		scale.x =1
 
 
 # Layer Checkers

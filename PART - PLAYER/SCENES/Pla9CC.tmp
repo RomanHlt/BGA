@@ -280,8 +280,7 @@ sprite2D = NodePath("../Sprite2D")
 jump_velocity = -400.0
 wall_jump_max = 3
 
-[node name="WeaponComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("9_3rr8y")]
-sprite = NodePath("../Sprite2D")
+[node name="WeaponComponent" parent="." instance=ExtResource("9_3rr8y")]
 
 [node name="BulletSource" type="Marker2D" parent="WeaponComponent"]
 position = Vector2(14, -12)

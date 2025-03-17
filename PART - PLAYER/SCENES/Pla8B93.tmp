@@ -271,17 +271,17 @@ ground_decel_speed = 150.0
 air_accel_speed = 12.0
 air_decel_speed = 10.0
 
-[node name="AnimationComponent" parent="." node_paths=PackedStringArray("animator", "sprite") instance=ExtResource("7_blyk2")]
+[node name="AnimationComponent" parent="." node_paths=PackedStringArray("animator", "sprite", "player") instance=ExtResource("7_blyk2")]
 animator = NodePath("../AnimationPlayer")
 sprite = NodePath("../Sprite2D")
+player = NodePath("..")
 
 [node name="AdvancedJumpComponent" parent="." node_paths=PackedStringArray("sprite2D") instance=ExtResource("7_eboik")]
 sprite2D = NodePath("../Sprite2D")
 jump_velocity = -400.0
 wall_jump_max = 3
 
-[node name="WeaponComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("9_3rr8y")]
-sprite = NodePath("../Sprite2D")
+[node name="WeaponComponent" parent="." instance=ExtResource("9_3rr8y")]
 
 [node name="BulletSource" type="Marker2D" parent="WeaponComponent"]
 position = Vector2(14, -12)
