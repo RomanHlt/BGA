@@ -1438,26 +1438,32 @@ SPEED = 10.0
 gravityComponent = NodePath("GravityComponent")
 
 [node name="BlueBrown" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_u17dk")
 animation = &"attack"
 
 [node name="BlueBlue" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_qm68c")
 animation = &"attack"
 
 [node name="GreenBlue" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_spiov")
 animation = &"attack"
 
 [node name="GreenBrown" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_gc4lu")
 animation = &"jump"
 
 [node name="PurpleWhite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_quh5v")
 animation = &"jump"
 
 [node name="PurpleBlue" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ewbgf")
 animation = &"jump"
 
