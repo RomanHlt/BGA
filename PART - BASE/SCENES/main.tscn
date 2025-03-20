@@ -1,9 +1,82 @@
-[gd_scene load_steps=5 format=3 uid="uid://bclxknnv5k8la"]
+[gd_scene load_steps=15 format=3 uid="uid://bclxknnv5k8la"]
 
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_stats.gd" id="1_bawku"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_progres.gd" id="2_rrlfl"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_levels.gd" id="3_2fkf4"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_options.gd" id="4_35fso"]
+[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="5_7fas6"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/fondu.gd" id="5_o0eev"]
+[ext_resource type="Texture2D" uid="uid://ns1vlm7c873h" path="res://PART - BASE/SCENES/Sprite-0002.png" id="6_ci7ot"]
+
+[sub_resource type="Theme" id="Theme_s4t4w"]
+Label/colors/font_color = Color(1, 0, 0.733333, 1)
+Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
+Label/constants/shadow_outline_size = 20
+Label/fonts/font = ExtResource("5_7fas6")
+
+[sub_resource type="Theme" id="Theme_d06oq"]
+Label/colors/font_color = Color(1, 0, 0.733333, 1)
+Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
+Label/constants/shadow_outline_size = 10
+Label/fonts/font = ExtResource("5_7fas6")
+
+[sub_resource type="Animation" id="Animation_0mip0"]
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Loading/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mh7ui"]
+_data = {
+"default": SubResource("Animation_0mip0")
+}
+
+[sub_resource type="Animation" id="Animation_euy3t"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_svm3w"]
+resource_name = "fondu"
+length = 1.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.23333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kdqog"]
+_data = {
+"RESET": SubResource("Animation_euy3t"),
+"fondu": SubResource("Animation_svm3w")
+}
 
 [node name="MAIN" type="Control"]
 layout_mode = 3
@@ -44,3 +117,98 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_35fso")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Fondu" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("5_o0eev")
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/Fondu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0549426, 0.0908001, 0.31992, 1)
+
+[node name="Titre" type="Label" parent="CanvasLayer/Fondu"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 200.0
+grow_horizontal = 2
+theme = SubResource("Theme_s4t4w")
+theme_override_font_sizes/font_size = 50
+text = "Titre"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sous titre" type="Label" parent="CanvasLayer/Fondu"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -29.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_d06oq")
+theme_override_font_sizes/font_size = 20
+text = "Sous titre"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loading" type="Control" parent="CanvasLayer/Fondu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -148.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Fondu/Loading"]
+texture_filter = 1
+texture = ExtResource("6_ci7ot")
+hframes = 3
+vframes = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "CanvasLayer/Fondu/LoadingPlayer",
+"slice": "",
+"source": "res://PART - BASE/ASSETS/Sprite-0002.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a8cd9817894744c8baf064df5108fa46"
+
+[node name="LoadingPlayer" type="AnimationPlayer" parent="CanvasLayer/Fondu"]
+libraries = {
+"": SubResource("AnimationLibrary_mh7ui")
+}
+
+[node name="FonduPlayer" type="AnimationPlayer" parent="CanvasLayer/Fondu"]
+libraries = {
+"": SubResource("AnimationLibrary_kdqog")
+}
