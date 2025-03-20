@@ -1,4 +1,8 @@
+<<<<<<< HEAD:PART - PLAYER/SCENES/Player.tscn
 [gd_scene load_steps=24 format=3 uid="uid://dmnpm6nnnf4kg"]
+=======
+[gd_scene load_steps=21 format=3 uid="uid://dmnpm6nnnf4kg"]
+>>>>>>> Mob:PLAYER/SCENES/Player.tscn
 
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/player.gd" id="1_1sa3q"]
 [ext_resource type="Resource" uid="uid://bivwqptijeul2" path="res://GLOBAL - DATA/SAVES/Data00.tres" id="2_oyd0d"]
@@ -195,7 +199,15 @@ height = 14.0
 radius = 4.0
 height = 14.0
 
+<<<<<<< HEAD:PART - PLAYER/SCENES/Player.tscn
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "advanced_jump_component", "animation_component", "weapon_component")]
+=======
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8cjfj"]
+a = Vector2(2, -1)
+b = Vector2(-3, -1)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "advanced_jump_component", "animation_component")]
+>>>>>>> Mob:PLAYER/SCENES/Player.tscn
 slide_on_ceiling = false
 script = ExtResource("1_1sa3q")
 gravity_component = NodePath("GravityComponent")
@@ -239,7 +251,7 @@ libraries = {
 "": SubResource("AnimationLibrary_qtt1a")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6.5)
 shape = SubResource("CapsuleShape2D_k6vah")
 
@@ -280,11 +292,19 @@ sprite2D = NodePath("../Sprite2D")
 jump_velocity = -400.0
 wall_jump_max = 3
 
+<<<<<<< HEAD:PART - PLAYER/SCENES/Player.tscn
 [node name="WeaponComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("9_3rr8y")]
 sprite = NodePath("../Sprite2D")
 
 [node name="BulletSource" type="Marker2D" parent="WeaponComponent"]
 position = Vector2(14, -12)
+=======
+[node name="PlayerDealingDamageZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDealingDamageZone"]
+position = Vector2(0, 1)
+shape = SubResource("SegmentShape2D_8cjfj")
+>>>>>>> Mob:PLAYER/SCENES/Player.tscn
 
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationComponent" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="deeperChecker" to="." method="_on_area_2d_body_entered"]
