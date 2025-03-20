@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="1_kg0r5"]
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManager.gd" id="1_pgv5y"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="2_tk07c"]
-[ext_resource type="PackedScene" uid="uid://d2u5qx4ykvymb" path="res://MOBS/Scènes/frog.tscn" id="4_gq8dx"]
+[ext_resource type="PackedScene" uid="uid://d2u5qx4ykvymb" path="res://Part - MOBS/SCENES/frog.tscn" id="4_gq8dx"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_kfafa"]
 [ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://PART - UI/SCENES/menu.tscn" id="5_1b0dp"]
 [ext_resource type="Texture2D" uid="uid://co5uawhdoo2ht" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Ladders/1.png" id="5_701ym"]
@@ -119,7 +119,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAHAAAAAAAAAAEAAAAHAAEAAAAAAAIAAAAHAAE
 tile_set = SubResource("TileSet_cpikw")
 
 [node name="frog" parent="ParallaxBackground/ParallaxLayer1" instance=ExtResource("4_gq8dx")]
-position = Vector2(508, 109)
+position = Vector2(435, 321)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 modulate = Color(0.823924, 0.823924, 0.823924, 1)
