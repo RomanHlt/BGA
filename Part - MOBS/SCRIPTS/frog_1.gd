@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-class_name FrogEnemy
-
 @export var SPEED : float
 var direction : Vector2
 var dead : bool = false
@@ -12,8 +10,11 @@ var taking_damage : bool = false
 var animatedSprite:AnimatedSprite2D
 
 func _ready() -> void:
-	_choose(["BlueBrown", "BlueBlue", "GreenBlue", "GreenBrown", "PurpleWhite", "PurpleBlue"])
-
+	animatedSprite = _choose([$BlueBrown, $BlueBlue, $GreenBlue, $GreenBrown, $PurpleWhite, $PurpleBlue])
+	for child in get_children():
+		if child.is_class("AnimatedSprite2D") and child.name != animatedSprite.name:
+			child.hide()
+	
 
 func _physics_process(delta: float) -> void:
 	gravityComponent.handle_gravity(self, delta)
@@ -32,15 +33,15 @@ func _move(delta):
 		velocity.x = 0
 
 func _handle_animation():
-	var anim_spire = $AnimatedSprite2D
+	var anim_spire = animatedSprite
 	if !dead and !direction.x == 0:
-		$AnimatedSprite2D.play("jump")
+		animatedSprite.play("jump")
 		if direction.x == -1:
 			anim_spire.flip_h = true
 		elif direction.x == 1:
 			anim_spire.flip_h = false
 	elif !dead and direction.x == 0:
-		$AnimatedSprite2D.play("idle")
+		animatedSprite.play("idle")
 	
 
 func _on_direction_timer_timeout() -> void:
@@ -61,7 +62,7 @@ func _on_frog_dealing_damage_area_entered(area: Area2D) -> void:
 
 func _death():
 	dead = true
-	$AnimatedSprite2D.play("death")
+	animatedSprite.play("death")
 	collision_layer = 0
-	await ($AnimatedSprite2D.animation_finished)
+	await (animatedSprite.animation_finished)
 	self.queue_free()
