@@ -160,8 +160,8 @@ radius = 4.0
 height = 14.0
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_8cjfj"]
-a = Vector2(4, -1)
-b = Vector2(-5, -1)
+a = Vector2(2, -1)
+b = Vector2(-3, -1)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "advanced_jump_component", "animation_component")]
 slide_on_ceiling = false
@@ -246,9 +246,10 @@ sprite2D = NodePath("../Sprite2D")
 jump_velocity = -400.0
 wall_jump_max = 3
 
-[node name="PlayerDamageZone" type="Area2D" parent="."]
+[node name="PlayerDealingDamageZone" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDamageZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDealingDamageZone"]
+position = Vector2(0, 1)
 shape = SubResource("SegmentShape2D_8cjfj")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationComponent" method="_on_animation_player_animation_finished"]
