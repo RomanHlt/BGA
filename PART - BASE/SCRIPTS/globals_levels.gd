@@ -8,4 +8,4 @@ func _ready() -> void:
 
 func change_lvl(id):
 	var new_lvl_path = dico[id]
-	get_tree().change_scene_to_file(new_lvl_path)
+	$"../CanvasLayer/Fondu".change_lvl(new_lvl_path)

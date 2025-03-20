@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-class_name FrogEnemy
-
 @export var SPEED : float
 var direction : Vector2
 var dead : bool = false
