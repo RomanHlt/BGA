@@ -1,7 +1,8 @@
 extends Node2D
 
 @export_category("Ressources")
-@export var file:Resource
+@export var PlayerStats:Resource
+
 
 func _handle_save():
-	file.save_game()
+	PlayerStats.save_game()
