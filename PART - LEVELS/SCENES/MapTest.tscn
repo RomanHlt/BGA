@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="3_hi03u"]
 [ext_resource type="Texture2D" uid="uid://quhpxpgfe5ha" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tileset.png" id="4_g0f6r"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="5_cbm0r"]
-[ext_resource type="PackedScene" uid="uid://c5num1l2ggi6x" path="res://lvl_changer.tscn" id="5_wtc21"]
+[ext_resource type="PackedScene" uid="uid://c5num1l2ggi6x" path="res://PART - BASE/SCENES/lvl_changer.tscn" id="5_wtc21"]
 [ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://PART - UI/SCENES/menu.tscn" id="6_kp64y"]
 [ext_resource type="Texture2D" uid="uid://su7teg26n2nv" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/7.png" id="6_xyg50"]
 [ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="7_lp4ym"]

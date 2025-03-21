@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://PART - UI/SCENES/menu.tscn" id="5_1b0dp"]
 [ext_resource type="Texture2D" uid="uid://co5uawhdoo2ht" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Ladders/1.png" id="5_701ym"]
 [ext_resource type="PackedScene" uid="uid://5q55qevow2dp" path="res://PART - UI/SCENES/Menu_d'accueil.tscn" id="6_6ngbo"]
-[ext_resource type="PackedScene" uid="uid://c5num1l2ggi6x" path="res://lvl_changer.tscn" id="6_l70ln"]
+[ext_resource type="PackedScene" uid="uid://c5num1l2ggi6x" path="res://PART - BASE/SCENES/lvl_changer.tscn" id="6_l70ln"]
 [ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="7_avs1v"]
 [ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://PART - UI/SCENES/progrès.tscn" id="8_lrs4m"]
 [ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="9_w4wgb"]

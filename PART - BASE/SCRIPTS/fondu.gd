@@ -5,7 +5,9 @@ extends ColorRect
 func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS # Le script autoload ne sera pas afecté par les pauses.
 
-func change_lvl(path):
+func change_lvl(path, titre, sous_titre):
+	$Titre.text = titre
+	$"Sous titre".text = sous_titre
 	get_tree().paused = true
 	$FonduPlayer.play("fondu")
 	$LoadingPlayer.play("default")
