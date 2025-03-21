@@ -6,4 +6,5 @@
 script = ExtResource("1_p3o40")
 level = 0
 items = ["Apple", "Gun", "Key"]
-health = 100
+health = 4
+max_health = 4

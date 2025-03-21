@@ -3,7 +3,8 @@ class_name PlayerData
 
 @export var level = 0
 @export var items:Array = ["Apple","Gun","Key"]
-@export var health = 100
+@export var health = 4
+@export var max_health = 4
 
 func save_game():
 	var result = ResourceSaver.save(self,'res://GLOBAL - DATA/SAVES/Data00.tres')

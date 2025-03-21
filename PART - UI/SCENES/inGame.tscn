@@ -1,0 +1,135 @@
+[gd_scene load_steps=9 format=3 uid="uid://cierfuw7plhvv"]
+
+[ext_resource type="Texture2D" uid="uid://0tptb4ekglf0" path="res://PART - UI/SCENES/PlayerLife.png" id="1_7npsu"]
+[ext_resource type="Script" path="res://PART - UI/SCRIPTS/in_gameUI.gd" id="1_kk3rj"]
+
+[sub_resource type="Animation" id="Animation_auksc"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yxk4g"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_hojvl"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_mnq3e"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_fwkt5"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_18jug"]
+_data = {
+"0": SubResource("Animation_fwkt5"),
+"1": SubResource("Animation_mnq3e"),
+"2": SubResource("Animation_hojvl"),
+"3": SubResource("Animation_yxk4g"),
+"4": SubResource("Animation_auksc")
+}
+
+[node name="InGame" type="CanvasLayer"]
+script = ExtResource("1_kk3rj")
+
+[node name="InGame" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="life" type="Sprite2D" parent="InGame"]
+texture_filter = 1
+position = Vector2(123, 49)
+scale = Vector2(4, 4)
+texture = ExtResource("1_7npsu")
+hframes = 3
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "lifeController",
+"slice": "",
+"source": "res://PART - UI/ASSETS/PlayerLife.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a4cebe5b2e411e2f7bc87dcca3644cda"
+
+[node name="lifeController" type="AnimationPlayer" parent="InGame"]
+libraries = {
+"": SubResource("AnimationLibrary_18jug")
+}

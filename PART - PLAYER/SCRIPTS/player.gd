@@ -29,6 +29,7 @@ func _ready():
 func _process(delta: float) -> void:
 	if input_component.get_fire():
 		fire = true
+		_takeDamages(1)
 
 func _physics_process(delta: float) -> void:
 	gravity_component.handle_gravity(self,delta)
@@ -38,6 +39,11 @@ func _physics_process(delta: float) -> void:
 	weapon_component._handle_fire(self, input_component.get_fire())
 	move_and_slide()
 
+func _takeDamages(damages:int):
+	if damages > PlayerDataSaver.PlayerStats.health:
+		damages = PlayerDataSaver.PlayerStats.health
+	PlayerDataSaver.PlayerStats.health -= damages
+	print("ouch")
 
 # Layer Checkers
 func _on_area_2d_body_entered(body: Node2D) -> void:
