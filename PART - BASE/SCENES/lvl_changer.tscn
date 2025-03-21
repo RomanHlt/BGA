@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c5num1l2ggi6x"]
 
-[ext_resource type="Script" path="res://lvl_changer.gd" id="1_il750"]
-[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="2_fdf3p"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/lvl_changer.gd" id="1_lr8ie"]
+[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="2_adbxy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgah1"]
 size = Vector2(20, 18)
@@ -26,12 +26,11 @@ Label/colors/font_color = Color(1, 0, 0.733333, 1)
 Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
 Label/constants/outline_size = 10
 Label/font_sizes/font_size = 6
-Label/fonts/font = ExtResource("2_fdf3p")
+Label/fonts/font = ExtResource("2_adbxy")
 
 [node name="lvl_changer" type="Area2D"]
 texture_filter = 1
-script = ExtResource("1_il750")
-id_next_lvl = "0.2"
+script = ExtResource("1_lr8ie")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)

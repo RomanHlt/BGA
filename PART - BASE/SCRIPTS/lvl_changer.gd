@@ -1,9 +1,14 @@
 extends Area2D
 
+@export_category("Self config")
 @export var layer: int  # Layer de l'objet
 @export var sprite: Texture2D  # Sprite de l'objet avec lequel interagir
 @export var texte: String = "Appuyez sur [E] pour utiliser l'échelle"  # Texte affiché
+@export_category("Next lvl config")
 @export var id_next_lvl: String
+@export_category("LoadScreen config")
+@export var titre : String
+@export var sous_titre : String
 
 
 @onready var can_interact = false  # Peut-on interagir ?
@@ -32,4 +37,4 @@ func _on_body_exited(body: Node2D) -> void:
 func _input(event: InputEvent) -> void:
 	"""Déclenche le changement de niveau"""
 	if Input.is_action_just_pressed("interagir") and can_interact:
-		Main.get_node("Globals Levels").change_lvl(id_next_lvl)
+		Main.get_node("Globals Levels").change_lvl(id_next_lvl, titre, sous_titre)
