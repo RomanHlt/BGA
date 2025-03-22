@@ -1,4 +1,4 @@
-[gd_scene load_steps=215 format=3 uid="uid://d2u5qx4ykvymb"]
+[gd_scene load_steps=216 format=3 uid="uid://d2u5qx4ykvymb"]
 
 [ext_resource type="Script" path="res://Part - MOBS/SCRIPTS/frog_1.gd" id="1_ihvvl"]
 [ext_resource type="Texture2D" uid="uid://y5gw53ritm14" path="res://Part - MOBS/ASSETS/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Attack.png" id="1_lm8p0"]
@@ -1431,6 +1431,9 @@ size = Vector2(21, 15)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1xqf"]
 size = Vector2(19, 2.25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njhru"]
+size = Vector2(14, 4)
+
 [node name="frog" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent")]
 texture_filter = 1
 script = ExtResource("1_ihvvl")
@@ -1441,6 +1444,8 @@ gravityComponent = NodePath("GravityComponent")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_u17dk")
 animation = &"attack"
+frame = 4
+frame_progress = 0.775689
 
 [node name="BlueBlue" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -1476,13 +1481,20 @@ shape = SubResource("RectangleShape2D_vw250")
 [node name="DirectionTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="FrogDealingDamage" type="Area2D" parent="."]
+[node name="FrogTakingDamage" type="Area2D" parent="."]
 position = Vector2(0, -1)
 collision_layer = 0
 
-[node name="DamageShape" type="CollisionShape2D" parent="FrogDealingDamage"]
+[node name="TakingDamageShape" type="CollisionShape2D" parent="FrogTakingDamage"]
 position = Vector2(-2.5, -4.875)
 shape = SubResource("RectangleShape2D_f1xqf")
 
+[node name="FrogDealingDamage" type="Area2D" parent="."]
+
+[node name="DealingDamageShape" type="CollisionShape2D" parent="FrogDealingDamage"]
+position = Vector2(11, -2)
+shape = SubResource("RectangleShape2D_njhru")
+
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
+[connection signal="area_entered" from="FrogTakingDamage" to="." method="_on_frog_taking_damage_area_entered"]
 [connection signal="area_entered" from="FrogDealingDamage" to="." method="_on_frog_dealing_damage_area_entered"]

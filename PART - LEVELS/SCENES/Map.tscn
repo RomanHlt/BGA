@@ -119,6 +119,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAHAAAAAAAAAAEAAAAHAAEAAAAAAAIAAAAHAAE
 tile_set = SubResource("TileSet_cpikw")
 
 [node name="frog" parent="ParallaxBackground/ParallaxLayer1" instance=ExtResource("4_8rdl4")]
+position = Vector2(418, 317)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 modulate = Color(0.823924, 0.823924, 0.823924, 1)

@@ -54,10 +54,17 @@ func _choose(array):
 	array.shuffle()
 	return array.front()
 
-func _on_frog_dealing_damage_area_entered(area: Area2D) -> void:
+
+func _on_frog_taking_damage_area_entered(area: Area2D) -> void:
 	if area.name == "PlayerDealingDamageZone":
 		dead = true 
 		_death()
+
+
+func _on_frog_dealing_damage_area_entered(area: Area2D) -> void:
+	if area.name == "PlayerCollision" and direction.x == 0:
+		pass
+		
 
 
 func _death():
