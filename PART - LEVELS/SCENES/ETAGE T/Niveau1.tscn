@@ -2097,6 +2097,7 @@ scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer1" type="ParallaxLayer" parent="ParallaxBackground"]
 texture_filter = 1
+motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(1, 0)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="ParallaxBackground/ParallaxLayer1"]
@@ -2105,9 +2106,9 @@ tile_map_data = PackedByteArray("AAAVAOn/AwAAAAIAAAAVAOr/AwAAAAQAAAAVAOv/AwAAAAE
 tile_set = SubResource("TileSet_k3r57")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-modulate = Color(0.823924, 0.823924, 0.823924, 1)
+modulate = Color(0.691357, 0.691357, 0.691357, 1)
 texture_filter = 1
-motion_scale = Vector2(0.125, 1)
+motion_scale = Vector2(0, 0)
 motion_offset = Vector2(1, 0)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="ParallaxBackground/ParallaxLayer2"]
@@ -2117,9 +2118,9 @@ tile_map_data = PackedByteArray("AAAvABEAAwADAAUAAAAvABAAAwABAAIAAAAuABEAAwAEAAU
 tile_set = SubResource("TileSet_syulu")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
-modulate = Color(0.672752, 0.672752, 0.672751, 1)
+modulate = Color(0.427493, 0.427493, 0.427492, 1)
 texture_filter = 1
-motion_scale = Vector2(0.25, 1)
+motion_scale = Vector2(0, 0)
 motion_offset = Vector2(2, 0)
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="ParallaxBackground/ParallaxLayer3"]
@@ -2158,6 +2159,7 @@ visible = false
 visible = false
 
 [node name="Tuto" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
 [node name="Tuto 1" type="Label" parent="Tuto"]
 texture_filter = 1
