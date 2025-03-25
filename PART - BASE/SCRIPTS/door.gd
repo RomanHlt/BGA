@@ -21,7 +21,7 @@ func _ready() -> void:
 	$Panel/Label.text = texte
 	collision_layer = 0
 	z_index = -layer
-	collision_mask = 2**(layer-1)
+	collision_mask = 2**layer
 	if sprite:
 		$Sprite2D.texture = sprite
 	else:
@@ -31,6 +31,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	"""Affiche le texte d'interaction"""
 	if body.name == "Player":
+		print(body.z_index,"//",$Sprite2D.z_index)
 		$Panel.visible = true
 		can_interact = true
 
