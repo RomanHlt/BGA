@@ -11,15 +11,17 @@ extends Area2D
 @export var sous_titre : String
 
 
-@onready var can_interact = false  # Peut-on interagir ?
+@onready var can_interact = false  # Peut-on interagir ?qd
 var is_loading = false  # Empêche de spammer le changement de scène
 
 func _ready() -> void:
+	$AnimationPlayer.get_animation("Opening").loop_mode = Animation.LOOP_NONE #rend l'animation unique
+
 	self.process_mode = Node.PROCESS_MODE_ALWAYS # Le script ne sera pas afecté par les pauses.
 	$Panel/Label.text = texte
 	collision_layer = 0
 	z_index = -layer
-	collision_mask = 2**layer
+	collision_mask = 2**(layer-1)
 	if sprite:
 		$Sprite2D.texture = sprite
 	else:
@@ -41,4 +43,6 @@ func _on_body_exited(body: Node2D) -> void:
 func _input(event: InputEvent) -> void:
 	"""Déclenche le changement de niveau"""
 	if Input.is_action_just_pressed("interagir") and can_interact:
+		$AnimationPlayer.play("Opening")
+	
 		Main.get_node("Globals Levels").change_lvl(id_next_lvl, titre, sous_titre)
