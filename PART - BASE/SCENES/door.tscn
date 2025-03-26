@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dt1pv53ek46dl"]
+[gd_scene load_steps=21 format=3 uid="uid://dt1pv53ek46dl"]
 
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/door.gd" id="1_gmu4f"]
 [ext_resource type="Texture2D" uid="uid://b8xwpvj3btgvj" path="res://PART - BASE/SCENES/LevelDoor.png" id="2_afq11"]
@@ -108,6 +108,22 @@ _data = {
 "3": SubResource("Animation_e6ohl")
 }
 
+[sub_resource type="Animation" id="Animation_icqrg"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
 [sub_resource type="Animation" id="Animation_6f2h8"]
 length = 0.3
 loop_mode = 1
@@ -174,6 +190,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_np7xm"]
 _data = {
+"Closed": SubResource("Animation_icqrg"),
 "Closing": SubResource("Animation_6f2h8"),
 "Idle": SubResource("Animation_6rki0"),
 "Open": SubResource("Animation_bd5jn"),
@@ -270,6 +287,7 @@ texture_filter = 1
 texture = ExtResource("2_afq11")
 hframes = 3
 vframes = 2
+frame = 5
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -285,7 +303,7 @@ metadata/_aseprite_wizard_config_ = {
 "slice": "",
 "source": "res://PART - LEVELS/ASSETS/Map/4 Animated objects/LevelDoor.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "4c6d78efa6f4b7b549bda4eff1f24bc8"
+metadata/_aseprite_wizard_source_file_hash_ = "8f454ec591b8384f6716ec4d53d84faf"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
