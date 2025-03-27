@@ -7,6 +7,7 @@ class_name PlayerData
 @export var max_health = 4
 @export var current_lvl:String = "0.0.0"
 
+
 func save_game():
 	var result = ResourceSaver.save(self,'res://GLOBAL - DATA/SAVES/Data00.tres')
 	assert(result == OK)

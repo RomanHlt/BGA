@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drv8x3pscm843"
-path="res://.godot/imported/BatRoot_Flying.png-8d3da426dbe8b99836b7498ce23d8331.ctex"
+path="res://.godot/imported/BatRoot_Flying.png-1334965d686139d8a4eaae0ae4f45b65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Part - MOBS/ASSETS/Bat/Root/BatRoot_Flying.png"
-dest_files=["res://.godot/imported/BatRoot_Flying.png-8d3da426dbe8b99836b7498ce23d8331.ctex"]
+source_file="res://PART - MOBS/ASSETS/Bat/Root/BatRoot_Flying.png"
+dest_files=["res://.godot/imported/BatRoot_Flying.png-1334965d686139d8a4eaae0ae4f45b65.ctex"]
 
 [params]
 
