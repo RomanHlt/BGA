@@ -1,4 +1,4 @@
-[gd_scene load_steps=216 format=3 uid="uid://d2u5qx4ykvymb"]
+[gd_scene load_steps=217 format=3 uid="uid://d2u5qx4ykvymb"]
 
 [ext_resource type="Script" path="res://Part - MOBS/SCRIPTS/frog_1.gd" id="1_ihvvl"]
 [ext_resource type="Texture2D" uid="uid://y5gw53ritm14" path="res://Part - MOBS/ASSETS/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Attack.png" id="1_lm8p0"]
@@ -168,7 +168,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fkevd")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 6.0
 }, {
@@ -401,7 +401,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dqqyj")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 6.0
 }, {
@@ -634,7 +634,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_47j8c")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 6.0
 }, {
@@ -954,7 +954,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f57se")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 7.0
 }]
@@ -1187,7 +1187,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2wvfe")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 7.0
 }]
@@ -1420,7 +1420,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7dtiq")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 7.0
 }]
@@ -1429,10 +1429,13 @@ animations = [{
 size = Vector2(21, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1xqf"]
-size = Vector2(19, 2.25)
+size = Vector2(20, 2.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njhru"]
 size = Vector2(14, 4)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_22jlw"]
+radius = 49.366
 
 [node name="frog" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent")]
 texture_filter = 1
@@ -1486,7 +1489,7 @@ position = Vector2(0, -1)
 collision_layer = 0
 
 [node name="TakingDamageShape" type="CollisionShape2D" parent="FrogTakingDamage"]
-position = Vector2(-2.5, -4.875)
+position = Vector2(-2, -4.875)
 shape = SubResource("RectangleShape2D_f1xqf")
 
 [node name="FrogDealingDamage" type="Area2D" parent="."]
@@ -1495,6 +1498,13 @@ shape = SubResource("RectangleShape2D_f1xqf")
 position = Vector2(11, -2)
 shape = SubResource("RectangleShape2D_njhru")
 
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="PlayerDetectionShape" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CircleShape2D_22jlw")
+
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
 [connection signal="area_entered" from="FrogTakingDamage" to="." method="_on_frog_taking_damage_area_entered"]
-[connection signal="area_entered" from="FrogDealingDamage" to="." method="_on_frog_dealing_damage_area_entered"]
+[connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

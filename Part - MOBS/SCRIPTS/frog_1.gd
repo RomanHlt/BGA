@@ -4,6 +4,7 @@ extends CharacterBody2D
 var direction : Vector2
 var dead : bool = false
 var taking_damage : bool = false
+var is_attacking : bool = false
 @export_category("Nodes")
 @export var gravityComponent : GravityComponent
 var map
@@ -21,7 +22,12 @@ func _ready() -> void:
 	collision_mask = 2**layer
 	collision_layer = 2**layer
 
+	#la collision shade des dégats est desactivée
+	$FrogDealingDamage.collision_mask = 0
 	
+	#l'area de detection du player est sur le meme layer que la grenouille
+	$PlayerDetection.collision_layer = 2**layer
+	$PlayerDetection.collision_mask = 2**layer
 
 func _physics_process(delta: float) -> void:
 	gravityComponent.handle_gravity(self, delta)
@@ -31,6 +37,7 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	_move(delta)
 	_handle_animation()
+	
 	move_and_slide()
 
 func _move(delta):
@@ -41,15 +48,21 @@ func _move(delta):
 
 func _handle_animation():
 	var anim_spire = animatedSprite
-	if !dead and !direction.x == 0:
+	if !dead and !direction.x == 0 and is_attacking == false:
 		animatedSprite.play("jump")
 		if direction.x == -1:
 			anim_spire.flip_h = true
 		elif direction.x == 1:
 			anim_spire.flip_h = false
-	elif !dead and direction.x == 0:
+	elif !dead and direction.x == 0 and is_attacking == false:
 		animatedSprite.play("idle")
-	
+	elif !dead and direction.x == 0 and is_attacking == true:
+		animatedSprite.play("attack")
+		"if direction.x == -1:
+			anim_spire.flip_h = true
+		elif direction.x == 1:
+			anim_spire.flip_h = false"
+
 
 func _on_direction_timer_timeout() -> void:
 	$DirectionTimer.wait_time = _choose([1.5, 2.0, 2.5])
@@ -61,18 +74,27 @@ func _choose(array):
 	array.shuffle()
 	return array.front()
 
+func _on_player_detection_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		print("valide")
+		is_attacking = true
+		direction.x = 0
+		_attack()
+	elif !body.name == "Player":
+		is_attacking = false
+
+func _on_player_detection_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		is_attacking = false
+
+func _attack():
+	
+	$FrogDealingDamage.collision_mask = 2**layer
 
 func _on_frog_taking_damage_area_entered(area: Area2D) -> void:
 	if area.name == "PlayerDealingDamageZone":
 		dead = true 
 		_death()
-
-
-func _on_frog_dealing_damage_area_entered(area: Area2D) -> void:
-	if area.name == "PlayerCollision" and direction.x == 0:
-		pass
-		
-
 
 func _death():
 	dead = true
