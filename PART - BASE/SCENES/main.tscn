@@ -108,7 +108,8 @@ offset_bottom = 40.0
 script = ExtResource("3_2fkf4")
 dico = {
 "1.0.0": "res://PART - LEVELS/SCENES/M1/M1.tscn",
-"1.1.0": "res://PART - LEVELS/SCENES/M1/M1L1.tscn"
+"1.1.0": "res://PART - LEVELS/SCENES/M1/M1L1.tscn",
+"1.2.0": "res://PART - LEVELS/SCENES/M1/M1L2.tscn"
 }
 loadscene_path = "res://LoadScreen.tscn"
 
