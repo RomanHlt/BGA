@@ -42,7 +42,7 @@ func _takeDamages(damages:int):
 	if damages > PlayerDataSaver.PlayerStats.health:
 		damages = PlayerDataSaver.PlayerStats.health
 	PlayerDataSaver.PlayerStats.health -= damages
-	
+
 # Layer Checkers
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	canGoDeeper = false
