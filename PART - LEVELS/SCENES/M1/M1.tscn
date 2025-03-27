@@ -2058,6 +2058,7 @@ sources/3 = SubResource("TileSetAtlasSource_5p5ar")
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_kn1tx")
+id = "1.0.0"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -1

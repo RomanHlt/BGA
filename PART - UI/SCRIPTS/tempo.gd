@@ -4,5 +4,4 @@ extends Button
 @export var map : PackedScene
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_packed(map)
-	Main.get_node("Globals Options").ingame = true
+	Main.get_node("Globals Levels").change_lvl("1.0.0", "HUB", "Go hub")

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ofa264x5c1g7"
-path="res://.godot/imported/ToxicFrogBlueBrown_Explosion.png-5100f15b80a392a13f8e3e3b7e32c106.ctex"
+path="res://.godot/imported/ToxicFrogBlueBrown_Explosion.png-ed32887507b6de1e622102b48a3a8679.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Part - MOBS/ASSETS/ToxicFrog/BlueBrown/ToxicFrogBlueBrown_Explosion.png"
-dest_files=["res://.godot/imported/ToxicFrogBlueBrown_Explosion.png-5100f15b80a392a13f8e3e3b7e32c106.ctex"]
+source_file="res://PART - MOBS/ASSETS/ToxicFrog/BlueBrown/ToxicFrogBlueBrown_Explosion.png"
+dest_files=["res://.godot/imported/ToxicFrogBlueBrown_Explosion.png-ed32887507b6de1e622102b48a3a8679.ctex"]
 
 [params]
 
