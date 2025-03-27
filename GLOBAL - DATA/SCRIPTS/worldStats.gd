@@ -10,8 +10,10 @@ func save_game():
 	assert(result == OK)
 	print("World Saved")
 	
+	
+	
 func load_game():
 	if ResourceLoader.exists('res://GLOBAL - DATA/SAVES/WorldData.tres'):
-		var player = ResourceLoader.load('res://GLOBAL - DATA/SAVES/WorldData.tres')
-		if player is PlayerData:
-			return player
+		var data = ResourceLoader.load('res://GLOBAL - DATA/SAVES/WorldData.tres')
+		if data is WorldData:
+			return data

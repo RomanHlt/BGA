@@ -19,3 +19,4 @@ func change_lvl(path, titre, sous_titre):
 	$FonduPlayer.play_backwards("fondu")
 	get_tree().paused = false
 	Main.get_node("/root/GlobalsOptions").ingame = true
+	PlayerDataSaver._handle_load()

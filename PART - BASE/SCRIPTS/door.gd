@@ -22,9 +22,13 @@ func _ready() -> void:
 	#Récupérer les infos enregistrées
 	var level = int(id_next_lvl.split(".")[1]) #On récupère le num du niveau
 	notes = PlayerDataSaver.WorldStats.compo[level]
-	var n=0
-	for i in notes: if i == true: n+=1
-	$Panel/NotesPlayer.play(str(n))
+	var n=""
+	for i in notes:
+		if i == true: 
+			n+="1"
+		else:
+			n+="0"
+	$Panel/NotesPlayer.play(n)
 	canAccess = PlayerDataSaver.WorldStats.access[level]
 	if !canAccess: $AnimationPlayer.play("Closed")
 	else: $AnimationPlayer.play("Idle")
