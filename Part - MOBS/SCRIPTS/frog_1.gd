@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 func _move(delta):
 	if !dead:
 		velocity += direction * SPEED *delta
-	elif dead:
+	elif dead or is_attacking == true:
 		velocity.x = 0
 
 func _handle_animation():
@@ -56,30 +56,25 @@ func _handle_animation():
 			anim_spire.flip_h = false
 	elif !dead and direction.x == 0 and is_attacking == false:
 		animatedSprite.play("idle")
-	elif !dead and direction.x == 0 and is_attacking == true:
+	elif !dead and is_attacking == true:
 		animatedSprite.play("attack")
-		"if direction.x == -1:
-			anim_spire.flip_h = true
-		elif direction.x == 1:
-			anim_spire.flip_h = false"
 
 
 func _on_direction_timer_timeout() -> void:
 	$DirectionTimer.wait_time = _choose([1.5, 2.0, 2.5])
 	direction = _choose([Vector2.RIGHT, Vector2.LEFT, Vector2(0,0)])
 	velocity = direction
-	
 
 func _choose(array):
 	array.shuffle()
 	return array.front()
 
+
 func _on_player_detection_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		print("valide")
 		is_attacking = true
 		direction.x = 0
-		_attack()
+		_on_frog_dealing_damage_body_entered(body)
 	elif !body.name == "Player":
 		is_attacking = false
 
@@ -87,8 +82,7 @@ func _on_player_detection_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		is_attacking = false
 
-func _attack():
-	
+func _attack(body):
 	$FrogDealingDamage.collision_mask = 2**layer
 
 func _on_frog_taking_damage_area_entered(area: Area2D) -> void:
@@ -102,3 +96,6 @@ func _death():
 	collision_layer = 0
 	await (animatedSprite.animation_finished)
 	self.queue_free()
+
+func _on_frog_dealing_damage_body_entered(body: CharacterBody2D) -> void:
+	_attack(body)

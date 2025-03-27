@@ -1432,7 +1432,7 @@ size = Vector2(21, 15)
 size = Vector2(20, 2.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njhru"]
-size = Vector2(14, 4)
+size = Vector2(20, 4)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_22jlw"]
 radius = 49.366
@@ -1495,7 +1495,7 @@ shape = SubResource("RectangleShape2D_f1xqf")
 [node name="FrogDealingDamage" type="Area2D" parent="."]
 
 [node name="DealingDamageShape" type="CollisionShape2D" parent="FrogDealingDamage"]
-position = Vector2(11, -2)
+position = Vector2(14, -2)
 shape = SubResource("RectangleShape2D_njhru")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
@@ -1505,6 +1505,7 @@ shape = SubResource("CircleShape2D_22jlw")
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
 [connection signal="area_entered" from="FrogTakingDamage" to="." method="_on_frog_taking_damage_area_entered"]
+[connection signal="body_entered" from="FrogDealingDamage" to="." method="_on_frog_dealing_damage_body_entered"]
 [connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
