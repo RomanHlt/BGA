@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_p3o40")
-level = 0
+level = 1
 items = ["Apple", "Gun", "Key"]
 health = 4
 max_health = 4
+current_lvl = "1.1.0"

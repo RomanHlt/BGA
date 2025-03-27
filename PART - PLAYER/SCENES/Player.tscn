@@ -200,6 +200,7 @@ a = Vector2(2, -1)
 b = Vector2(-3, -1)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "advanced_jump_component", "animation_component", "weapon_component")]
+z_as_relative = false
 slide_on_ceiling = false
 script = ExtResource("1_1sa3q")
 gravity_component = NodePath("GravityComponent")
