@@ -6,7 +6,8 @@ var dead : bool = false
 var taking_damage : bool = false
 @export_category("Nodes")
 @export var gravityComponent : GravityComponent
-
+var map
+@export var layer:int = 0
 var animatedSprite:AnimatedSprite2D
 
 func _ready() -> void:
@@ -14,6 +15,12 @@ func _ready() -> void:
 	for child in get_children():
 		if child.is_class("AnimatedSprite2D") and child.name != animatedSprite.name:
 			child.hide()
+	
+	map = self.owner
+	#z_index = -layer
+	collision_mask = 2**layer
+	collision_layer = 2**layer
+
 	
 
 func _physics_process(delta: float) -> void:
