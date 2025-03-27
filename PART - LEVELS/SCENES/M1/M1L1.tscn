@@ -2090,9 +2090,9 @@ position = Vector2(2386, -739)
 position = Vector2(3102, 357)
 sprite = ExtResource("6_pdyp7")
 texte = "Appuyez sur [E] pour interagir"
-id_next_lvl = "1.2.0"
-titre = "TUTO 2"
-sous_titre = "Direction du tuto 2"
+id_next_lvl = "1.0.0"
+titre = "Premiers pas | TERMINE"
+sous_titre = "Monde 1"
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
