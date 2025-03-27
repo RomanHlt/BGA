@@ -2069,6 +2069,8 @@ tile_set = SubResource("TileSet_k3r57")
 position = Vector2(-157, -15)
 texte = "[E]"
 id_next_lvl = "1.1.0"
+titre = "Premiers pas"
+sous_titre = "Monde 1 | Didacticiel N°1"
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
@@ -2081,6 +2083,8 @@ position = Vector2(-71, -79)
 layer = 1
 texte = "[E]"
 id_next_lvl = "1.2.0"
+titre = "Caverne"
+sous_titre = "Monde 1 | Premier Niveau"
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 modulate = Color(0.305077, 0.305077, 0.305077, 1)
