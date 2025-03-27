@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://t18adp07lwiu"
+path="res://.godot/imported/flag.aseprite-3fb43e36c85d403488a19ec0ea6c072a.res"
+
+[deps]
+
+source_file="res://PART - OBJECTS/ASSETS/flag.aseprite"
+dest_files=["res://.godot/imported/flag.aseprite-3fb43e36c85d403488a19ec0ea6c072a.res"]
+
+[params]
+

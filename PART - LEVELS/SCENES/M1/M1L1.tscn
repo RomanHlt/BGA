@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=4 uid="uid://di3tay81pperj"]
+[gd_scene load_steps=26 format=4 uid="uid://di3tay81pperj"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_viq2l"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_myi3e"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_34p7g"]
 [ext_resource type="PackedScene" uid="uid://c1r0k08xd0ibm" path="res://PART - OBJECTS/SCENES/Note.tscn" id="3_mqdnj"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_4m1ut"]
+[ext_resource type="PackedScene" uid="uid://lu83b1j7bvc2" path="res://PART - OBJECTS/SCENES/Flag.tscn" id="4_osf3s"]
 [ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://PART - UI/SCENES/menu.tscn" id="5_bwi2t"]
 [ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="6_ryv0l"]
 [ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://PART - UI/SCENES/progrès.tscn" id="7_m6utx"]
@@ -2077,6 +2078,10 @@ tile_set = SubResource("TileSet_syulu")
 [node name="Note" parent="TileMapLayer2" instance=ExtResource("3_mqdnj")]
 position = Vector2(115, -54)
 number = 0
+layer = 1
+
+[node name="Flag" parent="TileMapLayer2" instance=ExtResource("4_osf3s")]
+position = Vector2(70, -47)
 layer = 1
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
