@@ -33,8 +33,8 @@ func _ready() -> void:
 
 	self.process_mode = Node.PROCESS_MODE_ALWAYS # Le script ne sera pas afecté par les pauses.
 	$Panel/Label.text = texte
+	z_index = get_parent().z_index +1
 	collision_layer = 0
-	z_index = -layer
 	collision_mask = 2**layer
 	if sprite:
 		$Sprite2D.texture = sprite
@@ -46,6 +46,7 @@ func _on_body_entered(body: Node2D) -> void:
 	"""Affiche le texte d'interaction"""
 	if canAccess==true:
 		if body.name == "Player":
+			print(body.z_index,"//",z_index,"//",get_parent().z_index)
 			$Panel.visible = true
 			can_interact = true
 
@@ -60,5 +61,6 @@ func _input(event: InputEvent) -> void:
 	"""Déclenche le changement de niveau"""
 	if Input.is_action_just_pressed("interagir") and can_interact and canAccess:
 		$AnimationPlayer.play("Opening")
-	
+		PlayerDataSaver.PlayerStats.current_lvl = id_next_lvl
+		PlayerDataSaver._handle_save()
 		Main.get_node("Globals Levels").change_lvl(id_next_lvl, titre, sous_titre)
