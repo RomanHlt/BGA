@@ -43,7 +43,9 @@ func _process(delta: float) -> void:
 func _move(delta):
 	if !dead:
 		velocity += direction * SPEED *delta
-	elif dead or is_attacking == true:
+		if is_attacking:
+			velocity.x = 0
+	elif dead:
 		velocity.x = 0
 
 func _handle_animation():
@@ -65,6 +67,7 @@ func _on_direction_timer_timeout() -> void:
 	direction = _choose([Vector2.RIGHT, Vector2.LEFT, Vector2(0,0)])
 	velocity = direction
 
+
 func _choose(array):
 	array.shuffle()
 	return array.front()
@@ -73,10 +76,7 @@ func _choose(array):
 func _on_player_detection_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		is_attacking = true
-		direction.x = 0
 		_on_frog_dealing_damage_body_entered(body)
-	elif !body.name == "Player":
-		is_attacking = false
 
 func _on_player_detection_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
