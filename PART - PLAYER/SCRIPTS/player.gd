@@ -52,3 +52,4 @@ func _on_closer_checker_body_entered(body: Node2D) -> void:
 	canGoCloser = false
 func _on_closer_checker_body_exited(body: Node2D) -> void:
 	canGoCloser = true
+	

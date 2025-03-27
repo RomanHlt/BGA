@@ -1,7 +1,8 @@
 extends Control
-
+var id
 func _ready() -> void:
-	if get_tree().current_scene.id.split(".")[1] == "0" and get_tree().current_scene.id.split(".")[2] == "0":
+	id=get_tree().current_scene.id.split(".")
+	if id[1] == "0" and id[2] == "0":
 		$"Quitter la Partie".text = "Quitter la Partie"
 	else:
 		$"Quitter la Partie".text = "Retour au Hub"
@@ -40,4 +41,4 @@ func _on_quitter_la_partie_pressed() -> void:
 	else:
 		Main.get_node("Globals Options").open_from_accueil = false
 		get_tree().paused = false
-		get_tree().change_scene_to_file("res://PART - LEVELS/SCENES/M1/M1.tscn")
+		Main.get_node("Globals Levels").change_lvl(id[0]+".0.0", "Back to Hub", id[0]+".0.0")
