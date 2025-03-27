@@ -43,10 +43,6 @@ func _takeDamages(damages:int):
 		damages = PlayerDataSaver.PlayerStats.health
 	PlayerDataSaver.PlayerStats.health -= damages
 
-func _on_player_taking_damage_zone_area_entered(area: Area2D) -> void:
-	if area.name == "FrogDealingDamage":
-		_takeDamages(1)
-
 # Layer Checkers
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	canGoDeeper = false

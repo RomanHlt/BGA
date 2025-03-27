@@ -311,4 +311,3 @@ shape = SubResource("CapsuleShape2D_7rip5")
 [connection signal="body_exited" from="deeperChecker" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="closerChecker" to="." method="_on_closer_checker_body_entered"]
 [connection signal="body_exited" from="closerChecker" to="." method="_on_closer_checker_body_exited"]
-[connection signal="area_entered" from="PlayerTakingDamageZone" to="." method="_on_player_taking_damage_zone_area_entered"]

@@ -84,6 +84,8 @@ func _on_player_detection_body_exited(body: Node2D) -> void:
 
 func _attack(body):
 	$FrogDealingDamage.collision_mask = 2**layer
+	if body.name == "Player":
+		body._takeDamages(1)
 
 func _on_frog_taking_damage_area_entered(area: Area2D) -> void:
 	if area.name == "PlayerDealingDamageZone":
