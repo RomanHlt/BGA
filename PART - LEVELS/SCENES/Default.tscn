@@ -2059,26 +2059,24 @@ sources/3 = SubResource("TileSetAtlasSource_5p5ar")
 script = ExtResource("1_hk1ph")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-z_index = -1
 tile_set = SubResource("TileSet_k3r57")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
-z_index = -2
+z_index = -1
 tile_set = SubResource("TileSet_syulu")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 modulate = Color(0.305077, 0.305077, 0.305077, 1)
-z_index = -3
+z_index = -2
 tile_set = SubResource("TileSet_ic06u")
 
 [node name="TileMapLayer4" type="TileMapLayer" parent="."]
 modulate = Color(0.305077, 0.305077, 0.305077, 1)
-z_index = -4
+z_index = -3
 tile_set = SubResource("TileSet_ic06u")
 
 [node name="Player" parent="." instance=ExtResource("3_tt8wm")]
-show_behind_parent = true
 scale = Vector2(1.5, 1.5)
 collision_layer = 0
 

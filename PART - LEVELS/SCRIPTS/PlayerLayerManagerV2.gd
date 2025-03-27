@@ -11,7 +11,7 @@ var pathObstured:bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = $Player
-	player.z_index = -spawnLayer+1
+	player.z_index = -spawnLayer
 	player.collision_mask = 2**spawnLayer
 	player.collision_layer = 2**spawnLayer
 	Layers = get_children().filter(func (x): if x.is_class("TileMapLayer"): return x)
@@ -33,7 +33,7 @@ func goToLayer(layer:int = 0):
 		player.reparent(Layers[layer])
 		player.collision_mask = 2**layer
 		player.collision_layer = 2**layer
-		player.z_index = -layer +1
+		player.z_index = -layer 
 		player.deeperChecker.collision_mask = 2**(layer+1)
 		player.closerChecker.collision_mask = 2**(layer-1)
 		currentPlayerLayer=layer
@@ -45,6 +45,6 @@ func goToLayer(layer:int = 0):
 		player.collision_layer = 2**layer
 		player.deeperChecker.collision_mask = 2**(layer+1)
 		player.closerChecker.collision_mask = 2**(layer-1)
-		player.z_index = -layer +1
+		player.z_index = -layer
 		currentPlayerLayer=layer
 		player.position.y+=1 #Eviter que les checker ne detectent plus de collisions (patch de brute)
