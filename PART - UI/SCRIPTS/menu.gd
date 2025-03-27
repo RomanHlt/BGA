@@ -1,6 +1,12 @@
 extends Control
-
-
+var id
+func _ready() -> void:
+	id=get_tree().current_scene.id.split(".")
+	if id[1] == "0" and id[2] == "0":
+		$"Quitter la Partie".text = "Quitter la Partie"
+	else:
+		$"Quitter la Partie".text = "Retour au Hub"
+	
 func _on_reprendre_pressed() -> void:
 	# Desactiver le menu
 	var menu = get_tree().root.get_node("/root/Map/CanvasLayer/Menu")
@@ -28,6 +34,11 @@ func _on_progres_pressed() -> void:
 
 
 func _on_quitter_la_partie_pressed() -> void:
-	Main.get_node("Globals Options").ingame = false
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://UI/scene/ecran_d'accueil.tscn")
+	if $"Quitter la Partie".text == "Quitter la Partie":
+		Main.get_node("Globals Options").ingame = false
+		get_tree().paused = false
+		get_tree().change_scene_to_file("res://PART - UI/SCENES/ecran_d'accueil.tscn")
+	else:
+		Main.get_node("Globals Options").open_from_accueil = false
+		get_tree().paused = false
+		Main.get_node("Globals Levels").change_lvl(id[0]+".0.0", "Back to Hub", id[0]+".0.0")

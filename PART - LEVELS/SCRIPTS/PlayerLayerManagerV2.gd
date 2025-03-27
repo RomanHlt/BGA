@@ -1,7 +1,7 @@
 extends Node2D
 
 @export_subgroup("Identity")
-@export var id = "0.0.0"
+@export var id : String
 @export var spawnLayer:int = 0
 var Layers:Array
 var player:CharacterBody2D
@@ -19,14 +19,13 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("deeperLayer") and currentPlayerLayer < len(Layers)-1:
+	if player.canGoDeeper and Input.is_action_just_pressed("deeperLayer") and currentPlayerLayer < len(Layers)-1:
 		goToLayer(currentPlayerLayer+1)
-	elif Input.is_action_just_pressed("closerLayer") and currentPlayerLayer > 0:
+	elif player.canGoCloser and Input.is_action_just_pressed("closerLayer") and currentPlayerLayer > 0:
 		goToLayer(currentPlayerLayer-1)
 		
 	if Input.is_action_just_pressed("stats"):
-		print("Parent: ",player.get_parent()," | Coord: ",player.position)
-		print("Z_Index: ",player.z_index, " | Collisions: ", player.collision_mask)
+		print(player.deeperChecker.get_overlapping_areas())
 
 func goToLayer(layer:int = 0):
 	if player.canGoDeeper == true and currentPlayerLayer < layer:
@@ -38,6 +37,7 @@ func goToLayer(layer:int = 0):
 		player.deeperChecker.collision_mask = 2**(layer+1)
 		player.closerChecker.collision_mask = 2**(layer-1)
 		currentPlayerLayer=layer
+		player.position.y+=1 #Eviter que les checker ne detectent plus de collisions (patch de brute)
 	if player.canGoCloser == true and currentPlayerLayer > layer:
 		player.layerJump = true
 		player.reparent(Layers[layer])
@@ -47,3 +47,4 @@ func goToLayer(layer:int = 0):
 		player.closerChecker.collision_mask = 2**(layer-1)
 		player.z_index = -layer +1
 		currentPlayerLayer=layer
+		player.position.y+=1 #Eviter que les checker ne detectent plus de collisions (patch de brute)

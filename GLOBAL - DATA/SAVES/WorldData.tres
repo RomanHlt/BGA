@@ -6,7 +6,8 @@
 script = ExtResource("1_b5er8")
 levels = 1
 compo = {
-1: [true, true, false],
+
+1: [false, true, false],
 2: [false, false, false]
 }
 access = {

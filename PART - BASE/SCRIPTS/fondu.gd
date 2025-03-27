@@ -6,6 +6,7 @@ func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS # Le script autoload ne sera pas afecté par les pauses.
 
 func change_lvl(path, titre, sous_titre):
+	Main.get_node("/root/GlobalsOptions").ingame = false
 	$Titre.text = titre
 	$"Sous titre".text = sous_titre
 	get_tree().paused = true
@@ -17,3 +18,5 @@ func change_lvl(path, titre, sous_titre):
 	$LoadingPlayer.stop()
 	$FonduPlayer.play_backwards("fondu")
 	get_tree().paused = false
+	Main.get_node("/root/GlobalsOptions").ingame = true
+	PlayerDataSaver._handle_load()

@@ -12,3 +12,8 @@ func _handle_save():
 	PlayerStats.save_game()
 	WorldStats.save_game()
 	print("game saved !")
+
+func _handle_load():
+	PlayerStats.load_game()
+	WorldStats.load_game()
+	print("Game Loaded !")

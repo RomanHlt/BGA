@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dt1pv53ek46dl"]
+[gd_scene load_steps=23 format=3 uid="uid://dt1pv53ek46dl"]
 
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/door.gd" id="1_gmu4f"]
 [ext_resource type="Texture2D" uid="uid://b8xwpvj3btgvj" path="res://PART - BASE/SCENES/LevelDoor.png" id="2_afq11"]
@@ -36,7 +36,7 @@ font_color = Color(0.801575, 0.245948, 0.560374, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Animation" id="Animation_w81g5"]
+[sub_resource type="Animation" id="Animation_68b86"]
 length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
@@ -52,7 +52,7 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_tyaum"]
+[sub_resource type="Animation" id="Animation_05nr1"]
 length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
@@ -68,7 +68,7 @@ tracks/0/keys = {
 "values": [1]
 }
 
-[sub_resource type="Animation" id="Animation_45pa7"]
+[sub_resource type="Animation" id="Animation_7t2rs"]
 length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
@@ -84,7 +84,7 @@ tracks/0/keys = {
 "values": [2]
 }
 
-[sub_resource type="Animation" id="Animation_e6ohl"]
+[sub_resource type="Animation" id="Animation_3g0ro"]
 length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
@@ -100,12 +100,46 @@ tracks/0/keys = {
 "values": [3]
 }
 
+[sub_resource type="Animation" id="Animation_cmn18"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Notes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_l8klu"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Notes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b8xhe"]
 _data = {
-"0": SubResource("Animation_w81g5"),
-"1": SubResource("Animation_tyaum"),
-"2": SubResource("Animation_45pa7"),
-"3": SubResource("Animation_e6ohl")
+"000": SubResource("Animation_68b86"),
+"001": SubResource("Animation_l8klu"),
+"010": SubResource("Animation_cmn18"),
+"100": SubResource("Animation_05nr1"),
+"110": SubResource("Animation_7t2rs"),
+"111": SubResource("Animation_3g0ro")
 }
 
 [sub_resource type="Animation" id="Animation_icqrg"]
@@ -198,6 +232,8 @@ _data = {
 }
 
 [node name="lvl_changer" type="Area2D"]
+z_index = 1
+z_as_relative = false
 texture_filter = 1
 script = ExtResource("1_gmu4f")
 
@@ -252,7 +288,7 @@ texture_filter = 1
 position = Vector2(0, -20)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_04xky")
-hframes = 2
+hframes = 3
 vframes = 2
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
@@ -269,7 +305,7 @@ metadata/_aseprite_wizard_config_ = {
 "slice": "",
 "source": "res://PART - LEVELS/ASSETS/Map/4 Animated objects/Notes.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "439026340ebc475ca8c4d977e024644e"
+metadata/_aseprite_wizard_source_file_hash_ = "89ced42b829ed54751dd9eec5a192883"
 
 [node name="NotesPlayer" type="AnimationPlayer" parent="Panel"]
 libraries = {
