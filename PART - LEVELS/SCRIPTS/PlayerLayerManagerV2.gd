@@ -1,5 +1,7 @@
 extends Node2D
 
+@export_subgroup("Identity")
+@export var id = "0.0.0"
 @export var spawnLayer:int = 0
 var Layers:Array
 var player:CharacterBody2D
