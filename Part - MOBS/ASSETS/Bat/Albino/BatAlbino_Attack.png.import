@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b75ni7xsry85r"
-path="res://.godot/imported/BatAlbino_Attack.png-e4261d44963cda3f677da4f32bbe6846.ctex"
+path="res://.godot/imported/BatAlbino_Attack.png-dd2660702e9bfab2a6ada4f365dd94a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Part - MOBS/ASSETS/Bat/Albino/BatAlbino_Attack.png"
-dest_files=["res://.godot/imported/BatAlbino_Attack.png-e4261d44963cda3f677da4f32bbe6846.ctex"]
+source_file="res://PART - MOBS/ASSETS/Bat/Albino/BatAlbino_Attack.png"
+dest_files=["res://.godot/imported/BatAlbino_Attack.png-dd2660702e9bfab2a6ada4f365dd94a9.ctex"]
 
 [params]
 
