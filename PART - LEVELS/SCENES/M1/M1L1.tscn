@@ -2102,22 +2102,7 @@ tile_map_data = PackedByteArray("AABIADgAAwABAAUAAABIADcAAwAEAAIAAABIADYAAwADAAI
 tile_set = SubResource("TileSet_syulu")
 
 [node name="Note" parent="TileMapLayer2" instance=ExtResource("3_mqdnj")]
-<<<<<<< HEAD
-position = Vector2(115, -54)
-number = 0
-layer = 1
-
-
-[node name="frog" parent="TileMapLayer2" instance=ExtResource("4_wqnwh")]
-position = Vector2(-31, -49)
-
-[node name="Flag" parent="TileMapLayer2" instance=ExtResource("4_osf3s")]
-position = Vector2(70, -47)
-
-layer = 1
-=======
 position = Vector2(2017, -386)
->>>>>>> map
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 modulate = Color(0.305077, 0.305077, 0.305077, 1)
