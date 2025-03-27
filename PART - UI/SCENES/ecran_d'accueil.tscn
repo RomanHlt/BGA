@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://PART - UI/SCENES/progrès.tscn" id="3_xl2o5"]
 [ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="4_112di"]
 [ext_resource type="Script" path="res://PART - UI/SCRIPTS/tempo.gd" id="5_lphf1"]
-[ext_resource type="PackedScene" uid="uid://cnw2smg07vj43" path="res://PART - LEVELS/SCENES/Map.tscn" id="6_1nkpj"]
+[ext_resource type="PackedScene" uid="uid://d4cl5kxk8282o" path="res://PART - LEVELS/SCENES/M1/M1.tscn" id="6_0gpq5"]
 
 [node name="Ecran d\'accueil" type="Control"]
 layout_mode = 3
@@ -38,6 +38,6 @@ offset_right = 283.0
 offset_bottom = 424.0
 text = "Temporaire : Aller en jeu"
 script = ExtResource("5_lphf1")
-map = ExtResource("6_1nkpj")
+map = ExtResource("6_0gpq5")
 
 [connection signal="pressed" from="Tempo" to="Tempo" method="_on_pressed"]
