@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dt1pv53ek46dl"]
+[gd_scene load_steps=21 format=3 uid="uid://dt1pv53ek46dl"]
 
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/door.gd" id="1_gmu4f"]
 [ext_resource type="Texture2D" uid="uid://b8xwpvj3btgvj" path="res://PART - BASE/SCENES/LevelDoor.png" id="2_afq11"]
-[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="2_x1u0s"]
+[ext_resource type="Texture2D" uid="uid://bkff6bdw7hpga" path="res://PART - BASE/SCENES/Notes.png" id="3_04xky"]
+[ext_resource type="FontFile" uid="uid://dsi8plob4hdvb" path="res://GLOBAL - Font/KAPH/TrueType (.ttf)/Kaph-Regular.ttf" id="3_cwefx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgah1"]
 size = Vector2(32, 41)
@@ -22,12 +23,106 @@ corner_radius_bottom_left = 50
 [sub_resource type="Theme" id="Theme_y65sj"]
 Panel/styles/panel = SubResource("StyleBoxFlat_h5vu5")
 
-[sub_resource type="Theme" id="Theme_2ubsg"]
-Label/colors/font_color = Color(1, 0, 0.733333, 1)
-Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
-Label/constants/outline_size = 10
-Label/font_sizes/font_size = 6
-Label/fonts/font = ExtResource("2_x1u0s")
+[sub_resource type="LabelSettings" id="LabelSettings_8vbf0"]
+font = ExtResource("3_cwefx")
+font_size = 8
+font_color = Color(0.8, 0.247059, 0.560784, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xvi0e"]
+font = ExtResource("3_cwefx")
+font_color = Color(0.801575, 0.245948, 0.560374, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_w81g5"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Notes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_tyaum"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Notes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_45pa7"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Notes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_e6ohl"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Notes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b8xhe"]
+_data = {
+"0": SubResource("Animation_w81g5"),
+"1": SubResource("Animation_tyaum"),
+"2": SubResource("Animation_45pa7"),
+"3": SubResource("Animation_e6ohl")
+}
+
+[sub_resource type="Animation" id="Animation_icqrg"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
 
 [sub_resource type="Animation" id="Animation_6f2h8"]
 length = 0.3
@@ -95,6 +190,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_np7xm"]
 _data = {
+"Closed": SubResource("Animation_icqrg"),
 "Closing": SubResource("Animation_6f2h8"),
 "Idle": SubResource("Animation_6rki0"),
 "Open": SubResource("Animation_bd5jn"),
@@ -112,24 +208,73 @@ shape = SubResource("RectangleShape2D_tgah1")
 [node name="Panel" type="Panel" parent="."]
 visible = false
 texture_filter = 1
-offset_left = -80.0
-offset_top = -59.0
-offset_right = 82.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -34.0
 offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_y65sj")
 
 [node name="Label" type="Label" parent="Panel"]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = 71.0
+offset_right = 11.0
+offset_bottom = 81.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_2ubsg")
-text = "Test"
+text = "[E]"
+label_settings = SubResource("LabelSettings_8vbf0")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -7.0
+offset_right = 22.0
+offset_bottom = 16.0
+text = "LVL"
+label_settings = SubResource("LabelSettings_xvi0e")
+
+[node name="Notes" type="Sprite2D" parent="Panel"]
+texture_filter = 1
+position = Vector2(0, -20)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_04xky")
+hframes = 2
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "Panel/NotesPlayer",
+"slice": "",
+"source": "res://PART - LEVELS/ASSETS/Map/4 Animated objects/Notes.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "439026340ebc475ca8c4d977e024644e"
+
+[node name="NotesPlayer" type="AnimationPlayer" parent="Panel"]
+libraries = {
+"": SubResource("AnimationLibrary_b8xhe")
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -137,11 +282,12 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.691357, 0.691357, 0.691357, 1)
+self_modulate = Color(0.385188, 0.390013, 0.483938, 1)
 texture_filter = 1
 texture = ExtResource("2_afq11")
 hframes = 3
 vframes = 2
+frame = 5
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -157,7 +303,7 @@ metadata/_aseprite_wizard_config_ = {
 "slice": "",
 "source": "res://PART - LEVELS/ASSETS/Map/4 Animated objects/LevelDoor.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "4c6d78efa6f4b7b549bda4eff1f24bc8"
+metadata/_aseprite_wizard_source_file_hash_ = "8f454ec591b8384f6716ec4d53d84faf"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

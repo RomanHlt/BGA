@@ -5,7 +5,7 @@ extends Area2D
 @export var sprite: Texture2D  # Sprite de l'objet avec lequel interagir
 @export var texte: String = "Appuyez sur [E] pour utiliser l'échelle"  # Texte affiché
 @export_category("Next lvl config")
-@export var id_next_lvl: String
+@export var id_next_lvl: String #Monde.Niveau.Sous-Niveau
 @export_category("LoadScreen config")
 @export var titre : String
 @export var sous_titre : String
@@ -14,14 +14,28 @@ extends Area2D
 @onready var can_interact = false  # Peut-on interagir ?qd
 var is_loading = false  # Empêche de spammer le changement de scène
 
+var notes = [false,false,false]
+var canAccess = false
+
 func _ready() -> void:
+	
+	#Récupérer les infos enregistrées
+	var level = int(id_next_lvl.split(".")[1]) #On récupère le num du niveau
+	notes = PlayerDataSaver.WorldStats.compo[level]
+	var n=0
+	for i in notes: if i == true: n+=1
+	$Panel/NotesPlayer.play(str(n))
+	canAccess = PlayerDataSaver.WorldStats.access[level]
+	if !canAccess: $AnimationPlayer.play("Closed")
+	else: $AnimationPlayer.play("Idle")
+	
 	$AnimationPlayer.get_animation("Opening").loop_mode = Animation.LOOP_NONE #rend l'animation unique
 
 	self.process_mode = Node.PROCESS_MODE_ALWAYS # Le script ne sera pas afecté par les pauses.
 	$Panel/Label.text = texte
 	collision_layer = 0
 	z_index = -layer
-	collision_mask = 2**(layer-1)
+	collision_mask = 2**layer
 	if sprite:
 		$Sprite2D.texture = sprite
 	else:
@@ -30,19 +44,21 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	"""Affiche le texte d'interaction"""
-	if body.name == "Player":
-		$Panel.visible = true
-		can_interact = true
+	if canAccess==true:
+		if body.name == "Player":
+			$Panel.visible = true
+			can_interact = true
 
 func _on_body_exited(body: Node2D) -> void:
 	"""Cache le texte d'interaction"""
-	if body.name == "Player":
-		$Panel.visible = false
-		can_interact = false
+	if canAccess == true:
+		if body.name == "Player":
+			$Panel.visible = false
+			can_interact = false
 
 func _input(event: InputEvent) -> void:
 	"""Déclenche le changement de niveau"""
-	if Input.is_action_just_pressed("interagir") and can_interact:
+	if Input.is_action_just_pressed("interagir") and can_interact and canAccess:
 		$AnimationPlayer.play("Opening")
 	
 		Main.get_node("Globals Levels").change_lvl(id_next_lvl, titre, sous_titre)

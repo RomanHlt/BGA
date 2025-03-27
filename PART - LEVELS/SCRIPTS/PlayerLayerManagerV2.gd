@@ -1,5 +1,7 @@
 extends Node2D
 
+@export_subgroup("Identity")
+@export var id = "0.0.0"
 @export var spawnLayer:int = 0
 var Layers:Array
 var player:CharacterBody2D
@@ -9,7 +11,7 @@ var pathObstured:bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = $Player
-	player.z_index = -spawnLayer
+	player.z_index = -spawnLayer+1
 	player.collision_mask = 2**spawnLayer
 	player.collision_layer = 2**spawnLayer
 	Layers = get_children().filter(func (x): if x.is_class("TileMapLayer"): return x)
