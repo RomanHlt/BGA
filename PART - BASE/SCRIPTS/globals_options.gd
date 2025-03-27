@@ -4,9 +4,6 @@ func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS # Le script autoload ne sera pas afecté par les pauses.
 	
 # Variables pour sauvegarder les données du jeu
-func _process(delta: float) -> void:
-	print(Main.get_node("/root/GlobalsOptions").ingame)
-
 # Variables des options (Les valeurs renseignées seront celles par défaut
 var Son = 3  # Son (0-5)
 var Son_disable = false # Son coupé

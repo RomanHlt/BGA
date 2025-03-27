@@ -10,7 +10,6 @@ var currentPlayerLayer:int = spawnLayer
 var pathObstured:bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	PlayerDataSaver.PlayerStats.currentlvl = id
 	player = $Player
 	player.z_index = -spawnLayer+1
 	player.collision_mask = 2**spawnLayer
