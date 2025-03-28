@@ -21,7 +21,6 @@ var fire:bool = false
 
 func _ready():
 	#setup the layer checkers
-	print($Sprite2D.scale)
 	deeperChecker = $deeperChecker
 	closerChecker = $closerChecker
 

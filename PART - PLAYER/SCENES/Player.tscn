@@ -204,7 +204,6 @@ radius = 4.0
 height = 12.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "advanced_jump_component", "animation_component", "weapon_component")]
-top_level = true
 z_as_relative = false
 slide_on_ceiling = false
 script = ExtResource("1_1sa3q")
