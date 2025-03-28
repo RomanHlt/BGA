@@ -4,8 +4,10 @@ extends Area2D
 @export var layer: int  # Layer de l'objet
 @export var sprite: Texture2D  # Sprite de l'objet avec lequel interagir
 @export var texte: String = "Appuyez sur [E] pour utiliser l'échelle"  # Texte affiché
+@export var isHub:bool = true
 @export_category("Next lvl config")
 @export var id_next_lvl: String #Monde.Niveau.Sous-Niveau
+@export var id_unlocked_lvl:String
 @export_category("LoadScreen config")
 @export var titre : String
 @export var sous_titre : String
@@ -17,27 +19,33 @@ var is_loading = false  # Empêche de spammer le changement de scène
 var notes = [false,false,false]
 var canAccess = false
 
+
 func _ready() -> void:
 	
-	#Récupérer les infos enregistrées
-	var level = int(id_next_lvl.split(".")[1]) #On récupère le num du niveau
-	notes = PlayerDataSaver.WorldStats.compo[level]
-	var n=""
-	for i in notes:
-		if i == true: 
-			n+="1"
-		else:
-			n+="0"
-	$Panel/NotesPlayer.play(n)
-	canAccess = PlayerDataSaver.WorldStats.access[level]
-	if !canAccess: $AnimationPlayer.play("Closed")
-	else: $AnimationPlayer.play("Idle")
+	
+	if isHub:
+		#Récupérer les infos enregistrées
+		var level = int(id_next_lvl.split(".")[1]) #On récupère le num du niveau
+		notes = PlayerDataSaver.WorldStats.compo[level]
+		var n=""
+		for i in notes:
+			if i == true: 
+				n+="1"
+			else:
+				n+="0"
+		$Panel/Hub/NotesPlayer.play(n)
+		canAccess = PlayerDataSaver.WorldStats.access[level]
+		if !canAccess: $AnimationPlayer.play("Closed")
+		else: $AnimationPlayer.play("Idle")
+	else:
+		$AnimationPlayer.play("Idle")
+		canAccess=true
 	
 	$AnimationPlayer.get_animation("Opening").loop_mode = Animation.LOOP_NONE #rend l'animation unique
 
 	self.process_mode = Node.PROCESS_MODE_ALWAYS # Le script ne sera pas afecté par les pauses.
 	$Panel/Label.text = texte
-	z_index = get_parent().z_index +1
+	z_index = get_parent().z_index
 	collision_layer = 0
 	collision_mask = 2**layer
 	if sprite:
@@ -50,8 +58,8 @@ func _on_body_entered(body: Node2D) -> void:
 	"""Affiche le texte d'interaction"""
 	if canAccess==true:
 		if body.name == "Player":
-			print(body.z_index,"//",z_index,"//",get_parent().z_index)
 			$Panel.visible = true
+			if !isHub: $Panel/Hub.hide()
 			can_interact = true
 
 func _on_body_exited(body: Node2D) -> void:
@@ -66,6 +74,6 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interagir") and can_interact and canAccess:
 		$AnimationPlayer.play("Opening")
 		PlayerDataSaver.PlayerStats.current_lvl = id_next_lvl
-		PlayerDataSaver.WorldStats.level_completed()
+		if not isHub:PlayerDataSaver.WorldStats.level_completed(id_unlocked_lvl)
 		PlayerDataSaver._handle_save()
 		Main.get_node("Globals Levels").change_lvl(id_next_lvl, titre, sous_titre)

@@ -10,7 +10,6 @@ class_name WorldData
 func save_game():
 	var result = ResourceSaver.save(self,'res://GLOBAL - DATA/SAVES/WorldData.tres')
 	assert(result == OK)
-	print("World Saved")
 	
 	
 	

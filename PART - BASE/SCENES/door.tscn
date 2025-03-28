@@ -30,19 +30,13 @@ font_color = Color(0.8, 0.247059, 0.560784, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_xvi0e"]
-font = ExtResource("3_cwefx")
-font_color = Color(0.801575, 0.245948, 0.560374, 1)
-outline_size = 3
-outline_color = Color(0, 0, 0, 1)
-
 [sub_resource type="Animation" id="Animation_68b86"]
 length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Notes:frame")
+tracks/0/path = NodePath("Hub/Notes:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -58,7 +52,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Notes:frame")
+tracks/0/path = NodePath("Hub/Notes:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -74,7 +68,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Notes:frame")
+tracks/0/path = NodePath("Hub/Notes:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -90,7 +84,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Notes:frame")
+tracks/0/path = NodePath("Hub/Notes:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -106,7 +100,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Notes:frame")
+tracks/0/path = NodePath("Hub/Notes:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -122,7 +116,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Notes:frame")
+tracks/0/path = NodePath("Hub/Notes:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -141,6 +135,12 @@ _data = {
 "110": SubResource("Animation_7t2rs"),
 "111": SubResource("Animation_3g0ro")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_xvi0e"]
+font = ExtResource("3_cwefx")
+font_color = Color(0.801575, 0.245948, 0.560374, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_icqrg"]
 length = 0.1
@@ -274,16 +274,12 @@ label_settings = SubResource("LabelSettings_8vbf0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = -18.0
-offset_top = -7.0
-offset_right = 22.0
-offset_bottom = 16.0
-text = "LVL"
-label_settings = SubResource("LabelSettings_xvi0e")
+[node name="Hub" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Notes" type="Sprite2D" parent="Panel"]
+[node name="Notes" type="Sprite2D" parent="Panel/Hub"]
 texture_filter = 1
 position = Vector2(0, -20)
 scale = Vector2(0.5, 0.5)
@@ -307,10 +303,20 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "89ced42b829ed54751dd9eec5a192883"
 
-[node name="NotesPlayer" type="AnimationPlayer" parent="Panel"]
+[node name="NotesPlayer" type="AnimationPlayer" parent="Panel/Hub"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_b8xhe")
 }
+
+[node name="Label2" type="Label" parent="Panel/Hub"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -7.0
+offset_right = 22.0
+offset_bottom = 16.0
+text = "LVL"
+label_settings = SubResource("LabelSettings_xvi0e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -2069,7 +2069,7 @@ script = ExtResource("1_viq2l")
 id = "1.1.0"
 
 [node name="Player" parent="." instance=ExtResource("3_34p7g")]
-position = Vector2(-63, -42)
+position = Vector2(3017, 330)
 scale = Vector2(1.5, 1.5)
 collision_layer = 0
 
@@ -2086,9 +2086,10 @@ position = Vector2(2386, -739)
 
 [node name="door" parent="TileMapLayer" instance=ExtResource("5_x5rhe")]
 position = Vector2(3081, 336)
-layer = null
 texte = "[E]"
+isHub = false
 id_next_lvl = "1.0.0"
+id_unlocked_lvl = "1.2.0"
 titre = "Hub"
 sous_titre = "Back to Hub"
 

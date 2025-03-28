@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 func _handle_save():
 	PlayerStats.save_game()
 	WorldStats.save_game()
-	print("game saved !")
+	print("Game Saved !")
 
 func _handle_load():
 	PlayerStats.load_game()
