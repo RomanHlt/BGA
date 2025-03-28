@@ -2093,6 +2093,7 @@ tile_map_data = PackedByteArray("AAAeAAIAAwACAAUAAAAeAAEAAwACAAMAAAAeAAAAAwADAAM
 tile_set = SubResource("TileSet_ic06u")
 
 [node name="Player" parent="." instance=ExtResource("3_xu4oq")]
+top_level = false
 scale = Vector2(1.5, 1.5)
 collision_layer = 0
 

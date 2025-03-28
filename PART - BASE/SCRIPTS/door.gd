@@ -66,5 +66,6 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interagir") and can_interact and canAccess:
 		$AnimationPlayer.play("Opening")
 		PlayerDataSaver.PlayerStats.current_lvl = id_next_lvl
+		PlayerDataSaver.WorldStats.level_completed()
 		PlayerDataSaver._handle_save()
 		Main.get_node("Globals Levels").change_lvl(id_next_lvl, titre, sous_titre)
