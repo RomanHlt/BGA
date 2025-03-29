@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://cjf1qy228ipvq"]
+
+[ext_resource type="Texture2D" uid="uid://b3urekygunswt" path="res://PART - OBJECTS/SCENES/Moving Platfrom-export.png" id="1_kpto3"]
+[ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/platform.gd" id="1_pr63b"]
+
+[sub_resource type="Curve2D" id="Curve2D_omdds"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 323, 0)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ki2uu"]
+size = Vector2(260, 50)
+
+[sub_resource type="Animation" id="Animation_0d1rn"]
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-1.56, -1.56),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_lyrww"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_drccf"]
+_data = {
+"Moving platform": SubResource("Animation_0d1rn"),
+"RESET": SubResource("Animation_lyrww")
+}
+
+[node name="Path2D" type="Path2D"]
+curve = SubResource("Curve2D_omdds")
+script = ExtResource("1_pr63b")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+texture_filter = 1
+texture = ExtResource("1_kpto3")
+hframes = 4
+vframes = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://PART - LEVELS/ASSETS/Trap/Moving Platfrom-export.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a14391e0620ca62cbf5181a32115b747"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_ki2uu")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(323, 0)
+progress = 323.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_drccf")
+}
+
+[node name="Animation graphique" type="AnimationPlayer" parent="."]
