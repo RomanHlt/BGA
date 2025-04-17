@@ -35,13 +35,20 @@ func _choose(array):
 
 func _process(delta: float) -> void:
 	_move(delta)
+	_handle_animation()
 
 func _move(delta):
 	if !is_chasing:
 		velocity += direction * SPEED * delta
 	move_and_slide()
 
-	
+func _handle_animation():
+	if !dead and !is_sleeping:
+		animatedSprite.play("flying")
+		if direction.x == -1:
+			animatedSprite.flip_h = true
+		elif direction.x == 1:
+			animatedSprite.flip_h = false
 
 func _on_detection_player_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -50,7 +57,7 @@ func _on_detection_player_body_entered(body: Node2D) -> void:
 
 
 func _on_direction_timer_timeout() -> void:
-	$DirectionTimer.wait_time = _choose([0.1, 0.3, 0.5, 0.7, 1.0])
+	$DirectionTimer.wait_time = _choose([0.3, 0.5, 0.7, 1.0])
 	if is_chasing == false:
 		direction = _choose([Vector2.RIGHT, Vector2.LEFT, Vector2.DOWN, Vector2.UP])
 		
