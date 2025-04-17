@@ -11,7 +11,7 @@ var is_sleeping : bool = true
 var map
 @export var layer:int = 0
 var animatedSprite:AnimatedSprite2D
-
+var player : CharacterBody2D
 
 func _ready() -> void:
 	animatedSprite = _choose([$Zombie, $Root, $Fire, $Standart, $Vampire, $Albino])
@@ -38,7 +38,10 @@ func _process(delta: float) -> void:
 	_handle_animation()
 
 func _move(delta):
-	if !is_chasing:
+	if is_chasing:
+		velocity = position.direction_to(player.position) * SPEED
+		direction.x = abs(velocity.x)/velocity.x
+	elif !is_chasing:
 		velocity += direction * SPEED * delta
 	move_and_slide()
 
@@ -53,7 +56,8 @@ func _handle_animation():
 func _on_detection_player_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		is_sleeping = false
-		#is_chasing = true
+		is_chasing = true
+		player = body
 
 
 func _on_direction_timer_timeout() -> void:
