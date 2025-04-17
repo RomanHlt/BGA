@@ -1,5 +1,6 @@
-[gd_scene load_steps=140 format=3 uid="uid://0xlb2up47lnn"]
+[gd_scene load_steps=143 format=3 uid="uid://0xlb2up47lnn"]
 
+[ext_resource type="Script" path="res://Part - MOBS/SCRIPTS/bat.gd" id="1_hr5jd"]
 [ext_resource type="Texture2D" uid="uid://bb18btju7a37e" path="res://Part - MOBS/ASSETS/Bat/Zombie/BatZombie_Attack.png" id="1_j1obv"]
 [ext_resource type="Texture2D" uid="uid://j1rpk1laquwv" path="res://Part - MOBS/ASSETS/Bat/Zombie/BatZombie_Death.png" id="2_y84jl"]
 [ext_resource type="Texture2D" uid="uid://cdqmamtjryvr2" path="res://Part - MOBS/ASSETS/Bat/Zombie/BatZombie_Flying.png" id="3_isgx6"]
@@ -919,10 +920,19 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_svy1s"]
-radius = 4.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4175d"]
+size = Vector2(9, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7qiu"]
+size = Vector2(3, 7)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nw6k8"]
+radius = 84.3801
 
 [node name="Bat" type="CharacterBody2D"]
+script = ExtResource("1_hr5jd")
+SPEED = 50.0
+metadata/_edit_group_ = true
 
 [node name="Zombie" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ssli2")
@@ -948,7 +958,28 @@ animation = &"attack"
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_0ersd")
 animation = &"attack"
+frame = 5
+frame_progress = 0.225939
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
-shape = SubResource("CircleShape2D_svy1s")
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_4175d")
+
+[node name="BatDealingDamage" type="Area2D" parent="."]
+
+[node name="BatDealingDamageShape" type="CollisionShape2D" parent="BatDealingDamage"]
+visible = false
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_e7qiu")
+
+[node name="DetectionPlayer" type="Area2D" parent="."]
+
+[node name="DetectionPlayerShape" type="CollisionShape2D" parent="DetectionPlayer"]
+visible = false
+shape = SubResource("CircleShape2D_nw6k8")
+
+[node name="DirectionTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="DetectionPlayer" to="." method="_on_detection_player_body_entered"]
+[connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
