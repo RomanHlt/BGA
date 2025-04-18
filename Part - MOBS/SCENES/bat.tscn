@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://0xlb2up47lnn"]
+[gd_scene load_steps=145 format=3 uid="uid://0xlb2up47lnn"]
 
 [ext_resource type="Script" path="res://Part - MOBS/SCRIPTS/bat.gd" id="1_hr5jd"]
 [ext_resource type="Texture2D" uid="uid://bb18btju7a37e" path="res://Part - MOBS/ASSETS/Bat/Zombie/BatZombie_Attack.png" id="1_j1obv"]
@@ -145,7 +145,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oxoro")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 7.0
 }, {
@@ -294,7 +294,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kl7j8")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 7.0
 }, {
@@ -443,7 +443,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gpnf2")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 7.0
 }, {
@@ -592,7 +592,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rj66u")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 7.0
 }, {
@@ -741,7 +741,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_68c2r")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 7.0
 }, {
@@ -890,7 +890,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_em8a3")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 7.0
 }, {
@@ -927,7 +927,13 @@ size = Vector2(9, 5)
 size = Vector2(3, 7)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nw6k8"]
-radius = 84.3801
+radius = 84.214
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_den8n"]
+radius = 31.257
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nfmu"]
+size = Vector2(10, 2)
 
 [node name="Bat" type="CharacterBody2D"]
 script = ExtResource("1_hr5jd")
@@ -936,30 +942,28 @@ metadata/_edit_group_ = true
 
 [node name="Zombie" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ssli2")
-animation = &"attack"
+animation = &"death"
 
 [node name="Root" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k6loj")
-animation = &"attack"
+animation = &"death"
 
 [node name="Fire" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ni8hm")
-animation = &"attack"
+animation = &"death"
 
 [node name="Standart" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cgqdk")
-animation = &"attack"
+animation = &"death"
 
 [node name="Vampire" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fh8d8")
-animation = &"attack"
+animation = &"death"
 
 [node name="Albino" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_0ersd")
-animation = &"attack"
-frame = 5
-frame_progress = 0.225939
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
@@ -968,7 +972,6 @@ shape = SubResource("RectangleShape2D_4175d")
 [node name="BatDealingDamage" type="Area2D" parent="."]
 
 [node name="BatDealingDamageShape" type="CollisionShape2D" parent="BatDealingDamage"]
-visible = false
 position = Vector2(4, 0)
 shape = SubResource("RectangleShape2D_e7qiu")
 
@@ -981,5 +984,21 @@ shape = SubResource("CircleShape2D_nw6k8")
 [node name="DirectionTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="AttackShape" type="CollisionShape2D" parent="AttackArea"]
+visible = false
+shape = SubResource("CircleShape2D_den8n")
+
+[node name="BatTakingDamage" type="Area2D" parent="."]
+
+[node name="BatTakingDamageShape" type="CollisionShape2D" parent="BatTakingDamage"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_4nfmu")
+
 [connection signal="body_entered" from="DetectionPlayer" to="." method="_on_detection_player_body_entered"]
+[connection signal="body_exited" from="DetectionPlayer" to="." method="_on_detection_player_body_exited"]
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="area_entered" from="BatTakingDamage" to="." method="_on_bat_taking_damage_area_entered"]

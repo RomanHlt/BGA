@@ -28,6 +28,8 @@ func _ready() -> void:
 	$DetectionPlayer.collision_layer = 2**layer
 	$DetectionPlayer.collision_mask = 2**layer
 	
+	#la collision shade des dégts est desactivée
+	$BatDealingDamage.collision_mask = 0
 
 func _choose(array):
 	array.shuffle()
@@ -38,20 +40,30 @@ func _process(delta: float) -> void:
 	_handle_animation()
 
 func _move(delta):
-	if is_chasing:
+	if is_sleeping:
+		velocity = Vector2(0,0)
+	if is_chasing or is_attacking:
 		velocity = position.direction_to(player.position) * SPEED
 		direction.x = abs(velocity.x)/velocity.x
-	elif !is_chasing:
+	elif !is_chasing or !is_attacking:
 		velocity += direction * SPEED * delta
 	move_and_slide()
 
 func _handle_animation():
 	if !dead and !is_sleeping:
-		animatedSprite.play("flying")
+		#l'animation et la direction sont coérentes
 		if direction.x == -1:
 			animatedSprite.flip_h = true
 		elif direction.x == 1:
 			animatedSprite.flip_h = false
+		
+		#animation
+		if !is_attacking:
+			animatedSprite.play("flying")
+		elif is_attacking:
+			animatedSprite.play("attack")
+	elif !dead and is_sleeping:
+		animatedSprite.play("sleeping")
 
 func _on_detection_player_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -59,9 +71,40 @@ func _on_detection_player_body_entered(body: Node2D) -> void:
 		is_chasing = true
 		player = body
 
-
 func _on_direction_timer_timeout() -> void:
 	$DirectionTimer.wait_time = _choose([0.3, 0.5, 0.7, 1.0])
 	if is_chasing == false:
 		direction = _choose([Vector2.RIGHT, Vector2.LEFT, Vector2.DOWN, Vector2.UP])
-		
+
+func _on_detection_player_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		is_chasing = false
+
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		is_attacking = true
+		_attack(body)
+
+func _on_attack_area_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		is_attacking = false
+
+func _attack(body: Node2D):
+	$BatDealingDamage.collision_mask = 2**layer
+	if body.name == "Player":
+		body._takeDamages(1)
+
+func _on_bat_taking_damage_area_entered(area: Area2D) -> void:
+	if area.name == "PlayerDealingDamageZone":
+		dead = true 
+		_death()
+
+func _death():
+	dead = true
+	is_attacking = false
+	is_chasing = false
+	is_sleeping = false
+	animatedSprite.play("death")
+	collision_layer = 0
+	await (animatedSprite.animation_finished)
+	self.queue_free()
