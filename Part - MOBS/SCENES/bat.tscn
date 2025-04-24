@@ -1,7 +1,8 @@
-[gd_scene load_steps=145 format=3 uid="uid://0xlb2up47lnn"]
+[gd_scene load_steps=147 format=3 uid="uid://0xlb2up47lnn"]
 
 [ext_resource type="Script" path="res://Part - MOBS/SCRIPTS/bat.gd" id="1_hr5jd"]
 [ext_resource type="Texture2D" uid="uid://bb18btju7a37e" path="res://Part - MOBS/ASSETS/Bat/Zombie/BatZombie_Attack.png" id="1_j1obv"]
+[ext_resource type="Script" path="res://Part - MOBS/SCRIPTS/path_follow_2d.gd" id="2_7k37n"]
 [ext_resource type="Texture2D" uid="uid://j1rpk1laquwv" path="res://Part - MOBS/ASSETS/Bat/Zombie/BatZombie_Death.png" id="2_y84jl"]
 [ext_resource type="Texture2D" uid="uid://cdqmamtjryvr2" path="res://Part - MOBS/ASSETS/Bat/Zombie/BatZombie_Flying.png" id="3_isgx6"]
 [ext_resource type="Texture2D" uid="uid://jqp8g4uc1jj8" path="res://Part - MOBS/ASSETS/Bat/Zombie/BatZombie_Sleeping.png" id="4_t7u8k"]
@@ -25,6 +26,27 @@
 [ext_resource type="Texture2D" uid="uid://75sbeqgryd3a" path="res://Part - MOBS/ASSETS/Bat/Albino/BatAlbino_Death.png" id="22_0pg2t"]
 [ext_resource type="Texture2D" uid="uid://cghfcgh2v0roa" path="res://Part - MOBS/ASSETS/Bat/Albino/BatAlbino_Flying.png" id="23_mb1dq"]
 [ext_resource type="Texture2D" uid="uid://btd7ibtwj626u" path="res://Part - MOBS/ASSETS/Bat/Albino/BatAlbino_Sleeping.png" id="24_s2bop"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4175d"]
+size = Vector2(9, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7qiu"]
+size = Vector2(3, 7)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nw6k8"]
+radius = 66.1211
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_den8n"]
+radius = 31.257
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nfmu"]
+size = Vector2(10, 2)
+
+[sub_resource type="Curve2D" id="Curve2D_j0ilq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, -2, 0, 0, 0, 0, 17, -6, 0, 0, 0, 0, 25, -16, 0, 0, 0, 0, 27, -29, 0, 0, 0, 0, 23, -45, 0, 0, 0, 0, 10, -55, 0, 0, 0, 0, -11, -56, 0, 0, 0, 0, -24, -47, 0, 0, 0, 0, -31, -29, 0, 0, 0, 0, -25, -13, 0, 0, 0, 0, -12, -1, 0, 0, 0, 0, 0, 0)
+}
+point_count = 13
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_457j0"]
 atlas = ExtResource("1_j1obv")
@@ -920,50 +942,10 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4175d"]
-size = Vector2(9, 5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7qiu"]
-size = Vector2(3, 7)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_nw6k8"]
-radius = 84.214
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_den8n"]
-radius = 31.257
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nfmu"]
-size = Vector2(10, 2)
-
 [node name="Bat" type="CharacterBody2D"]
 script = ExtResource("1_hr5jd")
 SPEED = 50.0
 metadata/_edit_group_ = true
-
-[node name="Zombie" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ssli2")
-animation = &"death"
-
-[node name="Root" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_k6loj")
-animation = &"death"
-
-[node name="Fire" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ni8hm")
-animation = &"death"
-
-[node name="Standart" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_cgqdk")
-animation = &"death"
-
-[node name="Vampire" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_fh8d8")
-animation = &"death"
-
-[node name="Albino" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_0ersd")
-animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
@@ -978,7 +960,6 @@ shape = SubResource("RectangleShape2D_e7qiu")
 [node name="DetectionPlayer" type="Area2D" parent="."]
 
 [node name="DetectionPlayerShape" type="CollisionShape2D" parent="DetectionPlayer"]
-visible = false
 shape = SubResource("CircleShape2D_nw6k8")
 
 [node name="DirectionTimer" type="Timer" parent="."]
@@ -987,7 +968,6 @@ autostart = true
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="AttackShape" type="CollisionShape2D" parent="AttackArea"]
-visible = false
 shape = SubResource("CircleShape2D_den8n")
 
 [node name="BatTakingDamage" type="Area2D" parent="."]
@@ -995,6 +975,45 @@ shape = SubResource("CircleShape2D_den8n")
 [node name="BatTakingDamageShape" type="CollisionShape2D" parent="BatTakingDamage"]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_4nfmu")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_j0ilq")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+rotation = -0.244979
+rotates = false
+script = ExtResource("2_7k37n")
+
+[node name="Zombie" type="AnimatedSprite2D" parent="."]
+rotation = -0.00163003
+sprite_frames = SubResource("SpriteFrames_ssli2")
+animation = &"death"
+
+[node name="Root" type="AnimatedSprite2D" parent="."]
+rotation = 0.00033465
+sprite_frames = SubResource("SpriteFrames_k6loj")
+animation = &"death"
+
+[node name="Fire" type="AnimatedSprite2D" parent="."]
+rotation = -0.000623956
+sprite_frames = SubResource("SpriteFrames_ni8hm")
+animation = &"death"
+
+[node name="Standart" type="AnimatedSprite2D" parent="."]
+rotation = 0.000339895
+sprite_frames = SubResource("SpriteFrames_cgqdk")
+animation = &"death"
+
+[node name="Vampire" type="AnimatedSprite2D" parent="."]
+rotation = 0.00143546
+sprite_frames = SubResource("SpriteFrames_fh8d8")
+animation = &"death"
+
+[node name="Albino" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+rotation = 0.0015465
+sprite_frames = SubResource("SpriteFrames_0ersd")
+animation = &"death"
 
 [connection signal="body_entered" from="DetectionPlayer" to="." method="_on_detection_player_body_entered"]
 [connection signal="body_exited" from="DetectionPlayer" to="." method="_on_detection_player_body_exited"]

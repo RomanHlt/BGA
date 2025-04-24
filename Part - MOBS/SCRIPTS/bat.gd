@@ -46,7 +46,7 @@ func _move(delta):
 		velocity = position.direction_to(player.position) * SPEED
 		direction.x = abs(velocity.x)/velocity.x
 	elif !is_chasing or !is_attacking:
-		velocity += direction * SPEED * delta
+		$Path2D/PathFollow2D.PathFollow2D
 	move_and_slide()
 
 func _handle_animation():
@@ -70,11 +70,6 @@ func _on_detection_player_body_entered(body: Node2D) -> void:
 		is_sleeping = false
 		is_chasing = true
 		player = body
-
-func _on_direction_timer_timeout() -> void:
-	$DirectionTimer.wait_time = _choose([0.3, 0.5, 0.7, 1.0])
-	if is_chasing == false:
-		direction = _choose([Vector2.RIGHT, Vector2.LEFT, Vector2.DOWN, Vector2.UP])
 
 func _on_detection_player_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
