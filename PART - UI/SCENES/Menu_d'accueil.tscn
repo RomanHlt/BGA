@@ -124,7 +124,6 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme = SubResource("Theme_ky155")
-disabled = true
 text = "Charger La Partie"
 
 [node name="Options" type="Button" parent="."]

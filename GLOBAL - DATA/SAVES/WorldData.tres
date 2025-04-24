@@ -1,16 +1,16 @@
-[gd_resource type="Resource" script_class="WorldData" load_steps=2 format=3 uid="uid://bfjlc3vt5k1tm"]
+[gd_resource type="Resource" script_class="WorldData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/worldStats.gd" id="1_b5er8"]
+[ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/worldStats.gd" id="1_8mcvc"]
 
 [resource]
-script = ExtResource("1_b5er8")
+script = ExtResource("1_8mcvc")
 levels = 1
 compo = {
-1: [true, true, false],
+1: [true, false, false],
 2: [false, false, false]
 }
 access = {
-0: true,
 1: true,
-2: true
+2: true,
+"next": false
 }

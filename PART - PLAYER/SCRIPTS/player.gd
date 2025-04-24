@@ -9,7 +9,7 @@ signal pathObstrued
 @export var animation_component: AnimationComponent
 @export var weapon_component: WeaponComponent
 @export_subgroup("Data")
-@export var data: PlayerData
+@export var data: PlayerData = PlayerData.new()
 
 var deeperChecker
 var closerChecker
@@ -20,6 +20,8 @@ var fire:bool = false
 
 
 func _ready():
+	#setup playerdata
+	data = PlayerDataSaver.PlayerStats
 	#setup the layer checkers
 	deeperChecker = $deeperChecker
 	closerChecker = $closerChecker

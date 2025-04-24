@@ -3,7 +3,7 @@ class_name WorldData
 
 @export var levels:int = 1
 @export var compo:Dictionary={1:[false,false,false],2:[false,false,false]}
-@export var access:Dictionary={1:false,2:false,"next":false}
+@export var access:Dictionary={1:true,2:false,"next":false}
 
 
 
@@ -17,7 +17,11 @@ func load_game():
 	if ResourceLoader.exists('res://GLOBAL - DATA/SAVES/WorldData.tres'):
 		var data = ResourceLoader.load('res://GLOBAL - DATA/SAVES/WorldData.tres')
 		if data is WorldData:
+			print("WorldData Found")
 			return data
+	else:
+		print("WorldData Created")
+		return WorldData.new()
 
 
 func level_completed(id:String, isLastLevel:bool = false):

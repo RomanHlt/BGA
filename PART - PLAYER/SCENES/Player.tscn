@@ -1,7 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://dmnpm6nnnf4kg"]
 
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/player.gd" id="1_1sa3q"]
-[ext_resource type="Resource" uid="uid://bivwqptijeul2" path="res://GLOBAL - DATA/SAVES/Data00.tres" id="2_oyd0d"]
 [ext_resource type="Texture2D" uid="uid://c4c63xe1mwirr" path="res://PART - PLAYER/ASSETS/Bari_animated.png" id="2_x2l0n"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="3_l1u33"]
 [ext_resource type="PackedScene" uid="uid://ks173cmm3lsc" path="res://PART - COMPONENT/SCENES/input_component.tscn" id="4_03rw7"]
@@ -9,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dl03bv2s0el6b" path="res://PART - COMPONENT/SCENES/animation_component.tscn" id="7_blyk2"]
 [ext_resource type="PackedScene" uid="uid://codccv1hd133u" path="res://PART - COMPONENT/SCENES/advanced_jump_component.tscn" id="7_eboik"]
 [ext_resource type="PackedScene" uid="uid://cb7q6dn473hkj" path="res://PART - COMPONENT/SCENES/weapon_component.tscn" id="9_3rr8y"]
+
+[sub_resource type="Resource" id="Resource_ft5p8"]
+metadata/__load_path__ = "res://GLOBAL - DATA/SAVES/Data00.tres"
 
 [sub_resource type="Animation" id="Animation_f3f3u"]
 length = 0.5
@@ -213,7 +215,7 @@ movement_component = NodePath("MovementComponent")
 advanced_jump_component = NodePath("AdvancedJumpComponent")
 animation_component = NodePath("AnimationComponent")
 weapon_component = NodePath("WeaponComponent")
-data = ExtResource("2_oyd0d")
+data = SubResource("Resource_ft5p8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
