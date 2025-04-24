@@ -3,7 +3,7 @@ extends Area2D
 @export_category("Self config")
 @export var layer: int  # Layer de l'objet
 @export var sprite: Texture2D  # Sprite de l'objet avec lequel interagir
-@export var texte: String = "Appuyez sur [E] pour utiliser l'échelle"  # Texte affiché
+@export var texte: String = "[E]"  # Texte affiché
 @export var isHub:bool = true
 @export_category("Next lvl config")
 @export var id_next_lvl: String #Monde.Niveau.Sous-Niveau
@@ -75,5 +75,4 @@ func _input(event: InputEvent) -> void:
 		$AnimationPlayer.play("Opening")
 		PlayerDataSaver.PlayerStats.current_lvl = id_next_lvl
 		if not isHub:PlayerDataSaver.WorldStats.level_completed(id_unlocked_lvl)
-		PlayerDataSaver._handle_save()
 		Main.get_node("Globals Levels").change_lvl(id_next_lvl, titre, sous_titre)

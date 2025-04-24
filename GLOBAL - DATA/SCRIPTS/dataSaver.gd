@@ -1,8 +1,8 @@
 extends Node2D
 
 @export_category("Ressources")
-@export var PlayerStats:PlayerData
-@export var WorldStats:WorldData
+@export var PlayerStats:PlayerData = PlayerData.new().load_game()
+@export var WorldStats:WorldData = WorldData.new().load_game()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("fastSave"):

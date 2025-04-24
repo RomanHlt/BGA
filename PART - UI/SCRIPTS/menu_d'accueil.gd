@@ -1,9 +1,19 @@
 extends Control
 
+var canContinue = false
+
+func _ready() -> void:
+	if ResourceLoader.exists('res://GLOBAL - DATA/SAVES/PlayerData.tres') and ResourceLoader.exists('res://GLOBAL - DATA/SAVES/WorldData.tres'):
+		canContinue = true
+		$"Charger la partie".disabled = false
+	else:
+		canContinue = false
+		$"Charger la partie".disabled = true
+
 
 func _on_charger_la_partie_pressed() -> void:
-	# Lancer la sauvegarde
-	pass
+	var lvl = PlayerDataSaver.PlayerStats.current_lvl
+	Main.get_node("Globals Levels").change_lvl(lvl, "Welcome Back",str(lvl))
 
 
 func _on_options_pressed() -> void:
@@ -26,5 +36,7 @@ func _on_progres_pressed() -> void:
 
 
 func _on_nouvelle_partie_pressed() -> void:
-	# Creer une nouvelle partie (Ecrase l'ancienne)
-	pass # Replace with function body.
+	PlayerDataSaver.PlayerStats = PlayerData.new()
+	PlayerDataSaver.WorldStats = WorldData.new()
+	var lvl = PlayerDataSaver.PlayerStats.current_lvl
+	Main.get_node("Globals Levels").change_lvl(lvl, "Let's Begin",str(lvl))
