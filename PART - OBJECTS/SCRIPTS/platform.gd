@@ -1,21 +1,38 @@
 extends Path2D
 
-
-@export var loop = true # Vrai si le path fait une boucle, faux sinon
-@export var speed_scale = 1.0
+@export var speed_scale : float
 @export var layer = 0
+@export var loop = false
+
 @onready var path = $PathFollow2D
 @onready var animation = $AnimationPlayer
+@onready var pos_x = $PathFollow2D.position[0]
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimatableBody2D.collision_layer = 2**layer
-	if not loop:
-		animation.play("Moving platform")
-		animation.speed_scale = speed_scale
-		set_process(false)
-	
+	animation.play("Path")
+	$"Animation graphique".play("Moving platform")
+	animation.speed_scale = speed_scale
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
-	pass
+	if $PathFollow2D.position[0] <= pos_x:
+		$"Animation graphique".play_backwards("Moving platform")
+	else:
+		$"Animation graphique".play("Moving platform")
+	pos_x = $PathFollow2D.position[0]
+	if loop:
+		# Mode boucle : continue de suivre le chemin normalement
+		path.progress_ratio += delta * speed_scale
+		if path.progress_ratio >= 0.99:
+			path.progress_ratio = 0  # Revient au début du chemin
+	else:
+		# Mode aller-retour
+		path.progress_ratio += delta * speed_scale
+		if path.progress_ratio >= 0.99:
+			$AnimationPlayer.play_backwards("Path")
+		if path.progress_ratio <= 0.01:
+			$AnimationPlayer.play("Path")
+			
+	#pos_x = $PathFollow2D.position[0]
+	
