@@ -74,7 +74,7 @@ curve = SubResource("Curve2D_omdds")
 script = ExtResource("1_pr63b")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-position = Vector2(-92, 92)
+position = Vector2(-91.9996, 91.9995)
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
 texture_filter = 1
