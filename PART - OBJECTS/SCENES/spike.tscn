@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://bog4f2sni7fny"]
+
+[ext_resource type="Texture2D" uid="uid://ba8pma1dcgy6x" path="res://PART - OBJECTS/SCENES/Spike-export.png" id="1_73y4f"]
+[ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/spike.gd" id="1_f4gg4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ga4j"]
+size = Vector2(320, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6ajk"]
+size = Vector2(320, 90)
+
+[sub_resource type="Animation" id="Animation_r41jj"]
+length = 1.68
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.52, 0.62, 0.82, 0.92, 1.02, 1.12, 1.22, 1.42, 1.52, 1.62),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 0, 1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 4, 9, 10, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hlj7x"]
+_data = {
+"Pik": SubResource("Animation_r41jj")
+}
+
+[node name="Spike" type="Node2D"]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_f4gg4")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+texture_filter = 1
+texture = ExtResource("1_73y4f")
+hframes = 4
+vframes = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://PART - LEVELS/ASSETS/Trap/Spike-export.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f1aeaaf532aa78f63d2c5b384ab273eb"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(0, 55)
+shape = SubResource("RectangleShape2D_1ga4j")
+
+[node name="Dps2" type="Area2D" parent="AnimatableBody2D"]
+
+[node name="Dps" type="CollisionShape2D" parent="AnimatableBody2D/Dps2"]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_a6ajk")
+debug_color = Color(0.985814, 0, 0.329983, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hlj7x")
+}
+
+[connection signal="body_entered" from="AnimatableBody2D/Dps2" to="." method="_on_dps_2_body_entered"]
+[connection signal="body_exited" from="AnimatableBody2D/Dps2" to="." method="_on_dps_2_body_exited"]
