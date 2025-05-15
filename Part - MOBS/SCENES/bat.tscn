@@ -984,34 +984,35 @@ rotation = -0.244979
 rotates = false
 script = ExtResource("2_7k37n")
 
-[node name="Zombie" type="AnimatedSprite2D" parent="."]
-rotation = -0.00163003
+[node name="Zombie" type="AnimatedSprite2D" parent="Path2D/PathFollow2D"]
+rotation = 0.243349
 sprite_frames = SubResource("SpriteFrames_ssli2")
-animation = &"death"
+animation = &"flying"
 
-[node name="Root" type="AnimatedSprite2D" parent="."]
-rotation = 0.00033465
+[node name="Root" type="AnimatedSprite2D" parent="Path2D/PathFollow2D"]
+rotation = 0.245314
+scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_k6loj")
 animation = &"death"
 
-[node name="Fire" type="AnimatedSprite2D" parent="."]
-rotation = -0.000623956
+[node name="Fire" type="AnimatedSprite2D" parent="Path2D/PathFollow2D"]
+rotation = 0.244355
 sprite_frames = SubResource("SpriteFrames_ni8hm")
 animation = &"death"
 
-[node name="Standart" type="AnimatedSprite2D" parent="."]
-rotation = 0.000339895
+[node name="Standart" type="AnimatedSprite2D" parent="Path2D/PathFollow2D"]
+rotation = 0.245319
 sprite_frames = SubResource("SpriteFrames_cgqdk")
 animation = &"death"
 
-[node name="Vampire" type="AnimatedSprite2D" parent="."]
-rotation = 0.00143546
+[node name="Vampire" type="AnimatedSprite2D" parent="Path2D/PathFollow2D"]
+rotation = 0.246414
 sprite_frames = SubResource("SpriteFrames_fh8d8")
 animation = &"death"
 
-[node name="Albino" type="AnimatedSprite2D" parent="."]
+[node name="Albino" type="AnimatedSprite2D" parent="Path2D/PathFollow2D"]
 texture_filter = 1
-rotation = 0.0015465
+rotation = 0.246525
 sprite_frames = SubResource("SpriteFrames_0ersd")
 animation = &"death"
 
