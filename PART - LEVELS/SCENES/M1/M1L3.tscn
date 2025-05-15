@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://c1mehavpp4x4w"]
+[gd_scene load_steps=28 format=4 uid="uid://c1mehavpp4x4w"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_1ucby"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_5idw8"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="8_yav5e"]
 [ext_resource type="PackedScene" uid="uid://5q55qevow2dp" path="res://PART - UI/SCENES/Menu_d'accueil.tscn" id="9_amkfv"]
 [ext_resource type="PackedScene" uid="uid://cjf1qy228ipvq" path="res://PART - OBJECTS/SCENES/platform.tscn" id="10_f8vc7"]
+[ext_resource type="PackedScene" uid="uid://bog4f2sni7fny" path="res://PART - OBJECTS/SCENES/spike.tscn" id="11_aihro"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dlmjl"]
 texture = ExtResource("2_5idw8")
@@ -2139,3 +2140,6 @@ visible = false
 
 [node name="Ecran d\'accueil" parent="CanvasLayer" instance=ExtResource("9_amkfv")]
 visible = false
+
+[node name="Spike" parent="." instance=ExtResource("11_aihro")]
+position = Vector2(221, -7)
