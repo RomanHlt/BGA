@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dphqxrj3qkaaj"]
+[gd_scene load_steps=5 format=3 uid="uid://dphqxrj3qkaaj"]
 
 [ext_resource type="PackedScene" uid="uid://5q55qevow2dp" path="res://PART - UI/SCENES/Menu_d'accueil.tscn" id="1_6ba4k"]
 [ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="2_6htq6"]
 [ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://PART - UI/SCENES/progrès.tscn" id="3_xl2o5"]
 [ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="4_112di"]
-[ext_resource type="Script" path="res://PART - UI/SCRIPTS/tempo.gd" id="5_lphf1"]
 
 [node name="Ecran d\'accueil" type="Control"]
 layout_mode = 3
@@ -28,14 +27,3 @@ layout_mode = 1
 [node name="Statistiques" parent="." instance=ExtResource("4_112di")]
 visible = false
 layout_mode = 1
-
-[node name="Tempo" type="Button" parent="."]
-layout_mode = 0
-offset_left = 85.0
-offset_top = 393.0
-offset_right = 283.0
-offset_bottom = 424.0
-text = "Temporaire : Aller en jeu"
-script = ExtResource("5_lphf1")
-
-[connection signal="pressed" from="Tempo" to="Tempo" method="_on_pressed"]

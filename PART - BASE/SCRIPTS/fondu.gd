@@ -14,7 +14,7 @@ func change_lvl(path, titre, sous_titre):
 	$LoadingPlayer.play("default")
 	await $FonduPlayer.animation_finished
 	get_tree().change_scene_to_file(path)
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(0.5).timeout
 	$LoadingPlayer.stop()
 	$FonduPlayer.play_backwards("fondu")
 	get_tree().paused = false
