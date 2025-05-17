@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba8pma1dcgy6x"
-path="res://.godot/imported/Spike-export.png-739281c45a46fe39cac9dcec978c469b.ctex"
+uid="uid://dm8nx5hf52bfd"
+path="res://.godot/imported/Spear-export.png-ba286aabae81a03737e081e98ee42b88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - OBJECTS/SCENES/Spike-export.png"
-dest_files=["res://.godot/imported/Spike-export.png-739281c45a46fe39cac9dcec978c469b.ctex"]
+source_file="res://PART - OBJECTS/ASSETS/Spear-export.png"
+dest_files=["res://.godot/imported/Spear-export.png-ba286aabae81a03737e081e98ee42b88.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1r0k08xd0ibm"]
 
 [ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/note.gd" id="1_fvrl3"]
-[ext_resource type="Texture2D" uid="uid://ptjpi3r5nwvr" path="res://PART - OBJECTS/SCENES/Note.png" id="1_x3ftp"]
+[ext_resource type="Texture2D" uid="uid://ptjpi3r5nwvr" path="res://PART - OBJECTS/ASSETS/Note.png" id="1_x3ftp"]
 
 [sub_resource type="Animation" id="Animation_7v373"]
 length = 1.1

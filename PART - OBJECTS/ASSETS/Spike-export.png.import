@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3urekygunswt"
-path="res://.godot/imported/Moving Platfrom-export.png-a711e2f7d6c71defa3266b3f633d1a9e.ctex"
+uid="uid://ba8pma1dcgy6x"
+path="res://.godot/imported/Spike-export.png-6519dcac24eec0fa0bdc4ed5d4fe3b15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - OBJECTS/SCENES/Moving Platfrom-export.png"
-dest_files=["res://.godot/imported/Moving Platfrom-export.png-a711e2f7d6c71defa3266b3f633d1a9e.ctex"]
+source_file="res://PART - OBJECTS/ASSETS/Spike-export.png"
+dest_files=["res://.godot/imported/Spike-export.png-6519dcac24eec0fa0bdc4ed5d4fe3b15.ctex"]
 
 [params]
 

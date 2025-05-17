@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt14wj6tbo0ag"
-path="res://.godot/imported/flag.png-cc23837076d9bffd79da41bee99f47e6.ctex"
+uid="uid://cyjbbpfw044vc"
+path="res://.godot/imported/Traversable platform.png-f34d9661d52a5457bf0a258121f616dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - OBJECTS/SCENES/flag.png"
-dest_files=["res://.godot/imported/flag.png-cc23837076d9bffd79da41bee99f47e6.ctex"]
+source_file="res://PART - LEVELS/ASSETS/Trap/Traversable platform.png"
+dest_files=["res://.godot/imported/Traversable platform.png-f34d9661d52a5457bf0a258121f616dc.ctex"]
 
 [params]
 
