@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cierfuw7plhvv"]
 
-[ext_resource type="Texture2D" uid="uid://0tptb4ekglf0" path="res://PART - UI/SCENES/PlayerLife.png" id="1_7npsu"]
+[ext_resource type="Texture2D" uid="uid://0tptb4ekglf0" path="res://PART - UI/ASSETS/PlayerLife.png" id="1_7npsu"]
 [ext_resource type="Script" path="res://PART - UI/SCRIPTS/in_gameUI.gd" id="1_kk3rj"]
 
 [sub_resource type="Animation" id="Animation_fwkt5"]

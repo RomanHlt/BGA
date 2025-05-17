@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 func _on_dps_2_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		on_area = true
-		$AnimationPlayer.play("Pik")
+		$Spikeplayer.play("Pik")
 		await get_tree().create_timer(0.42).timeout
 		dps(body)
 

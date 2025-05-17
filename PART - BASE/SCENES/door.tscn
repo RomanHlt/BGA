@@ -1,8 +1,8 @@
 [gd_scene load_steps=23 format=3 uid="uid://dt1pv53ek46dl"]
 
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/door.gd" id="1_gmu4f"]
-[ext_resource type="Texture2D" uid="uid://b8xwpvj3btgvj" path="res://PART - BASE/SCENES/LevelDoor.png" id="2_afq11"]
-[ext_resource type="Texture2D" uid="uid://bkff6bdw7hpga" path="res://PART - BASE/SCENES/Notes.png" id="3_04xky"]
+[ext_resource type="Texture2D" uid="uid://b8xwpvj3btgvj" path="res://PART - BASE/ASSETS/LevelDoor.png" id="2_afq11"]
+[ext_resource type="Texture2D" uid="uid://bkff6bdw7hpga" path="res://PART - BASE/ASSETS/Notes.png" id="3_04xky"]
 [ext_resource type="FontFile" uid="uid://dsi8plob4hdvb" path="res://GLOBAL - Font/KAPH/TrueType (.ttf)/Kaph-Regular.ttf" id="3_cwefx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgah1"]

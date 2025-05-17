@@ -95,7 +95,7 @@ position = Vector2(6, 225)
 shape = SubResource("RectangleShape2D_omt1i")
 debug_color = Color(0.758847, 0.182816, 1, 0.42)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Spikeplayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_hlj7x")
 }

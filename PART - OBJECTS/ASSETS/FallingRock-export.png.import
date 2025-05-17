@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8xwpvj3btgvj"
-path="res://.godot/imported/LevelDoor.png-1a6f5eb1f24398fd5f036137c43175d6.ctex"
+uid="uid://vfoht717xa1m"
+path="res://.godot/imported/FallingRock-export.png-06b31c17b0af486029c8a3b453fc63e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - BASE/SCENES/LevelDoor.png"
-dest_files=["res://.godot/imported/LevelDoor.png-1a6f5eb1f24398fd5f036137c43175d6.ctex"]
+source_file="res://PART - OBJECTS/ASSETS/FallingRock-export.png"
+dest_files=["res://.godot/imported/FallingRock-export.png-06b31c17b0af486029c8a3b453fc63e2.ctex"]
 
 [params]
 
