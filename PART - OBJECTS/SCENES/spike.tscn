@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bog4f2sni7fny"]
 
 [ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/spike_spear.gd" id="1_f4gg4"]
-[ext_resource type="Texture2D" uid="uid://cjc5erg8ryvn3" path="res://PART - OBJECTS/SCENES/Spike-export.png" id="2_3ylwl"]
+[ext_resource type="Texture2D" uid="uid://cjc5erg8ryvn3" path="res://PART - OBJECTS/ASSETS/Spike-export.png" id="2_3ylwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ga4j"]
 size = Vector2(320, 40)
