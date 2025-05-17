@@ -1,13 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://bog4f2sni7fny"]
+[gd_scene load_steps=9 format=3 uid="uid://ct5ytlgut187g"]
 
-[ext_resource type="Texture2D" uid="uid://ba8pma1dcgy6x" path="res://PART - OBJECTS/ASSETS/Spike-export.png" id="1_73y4f"]
-[ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/spike_spear.gd" id="1_f4gg4"]
+[ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/spike_spear.gd" id="1_66xem"]
+[ext_resource type="Texture2D" uid="uid://dm8nx5hf52bfd" path="res://PART - OBJECTS/ASSETS/Spear-export.png" id="2_lm1eq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ga4j"]
-size = Vector2(320, 40)
+size = Vector2(92, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6ajk"]
-size = Vector2(320, 100)
+size = Vector2(92, 600)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omt1i"]
+size = Vector2(92, 110)
 
 [sub_resource type="Animation" id="Animation_r41jj"]
 length = 1.75
@@ -46,15 +49,15 @@ _data = {
 "default": SubResource("Animation_dpx6q")
 }
 
-[node name="Spike" type="Node2D"]
+[node name="Spear" type="Node2D"]
 scale = Vector2(0.25, 0.25)
-script = ExtResource("1_f4gg4")
+script = ExtResource("1_66xem")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
 texture_filter = 1
-texture = ExtResource("1_73y4f")
+texture = ExtResource("2_lm1eq")
 hframes = 4
 vframes = 3
 metadata/_aseprite_wizard_interface_config_ = {
@@ -70,20 +73,27 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": false,
 "player": "AnimationPlayer",
 "slice": "",
-"source": "res://PART - LEVELS/ASSETS/Trap/Spike-export.aseprite"
+"source": "res://PART - LEVELS/ASSETS/Trap/Spear-export.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "f1aeaaf532aa78f63d2c5b384ab273eb"
+metadata/_aseprite_wizard_source_file_hash_ = "1e238d539c4ac6487ae440a073f67d91"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
-position = Vector2(0, 60)
+position = Vector2(6, 300)
 shape = SubResource("RectangleShape2D_1ga4j")
 
 [node name="Dps2" type="Area2D" parent="AnimatableBody2D"]
 
 [node name="Dps" type="CollisionShape2D" parent="AnimatableBody2D/Dps2"]
-position = Vector2(0, -10)
+position = Vector2(6, -20)
 shape = SubResource("RectangleShape2D_a6ajk")
 debug_color = Color(0.985814, 0, 0.329983, 0.42)
+
+[node name="Spear_base" type="Area2D" parent="AnimatableBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/Spear_base"]
+position = Vector2(6, 225)
+shape = SubResource("RectangleShape2D_omt1i")
+debug_color = Color(0.758847, 0.182816, 1, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -92,3 +102,4 @@ libraries = {
 
 [connection signal="body_entered" from="AnimatableBody2D/Dps2" to="." method="_on_dps_2_body_entered"]
 [connection signal="body_exited" from="AnimatableBody2D/Dps2" to="." method="_on_dps_2_body_exited"]
+[connection signal="body_entered" from="AnimatableBody2D/Spear_base" to="." method="_on_spear_base_body_entered"]

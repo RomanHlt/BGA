@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cjf1qy228ipvq"]
 
-[ext_resource type="Texture2D" uid="uid://b3urekygunswt" path="res://PART - OBJECTS/SCENES/Moving Platfrom-export.png" id="1_kpto3"]
+[ext_resource type="Texture2D" uid="uid://b3urekygunswt" path="res://PART - OBJECTS/ASSETS/Moving Platfrom-export.png" id="1_kpto3"]
 [ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/platform.gd" id="1_pr63b"]
 
 [sub_resource type="Curve2D" id="Curve2D_omdds"]
