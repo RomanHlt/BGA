@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_options.gd" id="4_35fso"]
 [ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="5_7fas6"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/fondu.gd" id="5_o0eev"]
-[ext_resource type="Texture2D" uid="uid://ns1vlm7c873h" path="res://PART - BASE/SCENES/Sprite-0002.png" id="6_ci7ot"]
+[ext_resource type="Texture2D" uid="uid://ns1vlm7c873h" path="res://PART - BASE/ASSETS/Sprite-0002.png" id="6_ci7ot"]
 
 [sub_resource type="Theme" id="Theme_s4t4w"]
 Label/colors/font_color = Color(1, 0, 0.733333, 1)

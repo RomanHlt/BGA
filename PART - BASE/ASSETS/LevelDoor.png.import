@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkff6bdw7hpga"
-path="res://.godot/imported/Notes.png-710c6ddca9f345058e395f92a27e6687.ctex"
+uid="uid://b8xwpvj3btgvj"
+path="res://.godot/imported/LevelDoor.png-65d402fca4eeca160543c03e742beee6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - BASE/SCENES/Notes.png"
-dest_files=["res://.godot/imported/Notes.png-710c6ddca9f345058e395f92a27e6687.ctex"]
+source_file="res://PART - BASE/ASSETS/LevelDoor.png"
+dest_files=["res://.godot/imported/LevelDoor.png-65d402fca4eeca160543c03e742beee6.ctex"]
 
 [params]
 
