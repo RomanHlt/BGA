@@ -32,7 +32,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			await get_tree().create_timer(1).timeout
 		$Fondu/AnimatableBody2D.collision_layer = 2**layer
 		$Fondu/FonduPlayer.play("fondu")
-		await get_tree().create_timer(0.3)
 		$Fondu/AnimatableBody2D/above.collision_mask = 2**layer
 
 

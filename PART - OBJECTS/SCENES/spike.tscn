@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bog4f2sni7fny"]
 
-[ext_resource type="Texture2D" uid="uid://ba8pma1dcgy6x" path="res://PART - OBJECTS/ASSETS/Spike-export.png" id="1_73y4f"]
 [ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/spike_spear.gd" id="1_f4gg4"]
+[ext_resource type="Texture2D" uid="uid://cjc5erg8ryvn3" path="res://PART - OBJECTS/SCENES/Spike-export.png" id="2_3ylwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ga4j"]
 size = Vector2(320, 40)
@@ -11,7 +11,7 @@ size = Vector2(320, 100)
 
 [sub_resource type="Animation" id="Animation_x8mcy"]
 resource_name = "Pik"
-length = 1.2
+length = 1.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -19,10 +19,10 @@ tracks/0/path = NodePath("AnimatableBody2D/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.52, 0.62, 0.82, 0.92, 1.02, 1.12, 1.22, 1.42, 1.52, 1.62),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+"values": [0, 0, 1, 0, 1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 4, 9, 10, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hlj7x"]
@@ -38,7 +38,7 @@ script = ExtResource("1_f4gg4")
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
 texture_filter = 1
-texture = ExtResource("1_73y4f")
+texture = ExtResource("2_3ylwl")
 hframes = 4
 vframes = 3
 metadata/_aseprite_wizard_interface_config_ = {
@@ -52,7 +52,7 @@ metadata/_aseprite_wizard_config_ = {
 "o_folder": "",
 "o_name": "",
 "only_visible": false,
-"player": "AnimationPlayer",
+"player": "Spikeplayer",
 "slice": "",
 "source": "res://PART - LEVELS/ASSETS/Trap/Spike-export.aseprite"
 }
