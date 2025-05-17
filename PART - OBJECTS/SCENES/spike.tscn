@@ -10,8 +10,8 @@ size = Vector2(320, 40)
 size = Vector2(320, 100)
 
 [sub_resource type="Animation" id="Animation_x8mcy"]
+resource_name = "Pik"
 length = 1.2
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -27,7 +27,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hlj7x"]
 _data = {
-"Break broke broken": SubResource("Animation_x8mcy")
+"Pik": SubResource("Animation_x8mcy")
 }
 
 [node name="Spike" type="Node2D"]
@@ -69,7 +69,7 @@ position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_a6ajk")
 debug_color = Color(0.985814, 0, 0.329983, 0.42)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Spikeplayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_hlj7x")
 }
