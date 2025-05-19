@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dbw52emly0d3l"
-path="res://.godot/imported/BatStandard_Sleeping.png-7a3598c832e0b59eed1dec40528c292d.ctex"
+path="res://.godot/imported/BatStandard_Sleeping.png-c5a27e14344f9a3e3b1052ed451873a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - MOBS/ASSETS/Bat/Standard/BatStandard_Sleeping.png"
-dest_files=["res://.godot/imported/BatStandard_Sleeping.png-7a3598c832e0b59eed1dec40528c292d.ctex"]
+source_file="res://Part - MOBS/ASSETS/Bat/Standard/BatStandard_Sleeping.png"
+dest_files=["res://.godot/imported/BatStandard_Sleeping.png-c5a27e14344f9a3e3b1052ed451873a3.ctex"]
 
 [params]
 
