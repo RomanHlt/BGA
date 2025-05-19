@@ -8,7 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Main.get_node("Globals Options").ingame: # On vérifie que le joueur soit bien en jeu
+	if PlayerDataSaver.PlayerStats.current_lvl.split(".")[1] !="0": # On vérifie que le joueur soit bien en jeu
 		show()
 	else:
 		hide()

@@ -16,6 +16,7 @@ func _ready() -> void:
 	player.collision_layer = 2**spawnLayer
 	Layers = get_children().filter(func (x): if x.is_class("TileMapLayer"): return x)
 	player.reparent(Layers[spawnLayer])
+	player.data.current_lvl = id
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
