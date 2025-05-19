@@ -1,0 +1,84 @@
+ICON			CHARACTER
+
+Thumbstick Any			`
+Thumbstick Down			1
+Thumbstick Right		2
+Thumbstick Up			3
+Thumbstick Left			4
+Thumbstick Up/Down		5
+Thumbstick Left/Right		6
+Thumbstick Press		7
+
+Left Thumbstick Any		8
+Left Thumbstick Down		9
+Left Thumbstick Right		0
+Left Thumbstick Up		-
+Left Thumbstick Left		=
+Left Thumbstick Up/Down		q
+Left Thumbstick Left/Right	w
+Left Thumbstick Press		e
+Left Thumbstick Spin Left	r
+Left Thumbstick Spin Right	t
+
+Right Thumbstick Any		y
+Right Thumbstick Down		u
+Right Thumbstick Right		i
+Right Thumbstick Up		o
+Right Thumbstick Left		p
+Right Thumbstick Up/Down	[
+Right Thumbstick Left/Right	]
+Right Thumbstick Press		\
+Right Thumbstick Spin Left	a
+Right Thumbstick Spin Right	s
+
+Generic/Switch Left Button	d
+Xbox Left Button		f
+PS Left Button			g
+Switch Left Small button	h
+Generic Left Trigger		j
+Xbox Left Trigger		k
+PS Left Trigger			l
+Switch Left Trigger		;
+Generic/Switch Right Button	'
+Xbox Right Button		z
+PS Right Button			x
+Switch Right Small Button	c
+Generic Right Trigger		v
+Xbox Right Trigger		b
+PS Right Trigger		n
+Switch Right Trigger		m
+
+Face Button Bottom		,
+Face Button Right		.
+Face Button Top			/
+Face Button Left		Q
+Face Button Bottom & Right	W
+Face Button Right & Top		E
+Face Button Top & Left		R
+Face Button Left & Bottom	T
+
+D-Pad Any			Y
+D-Pad Down			U
+D-Pad Right			I
+D-Pad Up			O
+D-pad Left			P
+D-pad Up/Down			A
+D-pad Left/Right		S
+D-Pad Down & Right		D
+D-Pad Right & Up		F
+D-Pad Up & Left			G
+D-pad Left & Bottom		H
+
+Left Mouse Button		J
+Middle Mouse Button		K
+Right Mouse Button		L
+Mouse Scroll Up			Z
+Mouse Scroll Both		X
+Mouse Scroll Down		C
+
+Start Button			V
+Select Button			B
+Switch +			N
+Switch -			M
+Selector Icon Dot		<
+Selector Icon Triangle		>
