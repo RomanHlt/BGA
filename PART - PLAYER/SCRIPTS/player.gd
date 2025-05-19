@@ -53,7 +53,3 @@ func _on_closer_checker_body_entered(body: Node2D) -> void:
 	canGoCloser = false
 func _on_closer_checker_body_exited(body: Node2D) -> void:
 	canGoCloser = true
-	
-func kill():
-	"""Flm de faire pour l'instant mais ca tue instantanément"""
-	print("Player Killed")

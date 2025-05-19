@@ -2,6 +2,7 @@ extends Node2D
 
 @export_category("Self Settings")
 @export var layer : int
+@export var damage : float
 
 @onready var on_area = false
 
@@ -36,9 +37,9 @@ func _on_dps_2_body_exited(body: Node2D) -> void:
 
 func dps(body):
 	if on_area:
-		body.kill()
+		body._takeDamages(damage)
 
 
 func _on_spear_base_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		body.kill()
+		body._takeDamages(damage)
