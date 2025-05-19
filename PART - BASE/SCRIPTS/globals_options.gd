@@ -8,6 +8,8 @@ func _ready() -> void:
 var Son = 3  # Son (0-5)
 var Son_disable = false # Son coupé
 
+var controller = false
+
 var Musique = 3 # Musique (0-5)
 var Musique_disable = false # Musique coupée
 
@@ -15,6 +17,11 @@ var Musique_disable = false # Musique coupée
 var open_from_accueil = true # true si les options/stat/... sont ouverts depuis l'accueil, false s'ils sont ouverts depuis le menu pause
 var ingame = false # true si le joueur est en jeu. (Mettre false à chaque fois que le joueur ne doit pas ouvrir le menu : cinématique/accueil/...)
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("controllerUsed"):
+		controller=true
+	elif Input.is_action_just_pressed("keyboardUsed"):
+		controller=false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("menu") and ingame == true:

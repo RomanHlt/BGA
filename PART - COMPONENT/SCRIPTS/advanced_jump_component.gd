@@ -27,6 +27,7 @@ func is_allowed_to_jump(body:CharacterBody2D, want_to_jump:bool) ->bool:
 func handle_jump(body: CharacterBody2D, want_to_jump: bool, jump_released: bool) -> void:
 	if has_just_landed(body):
 		is_jumping = false
+		wall_jump_streak=0
 	if is_allowed_to_jump(body, want_to_jump):
 		jump(body)
 	
@@ -60,17 +61,19 @@ func handle_variable_jump_height(body:CharacterBody2D, jump_released:bool) -> vo
 		body.velocity.y = 0
 
 func jump(body: CharacterBody2D) -> void:
-	body.velocity.y = jump_velocity
-	jump_buffer_timer.stop()
-	is_jumping=true
-	coyote_timer.stop()
-	if body.is_on_wall() and not(wall_jump_buffer.is_stopped()):
-		if sprite2D.flip_h:
-			body.velocity.x += wall_jump_backward
-			sprite2D.flip_h = false
-			sprite2D.offset.x = 0
-		else:
-			body.velocity.x += -wall_jump_backward
-			sprite2D.flip_h = true
-			sprite2D.offset.x = 4
-		wall_jump_buffer.stop()
+	if wall_jump_streak<wall_jump_max+1:
+		wall_jump_streak+=1
+		body.velocity.y = jump_velocity
+		jump_buffer_timer.stop()
+		is_jumping=true
+		coyote_timer.stop()
+		if body.is_on_wall() and not(wall_jump_buffer.is_stopped()):
+			if sprite2D.flip_h:
+				body.velocity.x += wall_jump_backward
+				sprite2D.flip_h = false
+				sprite2D.offset.x = 0
+			else:
+				body.velocity.x += -wall_jump_backward
+				sprite2D.flip_h = true
+				sprite2D.offset.x = 4
+			wall_jump_buffer.stop()

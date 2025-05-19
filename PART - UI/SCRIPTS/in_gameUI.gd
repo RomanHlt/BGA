@@ -14,3 +14,8 @@ func _process(delta: float) -> void:
 		hide()
 	
 	$InGame/lifeController.play(str(PlayerDataSaver.PlayerStats.health))
+	
+	if GlobalsOptions.controller:
+		$InGame/Label.text = "C"
+	else:
+		$InGame/Label.text = "K"

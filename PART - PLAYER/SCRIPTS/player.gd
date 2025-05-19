@@ -8,6 +8,8 @@ signal pathObstrued
 @export var advanced_jump_component: AdvancedJumpComponent
 @export var animation_component: AnimationComponent
 @export var weapon_component: WeaponComponent
+@export_subgroup("External Nodes")
+@export var camera:Camera2D
 @export_subgroup("Data")
 @export var data: PlayerData = PlayerData.new()
 
@@ -43,6 +45,8 @@ func _takeDamages(damages:int):
 	if damages > PlayerDataSaver.PlayerStats.health:
 		damages = PlayerDataSaver.PlayerStats.health
 	PlayerDataSaver.PlayerStats.health -= damages
+	camera.shake()
+	
 
 # Layer Checkers
 func _on_area_2d_body_entered(body: Node2D) -> void:
