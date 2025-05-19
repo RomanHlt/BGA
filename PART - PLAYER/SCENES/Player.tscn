@@ -289,7 +289,7 @@ sprite = NodePath("../Sprite2D")
 [node name="AdvancedJumpComponent" parent="." node_paths=PackedStringArray("sprite2D") instance=ExtResource("7_eboik")]
 sprite2D = NodePath("../Sprite2D")
 jump_velocity = -400.0
-wall_jump_max = 3
+wall_jump_max = 1
 
 [node name="WeaponComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("9_3rr8y")]
 sprite = NodePath("../Sprite2D")

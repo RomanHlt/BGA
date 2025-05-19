@@ -5,6 +5,8 @@ var input_horizontal :float = 0.0
 
 func _process(delta: float) -> void:
 	input_horizontal = Input.get_axis("move_left", "move_right")
+	if input_horizontal > 0: input_horizontal=1
+	elif input_horizontal < 0: input_horizontal = -1
 
 func get_jump_input() -> bool:
 	return Input.is_action_just_pressed("jump")
