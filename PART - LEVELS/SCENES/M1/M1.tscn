@@ -2067,6 +2067,7 @@ tile_set = SubResource("TileSet_k3r57")
 [node name="lvl_changer" parent="TileMapLayer" instance=ExtResource("3_vs5vi")]
 position = Vector2(-157, -15)
 id_next_lvl = "1.1.0"
+id_last_lvl = "1.1.0"
 titre = "Premiers pas"
 sous_titre = "Monde 1 | Didacticiel N°1"
 

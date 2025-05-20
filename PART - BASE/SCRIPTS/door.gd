@@ -1,12 +1,14 @@
-extends Area2D
+class_name Door extends Area2D
 
 @export_category("Self config")
 @export var layer: int  # Layer de l'objet
 @export var sprite: Texture2D  # Sprite de l'objet avec lequel interagir
 @export var texte: String = "[E]"  # Texte affiché
+@export var textController:String = ""
 @export var isHub:bool = true
-@export_category("Next lvl config")
+@export_category("Level config")
 @export var id_next_lvl: String #Monde.Niveau.Sous-Niveau
+@export var id_last_lvl: String 
 @export var id_unlocked_lvl:String
 @export_category("LoadScreen config")
 @export var titre : String
@@ -21,7 +23,12 @@ var canAccess = false
 
 
 func _ready() -> void:
+	$AnimationPlayer.get_animation("Opening").loop_mode = Animation.LOOP_NONE #rend l'animation unique
+
+	self.process_mode = Node.PROCESS_MODE_ALWAYS # Le script ne sera pas afecté par les pauses.
 	
+	if PlayerDataSaver.PlayerStats.last_lvl == id_last_lvl:
+		$AnimationPlayer.play("Opening")
 	
 	if isHub:
 		#Récupérer les infos enregistrées
@@ -41,9 +48,6 @@ func _ready() -> void:
 		$AnimationPlayer.play("Idle")
 		canAccess=true
 	
-	$AnimationPlayer.get_animation("Opening").loop_mode = Animation.LOOP_NONE #rend l'animation unique
-
-	self.process_mode = Node.PROCESS_MODE_ALWAYS # Le script ne sera pas afecté par les pauses.
 	$Panel/Label.text = texte
 	z_index = get_parent().z_index
 	collision_layer = 0
@@ -73,6 +77,7 @@ func _input(event: InputEvent) -> void:
 	"""Déclenche le changement de niveau"""
 	if Input.is_action_just_pressed("interagir") and can_interact and canAccess:
 		$AnimationPlayer.play("Opening")
+		PlayerDataSaver.PlayerStats.last_lvl = PlayerDataSaver.PlayerStats.current_lvl
 		PlayerDataSaver.PlayerStats.current_lvl = id_next_lvl
 		if not isHub:PlayerDataSaver.WorldStats.level_completed(id_unlocked_lvl)
 		Main.get_node("Globals Levels").change_lvl(id_next_lvl, titre, sous_titre)
