@@ -2209,7 +2209,7 @@ theme_override_font_sizes/font_size = 50
 text = ","
 label_settings = null
 text_keyboard = ""
-text_controller = "w"
+text_controller = ","
 
 [node name="Label3" parent="." instance=ExtResource("13_13kxi")]
 offset_left = 1229.0
@@ -2329,7 +2329,7 @@ theme_override_font_sizes/font_size = 50
 text = "e"
 label_settings = null
 text_keyboard = ""
-text_controller = "w"
+text_controller = "e"
 
 [node name="Label7" parent="." instance=ExtResource("13_13kxi")]
 visible = false
