@@ -17,6 +17,7 @@ func _ready() -> void:
 	Layers = get_children().filter(func (x): if x.is_class("TileMapLayer"): return x)
 	player.reparent(Layers[spawnLayer])
 	player.data.current_lvl = id
+	findRightSpawn()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -27,6 +28,12 @@ func _process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("stats"):
 		print(player.deeperChecker.get_overlapping_areas())
+
+
+func findRightSpawn():
+	for l in Layers:
+		for d in l.get_children().filter(func (x):if x.get_script() == preload("res://PART - BASE/SCRIPTS/door.gd"):return x):
+			print(d)
 
 func goToLayer(layer:int = 0):
 	if player.canGoDeeper == true and currentPlayerLayer < layer:
