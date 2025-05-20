@@ -70,6 +70,7 @@ _data = {
 }
 
 [node name="Path2D" type="Path2D"]
+scale = Vector2(0.25, 0.25)
 curve = SubResource("Curve2D_omdds")
 script = ExtResource("1_pr63b")
 
