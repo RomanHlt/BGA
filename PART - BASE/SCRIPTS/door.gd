@@ -3,7 +3,7 @@ class_name Door extends Area2D
 @export_category("Self config")
 @export var layer: int  # Layer de l'objet
 @export var sprite: Texture2D  # Sprite de l'objet avec lequel interagir
-@export var texte: String = "[E]"  # Texte affiché
+@export var textKeyboard: String = "[E]"  # Texte affiché
 @export var textController:String = ""
 @export var isHub:bool = true
 @export_category("Level config")
@@ -48,7 +48,6 @@ func _ready() -> void:
 		$AnimationPlayer.play("Idle")
 		canAccess=true
 	
-	$Panel/Label.text = texte
 	z_index = get_parent().z_index
 	collision_layer = 0
 	collision_mask = 2**layer
@@ -81,3 +80,14 @@ func _input(event: InputEvent) -> void:
 		PlayerDataSaver.PlayerStats.current_lvl = id_next_lvl
 		if not isHub:PlayerDataSaver.WorldStats.level_completed(id_unlocked_lvl)
 		Main.get_node("Globals Levels").change_lvl(id_next_lvl, titre, sous_titre)
+
+
+func _process(delta: float) -> void:
+	if GlobalsOptions.controller:
+		$"Panel/Controller label".text = textController
+		$"Panel/Controller label".visible = true
+		$"Panel/Keyboard label".visible = false
+	else:
+		$"Panel/Keyboard label".text = textKeyboard
+		$"Panel/Controller label".visible = false
+		$"Panel/Keyboard label".visible = true
