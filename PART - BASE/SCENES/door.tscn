@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://dt1pv53ek46dl"]
+[gd_scene load_steps=24 format=3 uid="uid://dt1pv53ek46dl"]
 
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/door.gd" id="1_gmu4f"]
 [ext_resource type="Texture2D" uid="uid://b8xwpvj3btgvj" path="res://PART - BASE/ASSETS/LevelDoor.png" id="2_afq11"]
 [ext_resource type="Texture2D" uid="uid://bkff6bdw7hpga" path="res://PART - BASE/ASSETS/Notes.png" id="3_04xky"]
 [ext_resource type="FontFile" uid="uid://dsi8plob4hdvb" path="res://GLOBAL - Font/KAPH/TrueType (.ttf)/Kaph-Regular.ttf" id="3_cwefx"]
+[ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="3_iaihw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgah1"]
 size = Vector2(32, 41)
@@ -242,7 +243,6 @@ position = Vector2(-1, 9.5)
 shape = SubResource("RectangleShape2D_tgah1")
 
 [node name="Panel" type="Panel" parent="."]
-visible = false
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -255,7 +255,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_y65sj")
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Keyboard label" type="Label" parent="Panel"]
+visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -271,6 +272,28 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "[E]"
 label_settings = SubResource("LabelSettings_8vbf0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controller label" type="Label" parent="Panel"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = 52.5
+offset_right = 25.0
+offset_bottom = 103.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8, 0.247059, 0.560784, 1)
+theme_override_fonts/font = ExtResource("3_iaihw")
+theme_override_font_sizes/font_size = 25
+text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 
