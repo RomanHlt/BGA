@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://c1mehavpp4x4w"]
+[gd_scene load_steps=30 format=4 uid="uid://c1mehavpp4x4w"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_1ucby"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_5idw8"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="8_yav5e"]
 [ext_resource type="PackedScene" uid="uid://5q55qevow2dp" path="res://PART - UI/SCENES/Menu_d'accueil.tscn" id="9_amkfv"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="11_gjoes"]
+[ext_resource type="Script" path="res://PART - LEVELS/SCENES/ETAGE 1/scripts etage 1/zonetuto.gd" id="12_txy00"]
+[ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="13_13kxi"]
+[ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="14_4groo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dlmjl"]
 texture = ExtResource("2_5idw8")
@@ -2057,6 +2060,9 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_yfp5m")
 sources/3 = SubResource("TileSetAtlasSource_5p5ar")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdexf"]
+size = Vector2(42, 433)
+
 [node name="Map" type="Node2D"]
 script = ExtResource("1_1ucby")
 id = "1.3.0"
@@ -2138,3 +2144,188 @@ visible = false
 
 [node name="Ecran d\'accueil" parent="CanvasLayer" instance=ExtResource("9_amkfv")]
 visible = false
+
+[node name="Zonetuto" type="Area2D" parent="."]
+position = Vector2(-10, 0)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("12_txy00")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zonetuto"]
+position = Vector2(1452, -188.5)
+shape = SubResource("RectangleShape2D_rdexf")
+
+[node name="Label1" parent="." instance=ExtResource("13_13kxi")]
+offset_left = -135.0
+offset_top = 32.0
+offset_right = 137.0
+offset_bottom = 55.0
+text = "Déplacement :"
+text_keyboard = "Déplacement : Q/D"
+text_controller = "Déplacement :"
+
+[node name="Label1b" parent="Label1" instance=ExtResource("13_13kxi")]
+layout_mode = 0
+offset_left = 120.0
+offset_top = -12.0
+offset_right = 392.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(1, 0.270588, 1, 1)
+theme_override_fonts/font = ExtResource("14_4groo")
+theme_override_font_sizes/font_size = 50
+text = "w"
+label_settings = null
+text_keyboard = ""
+text_controller = "w"
+
+[node name="Label2" parent="." instance=ExtResource("13_13kxi")]
+offset_left = 353.0
+offset_top = 32.0
+offset_right = 625.0
+offset_bottom = 55.0
+text = "Saut :"
+text_keyboard = "Saut : Space"
+text_controller = "Saut :"
+
+[node name="Label2b" parent="Label2" instance=ExtResource("13_13kxi")]
+layout_mode = 0
+offset_left = 66.0
+offset_top = -12.0
+offset_right = 338.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(1, 0.270588, 1, 1)
+theme_override_fonts/font = ExtResource("14_4groo")
+theme_override_font_sizes/font_size = 50
+text = ","
+label_settings = null
+text_keyboard = ""
+text_controller = "w"
+
+[node name="Label3" parent="." instance=ExtResource("13_13kxi")]
+offset_left = 1229.0
+offset_top = 23.0
+offset_right = 1503.0
+offset_bottom = 46.0
+text = "Changement de couche :"
+text_keyboard = "Changement de couche : Z/S"
+text_controller = "Changement de couche :"
+
+[node name="Label3b" parent="Label3" instance=ExtResource("13_13kxi")]
+layout_mode = 0
+offset_left = 193.0
+offset_top = -12.0
+offset_right = 465.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(1, 0.270588, 1, 1)
+theme_override_fonts/font = ExtResource("14_4groo")
+theme_override_font_sizes/font_size = 50
+text = "jv"
+label_settings = null
+text_keyboard = ""
+text_controller = "jv"
+
+[node name="Label4" parent="." instance=ExtResource("13_13kxi")]
+offset_left = 1520.0
+offset_top = -127.0
+offset_right = 1813.0
+offset_bottom = -104.0
+text = "Il y a 3 notes"
+text_keyboard = "Il y a 3 notes"
+text_controller = "Il y a 3 notes"
+
+[node name="Label4b" parent="Label4" instance=ExtResource("13_13kxi")]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 24.0
+offset_right = 266.0
+offset_bottom = 47.0
+text = "Par niveau."
+text_keyboard = "Par niveau."
+text_controller = "Par niveau."
+
+[node name="Label4c" parent="Label4" instance=ExtResource("13_13kxi")]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 46.0
+offset_right = 285.0
+offset_bottom = 69.0
+text = " A vous des les"
+text_keyboard = " A vous des les"
+text_controller = " A vous des les"
+
+[node name="Label4d" parent="Label4" instance=ExtResource("13_13kxi")]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 69.0
+offset_right = 257.0
+offset_bottom = 92.0
+text = "trouver !"
+text_keyboard = "trouver !"
+text_controller = "trouver !"
+
+[node name="Label5" parent="." instance=ExtResource("13_13kxi")]
+visible = false
+offset_left = 880.0
+offset_top = -81.0
+offset_right = 1152.0
+offset_bottom = -58.0
+text = "Walljump :"
+text_keyboard = "Walljump :"
+text_controller = "Walljump :"
+
+[node name="Label" parent="Label5" instance=ExtResource("13_13kxi")]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 27.0
+offset_right = 292.0
+offset_bottom = 50.0
+text = "Sautez contre"
+text_keyboard = "Sautez contre"
+text_controller = "Sautez contre"
+
+[node name="Label2" parent="Label5" instance=ExtResource("13_13kxi")]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 53.0
+offset_right = 248.0
+offset_bottom = 76.0
+text = "le mur"
+text_keyboard = "le mur"
+text_controller = "le mur"
+
+[node name="Label6" parent="." instance=ExtResource("13_13kxi")]
+visible = false
+offset_left = 528.0
+offset_top = -58.0
+offset_right = 800.0
+offset_bottom = -35.0
+text = "Courir :"
+text_keyboard = "Courir : Maj"
+text_controller = "Courir :"
+
+[node name="Label5b" parent="Label6" instance=ExtResource("13_13kxi")]
+layout_mode = 0
+offset_left = 74.0
+offset_top = -18.0
+offset_right = 346.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(1, 0.270588, 1, 1)
+theme_override_fonts/font = ExtResource("14_4groo")
+theme_override_font_sizes/font_size = 50
+text = "e"
+label_settings = null
+text_keyboard = ""
+text_controller = "w"
+
+[node name="Label7" parent="." instance=ExtResource("13_13kxi")]
+visible = false
+offset_left = -531.0
+offset_top = -100.0
+offset_right = -259.0
+offset_bottom = -77.0
+text = "Par là"
+text_keyboard = "Par là"
+text_controller = "Par là"
+
+[connection signal="body_entered" from="Zonetuto" to="Zonetuto" method="_on_body_entered"]
+[connection signal="body_exited" from="Zonetuto" to="Zonetuto" method="_on_body_exited"]
