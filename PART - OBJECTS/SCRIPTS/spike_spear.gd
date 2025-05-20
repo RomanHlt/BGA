@@ -2,7 +2,7 @@ extends Node2D
 
 @export_category("Self Settings")
 @export var layer : int
-@export var damage : float
+@export var damage : float = 50
 
 @onready var on_area = false
 
@@ -27,17 +27,14 @@ func _on_dps_2_body_entered(body: Node2D) -> void:
 		on_area = true
 		$Spikeplayer.play("Pik")
 		await get_tree().create_timer(0.42).timeout
-		dps(body)
+		if on_area:
+			body._takeDamages(damage)
+		
 
 
 func _on_dps_2_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		on_area = false
-
-
-func dps(body):
-	if on_area:
-		body._takeDamages(damage)
 
 
 func _on_spear_base_body_entered(body: Node2D) -> void:
