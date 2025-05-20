@@ -991,7 +991,6 @@ animation = &"flying"
 
 [node name="Root" type="AnimatedSprite2D" parent="Path2D/PathFollow2D"]
 rotation = 0.245314
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_k6loj")
 animation = &"death"
 

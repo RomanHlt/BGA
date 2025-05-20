@@ -3,6 +3,8 @@ extends PathFollow2D
 var SPEED
 var animatedSprite:AnimatedSprite2D
 var is_sleeping : bool
+var is_chasing: bool
+var is_attacking:bool
 
 func _ready() -> void:
 	animatedSprite = _choose([$Zombie, $Root, $Fire, $Standart, $Vampire, $Albino])
@@ -13,8 +15,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	SPEED = get_parent().get_parent().SPEED
 	is_sleeping = get_parent().get_parent().is_sleeping
-	if !is_sleeping:
+	is_chasing = get_parent().get_parent().is_chasing
+	is_attacking = get_parent().get_parent().is_attacking
+	if !is_sleeping and !is_attacking and !is_chasing:
 		progress_ratio += delta * (SPEED/100)
+		animatedSprite.play("flying")
 
 func _choose(array):
 	array.shuffle()

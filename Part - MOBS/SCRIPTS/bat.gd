@@ -47,8 +47,7 @@ func _move(delta):
 	if is_chasing or is_attacking:
 		velocity = position.direction_to(player.position) * SPEED
 		direction.x = abs(velocity.x)/velocity.x
-	else:
-		progress_ratio = $Path2D/PathFollow2D.progress_ratio
+	
 	move_and_slide()
 
 func _handle_animation():
