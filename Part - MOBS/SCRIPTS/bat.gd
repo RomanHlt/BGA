@@ -85,6 +85,7 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 func _on_attack_area_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		is_attacking = false
+		$AttackArea.collision_layer = 0
 
 func _attack(body: Node2D):
 	$BatDealingDamage.collision_mask = 2**layer
@@ -101,7 +102,12 @@ func _death():
 	is_attacking = false
 	is_chasing = false
 	is_sleeping = false
+	animatedSprite.stop()
+	print("dead")
 	animatedSprite.play("death")
 	collision_layer = 0
+	$DetectionPlayer.collision_layer = 0
+	$AttackArea.collision_layer = 0
+	$BatTakingDamage.collision_layer = 0
 	await (animatedSprite.animation_finished)
 	self.queue_free()

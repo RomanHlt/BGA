@@ -34,13 +34,13 @@ size = Vector2(9, 5)
 size = Vector2(3, 7)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nw6k8"]
-radius = 66.1211
+radius = 22.0227
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_den8n"]
-radius = 31.257
+radius = 6.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4nfmu"]
-size = Vector2(10, 2)
+size = Vector2(10, 5)
 
 [sub_resource type="Curve2D" id="Curve2D_j0ilq"]
 _data = {
@@ -973,7 +973,7 @@ shape = SubResource("CircleShape2D_den8n")
 [node name="BatTakingDamage" type="Area2D" parent="."]
 
 [node name="BatTakingDamageShape" type="CollisionShape2D" parent="BatTakingDamage"]
-position = Vector2(0, -2)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_4nfmu")
 
 [node name="Path2D" type="Path2D" parent="."]

@@ -5,6 +5,7 @@ var animatedSprite:AnimatedSprite2D
 var is_sleeping : bool
 var is_chasing: bool
 var is_attacking:bool
+var dead :bool
 
 func _ready() -> void:
 	animatedSprite = _choose([$Zombie, $Root, $Fire, $Standart, $Vampire, $Albino])
@@ -17,9 +18,13 @@ func _process(delta: float) -> void:
 	is_sleeping = get_parent().get_parent().is_sleeping
 	is_chasing = get_parent().get_parent().is_chasing
 	is_attacking = get_parent().get_parent().is_attacking
-	if !is_sleeping and !is_attacking and !is_chasing:
+	dead = get_parent().get_parent().dead
+	if !is_sleeping and !is_attacking and !is_chasing and !dead:
 		progress_ratio += delta * (SPEED/100)
 		animatedSprite.play("flying")
+	if dead:
+		animatedSprite.hide()
+		
 
 func _choose(array):
 	array.shuffle()
