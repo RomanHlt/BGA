@@ -47,7 +47,8 @@ func _move(delta):
 	if is_chasing or is_attacking:
 		velocity = position.direction_to(player.position) * SPEED
 		direction.x = abs(velocity.x)/velocity.x
-	
+	else :
+		velocity = Vector2(0,0)
 	move_and_slide()
 
 func _handle_animation():
