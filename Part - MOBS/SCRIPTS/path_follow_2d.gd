@@ -22,9 +22,12 @@ func _process(delta: float) -> void:
 	if !is_sleeping and !is_attacking and !is_chasing and !dead:
 		progress_ratio += delta * (SPEED/100)
 		animatedSprite.play("flying")
-	if dead:
-		animatedSprite.hide()
-		
+	if is_chasing:
+			animatedSprite.play("flying")
+	elif is_attacking:
+			animatedSprite.play("attack")
+	elif !dead and is_sleeping :
+		animatedSprite.play("sleeping")
 
 func _choose(array):
 	array.shuffle()

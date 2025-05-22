@@ -42,8 +42,6 @@ func _process(delta: float) -> void:
 	_handle_animation()
 
 func _move(delta):
-	if is_sleeping:
-		velocity = Vector2(0,0)
 	if is_chasing or is_attacking:
 		velocity = position.direction_to(player.position) * SPEED
 		direction.x = abs(velocity.x)/velocity.x
@@ -103,7 +101,6 @@ func _death():
 	is_chasing = false
 	is_sleeping = false
 	animatedSprite.stop()
-	print("dead")
 	animatedSprite.play("death")
 	collision_layer = 0
 	$DetectionPlayer.collision_layer = 0
