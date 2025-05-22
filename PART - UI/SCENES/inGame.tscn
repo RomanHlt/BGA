@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cierfuw7plhvv"]
+[gd_scene load_steps=19 format=3 uid="uid://cierfuw7plhvv"]
 
 [ext_resource type="Texture2D" uid="uid://0tptb4ekglf0" path="res://PART - UI/ASSETS/PlayerLife.png" id="1_7npsu"]
 [ext_resource type="Script" path="res://PART - UI/SCRIPTS/in_gameUI.gd" id="1_kk3rj"]
 [ext_resource type="FontFile" uid="uid://cobvesca8xnwg" path="res://GLOBAL - Font/LittleGuy.ttf" id="3_xjblq"]
+[ext_resource type="Texture2D" uid="uid://b33dbw6ate5r3" path="res://PART - UI/SCENES/Notes.png" id="4_20fnx"]
 
 [sub_resource type="Animation" id="Animation_fwkt5"]
 length = 0.1
@@ -97,6 +98,112 @@ _data = {
 font = ExtResource("3_xjblq")
 font_size = 32
 
+[sub_resource type="Animation" id="Animation_68b86"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NotesCount/Notes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_l8klu"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NotesCount/Notes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_cmn18"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NotesCount/Notes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_05nr1"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NotesCount/Notes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_7t2rs"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NotesCount/Notes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_3g0ro"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NotesCount/Notes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b8xhe"]
+_data = {
+"000": SubResource("Animation_68b86"),
+"001": SubResource("Animation_l8klu"),
+"010": SubResource("Animation_cmn18"),
+"100": SubResource("Animation_05nr1"),
+"110": SubResource("Animation_7t2rs"),
+"111": SubResource("Animation_3g0ro")
+}
+
 [node name="InGame" type="CanvasLayer"]
 script = ExtResource("1_kk3rj")
 
@@ -147,3 +254,43 @@ offset_right = 1125.0
 offset_bottom = 622.0
 text = "K"
 label_settings = SubResource("LabelSettings_6voh7")
+
+[node name="NotesCount" type="Control" parent="InGame"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1001.0
+offset_top = 128.0
+offset_right = 1041.0
+offset_bottom = 168.0
+scale = Vector2(2.59999, 2.59999)
+
+[node name="Notes" type="Sprite2D" parent="InGame/NotesCount"]
+texture_filter = 1
+position = Vector2(0, -20)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_20fnx")
+hframes = 3
+vframes = 2
+frame = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "InGame/NotesCount/NotesPlayer",
+"slice": "",
+"source": "res://PART - LEVELS/ASSETS/Map/4 Animated objects/Notes.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "89ced42b829ed54751dd9eec5a192883"
+
+[node name="NotesPlayer" type="AnimationPlayer" parent="InGame/NotesCount"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_b8xhe")
+}

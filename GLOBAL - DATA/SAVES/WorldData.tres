@@ -6,7 +6,7 @@
 script = ExtResource("1_8mcvc")
 levels = 1
 compo = {
-1: [false, false, false],
+1: [true, true, false],
 2: [false, false, false],
 3: [false, false, false],
 4: [false, false, false],
@@ -15,6 +15,6 @@ compo = {
 access = {
 0: true,
 1: true,
-2: false,
+2: true,
 "next": false
 }

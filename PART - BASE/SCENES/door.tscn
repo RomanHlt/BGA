@@ -237,12 +237,14 @@ z_index = 1
 z_as_relative = false
 texture_filter = 1
 script = ExtResource("1_gmu4f")
+textController = "/"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 9.5)
 shape = SubResource("RectangleShape2D_tgah1")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -372,3 +374,4 @@ metadata/_aseprite_wizard_source_file_hash_ = "8f454ec591b8384f6716ec4d53d84faf"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
