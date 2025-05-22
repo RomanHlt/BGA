@@ -14,7 +14,7 @@ func _ready() -> void:
 			child.hide()
 
 func _process(delta: float) -> void:
-	SPEED = get_parent().get_parent().SPEED
+	SPEED = get_parent().SPEED
 	is_sleeping = get_parent().get_parent().is_sleeping
 	is_chasing = get_parent().get_parent().is_chasing
 	is_attacking = get_parent().get_parent().is_attacking

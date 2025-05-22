@@ -75,7 +75,7 @@ curve = SubResource("Curve2D_omdds")
 script = ExtResource("1_pr63b")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-position = Vector2(-91.9996, 91.9995)
+position = Vector2(-92, 92)
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
 texture_filter = 1
@@ -105,8 +105,7 @@ position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_ki2uu")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(-91.9996, 91.9995)
-progress = 1314.94
+position = Vector2(-92, 92)
 rotates = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
