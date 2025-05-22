@@ -2733,12 +2733,17 @@ tile_set = SubResource("TileSet_k3r57")
 
 [node name="door" parent="TileMapLayer" instance=ExtResource("15_4eyro")]
 position = Vector2(-31, -1007)
-textController = "/"
 isHub = false
 id_next_lvl = "1.0.0"
 id_unlocked_lvl = "1.0.0"
 titre = "Retour au Hub"
 sous_titre = "Félicitation vous avez fini les 3 niveaux"
+
+[node name="door2" parent="TileMapLayer" instance=ExtResource("15_4eyro")]
+position = Vector2(-34, -31)
+isHub = false
+isDecorative = true
+id_last_lvl = "1.0.0"
 
 [node name="Note0" parent="TileMapLayer" instance=ExtResource("3_neib3")]
 position = Vector2(322, -28)
@@ -2842,7 +2847,7 @@ tile_map_data = PackedByteArray("AABHAAoAAwAEAAQAAABHAAkAAwADAAEAAABHAAgAAwACAAQ
 tile_set = SubResource("TileSet_c2dyc")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_cefg5")]
-position = Vector2(-84, -28)
+position = Vector2(-33, -5)
 scale = Vector2(1.5, 1.5)
 collision_layer = 0
 camera = NodePath("../Camera2D")
