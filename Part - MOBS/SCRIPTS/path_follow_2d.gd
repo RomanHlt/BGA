@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 	if !is_sleeping and !is_attacking and !is_chasing and !dead:
 		progress_ratio += delta * (SPEED/100)
 		animatedSprite.play("flying")
-	if is_chasing:
+	elif is_chasing:
 			animatedSprite.play("flying")
 	elif is_attacking:
 			animatedSprite.play("attack")
