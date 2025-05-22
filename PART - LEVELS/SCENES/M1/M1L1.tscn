@@ -2097,6 +2097,12 @@ id_unlocked_lvl = "1.2.0"
 titre = "Hub"
 sous_titre = "Back to Hub"
 
+[node name="In" parent="TileMapLayer" instance=ExtResource("5_x5rhe")]
+position = Vector2(-127, -31)
+isHub = false
+isDecorative = true
+id_last_lvl = "1.0.0"
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
 z_index = -1

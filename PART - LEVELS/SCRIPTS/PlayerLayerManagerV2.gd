@@ -31,9 +31,15 @@ func _process(delta: float) -> void:
 
 
 func findRightSpawn():
+	var rightDoor:Door
 	for l in Layers:
 		for d in l.get_children().filter(func (x):if x.get_script() == preload("res://PART - BASE/SCRIPTS/door.gd"):return x):
-			print(d)
+			if d.id_last_lvl == PlayerDataSaver.PlayerStats.last_lvl:
+				rightDoor = d
+	if rightDoor != null:
+		player.position = rightDoor.position
+		rightDoor.isOut = true
+		print(rightDoor," Is Out")
 
 func goToLayer(layer:int = 0):
 	if player.canGoDeeper == true and currentPlayerLayer < layer:
