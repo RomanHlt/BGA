@@ -13,24 +13,25 @@ var map
 var animatedSprite:AnimatedSprite2D
 var player : CharacterBody2D
 @onready var pos_x = $PathFollow2D.position[0]
+@onready var progress_ratio = $PathFollow2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animatedSprite = _choose([$Bat/Zombie, $Bat/Root, $Bat/Fire, $Bat/Standart, $Bat/Vampire, $Bat/Albino])
-	for child in $Bat.get_children():
+	animatedSprite = _choose([$PathFollow2D/Bat/Zombie, $PathFollow2D/Bat/Root, $PathFollow2D/Bat/Fire, $PathFollow2D/Bat/Standart, $PathFollow2D/Bat/Vampire, $PathFollow2D/Bat/Albino])
+	for child in $PathFollow2D/Bat.get_children():
 		if child.is_class("AnimatedSprite2D") and child.name != animatedSprite.name:
 			child.hide()
 
 	#z_index = -layer
-	$Bat.collision_mask = 2**layer
-	$Bat.collision_layer = 2**layer
+	$PathFollow2D/Bat.collision_mask = 2**layer
+	$PathFollow2D/Bat.collision_layer = 2**layer
 	
 	#l'area de detection du player est sur le meme layer que la chauve-souris
-	$Bat/DetectionPlayer.collision_layer = 2**layer
-	$Bat/DetectionPlayer.collision_mask = 2**layer
+	$PathFollow2D/Bat/DetectionPlayer.collision_layer = 2**layer
+	$PathFollow2D/Bat/DetectionPlayer.collision_mask = 2**layer
 	
 	#la collision shade des dégts est desactivée
-	$Bat/AttackArea.collision_mask = 0
+	$PathFollow2D/Bat/AttackArea.collision_mask = 0
 
 func _choose(array):
 	array.shuffle()
@@ -39,11 +40,16 @@ func _choose(array):
 
 func _process(delta: float) -> void:
 	_handle_animation()
+	_move(delta)
 	if $PathFollow2D.position[0] <= pos_x:
 		animatedSprite.flip_h = true
 	else:
 		animatedSprite.flip_h = false
 	pos_x = $PathFollow2D.position[0]
+	
+func _move(delta):
+	if !is_sleeping and !is_attacking and !is_chasing and !dead:
+		$PathFollow2D.progress_ratio+=delta*SPEED/100
 
 func _handle_animation():
 	if !dead or !is_sleeping:
@@ -95,9 +101,9 @@ func _death():
 	is_sleeping = false
 	animatedSprite.stop()
 	animatedSprite.play("death")
-	$Bat.collision_layer = 0
-	$Bat/DetectionPlayer.collision_layer = 0
-	$Bat/AttackArea.collision_layer = 0
-	$Bat/AttackArea.collision_layer = 0
+	$PathFollow2D/Bat.collision_layer = 0
+	$PathFollow2D/Bat/DetectionPlayer.collision_layer = 0
+	$PathFollow2D/Bat/AttackArea.collision_layer = 0
+	$PathFollow2D/Bat/AttackArea.collision_layer = 0
 	await (animatedSprite.animation_finished)
 	self.queue_free()

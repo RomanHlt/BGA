@@ -945,55 +945,58 @@ SPEED = 10.0
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 rotation = -0.244979
+rotates = false
 
-[node name="Bat" type="CharacterBody2D" parent="."]
+[node name="Bat" type="CharacterBody2D" parent="PathFollow2D"]
+rotation = 0.244979
+scale = Vector2(1, 1)
 
-[node name="Zombie" type="AnimatedSprite2D" parent="Bat"]
+[node name="Zombie" type="AnimatedSprite2D" parent="PathFollow2D/Bat"]
 sprite_frames = SubResource("SpriteFrames_qm0vy")
-animation = &"attack"
+animation = &"sleeping"
 
-[node name="Vampire" type="AnimatedSprite2D" parent="Bat"]
+[node name="Vampire" type="AnimatedSprite2D" parent="PathFollow2D/Bat"]
 sprite_frames = SubResource("SpriteFrames_rqruc")
 animation = &"attack"
 
-[node name="Standart" type="AnimatedSprite2D" parent="Bat"]
+[node name="Standart" type="AnimatedSprite2D" parent="PathFollow2D/Bat"]
 sprite_frames = SubResource("SpriteFrames_102fq")
 animation = &"attack"
 
-[node name="Root" type="AnimatedSprite2D" parent="Bat"]
+[node name="Root" type="AnimatedSprite2D" parent="PathFollow2D/Bat"]
 sprite_frames = SubResource("SpriteFrames_nvqm8")
 animation = &"attack"
 
-[node name="Fire" type="AnimatedSprite2D" parent="Bat"]
+[node name="Fire" type="AnimatedSprite2D" parent="PathFollow2D/Bat"]
 sprite_frames = SubResource("SpriteFrames_7t2yo")
 animation = &"attack"
 
-[node name="Albino" type="AnimatedSprite2D" parent="Bat"]
+[node name="Albino" type="AnimatedSprite2D" parent="PathFollow2D/Bat"]
 sprite_frames = SubResource("SpriteFrames_1sj5l")
 animation = &"attack"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bat"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Bat"]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_fxfyv")
 
-[node name="DetectionPlayer" type="Area2D" parent="Bat"]
+[node name="DetectionPlayer" type="Area2D" parent="PathFollow2D/Bat"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bat/DetectionPlayer"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Bat/DetectionPlayer"]
 shape = SubResource("CircleShape2D_w7jto")
 
-[node name="AttackArea" type="Area2D" parent="Bat"]
+[node name="AttackArea" type="Area2D" parent="PathFollow2D/Bat"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bat/AttackArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Bat/AttackArea"]
 shape = SubResource("CircleShape2D_gr426")
 
-[node name="TakingDamage" type="Area2D" parent="Bat"]
+[node name="TakingDamage" type="Area2D" parent="PathFollow2D/Bat"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bat/TakingDamage"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Bat/TakingDamage"]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_lavbg")
 
-[connection signal="body_entered" from="Bat/DetectionPlayer" to="." method="_on_detection_player_body_entered"]
-[connection signal="body_exited" from="Bat/DetectionPlayer" to="." method="_on_detection_player_body_exited"]
-[connection signal="body_entered" from="Bat/AttackArea" to="." method="_on_attack_area_body_entered"]
-[connection signal="body_exited" from="Bat/AttackArea" to="." method="_on_attack_area_body_exited"]
-[connection signal="area_entered" from="Bat/TakingDamage" to="." method="_on_taking_damage_area_entered"]
+[connection signal="body_entered" from="PathFollow2D/Bat/DetectionPlayer" to="." method="_on_detection_player_body_entered"]
+[connection signal="body_exited" from="PathFollow2D/Bat/DetectionPlayer" to="." method="_on_detection_player_body_exited"]
+[connection signal="body_entered" from="PathFollow2D/Bat/AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="PathFollow2D/Bat/AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="area_entered" from="PathFollow2D/Bat/TakingDamage" to="." method="_on_taking_damage_area_entered"]
