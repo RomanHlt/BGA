@@ -2075,6 +2075,7 @@ metadata/_edit_lock_ = true
 
 [node name="door" parent="TileMapLayer" instance=ExtResource("11_gjoes")]
 position = Vector2(-1209, -575)
+textController = "/"
 isHub = false
 id_next_lvl = "1.0.0"
 id_unlocked_lvl = "1.2.0"

@@ -3,7 +3,7 @@ class_name Door extends Area2D
 @export_category("Self config")
 @export var layer: int  # Layer de l'objet
 @export var sprite: Texture2D  # Sprite de l'objet avec lequel interagir
-@export var texte: String = "[E]"  # Texte affiché
+@export var textKeyboard: String = "[E]"  # Texte affiché
 @export var textController:String = ""
 @export var isHub:bool = true
 @export var isDecorative:bool = false
@@ -49,7 +49,6 @@ func _ready() -> void:
 		canAccess=true
 	print(isOut)
 	
-	$Panel/Label.text = texte
 	z_index = get_parent().z_index
 	collision_layer = 0
 	collision_mask = 2**layer
@@ -58,10 +57,6 @@ func _ready() -> void:
 	else:
 		if $Sprite2D.texture == null:
 			print("⚠ Aucune texture assignée à l'objet !")
-
-func _process(delta: float) -> void:
-	if isOut:
-		$AnimationPlayer.play("Open")
 
 func _on_body_entered(body: Node2D) -> void:
 	"""Affiche le texte d'interaction"""
@@ -90,6 +85,17 @@ func _input(event: InputEvent) -> void:
 		if not isHub:PlayerDataSaver.WorldStats.level_completed(id_unlocked_lvl)
 		Main.get_node("Globals Levels").change_lvl(id_next_lvl, titre, sous_titre)
 
+func _process(delta: float) -> void:
+	if isOut:
+		$AnimationPlayer.play("Open")
+	if GlobalsOptions.controller:
+		$"Panel/Controller label".text = textController
+		$"Panel/Controller label".visible = true
+		$"Panel/Keyboard label".visible = false
+	else:
+		$"Panel/Keyboard label".text = textKeyboard
+		$"Panel/Controller label".visible = false
+		$"Panel/Keyboard label".visible = true
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
