@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://cydkw5arp1n4i"]
+
+[ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/heal.gd" id="1_akece"]
+[ext_resource type="Texture2D" uid="uid://dnpgssm2yn07d" path="res://PART - OBJECTS/ASSETS/Heal.png" id="1_dip6i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0gym"]
+
+[sub_resource type="Animation" id="Animation_b2o7w"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bt25k"]
+_data = {
+"heal": SubResource("Animation_b2o7w")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvks8"]
+size = Vector2(0.666666, 0.666668)
+
+[node name="Heal" type="AnimatableBody2D"]
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_akece")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_dip6i")
+hframes = 2
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://PART - LEVELS/ASSETS/Map/4 Animated objects/Heal.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "fe6e98e95a1c66e143fd4dd2636458a4"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_u0gym")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bt25k")
+}
+
+[node name="Useless" type="CollisionShape2D" parent="."]
+position = Vector2(-0.333334, -0.333334)
+shape = SubResource("RectangleShape2D_gvks8")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

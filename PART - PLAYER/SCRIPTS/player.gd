@@ -47,6 +47,12 @@ func _takeDamages(damages:int):
 	PlayerDataSaver.PlayerStats.health -= damages
 	camera.shake()
 	
+func _heal(heals:int):
+	if heals > 4 - PlayerDataSaver.PlayerStats.health: # 4 - la vie qu'on a déjà = ce qu'il nous manque
+		heals = 4 - PlayerDataSaver.PlayerStats.health
+	PlayerDataSaver.PlayerStats.health += heals
+
+
 
 # Layer Checkers
 func _on_area_2d_body_entered(body: Node2D) -> void:
