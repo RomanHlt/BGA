@@ -38,8 +38,10 @@ func findRightSpawn():
 				rightDoor = d
 	if rightDoor != null:
 		player.position = rightDoor.position
+		player.z_index = -rightDoor.layer
+		player.collision_mask = 2**rightDoor.layer
+		player.collision_layer = 2**rightDoor.layer
 		rightDoor.isOut = true
-		print(rightDoor," Is Out")
 
 func goToLayer(layer:int = 0):
 	if player.canGoDeeper == true and currentPlayerLayer < layer:

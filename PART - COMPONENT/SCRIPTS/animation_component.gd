@@ -46,3 +46,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		animator.speed_scale = 1
 	if anim_name == "Trumpet":
 		get_parent().fire = false
+		
+func dead():
+	"""MARCHE PO"""
+	animator.stop()
+	animator.play("DEATH")

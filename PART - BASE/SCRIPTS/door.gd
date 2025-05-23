@@ -47,7 +47,6 @@ func _ready() -> void:
 	else:
 		$AnimationPlayer.play("Idle")
 		canAccess=true
-	print(isOut)
 	
 	z_index = get_parent().z_index
 	collision_layer = 0
