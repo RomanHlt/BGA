@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://b8l2yx17cpu62"]
+[gd_scene load_steps=32 format=4 uid="uid://b8l2yx17cpu62"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_0o0kq"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_e64i4"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cjf1qy228ipvq" path="res://PART - OBJECTS/SCENES/Platform.tscn" id="6_vkp28"]
 [ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://PART - UI/SCENES/progrès.tscn" id="7_5otyq"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="7_eqv1d"]
+[ext_resource type="PackedScene" uid="uid://cydkw5arp1n4i" path="res://PART - OBJECTS/SCENES/heal.tscn" id="8_sinku"]
 [ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="8_tbncp"]
 [ext_resource type="PackedScene" uid="uid://5q55qevow2dp" path="res://PART - UI/SCENES/Menu_d'accueil.tscn" id="9_vl7g3"]
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="13_v6nq7"]
@@ -2186,6 +2187,10 @@ id_next_lvl = "1.0.0"
 id_unlocked_lvl = "1.3.0"
 titre = "Retour au Hub"
 sous_titre = "Fin du 2eme niveau"
+
+[node name="Heal" parent="TileMapLayer2" instance=ExtResource("8_sinku")]
+position = Vector2(1020, 213)
+layer = 1
 
 [node name="Note1" parent="TileMapLayer2" instance=ExtResource("4_8xouu")]
 position = Vector2(-532, 41)
