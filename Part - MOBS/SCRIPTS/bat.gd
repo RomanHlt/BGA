@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED : float
-var direction : Vector2
+
 var dead : bool = false
 var taking_damage : bool = false
 var is_attacking : bool = false

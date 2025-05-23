@@ -1,7 +1,8 @@
-[gd_scene load_steps=145 format=3 uid="uid://0xlb2up47lnn"]
+[gd_scene load_steps=146 format=3 uid="uid://0xlb2up47lnn"]
 
 [ext_resource type="Texture2D" uid="uid://bb18btju7a37e" path="res://Part - MOBS/ASSETS/Bat/Zombie/BatZombie_Attack.png" id="1_j1obv"]
 [ext_resource type="Script" path="res://Part - MOBS/SCRIPTS/batTest.gd" id="1_yhxqi"]
+[ext_resource type="Script" path="res://Part - MOBS/SCRIPTS/bat_movement.gd" id="2_23y8v"]
 [ext_resource type="Texture2D" uid="uid://j1rpk1laquwv" path="res://Part - MOBS/ASSETS/Bat/Zombie/BatZombie_Death.png" id="2_y84jl"]
 [ext_resource type="Texture2D" uid="uid://cdqmamtjryvr2" path="res://Part - MOBS/ASSETS/Bat/Zombie/BatZombie_Flying.png" id="3_isgx6"]
 [ext_resource type="Texture2D" uid="uid://jqp8g4uc1jj8" path="res://Part - MOBS/ASSETS/Bat/Zombie/BatZombie_Sleeping.png" id="4_t7u8k"]
@@ -949,7 +950,7 @@ rotates = false
 
 [node name="Bat" type="CharacterBody2D" parent="PathFollow2D"]
 rotation = 0.244979
-scale = Vector2(1, 1)
+script = ExtResource("2_23y8v")
 
 [node name="Zombie" type="AnimatedSprite2D" parent="PathFollow2D/Bat"]
 sprite_frames = SubResource("SpriteFrames_qm0vy")

@@ -11,5 +11,5 @@ func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_inde
 		if body.name == "frog":
 			body._death()
 		if body.name == "Bat":
-			body.get_parent()._death()
+			body.get_parent().get_parent()._death()
 		queue_free()
