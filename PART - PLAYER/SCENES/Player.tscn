@@ -45,7 +45,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_lmhub"]
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

@@ -20,7 +20,9 @@ func handle_horizontal_movement(body:CharacterBody2D, direction:float, isRunning
 	body.velocity.x = move_toward(body.velocity.x, direction * choose_right_speed(isRunning), velocity_change_speed)
 
 func choose_right_speed(isRunning:bool):
-	if isRunning:
+	if PlayerDataSaver.PlayerStats.is_dead:
+		return 0
+	elif isRunning:
 		return runningSpeed
 	else:
 		return speed
