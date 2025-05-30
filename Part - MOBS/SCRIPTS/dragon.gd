@@ -7,7 +7,7 @@ var flame = preload("res://PART - MOBS/SCENES/dragon_flame.tscn")
 
 @onready var is_sleeping = true
 @onready var target : CharacterBody2D = self
-@onready var stop = false
+@onready var lock = false
 
 func _ready() -> void:
 	collision_layer = 2**layer
@@ -18,6 +18,8 @@ func _process(delta: float) -> void:
 	$GravityComponent.handle_gravity($".", delta) # Applique la gravité
 	if is_sleeping: 
 		$DragonAnimator.play("Idle_left")
+		velocity[0] = 0 # Arreter son déplacement
+	elif lock:
 		velocity[0] = 0 # Arreter son déplacement
 	else:
 		var direction = sign(target.position[0] - self.position[0]) # direction = 1 ou -1 en fonction de la position du joueur par rapport au mob
@@ -31,25 +33,27 @@ func _process(delta: float) -> void:
 
 func fire_left():
 	var fire = flame.instantiate()
-	add_child(fire)
+	call_deferred("add_child", fire)
 	fire.collision_layer = collision_layer
 	fire.collision_mask = collision_mask
 	fire.z_index = z_index
 	fire.position = Vector2(-25, 0)
 	fire.anime("left")
-	await stop
+	while lock:
+		await get_tree().process_frame  # attend la frame suivante tant que le dragon crache du feu
 	fire.stop()
 
 
 func fire_right():
 	var fire2 = flame.instantiate()
-	add_child(fire2)
+	call_deferred("add_child", fire2)
 	fire2.collision_layer = collision_layer
 	fire2.collision_mask = collision_mask
 	fire2.z_index = z_index
 	fire2.position = Vector2(45, 0)
 	fire2.anime("right")
-	await stop
+	while lock:
+		await get_tree().process_frame  # attend la frame suivante tant que le dragon crache du feu
 	fire2.stop()
 
 func _on_detectionarea_body_entered(body: Node2D) -> void:
@@ -66,21 +70,20 @@ func _on_detectionarea_body_exited(body: Node2D) -> void:
 
 func _on_detectionleft_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		velocity[0] = 0
-		stop = false
+		lock = true
 		fire_left()
 
 
 func _on_detectionright_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		stop = false
+		lock = true
 		fire_right()
 
 
 func _on_detectionleft_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
-		stop = true
+		lock = false
 
 func _on_detectionright_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
-		stop = true
+		lock = false

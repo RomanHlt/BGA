@@ -56,6 +56,7 @@ func _heal(heals:int):
 
 func _dead():
 	PlayerDataSaver.PlayerStats.is_dead = true
+	collision_layer = 0
 	await get_tree().create_timer(1.5).timeout
 	Main.get_node("CanvasLayer/Dead").dead()
 	await get_tree().create_timer(1.5).timeout

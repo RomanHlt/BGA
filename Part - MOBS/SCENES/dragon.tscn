@@ -183,7 +183,6 @@ metadata/_aseprite_wizard_source_file_hash_ = "32c1bcb782b78755cd30a96bd466ac56"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.6)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_vw250")
 
 [node name="GravityComponent" parent="." instance=ExtResource("1_j3vgy")]
@@ -203,7 +202,6 @@ debug_color = Color(0.496068, 0.545128, 0.568927, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectionleft"]
 position = Vector2(-26.2, 2.4)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_harfe")
 debug_color = Color(0.902191, 0.222292, 0.544388, 0.42)
 
@@ -211,7 +209,6 @@ debug_color = Color(0.902191, 0.222292, 0.544388, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectionright"]
 position = Vector2(27.2, 2.4)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_harfe")
 debug_color = Color(0.902191, 0.222292, 0.544388, 0.42)
 

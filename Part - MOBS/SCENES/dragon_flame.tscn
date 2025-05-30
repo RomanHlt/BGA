@@ -1,11 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu3bwxweu7207"]
+[gd_scene load_steps=7 format=3 uid="uid://bu3bwxweu7207"]
 
 [ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/dragon_flame.gd" id="1_58adn"]
 [ext_resource type="Texture2D" uid="uid://bobkkddawytg6" path="res://PART - MOBS/ASSETS/Drag/flames.png" id="1_gi7xs"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_btdtj"]
-radius = 9.0
-height = 24.0
 
 [sub_resource type="Animation" id="Animation_oyskg"]
 length = 0.3
@@ -28,7 +24,16 @@ _data = {
 "default": SubResource("Animation_oyskg")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_btdtj"]
+radius = 9.0
+height = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60uvn"]
+size = Vector2(0, 0)
+
 [node name="AnimatableBody2D" type="AnimatableBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_58adn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -54,11 +59,20 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "750f6706daa27783464f5b3250310252"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_btdtj")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_yt1ts")
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_btdtj")
+
+[node name="Rien" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_60uvn")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
