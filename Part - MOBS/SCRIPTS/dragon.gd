@@ -16,7 +16,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	$GravityComponent.handle_gravity($".", delta) # Applique la gravité
-	if is_sleeping: 
+	
+	if velocity[1] < 0:
+		$DragonAnimator.play("jump_left")
+	elif velocity[1] > 0:
+		$DragonAnimator.play("fall_left")
+	
+	elif is_sleeping: 
 		$DragonAnimator.play("Idle_left")
 		velocity[0] = 0 # Arreter son déplacement
 	elif lock:
@@ -24,10 +30,11 @@ func _process(delta: float) -> void:
 	else:
 		var direction = sign(target.position[0] - self.position[0]) # direction = 1 ou -1 en fonction de la position du joueur par rapport au mob
 		velocity[0] = direction * 100 # Vitesse 100
-	
+		$DragonAnimator.play("walk_left")
+		
 	if velocity.length() > 0 and not is_sleeping: # Si le mob est en mouvement
 		$Dragon.flip_h = velocity[0] > 0 #S'il bouge vers la droite on le fait tourner vers la droite sinon on le laisse à gauche
-		$DragonAnimator.play("walk_left")
+		
 
 	move_and_slide()
 
@@ -39,6 +46,7 @@ func fire_left():
 	fire.z_index = z_index
 	fire.position = Vector2(-25, 0)
 	fire.anime("left")
+	$DragonAnimator.play("Attack")
 	while lock:
 		await get_tree().process_frame  # attend la frame suivante tant que le dragon crache du feu
 	fire.stop()
@@ -52,9 +60,11 @@ func fire_right():
 	fire2.z_index = z_index
 	fire2.position = Vector2(45, 0)
 	fire2.anime("right")
+	$DragonAnimator.play("Attack")
 	while lock:
 		await get_tree().process_frame  # attend la frame suivante tant que le dragon crache du feu
 	fire2.stop()
+	
 
 func _on_detectionarea_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -87,3 +97,12 @@ func _on_detectionleft_body_exited(body: Node2D) -> void:
 func _on_detectionright_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		lock = false
+
+
+func _on_collision_left_body_entered(body: Node2D) -> void:
+	if body.name != "Player":
+		$AdvancedJumpComponent.jump(self)
+
+func _on_collision_right_body_entered(body: Node2D) -> void:
+	if body.name != "Player":
+		$AdvancedJumpComponent.jump(self)

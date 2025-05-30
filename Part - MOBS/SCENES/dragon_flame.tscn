@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bu3bwxweu7207"]
 
 [ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/dragon_flame.gd" id="1_58adn"]
-[ext_resource type="Texture2D" uid="uid://bobkkddawytg6" path="res://PART - MOBS/ASSETS/Drag/flames.png" id="1_gi7xs"]
+[ext_resource type="Texture2D" uid="uid://d26oi2o5fu0nq" path="res://PART - MOBS/ASSETS/Drag/flames.png" id="2_be8px"]
 
 [sub_resource type="Animation" id="Animation_oyskg"]
 length = 0.3
@@ -39,7 +39,7 @@ script = ExtResource("1_58adn")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-10, -2)
-texture = ExtResource("1_gi7xs")
+texture = ExtResource("2_be8px")
 hframes = 2
 vframes = 2
 metadata/_aseprite_wizard_interface_config_ = {
@@ -57,7 +57,7 @@ metadata/_aseprite_wizard_config_ = {
 "slice": "",
 "source": "res://PART - MOBS/ASSETS/Drag/flames.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "750f6706daa27783464f5b3250310252"
+metadata/_aseprite_wizard_source_file_hash_ = "0233a840fca7a332d4c1a2238094c8db"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
