@@ -25,13 +25,13 @@ func handle_move_animation(body:CharacterBody2D, move_direction:float)->void:
 	handle_horizontal_flip(move_direction)
 	if PlayerDataSaver.PlayerStats.is_dead:
 		animator.play("DEATH")
-	elif get_parent().fire:
+	elif get_parent().fire and body.canMove:
 		animator.play("Trumpet")
 	elif get_parent().layerJump:
 		animator.speed_scale = 4
 		animator.play("DASH")
 	else:
-		if move_direction !=0 and body.is_on_floor():                                                                         
+		if move_direction !=0 and body.is_on_floor() and body.canMove:                                                                         
 			animator.play("RUN")
 		else:
 			animator.play("IDLE")

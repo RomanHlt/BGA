@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func change_lvl(id, titre, sous_titre):
 	var new_lvl_path = dico[id]
-	PlayerDataSaver.PlayerStats.current_lvl = id[0]+".0.0"
+	if id != "0.0.0":
+		PlayerDataSaver.PlayerStats.current_lvl = id[0]+".0.0"
 	PlayerDataSaver._handle_save()
 	$"../CanvasLayer/Fondu".change_lvl(new_lvl_path, titre, sous_titre)
