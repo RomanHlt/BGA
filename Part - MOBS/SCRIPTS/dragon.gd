@@ -8,6 +8,7 @@ var flame = preload("res://PART - MOBS/SCENES/dragon_flame.tscn")
 @onready var is_sleeping = true
 @onready var target : CharacterBody2D = self
 @onready var lock = false
+@onready var on_spike = false
 
 func _ready() -> void:
 	collision_layer = 2**layer
@@ -66,29 +67,27 @@ func fire_right():
 	fire2.stop()
 	
 
+# Chasse
 func _on_detectionarea_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		is_sleeping = false
 		target = body
-
-
 
 func _on_detectionarea_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		is_sleeping = true
 
 
+# Attaque flame
 func _on_detectionleft_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		lock = true
 		fire_left()
 
-
 func _on_detectionright_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		lock = true
 		fire_right()
-
 
 func _on_detectionleft_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
@@ -99,10 +98,33 @@ func _on_detectionright_body_exited(body: Node2D) -> void:
 		lock = false
 
 
+# Attaque spike
+func _on_detectionup_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		lock = true
+		$DragonAnimator.play("Spikes")
+
+func _on_detectionup_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		lock = false
+
+func _on_spike_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		on_spike = true
+		while on_spike:
+			body._takeDamages(1)
+			await get_tree().create_timer(1).timeout
+
+func _on_spike_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		on_spike = false
+
+
+# Saut
 func _on_collision_left_body_entered(body: Node2D) -> void:
-	if body.name != "Player":
+	if body.name != "Player" and velocity[0] < 0:  # Si on va vers la gauche et qu'on croise un obstacle (or joueur) : sauter
 		$AdvancedJumpComponent.jump(self)
 
 func _on_collision_right_body_entered(body: Node2D) -> void:
-	if body.name != "Player":
+	if body.name != "Player" and velocity[0] > 0:
 		$AdvancedJumpComponent.jump(self)

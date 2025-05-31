@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://bsmv04evs2r56"]
+[gd_scene load_steps=18 format=3 uid="uid://bsmv04evs2r56"]
 
-[ext_resource type="Texture2D" uid="uid://wqj51qb6ogur" path="res://PART - MOBS/ASSETS/Drag/Dragon cat.png" id="1_01qcf"]
 [ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/dragon.gd" id="1_gvikf"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="1_j3vgy"]
+[ext_resource type="Texture2D" uid="uid://4w07kgbfn3v4" path="res://PART - MOBS/ASSETS/Drag/Dragon cat.png" id="2_yumwn"]
 [ext_resource type="PackedScene" uid="uid://codccv1hd133u" path="res://PART - COMPONENT/SCENES/advanced_jump_component.tscn" id="3_r26lh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vw250"]
@@ -21,7 +21,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [13, 14, 13]
+"values": [12, 13, 12]
 }
 
 [sub_resource type="Animation" id="Animation_xn5w7"]
@@ -37,7 +37,23 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 1, 2, 3, 3, 3, 4]
+"values": [0, 0, 0, 1, 2, 2, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_f05jr"]
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dragon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 16, 16, 17, 18, 14]
 }
 
 [sub_resource type="Animation" id="Animation_iih3u"]
@@ -53,7 +69,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [11, 12]
+"values": [10, 11]
 }
 
 [sub_resource type="Animation" id="Animation_o6jlp"]
@@ -69,7 +85,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [9, 10]
+"values": [8, 9]
 }
 
 [sub_resource type="Animation" id="Animation_umcl2"]
@@ -85,13 +101,14 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [5, 6, 7, 8]
+"values": [4, 5, 6, 7]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nde1d"]
 _data = {
 "Attack": SubResource("Animation_34oej"),
 "Idle_left": SubResource("Animation_xn5w7"),
+"Spikes": SubResource("Animation_f05jr"),
 "fall_left": SubResource("Animation_iih3u"),
 "jump_left": SubResource("Animation_o6jlp"),
 "walk_left": SubResource("Animation_umcl2")
@@ -103,8 +120,14 @@ radius = 200.8
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_harfe"]
 size = Vector2(24.4, 17.6)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly1qi"]
+size = Vector2(12, 50.6)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2pvbv"]
 size = Vector2(12.4, 7.6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5rjw"]
+size = Vector2(8, 9)
 
 [node name="Dragon" type="CharacterBody2D"]
 texture_filter = 1
@@ -113,9 +136,10 @@ script = ExtResource("1_gvikf")
 
 [node name="Dragon" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_01qcf")
-hframes = 4
+texture = ExtResource("2_yumwn")
+hframes = 5
 vframes = 4
+frame = 16
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -131,7 +155,7 @@ metadata/_aseprite_wizard_config_ = {
 "slice": "",
 "source": "res://PART - MOBS/ASSETS/Drag/Dragon cat.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "b770f16983963fdb94fa858e61225c8d"
+metadata/_aseprite_wizard_source_file_hash_ = "b9f6887e947fd3a07cdbe6f228008fa4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.6)
@@ -162,30 +186,40 @@ position = Vector2(27.2, 2.4)
 shape = SubResource("RectangleShape2D_harfe")
 debug_color = Color(0.902191, 0.222292, 0.544388, 0.42)
 
+[node name="detectionup" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectionup"]
+position = Vector2(-0.4, -29.1)
+shape = SubResource("RectangleShape2D_ly1qi")
+debug_color = Color(0.786781, 0.337647, 0.691059, 0.42)
+
 [node name="Collision left" type="Area2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision left"]
 position = Vector2(-20, 4)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2pvbv")
 debug_color = Color(0.383416, 0.269255, 0.0287384, 0.42)
 
 [node name="Collision right" type="Area2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision right"]
 position = Vector2(20.8, 4)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2pvbv")
 debug_color = Color(0.383416, 0.269255, 0.0287384, 0.42)
+
+[node name="Spike" type="Area2D" parent="."]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
+position = Vector2(-0.8, -8.3)
+shape = SubResource("RectangleShape2D_m5rjw")
+debug_color = Color(0.989883, 0, 0.285129, 0.42)
 
 [node name="AdvancedJumpComponent" parent="." node_paths=PackedStringArray("sprite2D") instance=ExtResource("3_r26lh")]
 sprite2D = NodePath("../Dragon")
 wall_jump_max = 999999
 
 [node name="GravityComponent" parent="." instance=ExtResource("1_j3vgy")]
-scale = Vector2(1, 1)
 
 [connection signal="body_entered" from="Detectionarea" to="." method="_on_detectionarea_body_entered"]
 [connection signal="body_exited" from="Detectionarea" to="." method="_on_detectionarea_body_exited"]
@@ -193,5 +227,9 @@ scale = Vector2(1, 1)
 [connection signal="body_exited" from="detectionleft" to="." method="_on_detectionleft_body_exited"]
 [connection signal="body_entered" from="detectionright" to="." method="_on_detectionright_body_entered"]
 [connection signal="body_exited" from="detectionright" to="." method="_on_detectionright_body_exited"]
+[connection signal="body_entered" from="detectionup" to="." method="_on_detectionup_body_entered"]
+[connection signal="body_exited" from="detectionup" to="." method="_on_detectionup_body_exited"]
 [connection signal="body_entered" from="Collision left" to="." method="_on_collision_left_body_entered"]
 [connection signal="body_entered" from="Collision right" to="." method="_on_collision_right_body_entered"]
+[connection signal="body_entered" from="Spike" to="." method="_on_spike_body_entered"]
+[connection signal="body_exited" from="Spike" to="." method="_on_spike_body_exited"]
