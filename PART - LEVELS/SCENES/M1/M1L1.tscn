@@ -1,11 +1,10 @@
-[gd_scene load_steps=31 format=4 uid="uid://c1mehavpp4x4w"]
+[gd_scene load_steps=30 format=4 uid="uid://c1mehavpp4x4w"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_1ucby"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_5idw8"]
 [ext_resource type="PackedScene" uid="uid://c1r0k08xd0ibm" path="res://PART - OBJECTS/SCENES/Note.tscn" id="3_11nbo"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_n1b2c"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_bufs7"]
-[ext_resource type="PackedScene" uid="uid://bsmv04evs2r56" path="res://PART - MOBS/SCENES/dragon.tscn" id="4_dwkgi"]
 [ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://PART - UI/SCENES/menu.tscn" id="5_jc45o"]
 [ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="6_4ts45"]
 [ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://PART - UI/SCENES/progrès.tscn" id="7_a84tw"]
@@ -2087,9 +2086,6 @@ position = Vector2(-1, -31)
 isHub = false
 isDecorative = true
 id_last_lvl = "1.0.0"
-
-[node name="Dragon" parent="TileMapLayer" instance=ExtResource("4_dwkgi")]
-position = Vector2(850, -139)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
