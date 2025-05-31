@@ -10,6 +10,7 @@ var currentPlayerLayer:int = spawnLayer
 var pathObstured:bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(PlayerDataSaver.PlayerStats.current_lvl,"//",PlayerDataSaver.PlayerStats.last_lvl)
 	player = $Player
 	player.z_index = -spawnLayer
 	player.collision_mask = 2**spawnLayer
@@ -43,10 +44,9 @@ func findRightSpawn():
 			if d.id_last_lvl == PlayerDataSaver.PlayerStats.last_lvl:
 				rightDoor = d
 	if rightDoor != null:
+		print(rightDoor)
 		player.position = rightDoor.position
-		player.z_index = -rightDoor.layer
-		player.collision_mask = 2**rightDoor.layer
-		player.collision_layer = 2**rightDoor.layer
+		goToLayer(rightDoor.layer)
 		rightDoor.isOut = true
 
 func goToLayer(layer:int = 0):

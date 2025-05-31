@@ -39,9 +39,15 @@ func _on_resume_pressed() -> void:
 	hide()
 
 func _on_quit_pressed() -> void:
-	Main.get_node("Globals Levels").change_lvl("0.0.0", "Retour au Menu","")
-	hide()
-	Main.get_node("Globals Options").controller = false
+	if PlayerDataSaver.PlayerStats.current_lvl.split(".")[1] != "0":
+		var hub:String = PlayerDataSaver.PlayerStats.current_lvl.split(".")[0]+".0.0"
+		Main.get_node("Globals Levels").change_lvl(hub, "Retour au Hub",hub)
+		hide()
+		Main.get_node("Globals Options").controller = false
+	else:
+		Main.get_node("Globals Levels").change_lvl("0.0.0", "Retour au Menu","")
+		hide()
+		Main.get_node("Globals Options").controller = false
 
 func _on_settings_pressed() -> void:
 	hide()
@@ -62,7 +68,6 @@ func _on_globals_options_controller_off() -> void:
 			b.release_focus()
 
 #Detection des autres menus
-
 func _on_menu_settings_settings_closed() -> void:
 	show()
 	if Main.get_node("Globals Options").controller:
