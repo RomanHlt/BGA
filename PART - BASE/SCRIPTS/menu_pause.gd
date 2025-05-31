@@ -68,7 +68,6 @@ func _on_globals_options_controller_off() -> void:
 			b.release_focus()
 
 #Detection des autres menus
-
 func _on_menu_settings_settings_closed() -> void:
 	show()
 	if Main.get_node("Globals Options").controller:
