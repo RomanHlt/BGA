@@ -3,10 +3,10 @@ extends Node2D
 @export_subgroup("Identity")
 @export var id : String
 @export var spawnLayer:int = 0
+@export var isHome:bool = false
 var Layers:Array
 var player:CharacterBody2D
 var currentPlayerLayer:int = spawnLayer
-
 var pathObstured:bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,7 +16,13 @@ func _ready() -> void:
 	player.collision_layer = 2**spawnLayer
 	Layers = get_children().filter(func (x): if x.is_class("TileMapLayer"): return x)
 	player.reparent(Layers[spawnLayer])
-	player.data.current_lvl = id
+	if !isHome:
+		player.data.current_lvl = id
+		Main.get_node("CanvasLayer/Menus/MenuPause").canOpen = true
+
+	else:
+		Main.get_node("CanvasLayer/Menus/MenuAccueil").show()
+		Main.get_node("CanvasLayer/Menus/MenuPause").canOpen = false
 	findRightSpawn()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

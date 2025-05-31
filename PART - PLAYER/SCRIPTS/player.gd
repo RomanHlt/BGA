@@ -19,6 +19,7 @@ var canGoDeeper:bool = true
 var canGoCloser:bool = true
 var layerJump:bool = false
 var fire:bool = false
+@export var canMove:bool = true
 
 
 func _ready():
@@ -35,10 +36,11 @@ func _process(delta: float) -> void:
 	
 func _physics_process(delta: float) -> void:
 	gravity_component.handle_gravity(self,delta)
-	movement_component.handle_horizontal_movement(self, input_component.input_horizontal, input_component.get_run())
-	advanced_jump_component.handle_jump(self, input_component.get_jump_input(),input_component.get_jump_input_released())
+	if canMove:
+		movement_component.handle_horizontal_movement(self, input_component.input_horizontal, input_component.get_run())
+		advanced_jump_component.handle_jump(self, input_component.get_jump_input(),input_component.get_jump_input_released())
+		weapon_component._handle_fire(self, input_component.get_fire())
 	animation_component.handle_move_animation(self, input_component.input_horizontal)
-	weapon_component._handle_fire(self, input_component.get_fire())
 	move_and_slide()
 
 func _takeDamages(damages:int):
