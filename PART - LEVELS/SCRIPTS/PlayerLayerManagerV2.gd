@@ -44,7 +44,7 @@ func findRightSpawn():
 			if d.id_last_lvl == PlayerDataSaver.PlayerStats.last_lvl:
 				rightDoor = d
 	if rightDoor != null:
-		print(rightDoor)
+		print("rightDoor :", rightDoor)
 		player.position = rightDoor.position
 		goToLayer(rightDoor.layer)
 		rightDoor.isOut = true
@@ -70,3 +70,6 @@ func goToLayer(layer:int = 0):
 		player.z_index = -layer
 		currentPlayerLayer=layer
 		player.position.y+=1 #Eviter que les checker ne detectent plus de collisions (patch de brute)
+	if PlayerDataSaver.PlayerStats.is_dead:
+		player.collision_layer = 2**layer
+	print(player.collision_layer, player.collision_mask)

@@ -79,3 +79,23 @@ theme_override_font_sizes/font_size = 25
 text = "Notre Instagram : @insa_bga"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -561.0
+offset_top = -116.0
+offset_right = -363.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_7t71u")
+theme_override_font_sizes/font_size = 25
+text = "Version :
+Demo 1
+01/06/2025"
