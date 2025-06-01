@@ -2267,9 +2267,9 @@ offset_left = 12.0
 offset_top = 46.0
 offset_right = 285.0
 offset_bottom = 69.0
-text = " A vous des les"
-text_keyboard = " A vous des les"
-text_controller = " A vous des les"
+text = " A vous de les"
+text_keyboard = " A vous de les"
+text_controller = " A vous de les"
 
 [node name="Label4d" parent="Label4" instance=ExtResource("13_13kxi")]
 layout_mode = 0
