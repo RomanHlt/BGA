@@ -2078,9 +2078,10 @@ titre = "Premiers pas"
 sous_titre = "Monde 1 | Didacticiel N°1"
 
 [node name="bat" parent="." instance=ExtResource("11_3sv15")]
-position = Vector2(119, 0)
+position = Vector2(130, -17)
 
 [node name="frog" parent="." instance=ExtResource("5_nummf")]
+visible = false
 position = Vector2(-89, 0)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]

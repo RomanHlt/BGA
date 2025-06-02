@@ -100,4 +100,5 @@ func _death():
 	self.queue_free()
 
 func _on_frog_dealing_damage_body_entered(body: CharacterBody2D) -> void:
+	
 	_attack(body)

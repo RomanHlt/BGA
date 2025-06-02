@@ -46,6 +46,7 @@ func _move(delta):
 		velocity = Vector2(0,0)
 	if is_chasing or is_attacking:
 		direction = position.direction_to(player.position) * SPEED
+		print(direction)
 		direction.x = abs(direction.x)/direction.x
 		velocity = direction * SPEED *delta
 
@@ -100,6 +101,6 @@ func _on_bat_taking_damage_area_entered(area: Area2D) -> void:
 func _death():
 	dead = true
 	animatedSprite.play("death")
-	collision_layer = 0
+	"collision_layer = 0
 	await (animatedSprite.animation_finished)
-	self.queue_free()
+	self.queue_free()"
