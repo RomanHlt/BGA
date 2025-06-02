@@ -2,8 +2,8 @@ extends Resource
 class_name WorldData
 
 @export var levels:int = 1
-@export var compo:Dictionary={1:[false,false,false],2:[false,false,false],3:[false,false,false],4:[false,false,false]}
-@export var access:Dictionary={1:true,2:false,"next":false}
+@export var compo:Dictionary={1:[false,false,false],2:[false,false,false],3:[false,false,false],4:[false,false,false],5:[false,false,false]}
+@export var access:Dictionary={1:true,2:false,3:false,"next":false}
 
 
 

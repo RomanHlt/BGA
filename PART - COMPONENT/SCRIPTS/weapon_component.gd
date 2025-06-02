@@ -4,7 +4,6 @@ class_name  WeaponComponent
 var bullet_scene = preload("res://PART - PLAYER/SCENES/bullet.tscn")
 @export var sprite:Sprite2D
 
-
 func _handle_fire(body:CharacterBody2D, fire:bool):
 	if fire:
 		var bullet = bullet_scene.instantiate()

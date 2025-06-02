@@ -9,10 +9,13 @@ compo = {
 1: [false, false, false],
 2: [false, false, false],
 3: [false, false, false],
-4: [false, false, false]
+4: [false, false, false],
+5: [false, false, false]
 }
 access = {
+0: true,
 1: true,
-2: false,
+2: true,
+3: true,
 "next": false
 }

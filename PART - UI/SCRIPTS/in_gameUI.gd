@@ -1,17 +1,23 @@
 extends CanvasLayer
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if PlayerDataSaver.PlayerStats.current_lvl.split(".")[1] !="0": # On vérifie que le joueur soit bien en jeu
+	var lvl = PlayerDataSaver.PlayerStats.current_lvl
+
+	if lvl.split(".")[1] !="0": # On vérifie que le joueur soit bien en jeu
 		show()
+		var n =""
+		for i in PlayerDataSaver.WorldStats.compo[int(lvl.split(".")[1])]:
+			if i:
+				n+="1"
+			else:
+				n+="0"
+		$InGame/NotesCount/NotesPlayer.play(n)
+		
+		
 	else:
 		hide()
+		$InGame/NotesCount/NotesPlayer.play("000")
 	
 	$InGame/lifeController.play(str(PlayerDataSaver.PlayerStats.health))
 	

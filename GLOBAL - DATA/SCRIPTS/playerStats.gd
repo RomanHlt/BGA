@@ -1,9 +1,11 @@
 extends Resource
 class_name PlayerData
 
+
 @export var level = 0
 @export var items:Array = ["Apple","Gun","Key"]
 @export var health = 4
+@export var is_dead = false
 @export var max_health = 4
 @export var current_lvl:String = "1.0.0"
 @export var last_lvl:String = "0.0.0"
