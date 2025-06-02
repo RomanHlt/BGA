@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Path2D
 
 @export var SPEED : float
 var direction : Vector2
@@ -11,62 +11,41 @@ var is_sleeping : bool = true
 var map
 @export var layer:int = 0
 var animatedSprite:AnimatedSprite2D
+@onready var pos_x = $PathFollow2D.position[0]
+@onready var progress_ratio = $PathFollow2D
+var velocity :Vector2
 var player : CharacterBody2D
-var progress_ratio
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animatedSprite = _choose([$Zombie, $Root, $Fire, $Standart, $Vampire, $Albino])
-	for child in get_children():
+	animatedSprite = _choose([$PathFollow2D/Bat/Zombie, $PathFollow2D/Bat/Root, $PathFollow2D/Bat/Fire, $PathFollow2D/Bat/Standart, $PathFollow2D/Bat/Vampire, $PathFollow2D/Bat/Albino])
+	for child in $PathFollow2D/Bat.get_children():
 		if child.is_class("AnimatedSprite2D") and child.name != animatedSprite.name:
 			child.hide()
-	
-	map = self.owner
+
 	#z_index = -layer
-	collision_mask = 2**layer
-	collision_layer = 2**layer
+	$PathFollow2D/Bat.collision_mask = 2**layer
+	$PathFollow2D/Bat.collision_layer = 2**layer
 	
 	#l'area de detection du player est sur le meme layer que la chauve-souris
-	$DetectionPlayer.collision_layer = 2**layer
-	$DetectionPlayer.collision_mask = 2**layer
+	$PathFollow2D/Bat/DetectionPlayer.collision_layer = 2**layer
+	$PathFollow2D/Bat/DetectionPlayer.collision_mask = 2**layer
 	
 	#la collision shade des dégts est desactivée
-	$AttackArea.collision_mask = 0
-
+	$PathFollow2D/Bat/AttackArea.collision_mask = 0
 
 func _choose(array):
 	array.shuffle()
 	return array.front()
 
 func _process(delta: float) -> void:
-	_move(delta)
-	_handle_animation()
-
-func _move(delta):
-	if is_sleeping:
-		velocity = Vector2(0,0)
-	if is_chasing or is_attacking:
-		direction = position.direction_to(player.position) * SPEED
-		print(direction)
-		direction.x = abs(direction.x)/direction.x
-		velocity = direction * SPEED *delta
-
-	move_and_slide()
-
-func _handle_animation():
-	if !dead or is_sleeping:
-		animatedSprite.play("sleeping")
-	elif !dead and !is_sleeping :
-		#l'animation et la direction sont coérentes
-		if direction.x == -1:
-			animatedSprite.flip_h = true
-		elif direction.x == 1:
-			animatedSprite.flip_h = false
-		
-		#animation
-		if !is_attacking:
-			animatedSprite.play("flying")
-		elif is_attacking:
-			animatedSprite.play("attack")
+	$PathFollow2D/Bat._handle_animation()
+	$PathFollow2D/Bat._process(delta)
+	if $PathFollow2D.position[0] <= pos_x:
+		animatedSprite.flip_h = true
+	else:
+		animatedSprite.flip_h = false
+	pos_x = $PathFollow2D.position[0]
 
 func _on_detection_player_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -80,27 +59,29 @@ func _on_detection_player_body_exited(body: Node2D) -> void:
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		is_attacking = true
-		_attack(body)
+		is_attacking = false
+		$AttackArea.collision_layer = 0
 
 func _on_attack_area_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		is_attacking = false
 		$AttackArea.collision_layer = 0
 
-func _attack(body: Node2D):
-	$BatDealingDamage.collision_mask = 2**layer
-	if body.name == "Player":
-		body._takeDamages(1)
-
-func _on_bat_taking_damage_area_entered(area: Area2D) -> void:
+func _on_taking_damage_area_entered(area: Area2D) -> void:
 	if area.name == "PlayerDealingDamageZone":
 		dead = true 
 		_death()
 
 func _death():
 	dead = true
+	is_attacking = false
+	is_chasing = false
+	is_sleeping = false
+	animatedSprite.stop()
 	animatedSprite.play("death")
-	"collision_layer = 0
+	$PathFollow2D/Bat.collision_layer = 0
+	$PathFollow2D/Bat/DetectionPlayer.collision_layer = 0
+	$PathFollow2D/Bat/AttackArea.collision_layer = 0
+	$PathFollow2D/Bat/AttackArea.collision_layer = 0
 	await (animatedSprite.animation_finished)
-	self.queue_free()"
+	self.queue_free()
