@@ -10,7 +10,6 @@ var currentPlayerLayer:int = spawnLayer
 var pathObstured:bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(PlayerDataSaver.PlayerStats.current_lvl,"//",PlayerDataSaver.PlayerStats.last_lvl)
 	player = $Player
 	player.z_index = -spawnLayer
 	player.collision_mask = 2**spawnLayer
@@ -24,6 +23,7 @@ func _ready() -> void:
 	else:
 		Main.get_node("CanvasLayer/Menus/MenuAccueil").show()
 		Main.get_node("CanvasLayer/Menus/MenuPause").canOpen = false
+		Main.get_node("CanvasLayer/Clock").stop()
 	findRightSpawn()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

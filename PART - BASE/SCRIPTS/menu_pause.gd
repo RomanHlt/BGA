@@ -48,6 +48,8 @@ func _on_quit_pressed() -> void:
 		Main.get_node("Globals Levels").change_lvl("0.0.0", "Retour au Menu","")
 		hide()
 		Main.get_node("Globals Options").controller = false
+		Main.get_node("Globals Options").onMenu = true
+
 
 func _on_settings_pressed() -> void:
 	hide()

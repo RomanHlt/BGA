@@ -1,6 +1,6 @@
 extends Control
-
-
+signal settingsFromMenu
+signal start
 var justArrived = false
 
 func _ready() -> void:
@@ -19,8 +19,16 @@ func _process(delta: float) -> void:
 func _on_load_pressed() -> void:
 	print("Load")
 	var lvl = PlayerDataSaver.PlayerStats.current_lvl
+	if lvl == "9.0.0":lvl = "1.0.0"
 	Main.get_node("Globals Levels").change_lvl(lvl, "Welcome Back",str(lvl))
 	hide()
+	Main.get_node("Globals Options").onMenu = false
+	emit_signal("start")
+	
+
+func _on_settings_pressed() -> void:
+	hide()
+	emit_signal("settingsFromMenu")
 
 
 func _on_new_game_pressed() -> void:
@@ -29,6 +37,9 @@ func _on_new_game_pressed() -> void:
 	var lvl = PlayerDataSaver.PlayerStats.current_lvl
 	Main.get_node("Globals Levels").change_lvl(lvl, "Let's Begin",str(lvl))
 	hide()
+	Main.get_node("Globals Options").onMenu = false
+	emit_signal("start")
+
 
 #detection manette
 func _on_globals_options_controller_on() -> void:
@@ -39,3 +50,10 @@ func _on_globals_options_controller_off() -> void:
 	for b in [$Load,$Settings,$NewGame]:
 		if b.has_focus and visible:
 			b.release_focus()
+
+#detection des autres menus
+
+func _on_menu_settings_settings_to_menu() -> void:
+	show()
+	if Main.get_node("Globals Options").controller:
+		$Load.grab_focus()
