@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cydkw5arp1n4i"]
+[gd_scene load_steps=6 format=3 uid="uid://cydkw5arp1n4i"]
 
 [ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/heal.gd" id="1_akece"]
 [ext_resource type="Texture2D" uid="uid://dnpgssm2yn07d" path="res://PART - OBJECTS/ASSETS/Heal.png" id="1_dip6i"]
@@ -25,9 +25,6 @@ tracks/0/keys = {
 _data = {
 "heal": SubResource("Animation_b2o7w")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvks8"]
-size = Vector2(0.666666, 0.666668)
 
 [node name="Heal" type="AnimatableBody2D"]
 scale = Vector2(2.5, 2.5)
@@ -64,9 +61,5 @@ shape = SubResource("RectangleShape2D_u0gym")
 libraries = {
 "": SubResource("AnimationLibrary_bt25k")
 }
-
-[node name="Useless" type="CollisionShape2D" parent="."]
-position = Vector2(-0.333334, -0.333334)
-shape = SubResource("RectangleShape2D_gvks8")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

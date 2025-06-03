@@ -6,7 +6,7 @@
 script = ExtResource("1_xig40")
 level = 0
 items = ["Apple", "Gun", "Key"]
-health = 2
+health = 4
 is_dead = false
 max_health = 4
 current_lvl = "9.0.0"
