@@ -44,13 +44,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _takeDamages(damages:int):
-	if damages > PlayerDataSaver.PlayerStats.health:
-		damages = PlayerDataSaver.PlayerStats.health
-	PlayerDataSaver.PlayerStats.health -= damages
-	camera.shake()
-	if PlayerDataSaver.PlayerStats.health == 0:
-		_dead()
-	
+	if not PlayerDataSaver.PlayerStats.is_dead:
+		if damages > PlayerDataSaver.PlayerStats.health:
+			damages = PlayerDataSaver.PlayerStats.health
+		PlayerDataSaver.PlayerStats.health -= damages
+		camera.shake()
+		if PlayerDataSaver.PlayerStats.health == 0:
+			_dead()
+		print("Dégat pris :", damages)
+
 func _heal(heals:int):
 	if heals > 4 - PlayerDataSaver.PlayerStats.health: # 4 - la vie qu'on a déjà = ce qu'il nous manque
 		heals = 4 - PlayerDataSaver.PlayerStats.health
@@ -66,10 +68,12 @@ func _dead():
 
 func _respawn():
 	"""Est automatiquement appellée après la mort du joueur"""
-	get_tree().root.get_node("Map").findRightSpawn()
 	PlayerDataSaver.PlayerStats.health = PlayerDataSaver.PlayerStats.max_health
-	PlayerDataSaver.PlayerStats.is_dead = false
+	get_tree().root.get_node("Map").findRightSpawn()
+	await get_tree().create_timer(1).timeout
 	show()
+	PlayerDataSaver.PlayerStats.is_dead = false
+	
 
 
 # Layer Checkers
