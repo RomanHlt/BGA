@@ -867,7 +867,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s6doo")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 6.0
 }, {
@@ -954,7 +954,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f57se")
 }],
-"loop": false,
+"loop": true,
 "name": &"jump",
 "speed": 7.0
 }]
@@ -1100,7 +1100,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tlpwk")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 6.0
 }, {
@@ -1187,7 +1187,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2wvfe")
 }],
-"loop": false,
+"loop": true,
 "name": &"jump",
 "speed": 7.0
 }]
@@ -1333,7 +1333,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8bfym")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 6.0
 }, {
@@ -1420,7 +1420,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7dtiq")
 }],
-"loop": false,
+"loop": true,
 "name": &"jump",
 "speed": 7.0
 }]
@@ -1429,13 +1429,13 @@ animations = [{
 size = Vector2(21, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1xqf"]
-size = Vector2(20, 2.25)
+size = Vector2(24, 2.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njhru"]
-size = Vector2(13, 4)
+size = Vector2(17, 4)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_22jlw"]
-radius = 35.0
+radius = 32.0156
 
 [node name="frog" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent")]
 texture_filter = 1
@@ -1447,8 +1447,6 @@ gravityComponent = NodePath("GravityComponent")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_u17dk")
 animation = &"attack"
-frame = 4
-frame_progress = 0.775689
 
 [node name="BlueBlue" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -1463,17 +1461,17 @@ animation = &"attack"
 [node name="GreenBrown" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_gc4lu")
-animation = &"jump"
+animation = &"attack"
 
 [node name="PurpleWhite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_quh5v")
-animation = &"jump"
+animation = &"attack"
 
 [node name="PurpleBlue" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ewbgf")
-animation = &"jump"
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, 1.5)
@@ -1489,13 +1487,13 @@ position = Vector2(0, -1)
 collision_layer = 0
 
 [node name="TakingDamageShape" type="CollisionShape2D" parent="FrogTakingDamage"]
-position = Vector2(-2, -4.875)
+position = Vector2(-3, -4.875)
 shape = SubResource("RectangleShape2D_f1xqf")
 
 [node name="FrogDealingDamage" type="Area2D" parent="."]
 
 [node name="DealingDamageShape" type="CollisionShape2D" parent="FrogDealingDamage"]
-position = Vector2(10.5, -2)
+position = Vector2(12.5, -2)
 shape = SubResource("RectangleShape2D_njhru")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
@@ -1506,6 +1504,7 @@ shape = SubResource("CircleShape2D_22jlw")
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
 [connection signal="area_entered" from="FrogTakingDamage" to="." method="_on_frog_taking_damage_area_entered"]
 [connection signal="body_entered" from="FrogDealingDamage" to="." method="_on_frog_dealing_damage_body_entered"]
+[connection signal="body_exited" from="FrogDealingDamage" to="." method="_on_frog_dealing_damage_body_exited"]
 [connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
