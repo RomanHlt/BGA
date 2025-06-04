@@ -44,10 +44,7 @@ func findRightSpawn():
 			if d.id_last_lvl == PlayerDataSaver.PlayerStats.last_lvl:
 				rightDoor = d
 	if rightDoor != null:
-		print("rightDoor :", rightDoor)
-		print("player pos avant:", player.position)
 		player.position = rightDoor.position
-		print("player pos après:", player.position)
 		$Camera2D.position = rightDoor.position
 		goToLayer(rightDoor.layer)
 		rightDoor.isOut = true
@@ -55,7 +52,6 @@ func findRightSpawn():
 func goToLayer(layer:int = 0):
 	if PlayerDataSaver.PlayerStats.is_dead:
 		player.collision_layer = 2**layer
-		print(player.collision_layer, player.collision_mask)
 	
 	elif player.canGoDeeper == true and currentPlayerLayer < layer:
 		player.layerJump = true
