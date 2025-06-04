@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=4 uid="uid://d4cl5kxk8282o"]
+[gd_scene load_steps=26 format=4 uid="uid://d4cl5kxk8282o"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_kn1tx"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_aotfh"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="3_vs5vi"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_xu4oq"]
+[ext_resource type="PackedScene" uid="uid://d2u5qx4ykvymb" path="res://Part - MOBS/SCENES/frog.tscn" id="4_5m4uf"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_qipye"]
 [ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://PART - UI/SCENES/menu.tscn" id="5_oakki"]
 [ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="6_kufr0"]
@@ -2077,6 +2078,9 @@ id_next_lvl = "1.3.0"
 id_last_lvl = "1.3.0"
 titre = "Monde 1"
 sous_titre = "Niveau 3 | Caverne profonde"
+
+[node name="frog" parent="TileMapLayer" instance=ExtResource("4_5m4uf")]
+position = Vector2(-174, -24)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)

@@ -7,6 +7,7 @@ var taking_damage : bool = false
 var is_attacking : bool = false
 @export_category("Nodes")
 @export var gravityComponent : GravityComponent
+@onready var target : CharacterBody2D = self
 var map
 @export var layer:int = 0
 var animatedSprite:AnimatedSprite2D
@@ -50,12 +51,13 @@ func _move(delta):
 
 func _handle_animation():
 	var anim_spire = animatedSprite
+	if direction.x == -1:
+		anim_spire.flip_h = true
+	elif direction.x == 1:
+		anim_spire.flip_h = false
+	
 	if !dead and !direction.x == 0 and is_attacking == false:
 		animatedSprite.play("jump")
-		if direction.x == -1:
-			anim_spire.flip_h = true
-		elif direction.x == 1:
-			anim_spire.flip_h = false
 	elif !dead and direction.x == 0 and is_attacking == false:
 		animatedSprite.play("idle")
 	elif !dead and is_attacking == true:
@@ -100,5 +102,5 @@ func _death():
 	self.queue_free()
 
 func _on_frog_dealing_damage_body_entered(body: CharacterBody2D) -> void:
-	
+	await get_tree().create_timer(0.5).timeout
 	_attack(body)

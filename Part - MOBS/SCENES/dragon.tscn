@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/dragon.gd" id="1_gvikf"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="1_j3vgy"]
-[ext_resource type="Texture2D" uid="uid://4w07kgbfn3v4" path="res://PART - MOBS/ASSETS/Drag/Dragon cat.png" id="2_yumwn"]
+[ext_resource type="Texture2D" uid="uid://4w07kgbfn3v4" path="res://Part - MOBS/ASSETS/Drag/Dragon cat.png" id="2_yumwn"]
 [ext_resource type="PackedScene" uid="uid://codccv1hd133u" path="res://PART - COMPONENT/SCENES/advanced_jump_component.tscn" id="3_r26lh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vw250"]
@@ -139,7 +139,7 @@ texture_filter = 1
 texture = ExtResource("2_yumwn")
 hframes = 5
 vframes = 4
-frame = 16
+frame = 12
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -208,7 +208,6 @@ shape = SubResource("RectangleShape2D_2pvbv")
 debug_color = Color(0.383416, 0.269255, 0.0287384, 0.42)
 
 [node name="Spike" type="Area2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
 position = Vector2(-0.8, -8.3)
