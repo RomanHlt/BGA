@@ -51,7 +51,6 @@ func _takeDamages(damages:int):
 		camera.shake()
 		if PlayerDataSaver.PlayerStats.health == 0:
 			_dead()
-		print("Dégat pris :", damages)
 
 func _heal(heals:int):
 	if heals > 4 - PlayerDataSaver.PlayerStats.health: # 4 - la vie qu'on a déjà = ce qu'il nous manque

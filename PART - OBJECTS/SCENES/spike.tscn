@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://bog4f2sni7fny"]
+[gd_scene load_steps=6 format=3 uid="uid://bog4f2sni7fny"]
 
-[ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/spike_spear.gd" id="1_f4gg4"]
 [ext_resource type="Texture2D" uid="uid://cjc5erg8ryvn3" path="res://PART - OBJECTS/ASSETS/Spike-export.png" id="2_3ylwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ga4j"]
@@ -32,7 +31,6 @@ _data = {
 
 [node name="Spike" type="Node2D"]
 scale = Vector2(0.25, 0.25)
-script = ExtResource("1_f4gg4")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 

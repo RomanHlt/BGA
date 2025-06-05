@@ -2185,7 +2185,6 @@ offset_left = 66.0
 offset_top = -12.0
 offset_right = 338.0
 offset_bottom = 39.0
-theme_override_colors/font_color = Color(1, 0.270588, 1, 1)
 theme_override_fonts/font = ExtResource("14_4groo")
 theme_override_font_sizes/font_size = 50
 text = ","
@@ -2290,10 +2289,10 @@ text_controller = "le mur"
 
 [node name="Label6" parent="." instance=ExtResource("13_13kxi")]
 visible = false
-offset_left = 528.0
-offset_top = -58.0
-offset_right = 800.0
-offset_bottom = -35.0
+offset_left = 557.0
+offset_top = -59.0
+offset_right = 829.0
+offset_bottom = -36.0
 text = "Courir :"
 text_keyboard = "Courir : Maj"
 text_controller = "Courir :"

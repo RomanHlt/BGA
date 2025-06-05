@@ -2162,7 +2162,6 @@ offset_left = 120.0
 offset_top = -12.0
 offset_right = 392.0
 offset_bottom = 39.0
-theme_override_colors/font_color = Color(1, 0.270588, 1, 1)
 theme_override_fonts/font = ExtResource("12_41ggo")
 theme_override_font_sizes/font_size = 50
 text = "w"

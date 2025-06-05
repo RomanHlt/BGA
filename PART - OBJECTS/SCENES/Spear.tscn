@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ct5ytlgut187g"]
+[gd_scene load_steps=10 format=3 uid="uid://ct5ytlgut187g"]
 
 [ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/spike_spear.gd" id="1_66xem"]
 [ext_resource type="Texture2D" uid="uid://dm8nx5hf52bfd" path="res://PART - OBJECTS/ASSETS/Spear-export.png" id="2_lm1eq"]
@@ -11,6 +11,9 @@ size = Vector2(92, 600)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omt1i"]
 size = Vector2(92, 110)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6h5fd"]
+size = Vector2(92, 120)
 
 [sub_resource type="Animation" id="Animation_r41jj"]
 length = 1.75
@@ -95,6 +98,13 @@ position = Vector2(6, 225)
 shape = SubResource("RectangleShape2D_omt1i")
 debug_color = Color(0.758847, 0.182816, 1, 0.42)
 
+[node name="Spear_up" type="Area2D" parent="AnimatableBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/Spear_up"]
+position = Vector2(6, -260)
+shape = SubResource("RectangleShape2D_6h5fd")
+debug_color = Color(0.760784, 0.184314, 1, 0.419608)
+
 [node name="Spikeplayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_hlj7x")
@@ -103,3 +113,6 @@ libraries = {
 [connection signal="body_entered" from="AnimatableBody2D/Dps2" to="." method="_on_dps_2_body_entered"]
 [connection signal="body_exited" from="AnimatableBody2D/Dps2" to="." method="_on_dps_2_body_exited"]
 [connection signal="body_entered" from="AnimatableBody2D/Spear_base" to="." method="_on_spear_base_body_entered"]
+[connection signal="body_entered" from="AnimatableBody2D/Spear_up" to="." method="_on_spear_up_body_entered"]
+[connection signal="body_exited" from="AnimatableBody2D/Spear_up" to="." method="_on_spear_up_body_exited"]
+[connection signal="animation_finished" from="Spikeplayer" to="." method="_on_spikeplayer_animation_finished"]
