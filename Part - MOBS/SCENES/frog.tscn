@@ -1,4 +1,4 @@
-[gd_scene load_steps=217 format=3 uid="uid://d2u5qx4ykvymb"]
+[gd_scene load_steps=218 format=3 uid="uid://d2u5qx4ykvymb"]
 
 [ext_resource type="Script" path="res://Part - MOBS/SCRIPTS/frog_1.gd" id="1_ihvvl"]
 [ext_resource type="Texture2D" uid="uid://y5gw53ritm14" path="res://Part - MOBS/ASSETS/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Attack.png" id="1_lm8p0"]
@@ -1437,6 +1437,9 @@ size = Vector2(17, 4)
 [sub_resource type="CircleShape2D" id="CircleShape2D_22jlw"]
 radius = 32.0156
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4q23"]
+size = Vector2(17, 4)
+
 [node name="frog" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent")]
 texture_filter = 1
 script = ExtResource("1_ihvvl")
@@ -1490,9 +1493,9 @@ collision_layer = 0
 position = Vector2(-3, -4.875)
 shape = SubResource("RectangleShape2D_f1xqf")
 
-[node name="FrogDealingDamage" type="Area2D" parent="."]
+[node name="FrogDealingDamageRight" type="Area2D" parent="."]
 
-[node name="DealingDamageShape" type="CollisionShape2D" parent="FrogDealingDamage"]
+[node name="DealingDamageShapeLeft" type="CollisionShape2D" parent="FrogDealingDamageRight"]
 position = Vector2(12.5, -2)
 shape = SubResource("RectangleShape2D_njhru")
 
@@ -1501,10 +1504,18 @@ shape = SubResource("RectangleShape2D_njhru")
 [node name="PlayerDetectionShape" type="CollisionShape2D" parent="PlayerDetection"]
 shape = SubResource("CircleShape2D_22jlw")
 
+[node name="FrogDealingDamageLeft" type="Area2D" parent="."]
+
+[node name="DealingDamageLeft" type="CollisionShape2D" parent="FrogDealingDamageLeft"]
+position = Vector2(-13.5, -2)
+shape = SubResource("RectangleShape2D_g4q23")
+
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
 [connection signal="area_entered" from="FrogTakingDamage" to="." method="_on_frog_taking_damage_area_entered"]
-[connection signal="body_entered" from="FrogDealingDamage" to="." method="_on_frog_dealing_damage_body_entered"]
-[connection signal="body_exited" from="FrogDealingDamage" to="." method="_on_frog_dealing_damage_body_exited"]
+[connection signal="body_entered" from="FrogDealingDamageRight" to="." method="_on_frog_dealing_damage_right_body_entered"]
+[connection signal="body_exited" from="FrogDealingDamageRight" to="." method="_on_frog_dealing_damage_right_body_exited"]
 [connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="FrogDealingDamageLeft" to="." method="_on_frog_dealing_damage_left_body_entered"]
+[connection signal="body_exited" from="FrogDealingDamageLeft" to="." method="_on_frog_dealing_damage_left_body_exited"]

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var SPEED : float
 var direction : Vector2
+var dir_attack:float
 var dead : bool = false
 var taking_damage : bool = false
 var is_attacking : bool = false
@@ -26,7 +27,8 @@ func _ready() -> void:
 	collision_layer = 2**layer
 
 	#la collision shade des dégats est desactivée
-	$FrogDealingDamage.collision_mask = 0
+	$FrogDealingDamageRight.collision_mask = 0
+	$FrogDealingDamageLeft.collision_mask = 0
 	
 	#l'area de detection du player est sur le meme layer que la grenouille
 	$PlayerDetection.collision_layer = 2**layer
@@ -49,6 +51,12 @@ func _move(delta):
 		
 		#si attaque pas de mouvement
 		if is_attacking:
+			if direction.x == -1:		#activation de la zone de dégat
+				$FrogDealingDamageLeft.collision_mask = 2**layer
+				$FrogDealingDamageRight.collision_mask = 0 
+			elif direction.x == 1: 
+				$FrogDealingDamageRight.collision_mask = 2**layer
+				$FrogDealingDamageLeft.collision_mask = 0
 			velocity.x = 0
 	elif dead:
 		velocity.x = 0
@@ -58,7 +66,7 @@ func _handle_animation():
 	#pour gérer le côté qu'elle regarde en fct de la direction
 	if direction.x == -1:
 		anim_spire.flip_h = true
-	elif direction.x == 1:
+	elif direction.x == 1 :
 		anim_spire.flip_h = false
 	
 	#animation en fct du mouvement
@@ -90,12 +98,13 @@ func _on_player_detection_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		is_attacking = true
 		await get_tree().create_timer(0.3).timeout		#timer le temps que l'animation soit lancé
-		$FrogDealingDamage.collision_mask = 2**layer	#activation de la zone de dégat
+
 
 func _on_player_detection_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		is_attacking = false
-		$FrogDealingDamage.collision_mask = 0		#désactivation de la zone de dégat
+		$FrogDealingDamageRight.collision_mask = 0		#désactivation de la zone de dégat
+		$FrogDealingDamageLeft.collision_mask = 0
 
 func _on_frog_taking_damage_area_entered(area: Area2D) -> void:
 	if area.name == "PlayerDealingDamageZone":
@@ -107,15 +116,29 @@ func _death():
 	animatedSprite.play("death")
 	collision_layer = 0
 	await (animatedSprite.animation_finished)
-	self.queue_free()
+	self.queue_free()	
 
-func _on_frog_dealing_damage_body_entered(body: CharacterBody2D) -> void:
+
+func _on_frog_dealing_damage_right_body_entered(body: CharacterBody2D) -> void:
 	if body.name == "Player":
 		on_area = true
 		while on_area :
 			body._takeDamages(1)
 			await get_tree().create_timer(1).timeout
 
-func _on_frog_dealing_damage_body_exited(body: Node2D) -> void:
+func _on_frog_dealing_damage_right_body_exited(body: CharacterBody2D) -> void:
+	if body.name == "Player":
+		on_area = false
+
+
+func _on_frog_dealing_damage_left_body_entered(body: CharacterBody2D) -> void:
+	if body.name == "Player":
+		on_area = true
+		while on_area :
+			body._takeDamages(1)
+			await get_tree().create_timer(1).timeout
+
+
+func _on_frog_dealing_damage_left_body_exited(body: CharacterBody2D) -> void:
 	if body.name == "Player":
 		on_area = false
