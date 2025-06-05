@@ -1,6 +1,7 @@
 extends Control
 signal SettingsClosed
 signal SettingsToMenu
+signal openControls
 
 var son:int = 50
 var sonOn:bool = true
@@ -22,6 +23,7 @@ func _ready() -> void:
 	#initialisation locale de sliders
 	$HSlider.value = son
 	$MusicSlider2.value = music
+
 func _process(delta: float) -> void:
 	#Detection de l'action du joueur
 	if Input.is_action_just_pressed("jump") and visible and !justArrived:
@@ -39,6 +41,10 @@ func _process(delta: float) -> void:
 		$CheckBox.disabled = true
 
 #detection des boutons de ce menu
+func _on_controls_pressed() -> void:
+	hide()
+	emit_signal("openControls")
+	
 func _on_back_pressed() -> void:
 	hide()
 	if Main.get_node("Globals Options").onMenu:
@@ -77,6 +83,10 @@ func _on_menu_accueil_settings_from_menu() -> void:
 	if Main.get_node("Globals Options").controller:
 		justArrived = true
 
+func _on_menu_controls_controls_closed() -> void:
+	show()
+	if Main.get_node("Globals Options").controller:
+		justArrived = true
 
 #Sliders --------------------------------
 #Slider de son
