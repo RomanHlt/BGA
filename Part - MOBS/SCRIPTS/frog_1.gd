@@ -111,4 +111,11 @@ func _death():
 
 func _on_frog_dealing_damage_body_entered(body: CharacterBody2D) -> void:
 	if body.name == "Player":
-		body._takeDamages(1)
+		on_area = true
+		while on_area :
+			body._takeDamages(1)
+			await get_tree().create_timer(1).timeout
+
+func _on_frog_dealing_damage_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		on_area = false
