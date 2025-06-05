@@ -1504,7 +1504,6 @@ shape = SubResource("CircleShape2D_22jlw")
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
 [connection signal="area_entered" from="FrogTakingDamage" to="." method="_on_frog_taking_damage_area_entered"]
 [connection signal="body_entered" from="FrogDealingDamage" to="." method="_on_frog_dealing_damage_body_entered"]
-[connection signal="body_exited" from="FrogDealingDamage" to="." method="_on_frog_dealing_damage_body_exited"]
 [connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

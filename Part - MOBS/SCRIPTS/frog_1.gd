@@ -70,7 +70,6 @@ func _handle_animation():
 		animatedSprite.play("attack")
 
 func _on_direction_timer_timeout() -> void:
-
 	if !is_attacking:
 		#la direction est randomisée pendant un certain tps random aussi
 		$DirectionTimer.wait_time = _choose([1, 1.5, 2.0, 2.5])
@@ -112,10 +111,4 @@ func _death():
 
 func _on_frog_dealing_damage_body_entered(body: CharacterBody2D) -> void:
 	if body.name == "Player":
-		"on_area = true
-		if on_area:"
 		body._takeDamages(1)
-
-func _on_frog_dealing_damage_body_exited(body: Node2D) -> void:
-	if body.name == "Player":
-		on_area = false
