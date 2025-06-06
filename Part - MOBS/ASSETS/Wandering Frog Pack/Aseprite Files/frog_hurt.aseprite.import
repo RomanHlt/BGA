@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cyv1k388lri1m"
+path="res://.godot/imported/frog_hurt.aseprite-f3c6927ca71a510b0fc32ff622cb113f.res"
+
+[deps]
+
+source_file="res://Part - MOBS/ASSETS/Wandering Frog Pack/Aseprite Files/frog_hurt.aseprite"
+dest_files=["res://.godot/imported/frog_hurt.aseprite-f3c6927ca71a510b0fc32ff622cb113f.res"]
+
+[params]
+

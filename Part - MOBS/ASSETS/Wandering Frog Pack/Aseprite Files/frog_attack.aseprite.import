@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://7ken4b2ohyv2"
+path="res://.godot/imported/frog_attack.aseprite-0df87fe8bebbbb4cea4a2b38528ac5ba.res"
+
+[deps]
+
+source_file="res://Part - MOBS/ASSETS/Wandering Frog Pack/Aseprite Files/frog_attack.aseprite"
+dest_files=["res://.godot/imported/frog_attack.aseprite-0df87fe8bebbbb4cea4a2b38528ac5ba.res"]
+
+[params]
+
