@@ -475,10 +475,10 @@ text = "-----------------"
 
 [node name="Back" type="Button" parent="CanvasLayer/Menus/MenuControls"]
 layout_mode = 0
-offset_left = 204.0
-offset_top = 427.0
-offset_right = 249.0
-offset_bottom = 458.0
+offset_left = 202.0
+offset_top = 464.0
+offset_right = 247.0
+offset_bottom = 495.0
 text = "Back"
 
 [node name="ControllerRight" type="Button" parent="CanvasLayer/Menus/MenuControls"]
@@ -525,6 +525,14 @@ offset_right = 699.0
 offset_bottom = 421.0
 disabled = true
 text = "-----------------"
+
+[node name="Reset" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 427.0
+offset_right = 333.0
+offset_bottom = 458.0
+text = "Reset to default"
 
 [node name="Fondu" type="ColorRect" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
@@ -668,3 +676,4 @@ libraries = {
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Closer" to="CanvasLayer/Menus/MenuControls" method="_on_closer_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Jump" to="CanvasLayer/Menus/MenuControls" method="_on_jump_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Back" to="CanvasLayer/Menus/MenuControls" method="_on_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Reset" to="CanvasLayer/Menus/MenuControls" method="_on_reset_pressed"]

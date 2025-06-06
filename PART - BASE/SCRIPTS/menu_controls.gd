@@ -11,12 +11,8 @@ var buttons = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
-	$Right.text="Move Right: "
-	$Left.text="Move Left: "
-	$Deeper.text="Jump Deeper: "
-	$Closer.text="Jump Closer:" 
-	$Jump.text="Jump: "
 	buttons = [$Back,$Right,$Left,$Deeper,$Closer,$Jump]
+	updateControls()
 
 
 
@@ -32,7 +28,18 @@ func _process(delta: float) -> void:
 	elif justArrived:
 		$Back.grab_focus()
 		justArrived = false
-		
+func findKey(action:String)->String:
+	var events = InputMap.action_get_events(action).filter(func (x): if x is InputEventKey:return x)
+	if events != []:
+		return events[0].as_text()
+	else: return "---"
+func updateControls():
+	$Right.text="Move Right: " + findKey("move_right")
+	$Left.text="Move Left: " + findKey("move_left")
+	$Deeper.text="Jump Deeper: " + findKey("deeperLayer")
+	$Closer.text="Jump Closer: " + findKey("closerLayer")
+	$Jump.text="Jump: "+ findKey("jump")
+	
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey:
@@ -88,6 +95,10 @@ func _on_jump_pressed() -> void:
 func _on_back_pressed() -> void:
 	hide()
 	emit_signal("ControlsClosed")
+
+func _on_reset_pressed() -> void:
+	InputMap.load_from_project_settings()
+	updateControls()
 
 #Detection des autres menus
 func _on_menu_settings_open_controls() -> void:
