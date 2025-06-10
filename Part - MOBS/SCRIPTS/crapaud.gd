@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 @export_subgroup("Nodes")
 @export var speed: float
-@export var gravity : GravityComponent
+@export var gravityComponent : GravityComponent
+@export var animator:AnimationPlayer
 @export var layer: int
 var dead: bool = false
-var sleeping: bool
+var sleeping: bool = true
 var attacking: bool = false
 var see_player: bool = false
 var walking: bool = false
@@ -20,18 +21,21 @@ func _ready() -> void:
 	map = self.owner
 	collision_layer = 2**layer
 	collision_mask = 2**layer
+	#animator.play("chill")
 	
 
 func _physics_process(delta: float) -> void:
-	gravity.handle_gravity(self, delta)
+	gravityComponent.handle_gravity(self, delta)
 	move_and_slide()
 
 func _process(delta: float) -> void:
 	_animation()
 	_move(delta)
+	move_and_slide()
 
 func _animation():
-	pass
+	if sleeping:
+		animator.play("chill")
 
 func _move(delta:float):
 	pass
