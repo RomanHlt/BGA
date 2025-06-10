@@ -24,12 +24,11 @@ func load_game():
 		if settings is SettingsData:
 			print("SettingsData Found")
 			for i in settings.inputs_events:
-				print(i ," | ", settings.inputs_events[i])
+				#print(i ," | ", settings.inputs_events[i])
 				InputMap.action_erase_events(i)
 				for j in settings.inputs_events[i]:
 					InputMap.action_add_event(i,j)
 				
 			return settings
 	else:
-		print("SettingsData created")
-		return SettingsData.new()
+		return null

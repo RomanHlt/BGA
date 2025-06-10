@@ -17,7 +17,7 @@ var Musique_disable = false # Musique coupée
 
 # Variables autre
 var onMenu:bool = true
-var ingame = false # true si le joueur est en jeu. (Mettre false à chaque fois que le joueur ne doit pas ouvrir le menu : cinématique/accueil/...)
+var ingame = false # trues si le joueur est en jeu. (Mettre false à chaque fois que le joueur ne doit pas ouvrir le menu : cinématique/accueil/...)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("controllerUsed"):

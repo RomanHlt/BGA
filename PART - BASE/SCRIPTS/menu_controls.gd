@@ -23,7 +23,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and visible and !justArrived:
 		for b in buttons:
 			if b.has_focus():
-				print(b)
 				b.emit_signal("pressed")
 	elif justArrived:
 		$Back.grab_focus()

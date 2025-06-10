@@ -6,7 +6,12 @@ var justArrived = false
 func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 
+
 func _process(delta: float) -> void:
+	if ! PlayerDataSaver.dataExist or Main.get_node("CanvasLayer/Menus/MenuSettings").speedRun:
+		$Load.disabled = true
+	else:
+		$Load.disabled = false
 	#Detection de l'action du joueur
 	if Input.is_action_just_pressed("jump") and visible and !justArrived:
 		for b in [$Load,$Settings,$NewGame]:
@@ -17,13 +22,14 @@ func _process(delta: float) -> void:
 		justArrived = false
 
 func _on_load_pressed() -> void:
-	print("Load")
-	var lvl = PlayerDataSaver.PlayerStats.current_lvl
-	if lvl == "9.0.0":lvl = "1.0.0"
-	Main.get_node("Globals Levels").change_lvl(lvl, "Welcome Back",str(lvl))
-	hide()
-	Main.get_node("Globals Options").onMenu = false
-	emit_signal("start")
+	if PlayerDataSaver.dataExist:
+		print("Load")
+		var lvl = PlayerDataSaver.PlayerStats.current_lvl
+		if lvl == "9.0.0":lvl = "1.0.0"
+		Main.get_node("Globals Levels").change_lvl(lvl, "Welcome Back",str(lvl))
+		hide()
+		Main.get_node("Globals Options").onMenu = false
+		emit_signal("start")
 	
 
 func _on_settings_pressed() -> void:
@@ -32,6 +38,7 @@ func _on_settings_pressed() -> void:
 
 
 func _on_new_game_pressed() -> void:
+	PlayerDataSaver.dataExist = true
 	PlayerDataSaver.PlayerStats = PlayerData.new()
 	PlayerDataSaver.WorldStats = WorldData.new()
 	var lvl = PlayerDataSaver.PlayerStats.current_lvl
