@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bog4f2sni7fny"]
+[gd_scene load_steps=7 format=3 uid="uid://bog4f2sni7fny"]
 
+[ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/spike.gd" id="1_quplr"]
 [ext_resource type="Texture2D" uid="uid://cjc5erg8ryvn3" path="res://PART - OBJECTS/ASSETS/Spike-export.png" id="2_3ylwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ga4j"]
@@ -31,6 +32,7 @@ _data = {
 
 [node name="Spike" type="Node2D"]
 scale = Vector2(0.25, 0.25)
+script = ExtResource("1_quplr")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 
@@ -74,3 +76,4 @@ libraries = {
 
 [connection signal="body_entered" from="AnimatableBody2D/Dps2" to="." method="_on_dps_2_body_entered"]
 [connection signal="body_exited" from="AnimatableBody2D/Dps2" to="." method="_on_dps_2_body_exited"]
+[connection signal="animation_finished" from="Spikeplayer" to="." method="_on_spikeplayer_animation_finished"]
