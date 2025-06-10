@@ -2138,35 +2138,27 @@ damage = 2.0
 
 [node name="Spike" parent="TileMapLayer" instance=ExtResource("5_oog17")]
 position = Vector2(835, 247)
-damage = 1.0
 
 [node name="Spike2" parent="TileMapLayer" instance=ExtResource("5_oog17")]
 position = Vector2(670, 247)
-damage = 1.0
 
 [node name="Spike3" parent="TileMapLayer" instance=ExtResource("5_oog17")]
 position = Vector2(515, 247)
-damage = 1.0
 
 [node name="Spike4" parent="TileMapLayer" instance=ExtResource("5_oog17")]
 position = Vector2(-344, 342)
-damage = 1.0
 
 [node name="Spike5" parent="TileMapLayer" instance=ExtResource("5_oog17")]
 position = Vector2(-424, 342)
-damage = 1.0
 
 [node name="Spike6" parent="TileMapLayer" instance=ExtResource("5_oog17")]
 position = Vector2(-504, 342)
-damage = 1.0
 
 [node name="Spike7" parent="TileMapLayer" instance=ExtResource("5_oog17")]
 position = Vector2(-584, 342)
-damage = 1.0
 
 [node name="Spike8" parent="TileMapLayer" instance=ExtResource("5_oog17")]
 position = Vector2(-664, 342)
-damage = 1.0
 
 [node name="Path2D" parent="TileMapLayer" instance=ExtResource("6_vkp28")]
 position = Vector2(-617, -69)
@@ -2198,28 +2190,18 @@ layer = 1
 
 [node name="Spike4" parent="TileMapLayer2" instance=ExtResource("5_oog17")]
 position = Vector2(-344, 342)
-layer = 1
-damage = 1.0
 
 [node name="Spike5" parent="TileMapLayer2" instance=ExtResource("5_oog17")]
 position = Vector2(-424, 342)
-layer = 1
-damage = 1.0
 
 [node name="Spike6" parent="TileMapLayer2" instance=ExtResource("5_oog17")]
 position = Vector2(-504, 342)
-layer = 1
-damage = 1.0
 
 [node name="Spike7" parent="TileMapLayer2" instance=ExtResource("5_oog17")]
 position = Vector2(-584, 342)
-layer = 1
-damage = 1.0
 
 [node name="Spike8" parent="TileMapLayer2" instance=ExtResource("5_oog17")]
 position = Vector2(-664, 342)
-layer = 1
-damage = 1.0
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 modulate = Color(0.305077, 0.305077, 0.305077, 1)
