@@ -20,8 +20,8 @@ func load_game():
 			print("WorldData Found")
 			return data
 	else:
-		return null
-
+		print("WorldData Created")
+		return WorldData.new()
 
 
 func level_completed(id:String, isLastLevel:bool = false):

@@ -19,7 +19,6 @@ var canGoDeeper:bool = true
 var canGoCloser:bool = true
 var layerJump:bool = false
 var fire:bool = false
-var isRunning:bool = false
 @export var canMove:bool = true
 
 
@@ -34,16 +33,11 @@ func _ready():
 func _process(delta: float) -> void:
 	if input_component.get_fire():
 		fire = true
-	if input_component.get_run() and PlayerDataSaver.SettingsStats.runAsToggle:
-		isRunning = !isRunning
 	
 func _physics_process(delta: float) -> void:
 	gravity_component.handle_gravity(self,delta)
 	if canMove:
-		if PlayerDataSaver.SettingsStats.runAsToggle:
-			movement_component.handle_horizontal_movement(self, input_component.input_horizontal, isRunning)
-		else:
-			movement_component.handle_horizontal_movement(self, input_component.input_horizontal, input_component.get_run())
+		movement_component.handle_horizontal_movement(self, input_component.input_horizontal, input_component.get_run())
 		advanced_jump_component.handle_jump(self, input_component.get_jump_input(),input_component.get_jump_input_released())
 		weapon_component._handle_fire(self, input_component.get_fire())
 	animation_component.handle_move_animation(self, input_component.input_horizontal)
