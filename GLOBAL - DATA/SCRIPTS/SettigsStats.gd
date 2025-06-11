@@ -8,6 +8,7 @@ class_name SettingsData
 @export var musicVolume:int = 100
 @export var events:Array = InputMap.get_actions()
 @export var inputs_events:Dictionary = {}
+@export var runAsToggle:bool = false
 
 func save_game():
 	for i in InputMap.get_actions():

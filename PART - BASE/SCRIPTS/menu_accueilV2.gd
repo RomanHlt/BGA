@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 	else:
 		$Load.disabled = false
 	#Detection de l'action du joueur
-	if Input.is_action_just_pressed("jump") and visible and !justArrived:
+	if Input.is_action_just_pressed("ok") and visible and !justArrived:
 		for b in [$Load,$Settings,$NewGame]:
 			if b.has_focus():
 				b.emit_signal("pressed")

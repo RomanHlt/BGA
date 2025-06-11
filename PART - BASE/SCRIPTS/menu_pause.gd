@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 				Main.get_node("Globals Options").controller = false
 	
 	#Detection de l'action du joueur
-	if Input.is_action_just_pressed("jump") and visible:
+	if Input.is_action_just_pressed("ok") and visible:
 		for b in [$Resume,$Settings,$Quit]:
 			if b.has_focus():
 				b.emit_signal("pressed")

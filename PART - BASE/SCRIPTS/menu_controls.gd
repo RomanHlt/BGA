@@ -4,6 +4,7 @@ signal controllerReceived
 
 signal ControlsClosed
 
+var runToggle:bool = false
 
 var lastInput:String
 var lastEvent:InputEvent
@@ -14,9 +15,12 @@ var buttons = []
 var controllerButtons = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if PlayerDataSaver.dataExist:
+		
+		runToggle = PlayerDataSaver.SettingsStats.runAsToggle
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	buttons = [$Right,$Left,$Deeper,$Closer,$Jump]
-	controllerButtons = [$ControllerCloser,$ControllerDeeper,$ControllerJump]
+	controllerButtons = [$ControllerCloser,$ControllerDeeper,$ControllerJump,$ControllerRun]
 	updateControls()
 
 
@@ -24,8 +28,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#Detection de l'action du joueur
-	if Input.is_action_just_pressed("jump") and visible and !justArrived:
-		for b in controllerButtons+[$Reset,$Back]:
+	if Input.is_action_just_pressed("ok") and visible and !justArrived:
+		for b in controllerButtons+[$Reset,$Back, $"Run Toggle"]:
 			if b.has_focus() and b.disabled == false:
 				b.emit_signal("pressed")
 	elif justArrived:
@@ -53,6 +57,8 @@ func updateControls():
 	$ControllerDeeper.text="Jump Deeper: " + findKeyController("deeperLayer")
 	$ControllerCloser.text="Jump Closer: " + findKeyController("closerLayer")
 	$ControllerJump.text="Jump: " + findKeyController("jump")
+	$ControllerRun.text="Run: " + findKeyController("run")
+
 	
 	
 func _unhandled_input(event: InputEvent) -> void:
@@ -139,6 +145,8 @@ func _on_controller_jump_pressed() -> void:
 	ListenController($ControllerJump, "jump")
 
 
+func _on_controller_run_pressed() -> void:
+	ListenController($ControllerRun, "run")
 
 #Autres Boutons du menu
 func _on_back_pressed() -> void:
@@ -148,6 +156,11 @@ func _on_back_pressed() -> void:
 func _on_reset_pressed() -> void:
 	InputMap.load_from_project_settings()
 	updateControls()
+
+func _on_run_toggle_pressed() -> void:
+	runToggle = !runToggle
+	$"Run Toggle".button_pressed = runToggle
+	PlayerDataSaver.SettingsStats.runAsToggle = runToggle
 
 #Detection des autres menus
 func _on_menu_settings_open_controls() -> void:
@@ -167,7 +180,7 @@ func _on_globals_options_controller_on() -> void:
 
 func _on_globals_options_controller_off() -> void:
 	#On trouve et retire le focus
-	for b:Button in buttons + [$Back,$Reset]:
+	for b:Button in buttons + [$Back,$Reset,$"Run Toggle"]:
 		b.disabled = false
 		if b.has_focus and visible:
 			b.release_focus()

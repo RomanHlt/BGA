@@ -26,7 +26,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	#Detection de l'action du joueur
-	if Input.is_action_just_pressed("jump") and visible and !justArrived:
+	if Input.is_action_just_pressed("ok") and visible and !justArrived:
 		for b in buttons:
 			if b.has_focus():
 				print(b)

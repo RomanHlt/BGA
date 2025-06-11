@@ -207,6 +207,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="MenuAccueil" type="Control" parent="CanvasLayer/Menus"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -491,6 +492,14 @@ offset_bottom = 381.0
 disabled = true
 text = "-----------------"
 
+[node name="ControllerRun" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+offset_left = 603.0
+offset_top = 265.0
+offset_right = 699.0
+offset_bottom = 296.0
+disabled = true
+text = "-----------------"
+
 [node name="ControllerJump" type="Button" parent="CanvasLayer/Menus/MenuControls"]
 layout_mode = 0
 offset_left = 603.0
@@ -507,6 +516,14 @@ offset_top = 427.0
 offset_right = 333.0
 offset_bottom = 458.0
 text = "Reset to default"
+
+[node name="Run Toggle" type="CheckButton" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 427.0
+offset_right = 473.0
+offset_bottom = 458.0
+text = "Run Toggle"
 
 [node name="Fondu" type="ColorRect" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
@@ -652,5 +669,7 @@ libraries = {
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Back" to="CanvasLayer/Menus/MenuControls" method="_on_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/ControllerDeeper" to="CanvasLayer/Menus/MenuControls" method="_on_controller_deeper_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/ControllerCloser" to="CanvasLayer/Menus/MenuControls" method="_on_controller_closer_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuControls/ControllerRun" to="CanvasLayer/Menus/MenuControls" method="_on_controller_run_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/ControllerJump" to="CanvasLayer/Menus/MenuControls" method="_on_controller_jump_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Reset" to="CanvasLayer/Menus/MenuControls" method="_on_reset_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Run Toggle" to="CanvasLayer/Menus/MenuControls" method="_on_run_toggle_pressed"]
