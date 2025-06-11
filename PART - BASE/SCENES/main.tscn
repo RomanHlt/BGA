@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bclxknnv5k8la"]
+[gd_scene load_steps=25 format=3 uid="uid://bclxknnv5k8la"]
 
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_stats.gd" id="1_bawku"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_progres.gd" id="2_rrlfl"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_accueilV2.gd" id="9_jwxgx"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_pause.gd" id="10_xywjm"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_settings.gd" id="11_3jluq"]
+[ext_resource type="AudioStream" uid="uid://1nt8mu0m8ddr" path="res://PART - BASE/ASSETS/level-iv-339695.mp3" id="12_ovfnj"]
 
 [sub_resource type="Theme" id="Theme_s4t4w"]
 Label/colors/font_color = Color(1, 0, 0.733333, 1)
@@ -455,6 +456,11 @@ offset_right = 241.0
 offset_bottom = 329.0
 focus_neighbor_right = NodePath("../MusicSlider2")
 button_pressed = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ovfnj")
+volume_db = -28.263
+autoplay = true
 
 [connection signal="controllerOff" from="Globals Options" to="CanvasLayer/Menus/MenuAccueil" method="_on_globals_options_controller_off"]
 [connection signal="controllerOff" from="Globals Options" to="CanvasLayer/Menus/MenuPause" method="_on_globals_options_controller_off"]

@@ -56,6 +56,7 @@ func goToLayer(layer:int = 0):
 	elif player.canGoDeeper == true and currentPlayerLayer < layer:
 		player.layerJump = true
 		player.reparent(Layers[layer])
+		$AudioStreamPlayer.play()
 		player.collision_mask = 2**layer
 		player.collision_layer = 2**layer
 		player.z_index = -layer 
@@ -66,6 +67,7 @@ func goToLayer(layer:int = 0):
 	elif player.canGoCloser == true and currentPlayerLayer > layer:
 		player.layerJump = true
 		player.reparent(Layers[layer])
+		$AudioStreamPlayer.play()
 		player.collision_mask = 2**layer
 		player.collision_layer = 2**layer
 		player.deeperChecker.collision_mask = 2**(layer+1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://dds61mpxlycxm"]
+[gd_scene load_steps=43 format=4 uid="uid://dds61mpxlycxm"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_0o0kq"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_e64i4"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://chub1yc38lwvj" path="res://PART - LEVELS/ASSETS/lifecat.png" id="13_eb63n"]
 [ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="14_cr4lq"]
 [ext_resource type="FontFile" uid="uid://tlbpimwifcpa" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Regular.otf" id="14_rwam5"]
+[ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="16_b388j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dlmjl"]
 texture = ExtResource("2_e64i4")
@@ -2393,3 +2394,6 @@ theme_override_fonts/font = ExtResource("14_cr4lq")
 theme_override_font_sizes/font_size = 15
 text = "Le méchant"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_b388j")

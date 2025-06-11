@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://b8l2yx17cpu62"]
+[gd_scene load_steps=33 format=4 uid="uid://b8l2yx17cpu62"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_0o0kq"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_e64i4"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="8_tbncp"]
 [ext_resource type="PackedScene" uid="uid://5q55qevow2dp" path="res://PART - UI/SCENES/Menu_d'accueil.tscn" id="9_vl7g3"]
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="13_v6nq7"]
+[ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="17_71ayi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dlmjl"]
 texture = ExtResource("2_e64i4")
@@ -2247,3 +2248,6 @@ offset_bottom = 299.0
 text = "De quoi se soigner"
 text_keyboard = "De quoi se soigner"
 text_controller = "De quoi se soigner"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_71ayi")

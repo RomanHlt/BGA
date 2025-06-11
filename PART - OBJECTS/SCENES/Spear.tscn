@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://ct5ytlgut187g"]
+[gd_scene load_steps=11 format=3 uid="uid://ct5ytlgut187g"]
 
 [ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/spear.gd" id="1_66xem"]
 [ext_resource type="Texture2D" uid="uid://dm8nx5hf52bfd" path="res://PART - OBJECTS/ASSETS/Spear-export.png" id="2_lm1eq"]
+[ext_resource type="AudioStream" uid="uid://cgnrd758er1co" path="res://PART - OBJECTS/ASSETS/Sounds/Spear.mp3" id="3_li1bj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ga4j"]
 size = Vector2(92, 40)
@@ -110,6 +111,9 @@ debug_color = Color(0.760784, 0.184314, 1, 0.419608)
 libraries = {
 "": SubResource("AnimationLibrary_hlj7x")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_li1bj")
 
 [connection signal="body_entered" from="AnimatableBody2D/Dps2" to="." method="_on_dps_2_body_entered"]
 [connection signal="body_exited" from="AnimatableBody2D/Dps2" to="." method="_on_dps_2_body_exited"]
