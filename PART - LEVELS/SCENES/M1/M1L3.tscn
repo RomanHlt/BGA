@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://5tcyudbnkee5"]
+[gd_scene load_steps=33 format=4 uid="uid://5tcyudbnkee5"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_q40v1"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_l7ylb"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://5q55qevow2dp" path="res://PART - UI/SCENES/Menu_d'accueil.tscn" id="9_uhvmd"]
 [ext_resource type="PackedScene" uid="uid://cf2hmbbroucx1" path="res://PART - OBJECTS/SCENES/TraversablePlatform.tscn" id="10_jsikg"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="15_4eyro"]
-[ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="16_qkdw6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dlmjl"]
 texture = ExtResource("2_l7ylb")
@@ -2762,13 +2761,16 @@ position = Vector2(416, -241)
 
 [node name="Spike" parent="TileMapLayer" instance=ExtResource("5_u2cyv")]
 position = Vector2(801, -11)
+damage = 1.0
 
 [node name="Spike2" parent="TileMapLayer" instance=ExtResource("5_u2cyv")]
 position = Vector2(548, -43)
+damage = 1.0
 
 [node name="Spike3" parent="TileMapLayer" instance=ExtResource("5_u2cyv")]
 position = Vector2(548, -86)
 rotation = 3.14159
+damage = 1.0
 
 [node name="Traversable platform3" parent="TileMapLayer" instance=ExtResource("10_jsikg")]
 position = Vector2(416, -196)
@@ -2821,6 +2823,7 @@ position = Vector2(217, -675)
 [node name="Spear" parent="TileMapLayer" instance=ExtResource("7_wqcqh")]
 position = Vector2(961, -956)
 rotation = -1.5708
+damage = 2.0
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
@@ -2879,6 +2882,3 @@ visible = false
 
 [node name="Ecran d\'accueil" parent="CanvasLayer" instance=ExtResource("9_uhvmd")]
 visible = false
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_qkdw6")

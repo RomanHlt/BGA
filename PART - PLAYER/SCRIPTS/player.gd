@@ -19,6 +19,7 @@ var canGoDeeper:bool = true
 var canGoCloser:bool = true
 var layerJump:bool = false
 var fire:bool = false
+var isRunning:bool = false
 @export var canMove:bool = true
 
 
@@ -33,25 +34,29 @@ func _ready():
 func _process(delta: float) -> void:
 	if input_component.get_fire():
 		fire = true
+	if input_component.get_run() and PlayerDataSaver.SettingsStats.runAsToggle:
+		isRunning = !isRunning
 	
 func _physics_process(delta: float) -> void:
 	gravity_component.handle_gravity(self,delta)
 	if canMove:
-		movement_component.handle_horizontal_movement(self, input_component.input_horizontal, input_component.get_run())
+		if PlayerDataSaver.SettingsStats.runAsToggle:
+			movement_component.handle_horizontal_movement(self, input_component.input_horizontal, isRunning)
+		else:
+			movement_component.handle_horizontal_movement(self, input_component.input_horizontal, input_component.get_run())
 		advanced_jump_component.handle_jump(self, input_component.get_jump_input(),input_component.get_jump_input_released())
 		weapon_component._handle_fire(self, input_component.get_fire())
 	animation_component.handle_move_animation(self, input_component.input_horizontal)
 	move_and_slide()
 
 func _takeDamages(damages:int):
-	if not PlayerDataSaver.PlayerStats.is_dead:
-		if damages > PlayerDataSaver.PlayerStats.health:
-			damages = PlayerDataSaver.PlayerStats.health
-		PlayerDataSaver.PlayerStats.health -= damages
-		camera.shake()
-		if PlayerDataSaver.PlayerStats.health == 0:
-			_dead()
-
+	if damages > PlayerDataSaver.PlayerStats.health:
+		damages = PlayerDataSaver.PlayerStats.health
+	PlayerDataSaver.PlayerStats.health -= damages
+	camera.shake()
+	if PlayerDataSaver.PlayerStats.health == 0:
+		_dead()
+	
 func _heal(heals:int):
 	if heals > 4 - PlayerDataSaver.PlayerStats.health: # 4 - la vie qu'on a déjà = ce qu'il nous manque
 		heals = 4 - PlayerDataSaver.PlayerStats.health
@@ -60,7 +65,6 @@ func _heal(heals:int):
 func _dead():
 	PlayerDataSaver.PlayerStats.is_dead = true
 	collision_layer = 0
-	$AudioStreamPlayer.play()
 	await get_tree().create_timer(1.5).timeout
 	Main.get_node("CanvasLayer/Dead").dead()
 	await get_tree().create_timer(1.5).timeout
@@ -68,12 +72,10 @@ func _dead():
 
 func _respawn():
 	"""Est automatiquement appellée après la mort du joueur"""
-	PlayerDataSaver.PlayerStats.health = PlayerDataSaver.PlayerStats.max_health
 	get_tree().root.get_node("Map").findRightSpawn()
-	await get_tree().create_timer(1).timeout
-	show()
+	PlayerDataSaver.PlayerStats.health = PlayerDataSaver.PlayerStats.max_health
 	PlayerDataSaver.PlayerStats.is_dead = false
-	
+	show()
 
 
 # Layer Checkers

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cierfuw7plhvv"]
+[gd_scene load_steps=21 format=3 uid="uid://cierfuw7plhvv"]
 
 [ext_resource type="Texture2D" uid="uid://0tptb4ekglf0" path="res://PART - UI/ASSETS/PlayerLife.png" id="1_7npsu"]
 [ext_resource type="Script" path="res://PART - UI/SCRIPTS/in_gameUI.gd" id="1_kk3rj"]
@@ -194,12 +194,46 @@ tracks/0/keys = {
 "values": [3]
 }
 
+[sub_resource type="Animation" id="Animation_mtiit"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NotesCount/Notes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_jo5rd"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NotesCount/Notes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b8xhe"]
 _data = {
 "000": SubResource("Animation_68b86"),
 "001": SubResource("Animation_l8klu"),
 "010": SubResource("Animation_cmn18"),
+"011": SubResource("Animation_mtiit"),
 "100": SubResource("Animation_05nr1"),
+"101": SubResource("Animation_jo5rd"),
 "110": SubResource("Animation_7t2rs"),
 "111": SubResource("Animation_3g0ro")
 }
@@ -270,8 +304,7 @@ position = Vector2(0, -20)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_20fnx")
 hframes = 3
-vframes = 2
-frame = 3
+vframes = 3
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -287,7 +320,7 @@ metadata/_aseprite_wizard_config_ = {
 "slice": "",
 "source": "res://PART - LEVELS/ASSETS/Map/4 Animated objects/Notes.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "89ced42b829ed54751dd9eec5a192883"
+metadata/_aseprite_wizard_source_file_hash_ = "fa262533c115382163118c3701a0f0d7"
 
 [node name="NotesPlayer" type="AnimationPlayer" parent="InGame/NotesCount"]
 root_node = NodePath("../..")

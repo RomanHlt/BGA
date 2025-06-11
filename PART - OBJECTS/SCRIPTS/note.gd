@@ -19,11 +19,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		print(PlayerDataSaver.WorldStats.compo[int(map.id.split(".")[1])])
 		PlayerDataSaver.WorldStats.compo[int(map.id.split(".")[1])][number] = true
-		hide()
-		$AudioStreamPlayer.play()
 		print(PlayerDataSaver.WorldStats.compo[int(map.id.split(".")[1])])
 
-
-
-func _on_audio_stream_player_finished() -> void:
-	queue_free()
+		queue_free()

@@ -2,18 +2,14 @@ extends CharacterBody2D
 
 @export var SPEED : float
 var direction : Vector2
-var dir_attack:float
 var dead : bool = false
 var taking_damage : bool = false
 var is_attacking : bool = false
 @export_category("Nodes")
 @export var gravityComponent : GravityComponent
-@onready var target : CharacterBody2D = self
 var map
 @export var layer:int = 0
 var animatedSprite:AnimatedSprite2D
-var player: CharacterBody2D
-var on_area: bool = false
 
 func _ready() -> void:
 	animatedSprite = _choose([$BlueBrown, $BlueBlue, $GreenBlue, $GreenBrown, $PurpleWhite, $PurpleBlue])
@@ -27,8 +23,7 @@ func _ready() -> void:
 	collision_layer = 2**layer
 
 	#la collision shade des dégats est desactivée
-	$FrogDealingDamageRight.collision_mask = 0
-	$FrogDealingDamageLeft.collision_mask = 0
+	$FrogDealingDamage.collision_mask = 0
 	
 	#l'area de detection du player est sur le meme layer que la grenouille
 	$PlayerDetection.collision_layer = 2**layer
@@ -48,48 +43,32 @@ func _process(delta: float) -> void:
 func _move(delta):
 	if !dead:
 		velocity += direction * SPEED *delta
-		
-		#si attaque pas de mouvement
 		if is_attacking:
-			if direction.x == -1:		#activation de la zone de dégat
-				$FrogDealingDamageLeft.collision_mask = 2**layer
-				$FrogDealingDamageRight.collision_mask = 0 
-			elif direction.x == 1: 
-				$FrogDealingDamageRight.collision_mask = 2**layer
-				$FrogDealingDamageLeft.collision_mask = 0
 			velocity.x = 0
 	elif dead:
 		velocity.x = 0
 
 func _handle_animation():
 	var anim_spire = animatedSprite
-	#pour gérer le côté qu'elle regarde en fct de la direction
-	if direction.x == -1:
-		anim_spire.flip_h = true
-	elif direction.x == 1 :
-		anim_spire.flip_h = false
-	
-	#animation en fct du mouvement
 	if !dead and !direction.x == 0 and is_attacking == false:
 		animatedSprite.play("jump")
+		if direction.x == -1:
+			anim_spire.flip_h = true
+		elif direction.x == 1:
+			anim_spire.flip_h = false
 	elif !dead and direction.x == 0 and is_attacking == false:
 		animatedSprite.play("idle")
 	elif !dead and is_attacking == true:
 		animatedSprite.play("attack")
 
+
 func _on_direction_timer_timeout() -> void:
-	if !is_attacking:
-		#la direction est randomisée pendant un certain tps random aussi
-		$DirectionTimer.wait_time = _choose([1, 1.5, 2.0, 2.5])
-		direction = _choose([Vector2.RIGHT, Vector2.LEFT, Vector2(0,0)])
-		velocity = direction
-	elif is_attacking:
-		#seule la direction est choisi de manière random
-		$DirectionTimer.wait_time = 0.5
-		direction = _choose([Vector2.RIGHT, Vector2.LEFT])
+	$DirectionTimer.wait_time = _choose([1.5, 2.0, 2.5])
+	direction = _choose([Vector2.RIGHT, Vector2.LEFT, Vector2(0,0)])
+	velocity = direction
+
 
 func _choose(array):
-	#on mélange l'array et on récupère le 1er élément
 	array.shuffle()
 	return array.front()
 
@@ -97,14 +76,16 @@ func _choose(array):
 func _on_player_detection_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		is_attacking = true
-		await get_tree().create_timer(0.3).timeout		#timer le temps que l'animation soit lancé
-
+		_on_frog_dealing_damage_body_entered(body)
 
 func _on_player_detection_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		is_attacking = false
-		$FrogDealingDamageRight.collision_mask = 0		#désactivation de la zone de dégat
-		$FrogDealingDamageLeft.collision_mask = 0
+
+func _attack(body):
+	$FrogDealingDamage.collision_mask = 2**layer
+	if body.name == "Player":
+		body._takeDamages(1)
 
 func _on_frog_taking_damage_area_entered(area: Area2D) -> void:
 	if area.name == "PlayerDealingDamageZone":
@@ -116,28 +97,8 @@ func _death():
 	animatedSprite.play("death")
 	collision_layer = 0
 	await (animatedSprite.animation_finished)
-	self.queue_free()	
+	self.queue_free()
 
-func _on_frog_dealing_damage_right_body_entered(body: CharacterBody2D) -> void:
-	if body.name == "Player":
-		on_area = true
-		while on_area :
-			body._takeDamages(1)
-			await get_tree().create_timer(1).timeout
-
-func _on_frog_dealing_damage_right_body_exited(body: CharacterBody2D) -> void:
-	if body.name == "Player":
-		on_area = false
-
-
-func _on_frog_dealing_damage_left_body_entered(body: CharacterBody2D) -> void:
-	if body.name == "Player":
-		on_area = true
-		while on_area :
-			body._takeDamages(1)
-			await get_tree().create_timer(1).timeout
-
-
-func _on_frog_dealing_damage_left_body_exited(body: CharacterBody2D) -> void:
-	if body.name == "Player":
-		on_area = false
+func _on_frog_dealing_damage_body_entered(body: CharacterBody2D) -> void:
+	
+	_attack(body)
