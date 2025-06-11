@@ -90,7 +90,7 @@ func Listen(b:Button,action:String):
 	updateControls()
 
 func ListenController(b:Button,action:String):
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.5).timeout
 	lastCode = 0
 	lastInput = ""
 	b.disabled = true
