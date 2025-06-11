@@ -2882,3 +2882,4 @@ visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_qkdw6")
+volume_db = 10.0

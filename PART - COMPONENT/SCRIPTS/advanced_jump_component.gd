@@ -30,6 +30,7 @@ func handle_jump(body: CharacterBody2D, want_to_jump: bool, jump_released: bool)
 		wall_jump_streak=0
 	if is_allowed_to_jump(body, want_to_jump):
 		jump(body)
+		$AudioStreamPlayer.play()
 	
 	handle_coyote_time(body)
 	handle_jump_buffer(body, want_to_jump)

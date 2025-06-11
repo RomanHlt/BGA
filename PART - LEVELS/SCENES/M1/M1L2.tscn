@@ -2251,3 +2251,4 @@ text_controller = "De quoi se soigner"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_71ayi")
+volume_db = 10.0

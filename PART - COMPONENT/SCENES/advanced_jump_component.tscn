@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://codccv1hd133u"]
+[gd_scene load_steps=3 format=3 uid="uid://codccv1hd133u"]
 
 [ext_resource type="Script" path="res://PART - COMPONENT/SCRIPTS/advanced_jump_component.gd" id="1_6s0ck"]
+[ext_resource type="AudioStream" uid="uid://bfkrarq3wl6ii" path="res://PART - OBJECTS/ASSETS/Sounds/Jump.mp3" id="2_optv7"]
 
 [node name="AdvancedJumpComponent" type="Node2D" node_paths=PackedStringArray("jump_buffer_timer", "coyote_timer", "wall_jump_buffer")]
 script = ExtResource("1_6s0ck")
@@ -19,3 +20,7 @@ one_shot = true
 [node name="WallJumpBuffer" type="Timer" parent="."]
 wait_time = 0.15
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_optv7")
+volume_db = -10.195
