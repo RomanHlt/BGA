@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bsmv04evs2r56"]
+[gd_scene load_steps=20 format=3 uid="uid://bsmv04evs2r56"]
 
 [ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/dragon.gd" id="1_gvikf"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="1_j3vgy"]
@@ -88,6 +88,21 @@ tracks/0/keys = {
 "values": [8, 9]
 }
 
+[sub_resource type="Animation" id="Animation_6gqw8"]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dragon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [19, 19, 19, 0, 0, 0]
+}
+
 [sub_resource type="Animation" id="Animation_umcl2"]
 length = 0.4
 loop_mode = 1
@@ -104,8 +119,8 @@ tracks/0/keys = {
 "values": [4, 5, 6, 7]
 }
 
-[sub_resource type="Animation" id="Animation_6gqw8"]
-length = 0.6
+[sub_resource type="Animation" id="Animation_ya44f"]
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -113,10 +128,10 @@ tracks/0/path = NodePath("Dragon:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [19, 19, 19, 0, 0, 0]
+"values": [20, 21, 22, 23, 24, 25, 26, 27]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nde1d"]
@@ -124,6 +139,7 @@ _data = {
 "Attack": SubResource("Animation_34oej"),
 "Idle_left": SubResource("Animation_xn5w7"),
 "Spikes": SubResource("Animation_f05jr"),
+"explosion": SubResource("Animation_ya44f"),
 "fall_left": SubResource("Animation_iih3u"),
 "jump_left": SubResource("Animation_o6jlp"),
 "ouch": SubResource("Animation_6gqw8"),
@@ -153,8 +169,9 @@ script = ExtResource("1_gvikf")
 [node name="Dragon" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_x5nxf")
-hframes = 5
-vframes = 4
+hframes = 6
+vframes = 5
+frame = 20
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -170,7 +187,7 @@ metadata/_aseprite_wizard_config_ = {
 "slice": "",
 "source": "res://PART - MOBS/ASSETS/Drag/Dragon cat.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "a218ad62285bba1955f4898d7c6294e8"
+metadata/_aseprite_wizard_source_file_hash_ = "d7d651cc865cccbc1a31fe84820619aa"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.6)
