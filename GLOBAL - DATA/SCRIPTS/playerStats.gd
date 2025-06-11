@@ -20,4 +20,5 @@ func load_game():
 			print("PlayerData Found")
 			return player
 	else:
-		return null
+		print("PlayerData created")
+		return PlayerData.new()
