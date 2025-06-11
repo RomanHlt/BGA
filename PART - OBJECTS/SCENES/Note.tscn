@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1r0k08xd0ibm"]
+[gd_scene load_steps=6 format=3 uid="uid://c1r0k08xd0ibm"]
 
 [ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/note.gd" id="1_fvrl3"]
 [ext_resource type="Texture2D" uid="uid://ptjpi3r5nwvr" path="res://PART - OBJECTS/ASSETS/Note.png" id="1_x3ftp"]
-[ext_resource type="AudioStream" uid="uid://b3cbltdfdo2yj" path="res://PART - OBJECTS/ASSETS/Sounds/Note.mp3" id="3_7ytbf"]
 
 [sub_resource type="Animation" id="Animation_7v373"]
 length = 1.1
@@ -65,8 +64,4 @@ position = Vector2(1, -4)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_rvnic")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_7ytbf")
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

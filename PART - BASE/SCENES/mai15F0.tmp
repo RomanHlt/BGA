@@ -1,0 +1,663 @@
+[gd_scene load_steps=28 format=3 uid="uid://bclxknnv5k8la"]
+
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_stats.gd" id="1_bawku"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_progres.gd" id="2_rrlfl"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_levels.gd" id="3_2fkf4"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_options.gd" id="4_35fso"]
+[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="5_7fas6"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/fondu.gd" id="5_o0eev"]
+[ext_resource type="Texture2D" uid="uid://ns1vlm7c873h" path="res://PART - BASE/ASSETS/Sprite-0002.png" id="6_ci7ot"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/color_rect.gd" id="8_0wvhj"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_accueilV2.gd" id="9_jwxgx"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_controls.gd" id="10_0b1uw"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_pause.gd" id="10_xywjm"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_settings.gd" id="11_3jluq"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/chrono.gd" id="12_cdven"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hkfqr"]
+font_size = 32
+
+[sub_resource type="Theme" id="Theme_nl8f7"]
+Label/colors/font_color = Color(1, 0, 0.733333, 1)
+Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
+Label/constants/shadow_outline_size = 20
+Label/fonts/font = ExtResource("5_7fas6")
+
+[sub_resource type="Theme" id="Theme_oixoq"]
+Label/colors/font_color = Color(1, 0, 0.733333, 1)
+Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
+Label/constants/shadow_outline_size = 20
+Label/fonts/font = ExtResource("5_7fas6")
+
+[sub_resource type="LabelSettings" id="LabelSettings_x1s3k"]
+font_size = 32
+font_color = Color(1, 0, 0.733333, 1)
+outline_size = 16
+outline_color = Color(0.501961, 0, 0.376471, 1)
+
+[sub_resource type="Theme" id="Theme_s4t4w"]
+Label/colors/font_color = Color(1, 0, 0.733333, 1)
+Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
+Label/constants/shadow_outline_size = 20
+Label/fonts/font = ExtResource("5_7fas6")
+
+[sub_resource type="Theme" id="Theme_d06oq"]
+Label/colors/font_color = Color(1, 0, 0.733333, 1)
+Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
+Label/constants/shadow_outline_size = 10
+Label/fonts/font = ExtResource("5_7fas6")
+
+[sub_resource type="Animation" id="Animation_0mip0"]
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Loading/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mh7ui"]
+_data = {
+"default": SubResource("Animation_0mip0")
+}
+
+[sub_resource type="Animation" id="Animation_euy3t"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_svm3w"]
+resource_name = "fondu"
+length = 1.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.23333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kdqog"]
+_data = {
+"RESET": SubResource("Animation_euy3t"),
+"fondu": SubResource("Animation_svm3w")
+}
+
+[sub_resource type="Animation" id="Animation_mt16m"]
+resource_name = "Dead"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wtfy6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ky16c"]
+_data = {
+"Dead": SubResource("Animation_mt16m"),
+"RESET": SubResource("Animation_wtfy6")
+}
+
+[node name="MAIN" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Globals Stats" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bawku")
+
+[node name="Globals Progres" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_rrlfl")
+
+[node name="Globals Levels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_2fkf4")
+dico = {
+"0.0.0": "res://PART - LEVELS/SCENES/M0.tscn",
+"1.0.0": "res://PART - LEVELS/SCENES/M1/M1.tscn",
+"1.1.0": "res://PART - LEVELS/SCENES/M1/M1L1.tscn",
+"1.2.0": "res://PART - LEVELS/SCENES/M1/M1L2.tscn",
+"1.3.0": "res://PART - LEVELS/SCENES/M1/M1L3.tscn",
+"999.0.0": "res://PART - LEVELS/SCENES/M1/fin_demo.tscn"
+}
+loadscene_path = "res://LoadScreen.tscn"
+
+[node name="Globals Options" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_35fso")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Clock" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 547.0
+offset_top = 24.0
+offset_right = 629.0
+offset_bottom = 69.0
+text = "00.00"
+label_settings = SubResource("LabelSettings_hkfqr")
+script = ExtResource("12_cdven")
+
+[node name="Menus" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuAccueil" type="Control" parent="CanvasLayer/Menus"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_jwxgx")
+
+[node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuAccueil"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 134.0
+offset_top = 36.0
+offset_right = 976.0
+offset_bottom = 236.0
+grow_horizontal = 2
+theme = SubResource("Theme_nl8f7")
+theme_override_font_sizes/font_size = 50
+text = "BARRY'S GREAT ADVENTURE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Load" type="Button" parent="CanvasLayer/Menus/MenuAccueil"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 257.0
+offset_right = 242.0
+offset_bottom = 288.0
+focus_neighbor_bottom = NodePath("../Settings")
+text = "Load
+"
+
+[node name="Settings" type="Button" parent="CanvasLayer/Menus/MenuAccueil"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 301.0
+offset_right = 266.0
+offset_bottom = 332.0
+focus_neighbor_top = NodePath("../Load")
+focus_neighbor_bottom = NodePath("../NewGame")
+text = "Settings"
+
+[node name="NewGame" type="Button" parent="CanvasLayer/Menus/MenuAccueil"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 344.0
+offset_right = 289.0
+offset_bottom = 375.0
+focus_neighbor_top = NodePath("../Settings")
+text = "New Game
+"
+
+[node name="MenuPause" type="Control" parent="CanvasLayer/Menus"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_xywjm")
+
+[node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuPause"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 134.0
+offset_top = 36.0
+offset_right = 976.0
+offset_bottom = 236.0
+grow_horizontal = 2
+theme = SubResource("Theme_nl8f7")
+theme_override_font_sizes/font_size = 50
+text = "BARRY'S GREAT ADVENTURE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume" type="Button" parent="CanvasLayer/Menus/MenuPause"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 256.0
+offset_right = 266.0
+offset_bottom = 287.0
+text = "Resume"
+
+[node name="Settings" type="Button" parent="CanvasLayer/Menus/MenuPause"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 301.0
+offset_right = 266.0
+offset_bottom = 332.0
+text = "Settings"
+
+[node name="Quit" type="Button" parent="CanvasLayer/Menus/MenuPause"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 344.0
+offset_right = 238.0
+offset_bottom = 375.0
+text = "Quit"
+
+[node name="MenuSettings" type="Control" parent="CanvasLayer/Menus"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("11_3jluq")
+
+[node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuSettings"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 450.0
+offset_top = 107.0
+offset_right = 689.0
+offset_bottom = 165.0
+grow_horizontal = 2
+theme = SubResource("Theme_oixoq")
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="CanvasLayer/Menus/MenuSettings"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 344.0
+offset_right = 241.0
+offset_bottom = 375.0
+text = "Back"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/Menus/MenuSettings"]
+clip_contents = true
+layout_mode = 0
+offset_left = 239.0
+offset_top = 224.0
+offset_right = 439.0
+offset_bottom = 240.0
+focus_neighbor_left = NodePath("../CheckButton")
+
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer/Menus/MenuSettings"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 220.0
+offset_right = 241.0
+offset_bottom = 244.0
+focus_neighbor_right = NodePath("../HSlider")
+button_pressed = true
+
+[node name="MusicSlider2" type="HSlider" parent="CanvasLayer/Menus/MenuSettings"]
+clip_contents = true
+layout_mode = 0
+offset_left = 239.0
+offset_top = 268.0
+offset_right = 439.0
+offset_bottom = 284.0
+focus_neighbor_left = NodePath("../MusicButton2")
+
+[node name="MusicButton2" type="CheckButton" parent="CanvasLayer/Menus/MenuSettings"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 264.0
+offset_right = 241.0
+offset_bottom = 288.0
+focus_neighbor_right = NodePath("../MusicSlider2")
+button_pressed = true
+
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer/Menus/MenuSettings"]
+layout_mode = 0
+offset_left = 823.0
+offset_top = 515.0
+offset_right = 847.0
+offset_bottom = 539.0
+text = "SpeedRun Mode"
+
+[node name="Controls" type="Button" parent="CanvasLayer/Menus/MenuSettings"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 299.0
+offset_right = 270.0
+offset_bottom = 330.0
+text = "Controls"
+
+[node name="MenuControls" type="Control" parent="CanvasLayer/Menus"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_0b1uw")
+
+[node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 435.5
+offset_top = 107.0
+offset_right = 703.5
+offset_bottom = 165.0
+grow_horizontal = 2
+theme = SubResource("Theme_oixoq")
+theme_override_font_sizes/font_size = 50
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 566.0
+offset_right = 140.0
+offset_bottom = 589.0
+
+[node name="LabelKeyboard" type="Label" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 175.0
+offset_right = 351.0
+offset_bottom = 220.0
+text = "Keyboard"
+label_settings = SubResource("LabelSettings_x1s3k")
+
+[node name="LabelController" type="Label" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 603.0
+offset_top = 175.0
+offset_right = 759.0
+offset_bottom = 220.0
+text = "Controller"
+label_settings = SubResource("LabelSettings_x1s3k")
+
+[node name="Right" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 228.0
+offset_right = 299.0
+offset_bottom = 259.0
+text = "-----------------"
+
+[node name="Left" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 268.0
+offset_right = 298.0
+offset_bottom = 299.0
+text = "-----------------"
+
+[node name="Deeper" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 309.0
+offset_right = 298.0
+offset_bottom = 340.0
+text = "-----------------"
+
+[node name="Closer" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 350.0
+offset_right = 298.0
+offset_bottom = 381.0
+text = "-----------------"
+
+[node name="Jump" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 390.0
+offset_right = 298.0
+offset_bottom = 421.0
+text = "-----------------"
+
+[node name="Back" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 464.0
+offset_right = 247.0
+offset_bottom = 495.0
+text = "Back"
+
+[node name="ControllerDeeper" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 603.0
+offset_top = 309.0
+offset_right = 699.0
+offset_bottom = 340.0
+disabled = true
+text = "-----------------"
+
+[node name="ControllerCloser" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 603.0
+offset_top = 350.0
+offset_right = 699.0
+offset_bottom = 381.0
+disabled = true
+text = "-----------------"
+
+[node name="ControllerJump" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 603.0
+offset_top = 390.0
+offset_right = 699.0
+offset_bottom = 421.0
+disabled = true
+text = "-----------------"
+
+[node name="Reset" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 427.0
+offset_right = 333.0
+offset_bottom = 458.0
+text = "Reset to default"
+
+[node name="Fondu" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("5_o0eev")
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/Fondu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0549426, 0.0908001, 0.31992, 1)
+
+[node name="Titre" type="Label" parent="CanvasLayer/Fondu"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 200.0
+grow_horizontal = 2
+theme = SubResource("Theme_s4t4w")
+theme_override_font_sizes/font_size = 50
+text = "Titre"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sous titre" type="Label" parent="CanvasLayer/Fondu"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -29.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_d06oq")
+theme_override_font_sizes/font_size = 20
+text = "Sous titre"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loading" type="Control" parent="CanvasLayer/Fondu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -148.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Fondu/Loading"]
+texture_filter = 1
+texture = ExtResource("6_ci7ot")
+hframes = 3
+vframes = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "CanvasLayer/Fondu/LoadingPlayer",
+"slice": "",
+"source": "res://PART - BASE/ASSETS/Sprite-0002.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a8cd9817894744c8baf064df5108fa46"
+
+[node name="LoadingPlayer" type="AnimationPlayer" parent="CanvasLayer/Fondu"]
+libraries = {
+"": SubResource("AnimationLibrary_mh7ui")
+}
+
+[node name="FonduPlayer" type="AnimationPlayer" parent="CanvasLayer/Fondu"]
+libraries = {
+"": SubResource("AnimationLibrary_kdqog")
+}
+
+[node name="Dead" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("8_0wvhj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Dead"]
+libraries = {
+"": SubResource("AnimationLibrary_ky16c")
+}
+
+[connection signal="controllerOff" from="Globals Options" to="CanvasLayer/Menus/MenuAccueil" method="_on_globals_options_controller_off"]
+[connection signal="controllerOff" from="Globals Options" to="CanvasLayer/Menus/MenuPause" method="_on_globals_options_controller_off"]
+[connection signal="controllerOff" from="Globals Options" to="CanvasLayer/Menus/MenuSettings" method="_on_globals_options_controller_off"]
+[connection signal="controllerOff" from="Globals Options" to="CanvasLayer/Menus/MenuControls" method="_on_globals_options_controller_off"]
+[connection signal="controllerOn" from="Globals Options" to="CanvasLayer/Menus/MenuAccueil" method="_on_globals_options_controller_on"]
+[connection signal="controllerOn" from="Globals Options" to="CanvasLayer/Menus/MenuPause" method="_on_globals_options_controller_on"]
+[connection signal="controllerOn" from="Globals Options" to="CanvasLayer/Menus/MenuSettings" method="_on_globals_options_controller_on"]
+[connection signal="controllerOn" from="Globals Options" to="CanvasLayer/Menus/MenuControls" method="_on_globals_options_controller_on"]
+[connection signal="settingsFromMenu" from="CanvasLayer/Menus/MenuAccueil" to="CanvasLayer/Menus/MenuSettings" method="_on_menu_accueil_settings_from_menu"]
+[connection signal="start" from="CanvasLayer/Menus/MenuAccueil" to="CanvasLayer/Clock" method="_on_menu_accueil_start"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/Load" to="CanvasLayer/Menus/MenuAccueil" method="_on_load_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/Settings" to="CanvasLayer/Menus/MenuAccueil" method="_on_settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/NewGame" to="CanvasLayer/Menus/MenuAccueil" method="_on_new_game_pressed"]
+[connection signal="SettingsOpened" from="CanvasLayer/Menus/MenuPause" to="CanvasLayer/Menus/MenuSettings" method="_on_menu_pause_settings_opened"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuPause/Resume" to="CanvasLayer/Menus/MenuPause" method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuPause/Settings" to="CanvasLayer/Menus/MenuPause" method="_on_settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuPause/Quit" to="CanvasLayer/Menus/MenuPause" method="_on_quit_pressed"]
+[connection signal="SettingsClosed" from="CanvasLayer/Menus/MenuSettings" to="CanvasLayer/Menus/MenuPause" method="_on_menu_settings_settings_closed"]
+[connection signal="SettingsToMenu" from="CanvasLayer/Menus/MenuSettings" to="CanvasLayer/Menus/MenuAccueil" method="_on_menu_settings_settings_to_menu"]
+[connection signal="openControls" from="CanvasLayer/Menus/MenuSettings" to="CanvasLayer/Menus/MenuControls" method="_on_menu_settings_open_controls"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuSettings/Back" to="CanvasLayer/Menus/MenuSettings" method="_on_back_pressed"]
+[connection signal="value_changed" from="CanvasLayer/Menus/MenuSettings/HSlider" to="CanvasLayer/Menus/MenuSettings" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuSettings/CheckButton" to="CanvasLayer/Menus/MenuSettings" method="_on_check_button_pressed"]
+[connection signal="value_changed" from="CanvasLayer/Menus/MenuSettings/MusicSlider2" to="CanvasLayer/Menus/MenuSettings" method="_on_music_slider_2_value_changed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuSettings/MusicButton2" to="CanvasLayer/Menus/MenuSettings" method="_on_music_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuSettings/CheckBox" to="CanvasLayer/Menus/MenuSettings" method="_on_check_box_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuSettings/Controls" to="CanvasLayer/Menus/MenuSettings" method="_on_controls_pressed"]
+[connection signal="ControlsClosed" from="CanvasLayer/Menus/MenuControls" to="CanvasLayer/Menus/MenuSettings" method="_on_menu_controls_controls_closed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Right" to="CanvasLayer/Menus/MenuControls" method="_on_right_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Left" to="CanvasLayer/Menus/MenuControls" method="_on_left_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Deeper" to="CanvasLayer/Menus/MenuControls" method="_on_deeper_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Closer" to="CanvasLayer/Menus/MenuControls" method="_on_closer_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Jump" to="CanvasLayer/Menus/MenuControls" method="_on_jump_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Back" to="CanvasLayer/Menus/MenuControls" method="_on_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuControls/ControllerDeeper" to="CanvasLayer/Menus/MenuControls" method="_on_controller_deeper_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuControls/ControllerCloser" to="CanvasLayer/Menus/MenuControls" method="_on_controller_closer_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuControls/ControllerJump" to="CanvasLayer/Menus/MenuControls" method="_on_controller_jump_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Reset" to="CanvasLayer/Menus/MenuControls" method="_on_reset_pressed"]
