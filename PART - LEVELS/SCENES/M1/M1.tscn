@@ -2084,6 +2084,13 @@ id_last_lvl = "1.3.0"
 titre = "Monde 1"
 sous_titre = "Niveau 3 | Caverne profonde"
 
+[node name="door3" parent="TileMapLayer" instance=ExtResource("3_vs5vi")]
+position = Vector2(629, 577)
+id_next_lvl = "1.4.0"
+id_last_lvl = "1.4.0"
+titre = "Niveau caché"
+sous_titre = "Le méchant chat"
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
 z_index = -1

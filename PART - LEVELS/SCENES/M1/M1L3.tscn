@@ -2761,16 +2761,13 @@ position = Vector2(416, -241)
 
 [node name="Spike" parent="TileMapLayer" instance=ExtResource("5_u2cyv")]
 position = Vector2(801, -11)
-damage = 1.0
 
 [node name="Spike2" parent="TileMapLayer" instance=ExtResource("5_u2cyv")]
 position = Vector2(548, -43)
-damage = 1.0
 
 [node name="Spike3" parent="TileMapLayer" instance=ExtResource("5_u2cyv")]
 position = Vector2(548, -86)
 rotation = 3.14159
-damage = 1.0
 
 [node name="Traversable platform3" parent="TileMapLayer" instance=ExtResource("10_jsikg")]
 position = Vector2(416, -196)
@@ -2823,7 +2820,6 @@ position = Vector2(217, -675)
 [node name="Spear" parent="TileMapLayer" instance=ExtResource("7_wqcqh")]
 position = Vector2(961, -956)
 rotation = -1.5708
-damage = 2.0
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)

@@ -9,25 +9,44 @@ var flame = preload("res://PART - MOBS/SCENES/dragon_flame.tscn")
 @onready var target : CharacterBody2D = self
 @onready var lock = false
 @onready var on_spike = false
+@onready var health = 10
+@onready var is_attacked = false
 
 func _ready() -> void:
 	collision_layer = 2**layer
 	collision_mask = 2**layer
+	get_tree().root.get_node("/root/Map/CanvasLayer/InGame/lifeController").play(str(health))
 	await get_tree().create_timer(1).timeout
+
+func _takeDamages(damages):
+	is_attacked = true
+	if damages <= health:
+		health -= damages
+		get_tree().root.get_node("/root/Map/CanvasLayer/InGame/lifeController").play(str(health))
+		print(health)
+	else:
+		health = 0
+		get_tree().root.get_node("/root/Map/CanvasLayer/InGame/lifeController").play(str(health))
+
 
 func _process(delta: float) -> void:
 	$GravityComponent.handle_gravity($".", delta) # Applique la gravité
-	
+	if health == 0:
+		$DragonAnimator.play("DEATH")
 	if velocity[1] < 0:
 		$DragonAnimator.play("jump_left")
 	elif velocity[1] > 0:
 		$DragonAnimator.play("fall_left")
 	
+	if is_attacked:
+		velocity[0] = 0
+		$DragonAnimator.play("ouch")
 	elif is_sleeping: 
 		$DragonAnimator.play("Idle_left")
 		velocity[0] = 0 # Arreter son déplacement
 	elif lock:
 		velocity[0] = 0 # Arreter son déplacement
+		$DragonAnimator.stop()
 	else:
 		var direction = sign(target.position[0] - self.position[0]) # direction = 1 ou -1 en fonction de la position du joueur par rapport au mob
 		velocity[0] = direction * 100 # Vitesse 100
@@ -41,30 +60,34 @@ func _process(delta: float) -> void:
 
 func fire_left():
 	var fire = flame.instantiate()
-	call_deferred("add_child", fire)
-	fire.collision_layer = collision_layer
-	fire.collision_mask = collision_mask
-	fire.z_index = z_index
-	fire.position = Vector2(-25, 0)
-	fire.anime("left")
-	$DragonAnimator.play("Attack")
-	while lock:
-		await get_tree().process_frame  # attend la frame suivante tant que le dragon crache du feu
-	fire.stop()
+	await get_tree().create_timer(0.5).timeout
+	if lock:
+		call_deferred("add_child", fire)
+		fire.collision_layer = collision_layer
+		fire.collision_mask = collision_mask
+		fire.z_index = z_index
+		fire.position = Vector2(-25, 0)
+		fire.anime("left")
+		$DragonAnimator.play("Attack")
+		while lock:
+			await get_tree().process_frame  # attend la frame suivante tant que le dragon crache du feu
+		fire.stop()
 
 
 func fire_right():
 	var fire2 = flame.instantiate()
-	call_deferred("add_child", fire2)
-	fire2.collision_layer = collision_layer
-	fire2.collision_mask = collision_mask
-	fire2.z_index = z_index
-	fire2.position = Vector2(45, 0)
-	fire2.anime("right")
-	$DragonAnimator.play("Attack")
-	while lock:
-		await get_tree().process_frame  # attend la frame suivante tant que le dragon crache du feu
-	fire2.stop()
+	await get_tree().create_timer(0.5).timeout
+	if lock:
+		call_deferred("add_child", fire2)
+		fire2.collision_layer = collision_layer
+		fire2.collision_mask = collision_mask
+		fire2.z_index = z_index
+		fire2.position = Vector2(45, 0)
+		fire2.anime("right")
+		$DragonAnimator.play("Attack")
+		while lock:
+			await get_tree().process_frame  # attend la frame suivante tant que le dragon crache du feu
+		fire2.stop()
 	
 
 # Chasse
@@ -128,3 +151,11 @@ func _on_collision_left_body_entered(body: Node2D) -> void:
 func _on_collision_right_body_entered(body: Node2D) -> void:
 	if body.name != "Player" and velocity[0] > 0:
 		$AdvancedJumpComponent.jump(self)
+
+
+func _on_dragon_animator_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "DEATH":
+		hide()
+		queue_free()
+	if anim_name == "ouch":
+		is_attacked = false

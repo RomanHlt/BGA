@@ -55,6 +55,7 @@ _data = {
 [node name="Spear" type="Node2D"]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_66xem")
+damage = 2.0
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 
