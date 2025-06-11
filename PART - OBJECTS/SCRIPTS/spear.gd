@@ -49,7 +49,10 @@ func _on_dps_2_body_entered(body: Node2D) -> void:
 		if not running:	# Si l'attaque n'est pas déjà en cours on attaque
 			running = true
 			$Spikeplayer.play("Pik")
-
+			await get_tree().create_timer(0.4).timeout
+			$AudioStreamPlayer.play()
+			await get_tree().create_timer(1).timeout
+			$AudioStreamPlayer.play()
 
 func _on_dps_2_body_exited(body: Node2D) -> void:
 	"""Zone rouge dans le debug"""

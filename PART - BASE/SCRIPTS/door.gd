@@ -79,6 +79,7 @@ func _input(event: InputEvent) -> void:
 	"""Déclenche le changement de niveau"""
 	if Input.is_action_just_pressed("interagir") and can_interact and canAccess and !isDecorative:
 		$AnimationPlayer.play("Opening")
+		$AudioStreamPlayer.play()
 		PlayerDataSaver.PlayerStats.last_lvl = PlayerDataSaver.PlayerStats.current_lvl
 		PlayerDataSaver.PlayerStats.current_lvl = id_next_lvl
 		if not isHub:PlayerDataSaver.WorldStats.level_completed(id_unlocked_lvl)

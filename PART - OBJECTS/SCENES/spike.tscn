@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bog4f2sni7fny"]
+[gd_scene load_steps=8 format=3 uid="uid://bog4f2sni7fny"]
 
 [ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/spike.gd" id="1_quplr"]
 [ext_resource type="Texture2D" uid="uid://cjc5erg8ryvn3" path="res://PART - OBJECTS/ASSETS/Spike-export.png" id="2_3ylwl"]
+[ext_resource type="AudioStream" uid="uid://cnt0rnehk3fu0" path="res://PART - OBJECTS/ASSETS/Sounds/Spike.mp3" id="3_ga844"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ga4j"]
 size = Vector2(320, 40)
@@ -74,6 +75,9 @@ debug_color = Color(0.985814, 0, 0.329983, 0.42)
 libraries = {
 "": SubResource("AnimationLibrary_hlj7x")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ga844")
 
 [connection signal="body_entered" from="AnimatableBody2D/Dps2" to="." method="_on_dps_2_body_entered"]
 [connection signal="body_exited" from="AnimatableBody2D/Dps2" to="." method="_on_dps_2_body_exited"]
