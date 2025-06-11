@@ -81,6 +81,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interagir") and can_interact and canAccess and !isDecorative and unique:
 		$AnimationPlayer.play("Opening")
 		print("Before: ",PlayerDataSaver.PlayerStats.last_lvl,"/",PlayerDataSaver.PlayerStats.current_lvl)
+		$AudioStreamPlayer.play()
 		PlayerDataSaver.PlayerStats.last_lvl = PlayerDataSaver.PlayerStats.current_lvl
 		PlayerDataSaver.PlayerStats.current_lvl = id_next_lvl
 		print("After: ",PlayerDataSaver.PlayerStats.last_lvl,"/",PlayerDataSaver.PlayerStats.current_lvl)

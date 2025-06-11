@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://dsi8plob4hdvb" path="res://GLOBAL - Font/KAPH/TrueType (.ttf)/Kaph-Regular.ttf" id="3_cwefx"]
 [ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="3_iaihw"]
 [ext_resource type="Texture2D" uid="uid://cwh5barmb3pcc" path="res://PART - BASE/SCENES/Notes.png" id="4_2x5nk"]
+[ext_resource type="AudioStream" uid="uid://bsoyt25jr0acg" path="res://PART - OBJECTS/ASSETS/Sounds/Door.mp3" id="6_jb68v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgah1"]
 size = Vector2(32, 41)
@@ -405,6 +406,9 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://PART - LEVELS/ASSETS/Map/4 Animated objects/LevelDoor.aseprite"
 }
 metadata/_aseprite_wizard_source_file_hash_ = "8f454ec591b8384f6716ec4d53d84faf"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_jb68v")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -44,15 +44,19 @@ func findRightSpawn():
 			if d.id_last_lvl == PlayerDataSaver.PlayerStats.last_lvl:
 				rightDoor = d
 	if rightDoor != null:
-		print("rightDoor :", rightDoor)
 		player.position = rightDoor.position
+		$Camera2D.position = rightDoor.position
 		goToLayer(rightDoor.layer)
 		rightDoor.isOut = true
 
 func goToLayer(layer:int = 0):
-	if player.canGoDeeper == true and currentPlayerLayer < layer:
+	if PlayerDataSaver.PlayerStats.is_dead:
+		player.collision_layer = 2**layer
+	
+	elif player.canGoDeeper == true and currentPlayerLayer < layer:
 		player.layerJump = true
 		player.reparent(Layers[layer])
+		$AudioStreamPlayer.play()
 		player.collision_mask = 2**layer
 		player.collision_layer = 2**layer
 		player.z_index = -layer 
@@ -60,9 +64,10 @@ func goToLayer(layer:int = 0):
 		player.closerChecker.collision_mask = 2**(layer-1)
 		currentPlayerLayer=layer
 		player.position.y+=1 #Eviter que les checker ne detectent plus de collisions (patch de brute)
-	if player.canGoCloser == true and currentPlayerLayer > layer:
+	elif player.canGoCloser == true and currentPlayerLayer > layer:
 		player.layerJump = true
 		player.reparent(Layers[layer])
+		$AudioStreamPlayer.play()
 		player.collision_mask = 2**layer
 		player.collision_layer = 2**layer
 		player.deeperChecker.collision_mask = 2**(layer+1)
@@ -70,6 +75,3 @@ func goToLayer(layer:int = 0):
 		player.z_index = -layer
 		currentPlayerLayer=layer
 		player.position.y+=1 #Eviter que les checker ne detectent plus de collisions (patch de brute)
-	if PlayerDataSaver.PlayerStats.is_dead:
-		player.collision_layer = 2**layer
-	print(player.collision_layer, player.collision_mask)
