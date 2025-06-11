@@ -407,6 +407,13 @@ text = "Controls"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label" type="Label" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 566.0
+offset_right = 140.0
+offset_bottom = 589.0
+
 [node name="LabelKeyboard" type="Label" parent="CanvasLayer/Menus/MenuControls"]
 layout_mode = 0
 offset_left = 203.0

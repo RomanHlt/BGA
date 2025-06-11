@@ -17,7 +17,7 @@ var buttons = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	buttons = [$Back,$CheckButton,$MusicButton2,$CheckBox]
+	buttons = [$Back,$Controls,$CheckButton,$MusicButton2,$CheckBox]
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	hide()
 	#initialisation locale de sliders
