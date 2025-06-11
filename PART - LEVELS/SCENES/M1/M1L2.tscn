@@ -2092,49 +2092,39 @@ number = 2
 
 [node name="Spear" parent="TileMapLayer" instance=ExtResource("3_dgg32")]
 position = Vector2(1117, -399)
-damage = 2.0
 
 [node name="Spear2" parent="TileMapLayer" instance=ExtResource("3_dgg32")]
 position = Vector2(1214, -399)
-damage = 2.0
 
 [node name="Spear3" parent="TileMapLayer" instance=ExtResource("3_dgg32")]
 position = Vector2(1310, -399)
-damage = 2.0
 
 [node name="Spear4" parent="TileMapLayer" instance=ExtResource("3_dgg32")]
 position = Vector2(1423, -79)
-damage = 2.0
 
 [node name="Spear5" parent="TileMapLayer" instance=ExtResource("3_dgg32")]
 position = Vector2(984, -177)
 rotation = -3.14159
-damage = 2.0
 
 [node name="Spear6" parent="TileMapLayer" instance=ExtResource("3_dgg32")]
 position = Vector2(832, 78)
 rotation = 1.5708
-damage = 2.0
 
 [node name="Spear7" parent="TileMapLayer" instance=ExtResource("3_dgg32")]
 position = Vector2(832, 15)
 rotation = 1.5708
-damage = 2.0
 
 [node name="Spear8" parent="TileMapLayer" instance=ExtResource("3_dgg32")]
 position = Vector2(993, 113)
 rotation = -1.5708
-damage = 2.0
 
 [node name="Spear9" parent="TileMapLayer" instance=ExtResource("3_dgg32")]
 position = Vector2(993, 49)
 rotation = -1.5708
-damage = 2.0
 
 [node name="Spear10" parent="TileMapLayer" instance=ExtResource("3_dgg32")]
 position = Vector2(95, 242)
 rotation = 1.5708
-damage = 2.0
 
 [node name="Spike" parent="TileMapLayer" instance=ExtResource("5_oog17")]
 position = Vector2(835, 247)

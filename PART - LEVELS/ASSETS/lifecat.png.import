@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1sl3ni1tsqju"
-path="res://.godot/imported/ToxicFrogGreenBrown_Sheet.png-5dac852da795b4b89936776c01892274.ctex"
+uid="uid://chub1yc38lwvj"
+path="res://.godot/imported/lifecat.png-676f7c68ef55cd28585901435552d821.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - MOBS/ASSETS/ToxicFrog/GreenBrown/ToxicFrogGreenBrown_Sheet.png"
-dest_files=["res://.godot/imported/ToxicFrogGreenBrown_Sheet.png-5dac852da795b4b89936776c01892274.ctex"]
+source_file="res://PART - LEVELS/ASSETS/lifecat.png"
+dest_files=["res://.godot/imported/lifecat.png-676f7c68ef55cd28585901435552d821.ctex"]
 
 [params]
 
