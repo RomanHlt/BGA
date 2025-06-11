@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1nt8mu0m8ddr"
+path="res://.godot/imported/level-iv-339695.mp3-ad3cca4462fdeaf67b898dab6281b4e8.mp3str"
+
+[deps]
+
+source_file="res://PART - BASE/ASSETS/level-iv-339695.mp3"
+dest_files=["res://.godot/imported/level-iv-339695.mp3-ad3cca4462fdeaf67b898dab6281b4e8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -11,4 +11,8 @@ func _ready() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body._heal(heal)
-		self.queue_free()
+		$AudioStreamPlayer.play()
+
+
+func _on_audio_stream_player_finished() -> void:
+	self.queue_free()

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cgnrd758er1co"
+path="res://.godot/imported/Spear.mp3-14126a13a7ce5477e5f36e1254cd69bf.mp3str"
+
+[deps]
+
+source_file="res://PART - OBJECTS/ASSETS/Sounds/Spear.mp3"
+dest_files=["res://.godot/imported/Spear.mp3-14126a13a7ce5477e5f36e1254cd69bf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
