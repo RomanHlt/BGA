@@ -1,31 +1,31 @@
-[gd_scene load_steps=217 format=3 uid="uid://d2u5qx4ykvymb"]
+[gd_scene load_steps=218 format=3 uid="uid://d2u5qx4ykvymb"]
 
 [ext_resource type="Script" path="res://Part - MOBS/SCRIPTS/frog_1.gd" id="1_ihvvl"]
-[ext_resource type="Texture2D" uid="uid://y5gw53ritm14" path="res://PART - MOBS/ASSETS/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Attack.png" id="1_lm8p0"]
-[ext_resource type="Texture2D" uid="uid://dupqbtsxf6dj6" path="res://PART - MOBS/ASSETS/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Explosion.png" id="2_c2a26"]
-[ext_resource type="Texture2D" uid="uid://r3btswav24jp" path="res://PART - MOBS/ASSETS/ToxicFrog/BlueBrown/ToxicFrogBlueBrown_Attack.png" id="2_ii2aa"]
-[ext_resource type="Texture2D" uid="uid://ofa264x5c1g7" path="res://PART - MOBS/ASSETS/ToxicFrog/BlueBrown/ToxicFrogBlueBrown_Explosion.png" id="3_u6d8f"]
-[ext_resource type="Texture2D" uid="uid://ckmlrrpvrjv2u" path="res://PART - MOBS/ASSETS/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Idle.png" id="3_walh1"]
-[ext_resource type="Texture2D" uid="uid://8o31hfb3j22b" path="res://PART - MOBS/ASSETS/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Hop.png" id="4_2ubsw"]
-[ext_resource type="Texture2D" uid="uid://da6psbuvrlhx8" path="res://PART - MOBS/ASSETS/ToxicFrog/BlueBrown/ToxicFrogBlueBrown_Idle.png" id="4_18801"]
+[ext_resource type="Texture2D" uid="uid://y5gw53ritm14" path="res://Part - MOBS/ASSETS/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Attack.png" id="1_lm8p0"]
+[ext_resource type="Texture2D" uid="uid://dupqbtsxf6dj6" path="res://Part - MOBS/ASSETS/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Explosion.png" id="2_c2a26"]
+[ext_resource type="Texture2D" uid="uid://r3btswav24jp" path="res://Part - MOBS/ASSETS/ToxicFrog/BlueBrown/ToxicFrogBlueBrown_Attack.png" id="2_ii2aa"]
+[ext_resource type="Texture2D" uid="uid://ofa264x5c1g7" path="res://Part - MOBS/ASSETS/ToxicFrog/BlueBrown/ToxicFrogBlueBrown_Explosion.png" id="3_u6d8f"]
+[ext_resource type="Texture2D" uid="uid://ckmlrrpvrjv2u" path="res://Part - MOBS/ASSETS/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Idle.png" id="3_walh1"]
+[ext_resource type="Texture2D" uid="uid://8o31hfb3j22b" path="res://Part - MOBS/ASSETS/ToxicFrog/PurpleBlue/ToxicFrogPurpleBlue_Hop.png" id="4_2ubsw"]
+[ext_resource type="Texture2D" uid="uid://da6psbuvrlhx8" path="res://Part - MOBS/ASSETS/ToxicFrog/BlueBrown/ToxicFrogBlueBrown_Idle.png" id="4_18801"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="5_14v20"]
-[ext_resource type="Texture2D" uid="uid://b3u3chan76sfe" path="res://PART - MOBS/ASSETS/ToxicFrog/BlueBrown/ToxicFrogBlueBrown_Hop.png" id="5_o2ecy"]
-[ext_resource type="Texture2D" uid="uid://ce2a1304kt7ro" path="res://PART - MOBS/ASSETS/ToxicFrog/BlueBlue/ToxicFrogBlueBlue_Attack.png" id="6_l56f2"]
-[ext_resource type="Texture2D" uid="uid://csu05f54eo0j3" path="res://PART - MOBS/ASSETS/ToxicFrog/BlueBlue/ToxicFrogBlueBlue_Explosion.png" id="7_h1dql"]
-[ext_resource type="Texture2D" uid="uid://5s4keet4krnj" path="res://PART - MOBS/ASSETS/ToxicFrog/BlueBlue/ToxicFrogBlueBlue_Idle.png" id="8_gjpc0"]
-[ext_resource type="Texture2D" uid="uid://cfvkpoqc4lauy" path="res://PART - MOBS/ASSETS/ToxicFrog/BlueBlue/ToxicFrogBlueBlue_Hop.png" id="9_cpmnp"]
-[ext_resource type="Texture2D" uid="uid://dmlo8jvyl7od" path="res://PART - MOBS/ASSETS/ToxicFrog/GreenBlue/ToxicFrogGreenBlue_Attack.png" id="10_0b5ff"]
-[ext_resource type="Texture2D" uid="uid://c4ib7cywlxlg" path="res://PART - MOBS/ASSETS/ToxicFrog/GreenBlue/ToxicFrogGreenBlue_Explosion.png" id="11_5u7un"]
-[ext_resource type="Texture2D" uid="uid://nld2wb3agv1s" path="res://PART - MOBS/ASSETS/ToxicFrog/GreenBlue/ToxicFrogGreenBlue_Idle.png" id="12_ml3vl"]
-[ext_resource type="Texture2D" uid="uid://ddmbr58kx1vql" path="res://PART - MOBS/ASSETS/ToxicFrog/GreenBlue/ToxicFrogGreenBlue_Hop.png" id="13_0y15w"]
-[ext_resource type="Texture2D" uid="uid://c2bd3mnaacb56" path="res://PART - MOBS/ASSETS/ToxicFrog/GreenBrown/ToxicFrogGreenBrown_Attack.png" id="14_5xcg3"]
-[ext_resource type="Texture2D" uid="uid://7p7l6wjjar58" path="res://PART - MOBS/ASSETS/ToxicFrog/GreenBrown/ToxicFrogGreenBrown_Explosion.png" id="15_abi6g"]
-[ext_resource type="Texture2D" uid="uid://c84jflynq0ch7" path="res://PART - MOBS/ASSETS/ToxicFrog/GreenBrown/ToxicFrogGreenBrown_Idle.png" id="16_xfivm"]
-[ext_resource type="Texture2D" uid="uid://crpofcpr4o6ld" path="res://PART - MOBS/ASSETS/ToxicFrog/GreenBrown/ToxicFrogGreenBrown_Hop.png" id="17_7lknk"]
-[ext_resource type="Texture2D" uid="uid://6w0hyxif535w" path="res://PART - MOBS/ASSETS/ToxicFrog/PurpleWhite/ToxicFrogPurpleWhite_Attack.png" id="18_pl6e1"]
-[ext_resource type="Texture2D" uid="uid://c6h3sxqd55qes" path="res://PART - MOBS/ASSETS/ToxicFrog/PurpleWhite/ToxicFrogPurpleWhite_Explosion.png" id="19_katf5"]
-[ext_resource type="Texture2D" uid="uid://cgdbvj4crmn38" path="res://PART - MOBS/ASSETS/ToxicFrog/PurpleWhite/ToxicFrogPurpleWhite_Idle.png" id="20_cl2th"]
-[ext_resource type="Texture2D" uid="uid://btnvycn5brvmn" path="res://PART - MOBS/ASSETS/ToxicFrog/PurpleWhite/ToxicFrogPurpleWhite_Hop.png" id="21_4jr3o"]
+[ext_resource type="Texture2D" uid="uid://b3u3chan76sfe" path="res://Part - MOBS/ASSETS/ToxicFrog/BlueBrown/ToxicFrogBlueBrown_Hop.png" id="5_o2ecy"]
+[ext_resource type="Texture2D" uid="uid://ce2a1304kt7ro" path="res://Part - MOBS/ASSETS/ToxicFrog/BlueBlue/ToxicFrogBlueBlue_Attack.png" id="6_l56f2"]
+[ext_resource type="Texture2D" uid="uid://csu05f54eo0j3" path="res://Part - MOBS/ASSETS/ToxicFrog/BlueBlue/ToxicFrogBlueBlue_Explosion.png" id="7_h1dql"]
+[ext_resource type="Texture2D" uid="uid://5s4keet4krnj" path="res://Part - MOBS/ASSETS/ToxicFrog/BlueBlue/ToxicFrogBlueBlue_Idle.png" id="8_gjpc0"]
+[ext_resource type="Texture2D" uid="uid://cfvkpoqc4lauy" path="res://Part - MOBS/ASSETS/ToxicFrog/BlueBlue/ToxicFrogBlueBlue_Hop.png" id="9_cpmnp"]
+[ext_resource type="Texture2D" uid="uid://dmlo8jvyl7od" path="res://Part - MOBS/ASSETS/ToxicFrog/GreenBlue/ToxicFrogGreenBlue_Attack.png" id="10_0b5ff"]
+[ext_resource type="Texture2D" uid="uid://c4ib7cywlxlg" path="res://Part - MOBS/ASSETS/ToxicFrog/GreenBlue/ToxicFrogGreenBlue_Explosion.png" id="11_5u7un"]
+[ext_resource type="Texture2D" uid="uid://nld2wb3agv1s" path="res://Part - MOBS/ASSETS/ToxicFrog/GreenBlue/ToxicFrogGreenBlue_Idle.png" id="12_ml3vl"]
+[ext_resource type="Texture2D" uid="uid://ddmbr58kx1vql" path="res://Part - MOBS/ASSETS/ToxicFrog/GreenBlue/ToxicFrogGreenBlue_Hop.png" id="13_0y15w"]
+[ext_resource type="Texture2D" uid="uid://c2bd3mnaacb56" path="res://Part - MOBS/ASSETS/ToxicFrog/GreenBrown/ToxicFrogGreenBrown_Attack.png" id="14_5xcg3"]
+[ext_resource type="Texture2D" uid="uid://7p7l6wjjar58" path="res://Part - MOBS/ASSETS/ToxicFrog/GreenBrown/ToxicFrogGreenBrown_Explosion.png" id="15_abi6g"]
+[ext_resource type="Texture2D" uid="uid://c84jflynq0ch7" path="res://Part - MOBS/ASSETS/ToxicFrog/GreenBrown/ToxicFrogGreenBrown_Idle.png" id="16_xfivm"]
+[ext_resource type="Texture2D" uid="uid://crpofcpr4o6ld" path="res://Part - MOBS/ASSETS/ToxicFrog/GreenBrown/ToxicFrogGreenBrown_Hop.png" id="17_7lknk"]
+[ext_resource type="Texture2D" uid="uid://6w0hyxif535w" path="res://Part - MOBS/ASSETS/ToxicFrog/PurpleWhite/ToxicFrogPurpleWhite_Attack.png" id="18_pl6e1"]
+[ext_resource type="Texture2D" uid="uid://c6h3sxqd55qes" path="res://Part - MOBS/ASSETS/ToxicFrog/PurpleWhite/ToxicFrogPurpleWhite_Explosion.png" id="19_katf5"]
+[ext_resource type="Texture2D" uid="uid://cgdbvj4crmn38" path="res://Part - MOBS/ASSETS/ToxicFrog/PurpleWhite/ToxicFrogPurpleWhite_Idle.png" id="20_cl2th"]
+[ext_resource type="Texture2D" uid="uid://btnvycn5brvmn" path="res://Part - MOBS/ASSETS/ToxicFrog/PurpleWhite/ToxicFrogPurpleWhite_Hop.png" id="21_4jr3o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_322bo"]
 atlas = ExtResource("2_ii2aa")
@@ -867,7 +867,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s6doo")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 6.0
 }, {
@@ -954,7 +954,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f57se")
 }],
-"loop": false,
+"loop": true,
 "name": &"jump",
 "speed": 7.0
 }]
@@ -1100,7 +1100,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tlpwk")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 6.0
 }, {
@@ -1187,7 +1187,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2wvfe")
 }],
-"loop": false,
+"loop": true,
 "name": &"jump",
 "speed": 7.0
 }]
@@ -1333,7 +1333,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8bfym")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 6.0
 }, {
@@ -1420,7 +1420,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7dtiq")
 }],
-"loop": false,
+"loop": true,
 "name": &"jump",
 "speed": 7.0
 }]
@@ -1429,13 +1429,16 @@ animations = [{
 size = Vector2(21, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1xqf"]
-size = Vector2(20, 2.25)
+size = Vector2(24, 2.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njhru"]
-size = Vector2(20, 4)
+size = Vector2(17, 4)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_22jlw"]
-radius = 24.0208
+radius = 32.0156
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4q23"]
+size = Vector2(17, 4)
 
 [node name="frog" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent")]
 texture_filter = 1
@@ -1447,8 +1450,6 @@ gravityComponent = NodePath("GravityComponent")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_u17dk")
 animation = &"attack"
-frame = 4
-frame_progress = 0.775689
 
 [node name="BlueBlue" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -1463,17 +1464,17 @@ animation = &"attack"
 [node name="GreenBrown" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_gc4lu")
-animation = &"jump"
+animation = &"attack"
 
 [node name="PurpleWhite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_quh5v")
-animation = &"jump"
+animation = &"attack"
 
 [node name="PurpleBlue" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ewbgf")
-animation = &"jump"
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, 1.5)
@@ -1489,13 +1490,13 @@ position = Vector2(0, -1)
 collision_layer = 0
 
 [node name="TakingDamageShape" type="CollisionShape2D" parent="FrogTakingDamage"]
-position = Vector2(-2, -4.875)
+position = Vector2(-3, -4.875)
 shape = SubResource("RectangleShape2D_f1xqf")
 
-[node name="FrogDealingDamage" type="Area2D" parent="."]
+[node name="FrogDealingDamageRight" type="Area2D" parent="."]
 
-[node name="DealingDamageShape" type="CollisionShape2D" parent="FrogDealingDamage"]
-position = Vector2(14, -2)
+[node name="DealingDamageShapeLeft" type="CollisionShape2D" parent="FrogDealingDamageRight"]
+position = Vector2(12.5, -2)
 shape = SubResource("RectangleShape2D_njhru")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
@@ -1503,9 +1504,18 @@ shape = SubResource("RectangleShape2D_njhru")
 [node name="PlayerDetectionShape" type="CollisionShape2D" parent="PlayerDetection"]
 shape = SubResource("CircleShape2D_22jlw")
 
+[node name="FrogDealingDamageLeft" type="Area2D" parent="."]
+
+[node name="DealingDamageLeft" type="CollisionShape2D" parent="FrogDealingDamageLeft"]
+position = Vector2(-13.5, -2)
+shape = SubResource("RectangleShape2D_g4q23")
+
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
 [connection signal="area_entered" from="FrogTakingDamage" to="." method="_on_frog_taking_damage_area_entered"]
-[connection signal="body_entered" from="FrogDealingDamage" to="." method="_on_frog_dealing_damage_body_entered"]
+[connection signal="body_entered" from="FrogDealingDamageRight" to="." method="_on_frog_dealing_damage_right_body_entered"]
+[connection signal="body_exited" from="FrogDealingDamageRight" to="." method="_on_frog_dealing_damage_right_body_exited"]
 [connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="FrogDealingDamageLeft" to="." method="_on_frog_dealing_damage_left_body_entered"]
+[connection signal="body_exited" from="FrogDealingDamageLeft" to="." method="_on_frog_dealing_damage_left_body_exited"]
