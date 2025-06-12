@@ -5,6 +5,7 @@ extends Node2D
 @export var jump_buffer_timer: Timer
 @export var coyote_timer: Timer
 @export var wall_jump_buffer : Timer
+@export var music:AudioStreamPlayer
 @export_subgroup("Player's Nodes")
 @export var sprite2D: Sprite2D
 
@@ -54,14 +55,14 @@ func handle_jump_buffer(body:CharacterBody2D, want_to_jump:bool) -> void:
 	if want_to_jump and not body.is_on_floor():
 		jump_buffer_timer.start()
 	if body.is_on_floor() and not jump_buffer_timer.is_stopped():
-		jump(body)
-	
+		jump(body)	
 func handle_variable_jump_height(body:CharacterBody2D, jump_released:bool) -> void:
 	if jump_released and is_going_up:
 		body.velocity.y = 0
 
 func jump(body: CharacterBody2D) -> void:
 	if wall_jump_streak<wall_jump_max+1:
+		music.play()
 		wall_jump_streak+=1
 		body.velocity.y = jump_velocity
 		jump_buffer_timer.stop()

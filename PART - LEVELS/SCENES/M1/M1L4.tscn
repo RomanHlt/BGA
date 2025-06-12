@@ -2397,3 +2397,4 @@ horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_b388j")
+volume_db = 20.0

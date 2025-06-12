@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			movement_component.handle_horizontal_movement(self, input_component.input_horizontal, input_component.get_run())
 		advanced_jump_component.handle_jump(self, input_component.get_jump_input(),input_component.get_jump_input_released())
-		weapon_component._handle_fire(self, input_component.get_fire())
+		#weapon_component._handle_fire(self, input_component.get_fire())
 	animation_component.handle_move_animation(self, input_component.input_horizontal)
 	move_and_slide()
 
