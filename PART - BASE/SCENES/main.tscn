@@ -493,6 +493,7 @@ disabled = true
 text = "-----------------"
 
 [node name="ControllerRun" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
 offset_left = 603.0
 offset_top = 265.0
 offset_right = 699.0
