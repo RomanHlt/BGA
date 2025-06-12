@@ -1,11 +1,14 @@
-[gd_scene load_steps=25 format=3 uid="uid://dt1pv53ek46dl"]
+
+[gd_scene load_steps=26 format=3 uid="uid://dt1pv53ek46dl"]
+
 
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/door.gd" id="1_gmu4f"]
 [ext_resource type="Texture2D" uid="uid://b8xwpvj3btgvj" path="res://PART - BASE/ASSETS/LevelDoor.png" id="2_afq11"]
-[ext_resource type="Texture2D" uid="uid://bkff6bdw7hpga" path="res://PART - BASE/ASSETS/Notes.png" id="3_04xky"]
 [ext_resource type="FontFile" uid="uid://dsi8plob4hdvb" path="res://GLOBAL - Font/KAPH/TrueType (.ttf)/Kaph-Regular.ttf" id="3_cwefx"]
 [ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="3_iaihw"]
-[ext_resource type="AudioStream" uid="uid://bsoyt25jr0acg" path="res://PART - OBJECTS/ASSETS/Sounds/Door.mp3" id="6_jb68v"]
+
+[ext_resource type="Texture2D" uid="uid://cwh5barmb3pcc" path="res://PART - BASE/SCENES/Notes.png" id="4_2x5nk"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgah1"]
 size = Vector2(32, 41)
@@ -128,12 +131,46 @@ tracks/0/keys = {
 "values": [3]
 }
 
+[sub_resource type="Animation" id="Animation_d6l8s"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hub/Notes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_owjhf"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hub/Notes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b8xhe"]
 _data = {
 "000": SubResource("Animation_68b86"),
 "001": SubResource("Animation_l8klu"),
 "010": SubResource("Animation_cmn18"),
+"011": SubResource("Animation_d6l8s"),
 "100": SubResource("Animation_05nr1"),
+"101": SubResource("Animation_owjhf"),
 "110": SubResource("Animation_7t2rs"),
 "111": SubResource("Animation_3g0ro")
 }
@@ -309,9 +346,9 @@ offset_bottom = 40.0
 texture_filter = 1
 position = Vector2(0, -20)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_04xky")
+texture = ExtResource("4_2x5nk")
 hframes = 3
-vframes = 2
+vframes = 3
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -323,11 +360,11 @@ metadata/_aseprite_wizard_config_ = {
 "o_folder": "",
 "o_name": "",
 "only_visible": false,
-"player": "Panel/NotesPlayer",
+"player": "Panel/Hub/NotesPlayer",
 "slice": "",
 "source": "res://PART - LEVELS/ASSETS/Map/4 Animated objects/Notes.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "89ced42b829ed54751dd9eec5a192883"
+metadata/_aseprite_wizard_source_file_hash_ = "fa262533c115382163118c3701a0f0d7"
 
 [node name="NotesPlayer" type="AnimationPlayer" parent="Panel/Hub"]
 root_node = NodePath("../..")

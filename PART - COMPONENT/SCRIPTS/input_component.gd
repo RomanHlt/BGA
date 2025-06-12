@@ -22,6 +22,8 @@ func get_jump_input_released() -> bool:
 func get_run() -> bool:
 	if PlayerDataSaver.PlayerStats.is_dead:
 		return false
+	if PlayerDataSaver.SettingsStats.runAsToggle:
+		return Input.is_action_just_pressed("run")
 	return Input.is_action_pressed("run")
 
 func get_fire() -> bool:

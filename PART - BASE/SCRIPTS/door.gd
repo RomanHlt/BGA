@@ -22,6 +22,7 @@ var is_loading = false  # Empêche de spammer le changement de scène
 
 var notes = [false,false,false]
 var canAccess = false
+var unique:bool = true #Une seule et unique détection pour la porte
 
 func _ready() -> void:
 	$AnimationPlayer.get_animation("Opening").loop_mode = Animation.LOOP_NONE #rend l'animation unique
@@ -77,12 +78,17 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _input(event: InputEvent) -> void:
 	"""Déclenche le changement de niveau"""
-	if Input.is_action_just_pressed("interagir") and can_interact and canAccess and !isDecorative:
+	if Input.is_action_just_pressed("interagir") and can_interact and canAccess and !isDecorative and unique:
 		$AnimationPlayer.play("Opening")
-		$AudioStreamPlayer.play()
+
+		print("Before: ",PlayerDataSaver.PlayerStats.last_lvl,"/",PlayerDataSaver.PlayerStats.current_lvl)
+
 		PlayerDataSaver.PlayerStats.last_lvl = PlayerDataSaver.PlayerStats.current_lvl
 		PlayerDataSaver.PlayerStats.current_lvl = id_next_lvl
+		print("After: ",PlayerDataSaver.PlayerStats.last_lvl,"/",PlayerDataSaver.PlayerStats.current_lvl)
+
 		if not isHub:PlayerDataSaver.WorldStats.level_completed(id_unlocked_lvl)
+		unique = false
 		Main.get_node("Globals Levels").change_lvl(id_next_lvl, titre, sous_titre)
 
 func _process(delta: float) -> void:
