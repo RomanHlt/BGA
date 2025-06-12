@@ -1,6 +1,4 @@
-
 [gd_scene load_steps=28 format=3 uid="uid://bclxknnv5k8la"]
-
 
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_stats.gd" id="1_bawku"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_progres.gd" id="2_rrlfl"]
@@ -14,7 +12,6 @@
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_controls.gd" id="10_0b1uw"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_pause.gd" id="10_xywjm"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_settings.gd" id="11_3jluq"]
-
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/chrono.gd" id="12_cdven"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hkfqr"]
@@ -374,7 +371,6 @@ offset_bottom = 288.0
 focus_neighbor_right = NodePath("../MusicSlider2")
 button_pressed = true
 
-
 [node name="CheckBox" type="CheckBox" parent="CanvasLayer/Menus/MenuSettings"]
 layout_mode = 0
 offset_left = 823.0
@@ -498,6 +494,7 @@ disabled = true
 text = "-----------------"
 
 [node name="ControllerRun" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
 offset_left = 603.0
 offset_top = 265.0
 offset_right = 699.0
