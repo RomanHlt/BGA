@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bclxknnv5k8la"]
+[gd_scene load_steps=62 format=3 uid="uid://bclxknnv5k8la"]
 
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_stats.gd" id="1_bawku"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_progres.gd" id="2_rrlfl"]
@@ -457,10 +457,269 @@ offset_bottom = 329.0
 focus_neighbor_right = NodePath("../MusicSlider2")
 button_pressed = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_ovfnj")
-volume_db = -28.263
-autoplay = true
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer/Menus/MenuSettings"]
+layout_mode = 0
+offset_left = 823.0
+offset_top = 515.0
+offset_right = 847.0
+offset_bottom = 539.0
+text = "SpeedRun Mode"
+
+[node name="Controls" type="Button" parent="CanvasLayer/Menus/MenuSettings"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 299.0
+offset_right = 270.0
+offset_bottom = 330.0
+text = "Controls"
+
+[node name="MenuControls" type="Control" parent="CanvasLayer/Menus"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_0b1uw")
+
+[node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 435.5
+offset_top = 107.0
+offset_right = 703.5
+offset_bottom = 165.0
+grow_horizontal = 2
+theme = SubResource("Theme_oixoq")
+theme_override_font_sizes/font_size = 50
+text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelKeyboard" type="Label" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 175.0
+offset_right = 351.0
+offset_bottom = 220.0
+text = "Keyboard"
+label_settings = SubResource("LabelSettings_x1s3k")
+
+[node name="LabelController" type="Label" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 603.0
+offset_top = 175.0
+offset_right = 759.0
+offset_bottom = 220.0
+text = "Controller"
+label_settings = SubResource("LabelSettings_x1s3k")
+
+[node name="Right" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 228.0
+offset_right = 299.0
+offset_bottom = 259.0
+text = "-----------------"
+
+[node name="Left" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 268.0
+offset_right = 298.0
+offset_bottom = 299.0
+text = "-----------------"
+
+[node name="Deeper" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 309.0
+offset_right = 298.0
+offset_bottom = 340.0
+text = "-----------------"
+
+[node name="Closer" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 350.0
+offset_right = 298.0
+offset_bottom = 381.0
+text = "-----------------"
+
+[node name="Jump" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 390.0
+offset_right = 298.0
+offset_bottom = 421.0
+text = "-----------------"
+
+[node name="Back" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 464.0
+offset_right = 247.0
+offset_bottom = 495.0
+text = "Back"
+
+[node name="ControllerDeeper" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 603.0
+offset_top = 309.0
+offset_right = 699.0
+offset_bottom = 340.0
+disabled = true
+text = "-----------------"
+
+[node name="ControllerCloser" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 603.0
+offset_top = 350.0
+offset_right = 699.0
+offset_bottom = 381.0
+disabled = true
+text = "-----------------"
+
+[node name="ControllerRun" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 603.0
+offset_top = 265.0
+offset_right = 699.0
+offset_bottom = 296.0
+disabled = true
+text = "-----------------"
+
+[node name="ControllerJump" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 603.0
+offset_top = 390.0
+offset_right = 699.0
+offset_bottom = 421.0
+disabled = true
+text = "-----------------"
+
+[node name="Reset" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 427.0
+offset_right = 333.0
+offset_bottom = 458.0
+text = "Reset to default"
+
+[node name="Run Toggle" type="CheckButton" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 427.0
+offset_right = 473.0
+offset_bottom = 458.0
+text = "Run Toggle"
+
+[node name="Fondu" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("5_o0eev")
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/Fondu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0549426, 0.0908001, 0.31992, 1)
+
+[node name="Titre" type="Label" parent="CanvasLayer/Fondu"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 200.0
+grow_horizontal = 2
+theme = SubResource("Theme_s4t4w")
+theme_override_font_sizes/font_size = 50
+text = "Titre"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sous titre" type="Label" parent="CanvasLayer/Fondu"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -29.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_d06oq")
+theme_override_font_sizes/font_size = 20
+text = "Sous titre"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loading" type="Control" parent="CanvasLayer/Fondu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -148.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Fondu/Loading"]
+texture_filter = 1
+texture = ExtResource("6_ci7ot")
+hframes = 3
+vframes = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "CanvasLayer/Fondu/LoadingPlayer",
+"slice": "",
+"source": "res://PART - BASE/ASSETS/Sprite-0002.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a8cd9817894744c8baf064df5108fa46"
+
+[node name="LoadingPlayer" type="AnimationPlayer" parent="CanvasLayer/Fondu"]
+libraries = {
+"": SubResource("AnimationLibrary_mh7ui")
+}
+
+[node name="FonduPlayer" type="AnimationPlayer" parent="CanvasLayer/Fondu"]
+libraries = {
+"": SubResource("AnimationLibrary_kdqog")
+}
+
+[node name="Dead" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("8_0wvhj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Dead"]
+libraries = {
+"": SubResource("AnimationLibrary_ky16c")
+}
 
 [connection signal="controllerOff" from="Globals Options" to="CanvasLayer/Menus/MenuAccueil" method="_on_globals_options_controller_off"]
 [connection signal="controllerOff" from="Globals Options" to="CanvasLayer/Menus/MenuPause" method="_on_globals_options_controller_off"]
