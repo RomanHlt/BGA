@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var is_new_game = true
 @export_category("Ressources")
 @export var PlayerStats:PlayerData
 @export var WorldStats:WorldData

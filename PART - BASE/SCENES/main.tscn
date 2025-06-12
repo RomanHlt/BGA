@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=28 format=3 uid="uid://bclxknnv5k8la"]
+
 
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_stats.gd" id="1_bawku"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_progres.gd" id="2_rrlfl"]
@@ -12,6 +14,7 @@
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_controls.gd" id="10_0b1uw"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_pause.gd" id="10_xywjm"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_settings.gd" id="11_3jluq"]
+
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/chrono.gd" id="12_cdven"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hkfqr"]
@@ -107,7 +110,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_mt16m"]
 resource_name = "Dead"
-length = 1.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -115,10 +118,10 @@ tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_wtfy6"]
@@ -176,6 +179,7 @@ dico = {
 "1.1.0": "res://PART - LEVELS/SCENES/M1/M1L1.tscn",
 "1.2.0": "res://PART - LEVELS/SCENES/M1/M1L2.tscn",
 "1.3.0": "res://PART - LEVELS/SCENES/M1/M1L3.tscn",
+"1.4.0": "res://PART - LEVELS/SCENES/M1/M1L4.tscn",
 "999.0.0": "res://PART - LEVELS/SCENES/M1/fin_demo.tscn"
 }
 loadscene_path = "res://LoadScreen.tscn"
@@ -369,6 +373,7 @@ offset_right = 241.0
 offset_bottom = 288.0
 focus_neighbor_right = NodePath("../MusicSlider2")
 button_pressed = true
+
 
 [node name="CheckBox" type="CheckBox" parent="CanvasLayer/Menus/MenuSettings"]
 layout_mode = 0
