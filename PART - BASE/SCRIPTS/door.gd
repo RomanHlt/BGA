@@ -11,7 +11,7 @@ var isOut:bool = false
 @export_category("Level config")
 @export var id_next_lvl: String #Monde.Niveau.Sous-Niveau
 @export var id_last_lvl: String 
-@export var id_unlocked_lvl:String
+@export var id_unlocked_lvl:String = "0.0.0"
 @export_category("LoadScreen config")
 @export var titre : String
 @export var sous_titre : String

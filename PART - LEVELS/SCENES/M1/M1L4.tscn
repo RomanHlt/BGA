@@ -2276,6 +2276,13 @@ isHub = false
 isDecorative = true
 id_last_lvl = "1.0.0"
 
+[node name="door2" parent="TileMapLayer" instance=ExtResource("5_no8e8")]
+position = Vector2(1359, -31)
+isHub = false
+isDecorative = true
+id_next_lvl = "1.0.0"
+titre = "Retour au hub"
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
 z_index = -1

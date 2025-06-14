@@ -1,4 +1,6 @@
 extends CharacterBody2D
+signal defeated
+
 
 var flame = preload("res://PART - MOBS/SCENES/dragon_flame.tscn")
 
@@ -23,7 +25,6 @@ func _takeDamages(damages):
 	if damages <= health:
 		health -= damages
 		get_tree().root.get_node("/root/Map/CanvasLayer/InGame/lifeController").play(str(health))
-		print(health)
 	else:
 		health = 0
 		get_tree().root.get_node("/root/Map/CanvasLayer/InGame/lifeController").play(str(health))
@@ -158,7 +159,9 @@ func _on_collision_right_body_entered(body: Node2D) -> void:
 
 func _on_dragon_animator_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "explosion":
-		hide()	
+		hide()
+		emit_signal("defeated")
+		get_parent().get_node("door2").isDecorative = false
 		queue_free()
 	if anim_name == "ouch":
 		is_attacked = false
