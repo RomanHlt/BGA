@@ -62,7 +62,6 @@ func handle_variable_jump_height(body:CharacterBody2D, jump_released:bool) -> vo
 
 func jump(body: CharacterBody2D) -> void:
 	if wall_jump_streak<wall_jump_max+1:
-		music.play()
 		wall_jump_streak+=1
 		body.velocity.y = jump_velocity
 		jump_buffer_timer.stop()

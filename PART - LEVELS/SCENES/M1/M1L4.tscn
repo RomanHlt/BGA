@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://PART - UI/SCENES/progrès.tscn" id="7_5otyq"]
 [ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="8_tbncp"]
 [ext_resource type="PackedScene" uid="uid://5q55qevow2dp" path="res://PART - UI/SCENES/Menu_d'accueil.tscn" id="9_vl7g3"]
-[ext_resource type="PackedScene" uid="uid://bsmv04evs2r56" path="res://Part - MOBS/SCENES/dragon.tscn" id="10_6ggtp"]
+[ext_resource type="PackedScene" uid="uid://bsmv04evs2r56" path="res://PART - MOBS/SCENES/dragon.tscn" id="10_6ggtp"]
 [ext_resource type="Texture2D" uid="uid://chub1yc38lwvj" path="res://PART - LEVELS/ASSETS/lifecat.png" id="13_eb63n"]
 [ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="14_cr4lq"]
 [ext_resource type="FontFile" uid="uid://tlbpimwifcpa" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Regular.otf" id="14_rwam5"]

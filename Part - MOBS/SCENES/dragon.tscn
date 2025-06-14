@@ -1,8 +1,8 @@
 [gd_scene load_steps=20 format=3 uid="uid://bsmv04evs2r56"]
 
-[ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/dragon.gd" id="1_gvikf"]
+[ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/dragon.gd" id="1_fg141"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="1_j3vgy"]
-[ext_resource type="Texture2D" uid="uid://c38xevtly8jcx" path="res://Part - MOBS/SCENES/Dragon cat.png" id="2_x5nxf"]
+[ext_resource type="Texture2D" uid="uid://c38xevtly8jcx" path="res://PART - MOBS/SCENES/Dragon cat.png" id="2_x5nxf"]
 [ext_resource type="PackedScene" uid="uid://codccv1hd133u" path="res://PART - COMPONENT/SCENES/advanced_jump_component.tscn" id="3_r26lh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vw250"]
@@ -164,7 +164,7 @@ size = Vector2(8, 9)
 [node name="Dragon" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 texture_filter = 1
 scale = Vector2(1.25, 1.25)
-script = ExtResource("1_gvikf")
+script = ExtResource("1_fg141")
 sprite = NodePath("Dragon")
 
 [node name="Dragon" type="Sprite2D" parent="."]
@@ -226,16 +226,16 @@ position = Vector2(-0.4, -29.1)
 shape = SubResource("RectangleShape2D_ly1qi")
 debug_color = Color(0.786781, 0.337647, 0.691059, 0.42)
 
-[node name="Collision left" type="Area2D" parent="."]
+[node name="Collision_left" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision left"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_left"]
 position = Vector2(-20, 4)
 shape = SubResource("RectangleShape2D_2pvbv")
 debug_color = Color(0.383416, 0.269255, 0.0287384, 0.42)
 
-[node name="Collision right" type="Area2D" parent="."]
+[node name="Collision_right" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision right"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_right"]
 position = Vector2(20.8, 4)
 shape = SubResource("RectangleShape2D_2pvbv")
 debug_color = Color(0.383416, 0.269255, 0.0287384, 0.42)
@@ -262,7 +262,7 @@ wall_jump_max = 999999
 [connection signal="body_exited" from="detectionright" to="." method="_on_detectionright_body_exited"]
 [connection signal="body_entered" from="detectionup" to="." method="_on_detectionup_body_entered"]
 [connection signal="body_exited" from="detectionup" to="." method="_on_detectionup_body_exited"]
-[connection signal="body_entered" from="Collision left" to="." method="_on_collision_left_body_entered"]
-[connection signal="body_entered" from="Collision right" to="." method="_on_collision_right_body_entered"]
+[connection signal="body_entered" from="Collision_left" to="." method="_on_collision_left_body_entered"]
+[connection signal="body_entered" from="Collision_right" to="." method="_on_collision_right_body_entered"]
 [connection signal="body_entered" from="Spike" to="." method="_on_spike_body_entered"]
 [connection signal="body_exited" from="Spike" to="." method="_on_spike_body_exited"]

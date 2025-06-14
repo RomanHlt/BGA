@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 var flame = preload("res://PART - MOBS/SCENES/dragon_flame.tscn")
-var dragon = preload("res://PART - MOBS/SCENES/dragon.tscn")
 
 @export var sprite:Sprite2D #??
 @export var layer : int = 0
