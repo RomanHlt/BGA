@@ -1,18 +1,18 @@
 [gd_scene load_steps=25 format=4 uid="uid://cewmedl0mcisq"]
 
-[ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_xs16v"]
-[ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_rugqu"]
-[ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_0wqwk"]
-[ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_gqhyn"]
-[ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://PART - UI/SCENES/menu.tscn" id="5_u6txb"]
-[ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="6_tgi70"]
-[ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://PART - UI/SCENES/progrès.tscn" id="7_w7mko"]
-[ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="8_2r0cb"]
-[ext_resource type="PackedScene" uid="uid://5q55qevow2dp" path="res://PART - UI/SCENES/Menu_d'accueil.tscn" id="9_4yves"]
-[ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="10_e0x75"]
+[ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_q1wir"]
+[ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_0r3xd"]
+[ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_tivg1"]
+[ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_rh114"]
+[ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://PART - UI/SCENES/menu.tscn" id="5_fcial"]
+[ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="6_0dsga"]
+[ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://PART - UI/SCENES/progrès.tscn" id="7_8881l"]
+[ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="8_3cgyw"]
+[ext_resource type="PackedScene" uid="uid://5q55qevow2dp" path="res://PART - UI/SCENES/Menu_d'accueil.tscn" id="9_d3r6g"]
+[ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="10_2580w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dlmjl"]
-texture = ExtResource("2_rugqu")
+texture = ExtResource("2_0r3xd")
 0:4/0 = 0
 0:4/0/modulate = Color(1, 1, 1, 0.313726)
 0:4/0/terrain_set = 0
@@ -2057,7 +2057,7 @@ sources/0 = SubResource("TileSetAtlasSource_yfp5m")
 sources/3 = SubResource("TileSetAtlasSource_5p5ar")
 
 [node name="Map" type="Node2D"]
-script = ExtResource("1_xs16v")
+script = ExtResource("1_q1wir")
 id = "0.0.0"
 isHome = true
 
@@ -2081,7 +2081,7 @@ modulate = Color(0.305077, 0.305077, 0.305077, 1)
 z_index = -3
 tile_set = SubResource("TileSet_ic06u")
 
-[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_0wqwk")]
+[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_tivg1")]
 position = Vector2(187, 0)
 scale = Vector2(1.5, 1.5)
 collision_layer = 0
@@ -2096,27 +2096,27 @@ process_callback = 0
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
-script = ExtResource("4_gqhyn")
+script = ExtResource("4_rh114")
 PLAYER = NodePath("../Player")
 playerOffset = Vector2(-190, -80)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
 
-[node name="Menu" parent="CanvasLayer" instance=ExtResource("5_u6txb")]
+[node name="Menu" parent="CanvasLayer" instance=ExtResource("5_fcial")]
 visible = false
 
-[node name="Options" parent="CanvasLayer" instance=ExtResource("6_tgi70")]
+[node name="Options" parent="CanvasLayer" instance=ExtResource("6_0dsga")]
 visible = false
 
-[node name="Progrès" parent="CanvasLayer" instance=ExtResource("7_w7mko")]
+[node name="Progrès" parent="CanvasLayer" instance=ExtResource("7_8881l")]
 visible = false
 
-[node name="Statistiques" parent="CanvasLayer" instance=ExtResource("8_2r0cb")]
+[node name="Statistiques" parent="CanvasLayer" instance=ExtResource("8_3cgyw")]
 visible = false
 
-[node name="Ecran d\'accueil" parent="CanvasLayer" instance=ExtResource("9_4yves")]
+[node name="Ecran d\'accueil" parent="CanvasLayer" instance=ExtResource("9_d3r6g")]
 visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_e0x75")
+stream = ExtResource("10_2580w")

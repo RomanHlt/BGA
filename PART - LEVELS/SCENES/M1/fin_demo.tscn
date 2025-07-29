@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://ck40pk5grdqen"]
+[gd_scene load_steps=26 format=4 uid="uid://ck40pk5grdqen"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_xupn5"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_sao2k"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="8_eessf"]
 [ext_resource type="PackedScene" uid="uid://5q55qevow2dp" path="res://PART - UI/SCENES/Menu_d'accueil.tscn" id="9_ovyg7"]
 [ext_resource type="PackedScene" uid="uid://d4fm5ecjs6e8r" path="res://PART - BASE/SCENES/fin_demo_sreen.tscn" id="10_l70f2"]
+[ext_resource type="PackedScene" uid="uid://d4ndv0hm537a1" path="res://API.tscn" id="11_iqalk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dlmjl"]
 texture = ExtResource("2_sao2k")
@@ -2118,3 +2119,5 @@ visible = false
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="Fin demo" parent="CanvasLayer2" instance=ExtResource("10_l70f2")]
+
+[node name="API" parent="." instance=ExtResource("11_iqalk")]
