@@ -36,7 +36,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("stats"):
 		print(player.deeperChecker.get_overlapping_areas())
 
-
 func findRightSpawn():
 	var rightDoor:Door
 	for l in Layers:

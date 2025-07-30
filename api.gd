@@ -1,26 +1,28 @@
 extends Control
 
-var url = "https://webhook.site/5f225a7b-a7d8-4cdc-90cb-371c6ee01e5d"  # URL de l'API
+var url = "https://jsonplaceholder.typicode.com/posts/1"  # URL de l'API
+var send = false
 
 @onready var http_request = $HTTPRequest
 
 func _ready() -> void:
 	http_request.request_completed.connect(_on_request_completed)
+	http_request.request(url, [], HTTPClient.METHOD_GET)
 	
 	if Main.get_node("CanvasLayer/Menus/MenuSettings").speedRun:
 		self.visible = true
-		$Label.text = "Vous avez fini le jeu en : " + str(Main.get_node("CanvasLayer/Clock").text) + " secondes.\nPour envoyer ce score entrez un pseudo."
+		await get_tree().create_timer(2).timeout
+		$Label.text = "Vous avez fini le jeu en : " + String.num(Main.get_node("CanvasLayer/Clock").timer, 3) + " secondes.\nPour envoyer ce score entrez un pseudo."
 	else:
 		self.visible = false
 
 func _process(delta: float) -> void:
-	if len($LineEdit.text) > 2:
-		$Button.disabled = false
+	if len($LineEdit.text) > 2 and not send:
+		$Envoyer.disabled = false
 	else:
-		$Button.disabled = true
+		$Envoyer.disabled = true
 
-
-func _on_button_pressed() -> void:
+func _on_envoyer_pressed() -> void:
 	var pseudo = $LineEdit.text
 	var temps = Main.get_node("CanvasLayer/Clock").timer
 	var date = get_current_date()
@@ -30,8 +32,9 @@ func _on_button_pressed() -> void:
 	"date": date
 	}
 	send_score(score_data)
-
-
+	send = true
+	$Envoyer.text = "OK"
+	$LineEdit.editable = false
 
 func send_score(data: Dictionary) -> void:
 	var json = JSON.stringify(data)
@@ -42,10 +45,17 @@ func send_score(data: Dictionary) -> void:
 
 func _on_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	if response_code == 200:
-		print("Score envoyé avec succès.")
+		var json = JSON.parse_string(body.get_string_from_utf8())
+		if typeof(json) == TYPE_ARRAY:
+			Main.get_node("Globals Stats").scores = json
+			print("Données récupérées :")
+			for score in json:
+				print("Nom :", score["name"], " | Temps :", score["time"], " | Date :", score["date"])
+		else:
+			print("Format inattendu :", json)
 	else:
-		print("Erreur lors de l'envoi du score : code HTTP", response_code)
-
+		print("Erreur HTTP :", response_code)
+		
 func get_current_date() -> String:
 	var d = Time.get_datetime_dict_from_system() # Prend la date complète (avec jour de la semaine etcc flm)
 	return "%04d-%02d-%02d" % [d.year, d.month, d.day]  # Format ISO : 2025-07-29 (mieux, je comprends pas le debut de la ligne mais ca marche)

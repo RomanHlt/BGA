@@ -172,7 +172,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_2fkf4")
 dico = {
-"0.0.0": "res://PART - LEVELS/SCENES/M0.tscn",
+"0.0.0": "res://PART - LEVELS/SCENES/M0/M0.tscn",
 "0.1.0": "res://PART - LEVELS/SCENES/M0/M0L1.tscn",
 "1.0.0": "res://PART - LEVELS/SCENES/M1/M1.tscn",
 "1.1.0": "res://PART - LEVELS/SCENES/M1/M1L1.tscn",

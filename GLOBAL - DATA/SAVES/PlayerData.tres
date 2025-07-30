@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/playerStats.gd" id="1_qvdi1"]
+[ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/playerStats.gd" id="1_udter"]
 
 [resource]
-script = ExtResource("1_qvdi1")
+script = ExtResource("1_udter")
 level = 0
 items = ["Apple", "Gun", "Key"]
 health = 4

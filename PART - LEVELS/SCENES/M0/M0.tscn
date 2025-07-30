@@ -2082,7 +2082,7 @@ z_index = -3
 tile_set = SubResource("TileSet_ic06u")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_tivg1")]
-position = Vector2(187, 0)
+position = Vector2(187, 72)
 scale = Vector2(1.5, 1.5)
 collision_layer = 0
 camera = NodePath("../Camera2D")

@@ -10,3 +10,4 @@ func _on_body_entered(body: Node2D) -> void:
 func _process(delta: float) -> void:
 	if target:
 		target.velocity.y = 200
+		target.position.x = 0

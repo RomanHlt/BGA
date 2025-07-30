@@ -25,6 +25,7 @@ func _on_load_pressed() -> void:
 	if PlayerDataSaver.dataExist:
 		print("Load")
 		var lvl = PlayerDataSaver.PlayerStats.current_lvl
+		lvl = lvl[0] + ".0.0" # On respawn dans le hub du monde et pas en plein niveau (ca va éviter des bug au passage)
 		if lvl == "9.0.0":lvl = "1.0.0"
 		Main.get_node("Globals Levels").change_lvl(lvl, "Welcome Back",str(lvl))
 		hide()
