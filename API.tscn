@@ -1,8 +1,109 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4ndv0hm537a1"]
+[gd_scene load_steps=9 format=3 uid="uid://d4ndv0hm537a1"]
 
 [ext_resource type="Script" path="res://api.gd" id="1_gy20e"]
+[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="2_jw0by"]
 
-[node name="API" type="Node2D"]
+[sub_resource type="Theme" id="Theme_8n5wq"]
+Label/colors/font_color = Color(1, 0, 0.733333, 1)
+Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
+Label/constants/outline_size = 10
+Label/font_sizes/font_size = 6
+Label/fonts/font = ExtResource("2_jw0by")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psgis"]
+bg_color = Color(0.407843, 0.407843, 0.407843, 0.407843)
+border_width_bottom = 10
+border_color = Color(0.27451, 0.27451, 0.27451, 0.27451)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l386h"]
+bg_color = Color(0.407843, 0.407843, 0.407843, 1)
+border_width_bottom = 7
+border_color = Color(0.27451, 0.27451, 0.27451, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q4xcf"]
+bg_color = Color(0.407843, 0.407843, 0.407843, 1)
+border_width_bottom = 10
+border_color = Color(0.273873, 0.273873, 0.273873, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0yst"]
+bg_color = Color(0.321728, 0.321728, 0.321728, 1)
+border_width_bottom = 5
+border_color = Color(0.27451, 0.27451, 0.27451, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="Theme" id="Theme_ec6wv"]
+Button/styles/disabled = SubResource("StyleBoxFlat_psgis")
+Button/styles/hover = SubResource("StyleBoxFlat_l386h")
+Button/styles/normal = SubResource("StyleBoxFlat_q4xcf")
+Button/styles/pressed = SubResource("StyleBoxFlat_n0yst")
+
+[node name="API" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_gy20e")
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -406.0
+offset_top = -25.0
+offset_right = 406.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_8n5wq")
+theme_override_font_sizes/font_size = 15
+text = "Félicitation vous avez réussi à finir le jeu !
+
+Merci"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 100.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+placeholder_text = "Entrez un pseudo d'au moins 3 caractères."
+alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 175.0
+offset_right = 50.0
+offset_bottom = 250.0
+grow_horizontal = 2
+theme = SubResource("Theme_ec6wv")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

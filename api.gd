@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var url = "https://webhook.site/5f225a7b-a7d8-4cdc-90cb-371c6ee01e5d"  # URL de l'API
 
@@ -6,18 +6,32 @@ var url = "https://webhook.site/5f225a7b-a7d8-4cdc-90cb-371c6ee01e5d"  # URL de 
 
 func _ready() -> void:
 	http_request.request_completed.connect(_on_request_completed)
-
-	var pseudo = "PlayerTest"
-	var temps = 92.35
-	var date = get_current_date()
 	
-	var score_data = {
-		"pseudo": pseudo,
-		"time": temps,
-		"date": date
-	}
+	if Main.get_node("CanvasLayer/Menus/MenuSettings").speedRun:
+		self.visible = true
+		$Label.text = "Vous avez fini le jeu en : " + str(Main.get_node("CanvasLayer/Clock").timer) + "secondes.\nPour envoyer ce score entrez un pseudo."
+	else:
+		self.visible = false
 
+func _process(delta: float) -> void:
+	if len($LineEdit.text) > 2:
+		$Button.disabled = false
+	else:
+		$Button.disabled = true
+
+
+func _on_button_pressed() -> void:
+	var pseudo = $LineEdit.text
+	var temps = Main.get_node("CanvasLayer/Clock").timer
+	var date = get_current_date()
+	var score_data = {
+	"pseudo": pseudo,
+	"time": temps,
+	"date": date
+	}
 	send_score(score_data)
+
+
 
 func send_score(data: Dictionary) -> void:
 	var json = JSON.stringify(data)
