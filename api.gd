@@ -9,7 +9,7 @@ func _ready() -> void:
 	
 	if Main.get_node("CanvasLayer/Menus/MenuSettings").speedRun:
 		self.visible = true
-		$Label.text = "Vous avez fini le jeu en : " + str(Main.get_node("CanvasLayer/Clock").timer) + "secondes.\nPour envoyer ce score entrez un pseudo."
+		$Label.text = "Vous avez fini le jeu en : " + str(Main.get_node("CanvasLayer/Clock").text) + " secondes.\nPour envoyer ce score entrez un pseudo."
 	else:
 		self.visible = false
 
