@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmwc4dgmjldxn"]
+[gd_scene load_steps=8 format=3 uid="uid://dmwc4dgmjldxn"]
 
 [ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss.gd" id="1_4dqck"]
-[ext_resource type="PackedScene" uid="uid://codccv1hd133u" path="res://PART - COMPONENT/SCENES/advanced_jump_component.tscn" id="1_lipik"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="2_846my"]
 [ext_resource type="PackedScene" uid="uid://be2qn5hghb0f4" path="res://PART - COMPONENT/SCENES/jump_component.tscn" id="3_dcikb"]
 
@@ -9,6 +8,10 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yoxbf"]
 radius = 406.492
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfajn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cehe"]
 
 [node name="Boss" type="CharacterBody2D"]
 script = ExtResource("1_4dqck")
@@ -19,16 +22,32 @@ script = ExtResource("1_4dqck")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_fy24r")
-
-[node name="AdvancedJumpComponent" parent="." instance=ExtResource("1_lipik")]
-
-[node name="GravityComponent" parent="." instance=ExtResource("2_846my")]
-
-[node name="JumpComponent" parent="." instance=ExtResource("3_dcikb")]
+debug_color = Color(0.081039, 0.159472, 0.471104, 0.42)
 
 [node name="Zone de détéction" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zone de détéction"]
 shape = SubResource("CircleShape2D_yoxbf")
+debug_color = Color(0.0287684, 0.101651, 0.263391, 0.42)
+
+[node name="JumpLeft" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpLeft"]
+position = Vector2(-50, 0)
+shape = SubResource("RectangleShape2D_wfajn")
+debug_color = Color(0.498039, 0.435294, 0.984314, 0.419608)
+
+[node name="JumpRight" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpRight"]
+position = Vector2(50, 0)
+shape = SubResource("RectangleShape2D_4cehe")
+debug_color = Color(0.497009, 0.437089, 0.982462, 0.42)
+
+[node name="GravityComponent" parent="." instance=ExtResource("2_846my")]
+
+[node name="JumpComponent" parent="." instance=ExtResource("3_dcikb")]
 
 [connection signal="body_entered" from="Zone de détéction" to="." method="_on_zone_de_détéction_body_entered"]
+[connection signal="body_entered" from="JumpLeft" to="." method="_on_jump_left_body_entered"]
+[connection signal="body_entered" from="JumpRight" to="." method="_on_jump_right_body_entered"]

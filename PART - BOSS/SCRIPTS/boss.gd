@@ -11,13 +11,21 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 
 @export_category("Boss specificity")
 @export var health_max = 10 			# Vie du boss
+@export var speed = 100
 @export var distance_max_melee = 50 	# Distance max pour une attaque de melee
 # --
 # --
 # --
 # --- Variable interne  ---
-@onready var target : CharacterBody2D # Cible du boss
-@onready var health = health_max
+@onready var target : CharacterBody2D 		# Cible du boss
+@onready var health = health_max			# Vie max
+@onready var following_time = 0 			# Temps max pour follow le joueur, on arrête de le follow après
+@onready var following_distance = 0			# Distance max de suivi, on arrête de courir après l'avoir parcourue
+@onready var follow_timer = 0.0				# Temps max pendant lequel le boss suit le joueur (choisi aléatoirement dans la fonction follow)
+@onready var distance_traveled = 0.0		# Distance max " " "
+@onready var last_position = Vector2.ZERO	# Dernière position du boss
+@onready var stuck_timer = 0.0				# Temps coincé
+@onready var stuck_check_delay = 0.3		# Temps max à resté coincé avant de sauter
 # --
 # --
 # --
@@ -47,6 +55,12 @@ func _on_zone_de_détéction_body_entered(body: Node2D) -> void:
 func action():
 	"""Choisi l'action à faire en fonction de certains paramètres et de l'état (idle, attacking, ...) du boss."""
 	var actions = ["attack", "follow", "use_capacity"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
+	if not target:
+		while "attack" in actions:
+			actions.erase("attack")
+		while "follow" in actions:
+			actions.erase("follow")
+	
 	var action = pick_random_action(actions)
 	print("Action choisie : ", action) # Debug
 	if action == "attack":
@@ -112,6 +126,7 @@ func _takeDamages(damages):
 	else:
 		health = 0
 		# Retirer les dégats à la barre de vie du boss
+	evolve() # Au cas où on change de phase
 # --
 # --
 # --
@@ -124,48 +139,72 @@ func evolve():
 		print("---PHASE 2---")
 
 func follow():
+	"""Pour follow un joueur en mouvement constant ça va se faire dans le physics process"""
 	is_idle = false
 	is_following = true
-	print("J'ai pas encore fait l'action de follow")
-	is_following = false
-	is_idle = true
+	following_time = randi_range(2, 4) # random entre 2 et 4 inclus
+	following_distance = randi_range(100, 400)
+	
+	follow_timer = 0.0
+	distance_traveled = 0.0
+	last_position = global_position
+	print("Le boss commence à suivre. TEMPS MAX : ", following_time, "DISTANCE MAX : ", following_distance)
+
 
 # - Attaque -
 func melee_1():
-	print("Melee 1 !")
+	print("ATTACK : Melee 1 !")
+	await get_tree().create_timer(2).timeout 
 	is_attacking = false	# Ne pas oublier ces deux dernières ligne
 	is_idle = true
 	
 func melee_2():
-	print("Melee 2 !")
+	print("ATTACK : Melee 2 !")
+	await get_tree().create_timer(2).timeout
 	is_attacking = false
 	is_idle = true
 	
 func long_1():
-	print("Long 1 !")
+	print("ATTACK RARE 1/4 : Long 1 ! ")
+	await get_tree().create_timer(2).timeout
 	is_attacking = false
 	is_idle = true
 	
 func long_2():
-	print("Long 2 !")
+	print("ATTACK : Long 2 !")
+	await get_tree().create_timer(2).timeout
 	is_attacking = false
 	is_idle = true
 	
 func heal():
-	print("HEAL !!!")
+	print("CAPA : HEAL !!!")
 	is_using_capacity = false
 	is_idle = true
 
 func tp():
-	print("TP")
-	self.position.x += 250 # exemple
+	print("CAPA : TP")
+	await get_tree().create_timer(2).timeout
 	is_using_capacity = false
 	is_idle = true
 
 func summon():
-	print("Summon !")
+	print("CAPA PHASE 2: Summon !")
+	await get_tree().create_timer(2).timeout
 	is_using_capacity = false
 	is_idle = true
+	
+# - Déplacements -
+func _on_jump_left_body_entered(body: Node2D) -> void:
+	if body.name != "Player":
+		#$JumpComponent.handle_jump(self, true)
+		pass
+
+
+func _on_jump_right_body_entered(body: Node2D) -> void:
+	if body.name != "Player":
+		#$JumpComponent.handle_jump(self, true)
+		pass
+
 # --
 # --
 # --
@@ -173,5 +212,45 @@ func summon():
 func _process(delta: float) -> void:
 	if is_idle:
 		action()
-	evolve()
+		print("\n")
+
+
+func _physics_process(delta):
+	$GravityComponent.handle_gravity(self, delta) # Applique la gravité
+	if is_following:
+		follow_timer += delta
+
+		# Calculer direction et mouvement
+		var direction_x = sign(target.position.x - position.x)
+		velocity.x = direction_x * speed # Que le x sinon on annule la gravité en écrasant la valeur en y
+		
+		# Si au sol et bloqué horizontalement → sauter
+		if is_on_floor():
+			var horizontal_speed = abs(global_position.x - last_position.x) / delta # abs(x) = |x|
+			if horizontal_speed < 5:  # presque pas de mouvement
+				stuck_timer += delta
+				if stuck_timer >= stuck_check_delay: # Si on attend trop longtemps, on saute
+					$JumpComponent.handle_jump(self, true)
+					stuck_timer = 0.0
+			else:
+				stuck_timer = 0.0
+
+		# Activer la bonne collision de jump
+		if direction_x == 1:
+			$JumpLeft.hide()
+			$JumpRight.show()
+		else:
+			$JumpLeft.show()
+			$JumpRight.hide()
+
+		# Calculer la distance parcourue depuis la dernière frame
+		distance_traveled += global_position.distance_to(last_position)
+		last_position = global_position
+
+		# Conditions d'arrêt
+		if (follow_timer >= following_time or distance_traveled >= following_distance) and is_on_floor():
+			is_following = false
+			velocity = Vector2.ZERO
+			print("Le boss a arrêté de suivre.")
+			is_idle = true
 	move_and_slide()

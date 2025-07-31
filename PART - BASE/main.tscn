@@ -1,19 +1,19 @@
 [gd_scene load_steps=29 format=3 uid="uid://bclxknnv5k8la"]
 
-[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_stats.gd" id="1_bawku"]
-[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_progres.gd" id="2_rrlfl"]
-[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_levels.gd" id="3_2fkf4"]
-[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_options.gd" id="4_35fso"]
-[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="5_7fas6"]
-[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/fondu.gd" id="5_o0eev"]
-[ext_resource type="Texture2D" uid="uid://ns1vlm7c873h" path="res://PART - BASE/ASSETS/Sprite-0002.png" id="6_ci7ot"]
-[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/color_rect.gd" id="8_0wvhj"]
-[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_accueilV2.gd" id="9_jwxgx"]
-[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_controls.gd" id="10_0b1uw"]
-[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_pause.gd" id="10_xywjm"]
-[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_settings.gd" id="11_3jluq"]
-[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/chrono.gd" id="12_cdven"]
-[ext_resource type="AudioStream" uid="uid://1nt8mu0m8ddr" path="res://PART - BASE/ASSETS/level-iv-339695.mp3" id="14_5sp8e"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_stats.gd" id="1_mhxmp"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_progres.gd" id="2_vpaa8"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_levels.gd" id="3_xw1k2"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_options.gd" id="4_27q87"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/chrono.gd" id="5_b55tt"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_accueilV2.gd" id="6_mcu2i"]
+[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="7_spnxo"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_pause.gd" id="8_3p656"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_settings.gd" id="9_lkxfd"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_controls.gd" id="10_uidfn"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/fondu.gd" id="11_pxm00"]
+[ext_resource type="Texture2D" uid="uid://ns1vlm7c873h" path="res://PART - BASE/ASSETS/Sprite-0002.png" id="12_xyxh5"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/color_rect.gd" id="13_q0hjm"]
+[ext_resource type="AudioStream" uid="uid://1nt8mu0m8ddr" path="res://PART - BASE/ASSETS/level-iv-339695.mp3" id="14_ii25n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hkfqr"]
 font_size = 32
@@ -22,13 +22,13 @@ font_size = 32
 Label/colors/font_color = Color(1, 0, 0.733333, 1)
 Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
 Label/constants/shadow_outline_size = 20
-Label/fonts/font = ExtResource("5_7fas6")
+Label/fonts/font = ExtResource("7_spnxo")
 
 [sub_resource type="Theme" id="Theme_oixoq"]
 Label/colors/font_color = Color(1, 0, 0.733333, 1)
 Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
 Label/constants/shadow_outline_size = 20
-Label/fonts/font = ExtResource("5_7fas6")
+Label/fonts/font = ExtResource("7_spnxo")
 
 [sub_resource type="LabelSettings" id="LabelSettings_x1s3k"]
 font_size = 32
@@ -40,13 +40,13 @@ outline_color = Color(0.501961, 0, 0.376471, 1)
 Label/colors/font_color = Color(1, 0, 0.733333, 1)
 Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
 Label/constants/shadow_outline_size = 20
-Label/fonts/font = ExtResource("5_7fas6")
+Label/fonts/font = ExtResource("7_spnxo")
 
 [sub_resource type="Theme" id="Theme_d06oq"]
 Label/colors/font_color = Color(1, 0, 0.733333, 1)
 Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
 Label/constants/shadow_outline_size = 10
-Label/fonts/font = ExtResource("5_7fas6")
+Label/fonts/font = ExtResource("7_spnxo")
 
 [sub_resource type="Animation" id="Animation_0mip0"]
 length = 0.8
@@ -156,21 +156,21 @@ grow_vertical = 2
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_bawku")
+script = ExtResource("1_mhxmp")
 
 [node name="Globals Progres" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("2_rrlfl")
+script = ExtResource("2_vpaa8")
 
 [node name="Globals Levels" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("3_2fkf4")
+script = ExtResource("3_xw1k2")
 dico = {
 "0.0.0": "res://PART - LEVELS/SCENES/M0.tscn",
 "1.0.0": "res://PART - LEVELS/SCENES/M1/M1.tscn",
@@ -187,7 +187,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("4_35fso")
+script = ExtResource("4_27q87")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -200,7 +200,7 @@ offset_right = 629.0
 offset_bottom = 69.0
 text = "00.00"
 label_settings = SubResource("LabelSettings_hkfqr")
-script = ExtResource("12_cdven")
+script = ExtResource("5_b55tt")
 
 [node name="Menus" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -213,7 +213,7 @@ visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("9_jwxgx")
+script = ExtResource("6_mcu2i")
 
 [node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuAccueil"]
 layout_mode = 1
@@ -265,7 +265,7 @@ visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("10_xywjm")
+script = ExtResource("8_3p656")
 
 [node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuPause"]
 layout_mode = 1
@@ -311,7 +311,7 @@ visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("11_3jluq")
+script = ExtResource("9_lkxfd")
 
 [node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuSettings"]
 layout_mode = 1
@@ -393,7 +393,7 @@ visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("10_0b1uw")
+script = ExtResource("10_uidfn")
 
 [node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuControls"]
 layout_mode = 1
@@ -537,7 +537,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
-script = ExtResource("5_o0eev")
+script = ExtResource("11_pxm00")
 
 [node name="Background" type="ColorRect" parent="CanvasLayer/Fondu"]
 layout_mode = 1
@@ -591,7 +591,7 @@ grow_vertical = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Fondu/Loading"]
 texture_filter = 1
-texture = ExtResource("6_ci7ot")
+texture = ExtResource("12_xyxh5")
 hframes = 3
 vframes = 3
 metadata/_aseprite_wizard_interface_config_ = {
@@ -629,7 +629,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
-script = ExtResource("8_0wvhj")
+script = ExtResource("13_q0hjm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Dead"]
 libraries = {
@@ -637,7 +637,7 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_5sp8e")
+stream = ExtResource("14_ii25n")
 volume_db = -20.0
 autoplay = true
 
