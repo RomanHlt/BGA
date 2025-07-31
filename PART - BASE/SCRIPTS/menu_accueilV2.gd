@@ -35,8 +35,15 @@ func _on_load_pressed() -> void:
 
 func _on_settings_pressed() -> void:
 	hide()
+	Main.get_node("/root/Map/TileMapLayer/Player").position.x = 1109
+	Main.get_node("/root/Map/TileMapLayer/Player").position.y = -325
 	emit_signal("settingsFromMenu")
 
+"""
+187 72 Accueil
+1109 -325 Settings
+2143 -306 Settings/Controls
+"""
 
 func _on_new_game_pressed() -> void:
 	PlayerDataSaver.dataExist = true
@@ -63,5 +70,7 @@ func _on_globals_options_controller_off() -> void:
 
 func _on_menu_settings_settings_to_menu() -> void:
 	show()
+	Main.get_node("/root/Map/TileMapLayer/Player").position.x = 187
+	Main.get_node("/root/Map/TileMapLayer/Player").position.y = 72
 	if Main.get_node("Globals Options").controller:
 		$Load.grab_focus()

@@ -165,6 +165,8 @@ func _on_run_toggle_pressed() -> void:
 #Detection des autres menus
 func _on_menu_settings_open_controls() -> void:
 	show()
+	Main.get_node("/root/Map/TileMapLayer/Player").position.x = 2143
+	Main.get_node("/root/Map/TileMapLayer/Player").position.y = -306
 	if Main.get_node("Globals Options").controller:
 		justArrived = true
 

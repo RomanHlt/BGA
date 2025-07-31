@@ -374,10 +374,10 @@ button_pressed = true
 
 [node name="CheckBox" type="CheckBox" parent="CanvasLayer/Menus/MenuSettings"]
 layout_mode = 0
-offset_left = 823.0
-offset_top = 515.0
-offset_right = 847.0
-offset_bottom = 539.0
+offset_left = 853.0
+offset_top = 550.0
+offset_right = 1007.0
+offset_bottom = 581.0
 text = "SpeedRun Mode"
 
 [node name="Controls" type="Button" parent="CanvasLayer/Menus/MenuSettings"]
