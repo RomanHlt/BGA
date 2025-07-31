@@ -1,12 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmwc4dgmjldxn"]
+[gd_scene load_steps=7 format=3 uid="uid://dmwc4dgmjldxn"]
 
+[ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss.gd" id="1_4dqck"]
 [ext_resource type="PackedScene" uid="uid://codccv1hd133u" path="res://PART - COMPONENT/SCENES/advanced_jump_component.tscn" id="1_lipik"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="2_846my"]
 [ext_resource type="PackedScene" uid="uid://be2qn5hghb0f4" path="res://PART - COMPONENT/SCENES/jump_component.tscn" id="3_dcikb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fy24r"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_yoxbf"]
+radius = 406.492
+
 [node name="Boss" type="CharacterBody2D"]
+script = ExtResource("1_4dqck")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -20,3 +25,10 @@ shape = SubResource("CapsuleShape2D_fy24r")
 [node name="GravityComponent" parent="." instance=ExtResource("2_846my")]
 
 [node name="JumpComponent" parent="." instance=ExtResource("3_dcikb")]
+
+[node name="Zone de détéction" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone de détéction"]
+shape = SubResource("CircleShape2D_yoxbf")
+
+[connection signal="body_entered" from="Zone de détéction" to="." method="_on_zone_de_détéction_body_entered"]
