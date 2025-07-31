@@ -118,12 +118,15 @@ func _takeDamages(damages):
 # --- Actions externes (Attaquer, suivre, tout ce qui est visible) ---
 func evolve():
 	"""Vérifie si les conditions pour changer de phase sont bonne, change de phase si oui"""
-	pass
+	if health <= 5:
+		lvl_evolution = 2
+		health_max = 5 # Il va pas se heal au dessus de 5 s'il change de phase
+		print("---PHASE 2---")
 
 func follow():
 	is_idle = false
 	is_following = true
-	
+	print("J'ai pas encore fait l'action de follow")
 	is_following = false
 	is_idle = true
 
