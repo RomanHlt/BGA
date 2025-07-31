@@ -2253,7 +2253,7 @@ _data = {
 "9": SubResource("Animation_bjeiu")
 }
 
-[node name="Map2" type="Node2D"]
+[node name="Map" type="Node2D"]
 script = ExtResource("1_qvps0")
 id = "0.1.0"
 

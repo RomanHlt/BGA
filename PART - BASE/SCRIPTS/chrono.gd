@@ -22,6 +22,7 @@ func start():
 
 func stop():
 	chronoOn = false
+	hide()
 
 func reset():
 	timer = 0.0
