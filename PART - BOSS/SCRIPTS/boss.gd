@@ -19,13 +19,16 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 # --- Variable interne  ---
 @onready var target : CharacterBody2D 		# Cible du boss
 @onready var health = health_max			# Vie max
+# Suivi
 @onready var following_time = 0 			# Temps max pour follow le joueur, on arrête de le follow après
 @onready var following_distance = 0			# Distance max de suivi, on arrête de courir après l'avoir parcourue
 @onready var follow_timer = 0.0				# Temps max pendant lequel le boss suit le joueur (choisi aléatoirement dans la fonction follow)
 @onready var distance_traveled = 0.0		# Distance max " " "
+# Deplacement
 @onready var last_position = Vector2.ZERO	# Dernière position du boss
 @onready var stuck_timer = 0.0				# Temps coincé
 @onready var stuck_check_delay = 0.3		# Temps max à resté coincé avant de sauter
+@onready var tried_jump = false				# Le boss a-t-il essayé de sauté ? Evite de sauter conte un mur en boucle
 # --
 # --
 # --
@@ -192,23 +195,45 @@ func summon():
 	await get_tree().create_timer(2).timeout
 	is_using_capacity = false
 	is_idle = true
-	
-# - Déplacements -
+
+func stop_follow():
+	is_following = false
+	velocity = Vector2.ZERO
+	print("Le boss a arrêté de suivre.")
+	is_idle = true
+
+# - Collisions -
 func _on_jump_left_body_entered(body: Node2D) -> void:
 	if body.name != "Player":
-		#$JumpComponent.handle_jump(self, true)
+		$JumpComponent.handle_jump(self, true)
 		pass
-
 
 func _on_jump_right_body_entered(body: Node2D) -> void:
 	if body.name != "Player":
-		#$JumpComponent.handle_jump(self, true)
-		pass
+		$JumpComponent.handle_jump(self, true)
+
+
+func _on_above_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		body.velocity.y = -600
+		if randi() % 2 == 1:
+			body.velocity.x = 600
+		else:
+			body.velocity.x = -600
+
+func _on_below_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		stop_follow()
+		self.velocity.y = -600
+		if randi() % 2 == 1:
+			self.velocity.x = 600
+		else:
+			self.velocity.x = -600
 
 # --
 # --
 # --
-# --- Proscess ---
+# --- Process ---
 func _process(delta: float) -> void:
 	if is_idle:
 		action()
@@ -229,11 +254,13 @@ func _physics_process(delta):
 			var horizontal_speed = abs(global_position.x - last_position.x) / delta # abs(x) = |x|
 			if horizontal_speed < 5:  # presque pas de mouvement
 				stuck_timer += delta
-				if stuck_timer >= stuck_check_delay: # Si on attend trop longtemps, on saute
+				if stuck_timer >= stuck_check_delay and not tried_jump: # Si on attend trop longtemps et qu'on a pas déjà essayé, on saute
 					$JumpComponent.handle_jump(self, true)
+					tried_jump = true 
 					stuck_timer = 0.0
 			else:
 				stuck_timer = 0.0
+				tried_jump = false
 
 		# Activer la bonne collision de jump
 		if direction_x == 1:
@@ -249,8 +276,6 @@ func _physics_process(delta):
 
 		# Conditions d'arrêt
 		if (follow_timer >= following_time or distance_traveled >= following_distance) and is_on_floor():
-			is_following = false
-			velocity = Vector2.ZERO
-			print("Le boss a arrêté de suivre.")
-			is_idle = true
+			stop_follow()
+
 	move_and_slide()

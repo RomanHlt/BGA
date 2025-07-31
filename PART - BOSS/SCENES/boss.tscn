@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmwc4dgmjldxn"]
+[gd_scene load_steps=9 format=3 uid="uid://dmwc4dgmjldxn"]
 
 [ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss.gd" id="1_4dqck"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="2_846my"]
@@ -12,6 +12,9 @@ radius = 406.492
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfajn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cehe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owica"]
+size = Vector2(24, 11.5)
 
 [node name="Boss" type="CharacterBody2D"]
 script = ExtResource("1_4dqck")
@@ -48,6 +51,23 @@ debug_color = Color(0.497009, 0.437089, 0.982462, 0.42)
 
 [node name="JumpComponent" parent="." instance=ExtResource("3_dcikb")]
 
+[node name="Above" type="Area2D" parent="."]
+position = Vector2(0, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Above"]
+position = Vector2(0, -3.25)
+shape = SubResource("RectangleShape2D_owica")
+debug_color = Color(0.833049, 0.0886156, 0.539656, 0.42)
+
+[node name="Below" type="Area2D" parent="."]
+position = Vector2(0, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Below"]
+shape = SubResource("RectangleShape2D_owica")
+debug_color = Color(0.833049, 0.0886156, 0.539656, 0.42)
+
 [connection signal="body_entered" from="Zone de détéction" to="." method="_on_zone_de_détéction_body_entered"]
 [connection signal="body_entered" from="JumpLeft" to="." method="_on_jump_left_body_entered"]
 [connection signal="body_entered" from="JumpRight" to="." method="_on_jump_right_body_entered"]
+[connection signal="body_entered" from="Above" to="." method="_on_above_body_entered"]
+[connection signal="body_entered" from="Below" to="." method="_on_below_body_entered"]
