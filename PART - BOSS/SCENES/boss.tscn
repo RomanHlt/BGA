@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmwc4dgmjldxn"]
+[gd_scene load_steps=10 format=3 uid="uid://dmwc4dgmjldxn"]
 
 [ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss.gd" id="1_4dqck"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="2_846my"]
@@ -15,6 +15,8 @@ radius = 406.492
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owica"]
 size = Vector2(24, 11.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5mdup"]
 
 [node name="Boss" type="CharacterBody2D"]
 script = ExtResource("1_4dqck")
@@ -47,10 +49,6 @@ position = Vector2(50, 0)
 shape = SubResource("RectangleShape2D_4cehe")
 debug_color = Color(0.497009, 0.437089, 0.982462, 0.42)
 
-[node name="GravityComponent" parent="." instance=ExtResource("2_846my")]
-
-[node name="JumpComponent" parent="." instance=ExtResource("3_dcikb")]
-
 [node name="Above" type="Area2D" parent="."]
 position = Vector2(0, -15)
 
@@ -66,8 +64,28 @@ position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_owica")
 debug_color = Color(0.833049, 0.0886156, 0.539656, 0.42)
 
+[node name="Deeper" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deeper"]
+shape = SubResource("CapsuleShape2D_5mdup")
+debug_color = Color(0.180008, 0.630132, 0.37304, 0.42)
+
+[node name="Closer" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Closer"]
+shape = SubResource("CapsuleShape2D_5mdup")
+debug_color = Color(0.180008, 0.630132, 0.37304, 0.42)
+
+[node name="GravityComponent" parent="." instance=ExtResource("2_846my")]
+
+[node name="JumpComponent" parent="." instance=ExtResource("3_dcikb")]
+
 [connection signal="body_entered" from="Zone de détéction" to="." method="_on_zone_de_détéction_body_entered"]
 [connection signal="body_entered" from="JumpLeft" to="." method="_on_jump_left_body_entered"]
 [connection signal="body_entered" from="JumpRight" to="." method="_on_jump_right_body_entered"]
 [connection signal="body_entered" from="Above" to="." method="_on_above_body_entered"]
 [connection signal="body_entered" from="Below" to="." method="_on_below_body_entered"]
+[connection signal="body_entered" from="Deeper" to="." method="_on_deeper_body_entered"]
+[connection signal="body_exited" from="Deeper" to="." method="_on_deeper_body_exited"]
+[connection signal="body_entered" from="Closer" to="." method="_on_closer_body_entered"]
+[connection signal="body_exited" from="Closer" to="." method="_on_closer_body_exited"]

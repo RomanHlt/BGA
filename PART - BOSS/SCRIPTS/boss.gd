@@ -29,6 +29,8 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @onready var stuck_timer = 0.0				# Temps coincé
 @onready var stuck_check_delay = 0.3		# Temps max à resté coincé avant de sauter
 @onready var tried_jump = false				# Le boss a-t-il essayé de sauté ? Evite de sauter conte un mur en boucle
+@onready var can_go_deeper = true
+@onready var can_go_closer = true
 # --
 # --
 # --
@@ -37,7 +39,7 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @onready var is_attacking = false		# Attaque (Corps à corps, tir, magie)
 @onready var is_following = false		# Suit la cible
 @onready var is_using_capacity = false	# Utilise une capacité (Hors attaque : heal, tp, bouclier)
-@onready var lvl_evolution = 1				# Niveau d'évolution/Numéro de la phase
+@onready var lvl_evolution = 1			# Niveau d'évolution/Numéro de la phase
 # --
 # --
 # --
@@ -45,6 +47,8 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 func _ready() -> void:
 	collision_layer = 2**layer
 	collision_mask = 2**layer
+	$Deeper.collision_mask = 2**(layer+1)
+	$Closer.collision_mask = 2**(layer-1)
 	# Afficher la barre de vie du boss
 	await get_tree().create_timer(1).timeout
 # --
@@ -130,6 +134,16 @@ func _takeDamages(damages):
 		health = 0
 		# Retirer les dégats à la barre de vie du boss
 	evolve() # Au cas où on change de phase
+	
+func _on_closer_body_entered(body: Node2D) -> void:
+	can_go_closer = false
+func _on_closer_body_exited(body: Node2D) -> void:
+	can_go_closer = true
+func _on_deeper_body_entered(body: Node2D) -> void:
+	can_go_deeper = false
+func _on_deeper_body_exited(body: Node2D) -> void:
+	can_go_deeper = true
+
 # --
 # --
 # --
