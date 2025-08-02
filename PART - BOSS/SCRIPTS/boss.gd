@@ -26,15 +26,13 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @onready var follow_timer = 0.0				# Temps max pendant lequel le boss suit le joueur (choisi aléatoirement dans la fonction follow)
 @onready var distance_traveled = 0.0		# Distance max " " "
 # Deplacement
+@onready var direction_x					# -1 gauche, 1 droite
 @onready var last_position = Vector2.ZERO	# Dernière position du boss
 @onready var stuck_timer = 0.0				# Temps coincé
 @onready var stuck_check_delay = 0.15		# Temps max à resté coincé avant de sauter
 @onready var tried_jump = false				# Le boss a-t-il essayé de sauté ? Evite de sauter conte un mur en boucle
-@onready var tried_jump_switch = false		# Le boss a-t-il essayé de sauté tout en changeant de layer ?
 @onready var can_go_deeper = true			# Peut switch de layer vers derrière ?
 @onready var can_go_closer = true			# " " devant ?
-@onready var can_go_deeper_with_jump = true	# Bah c'est dans le nom il est assez long comme ça hein
-@onready var can_go_closer_with_jump = true
 @onready var Layers							# Listes des layers
 # --
 # --
@@ -55,8 +53,12 @@ func _ready() -> void:
 	collision_mask = 2**layer
 	$Deeper.collision_mask = 2**(layer+1)
 	$Closer.collision_mask = 2**(layer-1)
-	$Deeper_with_jump.collision_mask = 2**(layer+1)
-	$Closer_with_jump.collision_mask = 2**(layer-1)
+	$JumpLeft.collision_mask = 2**layer
+	$JumpRight.collision_mask = 2**layer
+	$Above.collision_mask = 2**layer
+	$Below.collision_mask = 2**layer
+	$JumpLeft.hide()
+	$JumpRight.hide()
 	Layers = get_parent().get_parent().get_children().filter(func (x): if x.is_class("TileMapLayer"): return x) # Ah gros l'arbre généalogique de fou si cette ligne marche encore à la fin du jeu c'est un miracle
 	self.reparent(Layers[layer])
 	# Afficher la barre de vie du boss
@@ -161,14 +163,7 @@ func _on_deeper_body_exited(body: Node2D) -> void:
 	can_go_deeper = true
 
 
-func _on_deeper_with_jump_body_entered(body: Node2D) -> void:
-	can_go_deeper_with_jump = false
-func _on_deeper_with_jump_body_exited(body: Node2D) -> void:
-	can_go_deeper_with_jump = true
-func _on_closer_with_jump_body_entered(body: Node2D) -> void:
-	can_go_closer_with_jump = false
-func _on_closer_with_jump_body_exited(body: Node2D) -> void:
-	can_go_closer_with_jump = true
+
 # --
 # --
 # --
@@ -213,13 +208,10 @@ func change_layer(l:int = 0):
 	$Closer.collision_mask = 2**(l-1)
 	layer = l
 	self.position.y+=1 #Eviter que les checker ne detectent plus de collisions (patch de brute)
-	# Ah là ca va être lourd
 	$JumpLeft.collision_mask = 2**l
 	$JumpRight.collision_mask = 2**l
 	$Above.collision_mask = 2**l
 	$Below.collision_mask = 2**l
-	$Deeper_with_jump.collision_mask = 2**(layer+1)
-	$Closer_with_jump.collision_mask = 2**(layer-1)
 	# Rajouter toutes les areas s'ils y en a +
 
 
@@ -280,12 +272,12 @@ func stop_follow():
 
 # - Collisions -
 func _on_jump_left_body_entered(body: Node2D) -> void:
-	if body.name != "Player":
+	if body.name != "Player" and direction_x == -1:
 		$JumpComponent.handle_jump(self, true)
 
 
 func _on_jump_right_body_entered(body: Node2D) -> void:
-	if body.name != "Player":
+	if body.name != "Player" and direction_x == 1:
 		$JumpComponent.handle_jump(self, true)
 
 
@@ -323,13 +315,13 @@ func _physics_process(delta):
 		follow_timer += delta
 		
 		# Gestion des Layers
-		if target.collision_layer > self.collision_layer and can_go_deeper and not tried_jump_switch:
+		if target.collision_layer > self.collision_layer and can_go_deeper:
 			change_layer(layer + 1)
-		if target.collision_layer < self.collision_layer and can_go_closer and not tried_jump_switch and layer != 0:
+		if target.collision_layer < self.collision_layer and can_go_closer and layer != 0:
 			change_layer(layer - 1)
 		
 		# Calculer direction et mouvement
-		var direction_x = sign(target.position.x - position.x)
+		direction_x = sign(target.position.x - position.x)
 		velocity.x = direction_x * speed # Que le x sinon on annule la gravité en écrasant la valeur en y
 		
 		if tried_jump:
@@ -340,7 +332,7 @@ func _physics_process(delta):
 		
 		# Gestion des problèmes de boss coincé
 		var horizontal_speed = abs(global_position.x - last_position.x) / delta # abs(x) = |x|
-		if horizontal_speed < 5:  # presque pas de mouvement
+		if horizontal_speed < 15:  # presque pas de mouvement
 			stuck_timer += delta
 			if stuck_timer >= stuck_check_delay and not tried_jump: # Si on attend trop longtemps et qu'on a pas déjà essayé, on saute
 				$JumpComponent.handle_jump(self, true)
@@ -351,7 +343,6 @@ func _physics_process(delta):
 		else:	# Quand on bouge on reset tout et c'est plus coincé
 			stuck_timer = 0.0
 			tried_jump = false
-			tried_jump_switch = false
 
 		# Activer la bonne collision de jump
 		if direction_x == 1:

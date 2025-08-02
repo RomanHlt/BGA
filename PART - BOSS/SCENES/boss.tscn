@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dmwc4dgmjldxn"]
+[gd_scene load_steps=12 format=3 uid="uid://dmwc4dgmjldxn"]
 
 [ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss.gd" id="1_4dqck"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="2_846my"]
@@ -15,16 +15,12 @@ radius = 406.492
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cehe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owica"]
-size = Vector2(20, 11.5)
+size = Vector2(20, 13.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8ra8"]
 size = Vector2(12, 11.5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5mdup"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_34mec"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrwlw"]
 
 [node name="Boss" type="CharacterBody2D"]
 z_as_relative = false
@@ -66,7 +62,7 @@ debug_color = Color(0.497009, 0.437089, 0.982462, 0.42)
 position = Vector2(0, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Above"]
-position = Vector2(0, -3.25)
+position = Vector2(0, -4.25)
 shape = SubResource("RectangleShape2D_owica")
 debug_color = Color(0.833049, 0.0886156, 0.539656, 0.42)
 
@@ -89,20 +85,6 @@ debug_color = Color(0.180008, 0.630132, 0.37304, 0.42)
 shape = SubResource("CapsuleShape2D_5mdup")
 debug_color = Color(0.180008, 0.630132, 0.37304, 0.42)
 
-[node name="Deeper_with_jump" type="Area2D" parent="."]
-position = Vector2(0, -90)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Deeper_with_jump"]
-shape = SubResource("CapsuleShape2D_34mec")
-debug_color = Color(0.445523, 0.198041, 0.734494, 0.42)
-
-[node name="Closer_with_jump" type="Area2D" parent="."]
-position = Vector2(0, -90)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Closer_with_jump"]
-shape = SubResource("CapsuleShape2D_mrwlw")
-debug_color = Color(0.447059, 0.2, 0.733333, 0.419608)
-
 [node name="GravityComponent" parent="." instance=ExtResource("2_846my")]
 
 [node name="JumpComponent" parent="." instance=ExtResource("3_dcikb")]
@@ -117,7 +99,3 @@ jump_velocity = -450.0
 [connection signal="body_exited" from="Deeper" to="." method="_on_deeper_body_exited"]
 [connection signal="body_entered" from="Closer" to="." method="_on_closer_body_entered"]
 [connection signal="body_exited" from="Closer" to="." method="_on_closer_body_exited"]
-[connection signal="body_entered" from="Deeper_with_jump" to="." method="_on_deeper_with_jump_body_entered"]
-[connection signal="body_exited" from="Deeper_with_jump" to="." method="_on_deeper_with_jump_body_exited"]
-[connection signal="body_entered" from="Closer_with_jump" to="." method="_on_closer_with_jump_body_entered"]
-[connection signal="body_exited" from="Closer_with_jump" to="." method="_on_closer_with_jump_body_exited"]
