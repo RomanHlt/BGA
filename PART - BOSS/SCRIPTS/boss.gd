@@ -31,6 +31,7 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @onready var tried_jump = false				# Le boss a-t-il essayé de sauté ? Evite de sauter conte un mur en boucle
 @onready var can_go_deeper = true
 @onready var can_go_closer = true
+@onready var Layers
 # --
 # --
 # --
@@ -45,10 +46,13 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 # --
 # --- ready ---
 func _ready() -> void:
+	z_index = -layer
 	collision_layer = 2**layer
 	collision_mask = 2**layer
 	$Deeper.collision_mask = 2**(layer+1)
 	$Closer.collision_mask = 2**(layer-1)
+	Layers = get_parent().get_parent().get_children().filter(func (x): if x.is_class("TileMapLayer"): return x) # Ah gros l'arbre généalogique de fou si cette ligne marche encore à la fin du jeu c'est un miracle
+	self.reparent(Layers[layer])
 	# Afficher la barre de vie du boss
 	await get_tree().create_timer(1).timeout
 # --
@@ -167,8 +171,26 @@ func follow():
 	last_position = global_position
 	print("Le boss commence à suivre. TEMPS MAX : ", following_time, "DISTANCE MAX : ", following_distance)
 
-
-# - Attaque -
+func change_layer(l:int = 0):
+	print("Player : ", target.collision_layer)
+	print("layer av :", collision_layer)
+	self.reparent(Layers[l])
+	self.collision_mask = 2**l
+	self.collision_layer = 2**l
+	self.z_index = -l
+	$Deeper.collision_mask = 2**(l+1)
+	$Closer.collision_mask = 2**(l-1)
+	layer = l
+	self.position.y+=1 #Eviter que les checker ne detectent plus de collisions (patch de brute)
+	# Ah là ca va être lourd
+	$JumpLeft.collision_mask = 2**l
+	$JumpRight.collision_mask = 2**l
+	$Above.collision_mask = 2**l
+	$Below.collision_mask = 2**l
+	# Rajouter toutes les areas s'ils y en a +
+	print("layer : ", collision_layer)
+	
+# - Attaques/capas -
 func melee_1():
 	print("ATTACK : Melee 1 !")
 	await get_tree().create_timer(2).timeout 
@@ -243,7 +265,6 @@ func _on_below_body_entered(body: Node2D) -> void:
 			self.velocity.x = 600
 		else:
 			self.velocity.x = -600
-
 # --
 # --
 # --
@@ -257,8 +278,15 @@ func _process(delta: float) -> void:
 func _physics_process(delta):
 	$GravityComponent.handle_gravity(self, delta) # Applique la gravité
 	if is_following:
+		print(global_position)
 		follow_timer += delta
-
+		
+		# Gestion des Layers
+		if target.collision_layer > self.collision_layer and can_go_deeper:
+			change_layer(layer + 1)
+		if target.collision_layer < self.collision_layer and can_go_closer:
+			change_layer(layer - 1)
+		
 		# Calculer direction et mouvement
 		var direction_x = sign(target.position.x - position.x)
 		velocity.x = direction_x * speed # Que le x sinon on annule la gravité en écrasant la valeur en y
