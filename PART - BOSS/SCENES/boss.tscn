@@ -15,7 +15,7 @@ radius = 406.492
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cehe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owica"]
-size = Vector2(20, 13.5)
+size = Vector2(24, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8ra8"]
 size = Vector2(12, 11.5)
@@ -62,7 +62,7 @@ debug_color = Color(0.497009, 0.437089, 0.982462, 0.42)
 position = Vector2(0, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Above"]
-position = Vector2(0, -4.25)
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_owica")
 debug_color = Color(0.833049, 0.0886156, 0.539656, 0.42)
 
