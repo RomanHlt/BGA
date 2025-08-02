@@ -19,6 +19,7 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 # --- Variable interne  ---
 @onready var target : CharacterBody2D 		# Cible du boss
 @onready var health = health_max			# Vie max
+@onready var stuned = false					# Boss stuned ?
 # Suivi
 @onready var following_time = 0 			# Temps max pour follow le joueur, on arrête de le follow après
 @onready var following_distance = 0			# Distance max de suivi, on arrête de courir après l'avoir parcourue
@@ -27,11 +28,14 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 # Deplacement
 @onready var last_position = Vector2.ZERO	# Dernière position du boss
 @onready var stuck_timer = 0.0				# Temps coincé
-@onready var stuck_check_delay = 0.3		# Temps max à resté coincé avant de sauter
+@onready var stuck_check_delay = 0.15		# Temps max à resté coincé avant de sauter
 @onready var tried_jump = false				# Le boss a-t-il essayé de sauté ? Evite de sauter conte un mur en boucle
-@onready var can_go_deeper = true
-@onready var can_go_closer = true
-@onready var Layers
+@onready var tried_jump_switch = false		# Le boss a-t-il essayé de sauté tout en changeant de layer ?
+@onready var can_go_deeper = true			# Peut switch de layer vers derrière ?
+@onready var can_go_closer = true			# " " devant ?
+@onready var can_go_deeper_with_jump = true	# Bah c'est dans le nom il est assez long comme ça hein
+@onready var can_go_closer_with_jump = true
+@onready var Layers							# Listes des layers
 # --
 # --
 # --
@@ -51,6 +55,8 @@ func _ready() -> void:
 	collision_mask = 2**layer
 	$Deeper.collision_mask = 2**(layer+1)
 	$Closer.collision_mask = 2**(layer-1)
+	$Deeper_with_jump.collision_mask = 2**(layer+1)
+	$Closer_with_jump.collision_mask = 2**(layer-1)
 	Layers = get_parent().get_parent().get_children().filter(func (x): if x.is_class("TileMapLayer"): return x) # Ah gros l'arbre généalogique de fou si cette ligne marche encore à la fin du jeu c'est un miracle
 	self.reparent(Layers[layer])
 	# Afficher la barre de vie du boss
@@ -63,9 +69,11 @@ func _on_zone_de_détéction_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		target = body
 
+
 func action():
 	"""Choisi l'action à faire en fonction de certains paramètres et de l'état (idle, attacking, ...) du boss."""
-	var actions = ["attack", "follow", "use_capacity"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
+	# var actions = ["attack", "follow", "use_capacity"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
+	var actions = ["follow", "nothing"] # ligne pour les tests, utiliser celle au dessus
 	if not target:
 		while "attack" in actions:
 			actions.erase("attack")
@@ -73,7 +81,6 @@ func action():
 			actions.erase("follow")
 	
 	var action = pick_random_action(actions)
-	print("Action choisie : ", action) # Debug
 	if action == "attack":
 		attack()
 	if action == "follow":
@@ -81,9 +88,11 @@ func action():
 	if action == "use_capacity":
 		use_capacity()
 
+
 func pick_random_action(actions: Array) -> String:
 	"""Renvoie une action au hasard"""
 	return actions[randi() % actions.size()]
+
 
 func attack():
 	"""Choisi quel type d'attaque utiliser"""
@@ -93,6 +102,7 @@ func attack():
 		melee()
 	else:
 		long()
+
 
 func use_capacity():
 	is_idle = false
@@ -130,6 +140,7 @@ func long():
 	if choice == "long_2":
 		long_2()
 
+
 func _takeDamages(damages):
 	if damages <= health:
 		health -= damages
@@ -138,7 +149,8 @@ func _takeDamages(damages):
 		health = 0
 		# Retirer les dégats à la barre de vie du boss
 	evolve() # Au cas où on change de phase
-	
+
+
 func _on_closer_body_entered(body: Node2D) -> void:
 	can_go_closer = false
 func _on_closer_body_exited(body: Node2D) -> void:
@@ -148,6 +160,15 @@ func _on_deeper_body_entered(body: Node2D) -> void:
 func _on_deeper_body_exited(body: Node2D) -> void:
 	can_go_deeper = true
 
+
+func _on_deeper_with_jump_body_entered(body: Node2D) -> void:
+	can_go_deeper_with_jump = false
+func _on_deeper_with_jump_body_exited(body: Node2D) -> void:
+	can_go_deeper_with_jump = true
+func _on_closer_with_jump_body_entered(body: Node2D) -> void:
+	can_go_closer_with_jump = false
+func _on_closer_with_jump_body_exited(body: Node2D) -> void:
+	can_go_closer_with_jump = true
 # --
 # --
 # --
@@ -157,7 +178,7 @@ func evolve():
 	if health <= 5:
 		lvl_evolution = 2
 		health_max = 5 # Il va pas se heal au dessus de 5 s'il change de phase
-		print("---PHASE 2---")
+
 
 func follow():
 	"""Pour follow un joueur en mouvement constant ça va se faire dans le physics process"""
@@ -169,13 +190,22 @@ func follow():
 	follow_timer = 0.0
 	distance_traveled = 0.0
 	last_position = global_position
-	print("Le boss commence à suivre. TEMPS MAX : ", following_time, "DISTANCE MAX : ", following_distance)
+
+
+func stun(time):
+	"""Appeler depuis le joueur pour stun le boss"""
+	stuned = true
+	is_attacking = false
+	is_following = false
+	is_using_capacity = false
+	is_idle = true
+	stop_follow()
+	await get_tree().create_timer(time).timeout
+	stuned = false
+
 
 func change_layer(l:int = 0):
-	print("Player : ", target.collision_layer)
-	print("layer av :", collision_layer)
 	self.reparent(Layers[l])
-	print(Layers, Layers[l], l)
 	self.collision_mask = 2**l
 	self.collision_layer = 2**l
 	self.z_index = -l
@@ -188,38 +218,45 @@ func change_layer(l:int = 0):
 	$JumpRight.collision_mask = 2**l
 	$Above.collision_mask = 2**l
 	$Below.collision_mask = 2**l
+	$Deeper_with_jump.collision_mask = 2**(layer+1)
+	$Closer_with_jump.collision_mask = 2**(layer-1)
 	# Rajouter toutes les areas s'ils y en a +
-	print("layer : ", collision_layer)
-	
+
+
 # - Attaques/capas -
 func melee_1():
 	print("ATTACK : Melee 1 !")
 	await get_tree().create_timer(2).timeout 
 	is_attacking = false	# Ne pas oublier ces deux dernières ligne
 	is_idle = true
-	
+
+
 func melee_2():
 	print("ATTACK : Melee 2 !")
 	await get_tree().create_timer(2).timeout
 	is_attacking = false
 	is_idle = true
-	
+
+
 func long_1():
 	print("ATTACK RARE 1/4 : Long 1 ! ")
 	await get_tree().create_timer(2).timeout
 	is_attacking = false
 	is_idle = true
-	
+
+
 func long_2():
 	print("ATTACK : Long 2 !")
 	await get_tree().create_timer(2).timeout
 	is_attacking = false
 	is_idle = true
-	
+
+
 func heal():
 	print("CAPA : HEAL !!!")
 	is_using_capacity = false
 	is_idle = true
+
 
 func tp():
 	print("CAPA : TP")
@@ -227,23 +264,25 @@ func tp():
 	is_using_capacity = false
 	is_idle = true
 
+
 func summon():
 	print("CAPA PHASE 2: Summon !")
 	await get_tree().create_timer(2).timeout
 	is_using_capacity = false
 	is_idle = true
 
+
 func stop_follow():
 	is_following = false
 	velocity = Vector2.ZERO
-	print("Le boss a arrêté de suivre.")
 	is_idle = true
+
 
 # - Collisions -
 func _on_jump_left_body_entered(body: Node2D) -> void:
 	if body.name != "Player":
 		$JumpComponent.handle_jump(self, true)
-		pass
+
 
 func _on_jump_right_body_entered(body: Node2D) -> void:
 	if body.name != "Player":
@@ -258,10 +297,11 @@ func _on_above_body_entered(body: Node2D) -> void:
 		else:
 			body.velocity.x = -600
 
+
 func _on_below_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		stop_follow()
-		self.velocity.y = -600
+		self.stun(3)
+		self.velocity.y = -500
 		if randi() % 2 == 1:
 			self.velocity.x = 600
 		else:
@@ -271,39 +311,47 @@ func _on_below_body_entered(body: Node2D) -> void:
 # --
 # --- Process ---
 func _process(delta: float) -> void:
-	if is_idle:
+	if stuned:
+		return
+	elif is_idle:
 		action()
-		print("\n")
 
 
 func _physics_process(delta):
 	$GravityComponent.handle_gravity(self, delta) # Applique la gravité
 	if is_following:
-		print(global_position)
 		follow_timer += delta
 		
 		# Gestion des Layers
-		if target.collision_layer > self.collision_layer and can_go_deeper:
+		if target.collision_layer > self.collision_layer and can_go_deeper and not tried_jump_switch:
 			change_layer(layer + 1)
-		if target.collision_layer < self.collision_layer and can_go_closer:
+		if target.collision_layer < self.collision_layer and can_go_closer and not tried_jump_switch and layer != 0:
 			change_layer(layer - 1)
 		
 		# Calculer direction et mouvement
 		var direction_x = sign(target.position.x - position.x)
 		velocity.x = direction_x * speed # Que le x sinon on annule la gravité en écrasant la valeur en y
 		
-		# Si au sol et bloqué horizontalement → sauter
-		if is_on_floor():
-			var horizontal_speed = abs(global_position.x - last_position.x) / delta # abs(x) = |x|
-			if horizontal_speed < 5:  # presque pas de mouvement
-				stuck_timer += delta
-				if stuck_timer >= stuck_check_delay and not tried_jump: # Si on attend trop longtemps et qu'on a pas déjà essayé, on saute
-					$JumpComponent.handle_jump(self, true)
-					tried_jump = true 
-					stuck_timer = 0.0
-			else:
-				stuck_timer = 0.0
-				tried_jump = false
+		if tried_jump:
+			if can_go_closer and layer != 0:
+				change_layer(layer - 1)
+			elif can_go_deeper:
+				change_layer(layer + 1)
+		
+		# Gestion des problèmes de boss coincé
+		var horizontal_speed = abs(global_position.x - last_position.x) / delta # abs(x) = |x|
+		if horizontal_speed < 5:  # presque pas de mouvement
+			stuck_timer += delta
+			if stuck_timer >= stuck_check_delay and not tried_jump: # Si on attend trop longtemps et qu'on a pas déjà essayé, on saute
+				$JumpComponent.handle_jump(self, true)
+				tried_jump = true 
+			if stuck_timer >= 4 and tried_jump: # Bloqué depuis trop longtemps (Urgence)
+				self.velocity.y = -500
+				self.velocity.x = direction_x * -500 # on va dans le sens inverse pour pas s'exploser contre l'obstacle
+		else:	# Quand on bouge on reset tout et c'est plus coincé
+			stuck_timer = 0.0
+			tried_jump = false
+			tried_jump_switch = false
 
 		# Activer la bonne collision de jump
 		if direction_x == 1:

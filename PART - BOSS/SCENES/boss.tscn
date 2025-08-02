@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmwc4dgmjldxn"]
+[gd_scene load_steps=14 format=3 uid="uid://dmwc4dgmjldxn"]
 
 [ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss.gd" id="1_4dqck"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="2_846my"]
@@ -15,9 +15,16 @@ radius = 406.492
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cehe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owica"]
-size = Vector2(24, 11.5)
+size = Vector2(20, 11.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8ra8"]
+size = Vector2(12, 11.5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5mdup"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_34mec"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrwlw"]
 
 [node name="Boss" type="CharacterBody2D"]
 z_as_relative = false
@@ -44,14 +51,14 @@ debug_color = Color(0.0287684, 0.101651, 0.263391, 0.42)
 [node name="JumpLeft" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpLeft"]
-position = Vector2(-50, 0)
+position = Vector2(-30, 0)
 shape = SubResource("RectangleShape2D_wfajn")
 debug_color = Color(0.498039, 0.435294, 0.984314, 0.419608)
 
 [node name="JumpRight" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpRight"]
-position = Vector2(50, 0)
+position = Vector2(30, 0)
 shape = SubResource("RectangleShape2D_4cehe")
 debug_color = Color(0.497009, 0.437089, 0.982462, 0.42)
 
@@ -67,7 +74,7 @@ debug_color = Color(0.833049, 0.0886156, 0.539656, 0.42)
 position = Vector2(0, 15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Below"]
-shape = SubResource("RectangleShape2D_owica")
+shape = SubResource("RectangleShape2D_b8ra8")
 debug_color = Color(0.833049, 0.0886156, 0.539656, 0.42)
 
 [node name="Deeper" type="Area2D" parent="."]
@@ -82,9 +89,24 @@ debug_color = Color(0.180008, 0.630132, 0.37304, 0.42)
 shape = SubResource("CapsuleShape2D_5mdup")
 debug_color = Color(0.180008, 0.630132, 0.37304, 0.42)
 
+[node name="Deeper_with_jump" type="Area2D" parent="."]
+position = Vector2(0, -90)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deeper_with_jump"]
+shape = SubResource("CapsuleShape2D_34mec")
+debug_color = Color(0.445523, 0.198041, 0.734494, 0.42)
+
+[node name="Closer_with_jump" type="Area2D" parent="."]
+position = Vector2(0, -90)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Closer_with_jump"]
+shape = SubResource("CapsuleShape2D_mrwlw")
+debug_color = Color(0.447059, 0.2, 0.733333, 0.419608)
+
 [node name="GravityComponent" parent="." instance=ExtResource("2_846my")]
 
 [node name="JumpComponent" parent="." instance=ExtResource("3_dcikb")]
+jump_velocity = -450.0
 
 [connection signal="body_entered" from="Zone de détéction" to="." method="_on_zone_de_détéction_body_entered"]
 [connection signal="body_entered" from="JumpLeft" to="." method="_on_jump_left_body_entered"]
@@ -95,3 +117,7 @@ debug_color = Color(0.180008, 0.630132, 0.37304, 0.42)
 [connection signal="body_exited" from="Deeper" to="." method="_on_deeper_body_exited"]
 [connection signal="body_entered" from="Closer" to="." method="_on_closer_body_entered"]
 [connection signal="body_exited" from="Closer" to="." method="_on_closer_body_exited"]
+[connection signal="body_entered" from="Deeper_with_jump" to="." method="_on_deeper_with_jump_body_entered"]
+[connection signal="body_exited" from="Deeper_with_jump" to="." method="_on_deeper_with_jump_body_exited"]
+[connection signal="body_entered" from="Closer_with_jump" to="." method="_on_closer_with_jump_body_entered"]
+[connection signal="body_exited" from="Closer_with_jump" to="." method="_on_closer_with_jump_body_exited"]
