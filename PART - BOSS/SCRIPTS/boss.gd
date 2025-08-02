@@ -30,6 +30,7 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @onready var last_position = Vector2.ZERO	# Dernière position du boss
 @onready var stuck_timer = 0.0				# Temps coincé
 @onready var stuck_check_delay = 0.15		# Temps max à resté coincé avant de sauter
+@onready var stuck_occurence = 0			# Nombre de fois où le boss se déplace de trop peu de pixel
 @onready var tried_jump = false				# Le boss a-t-il essayé de sauté ? Evite de sauter conte un mur en boucle
 @onready var can_go_deeper = true			# Peut switch de layer vers derrière ?
 @onready var can_go_closer = true			# " " devant ?
@@ -343,6 +344,15 @@ func _physics_process(delta):
 		else:	# Quand on bouge on reset tout et c'est plus coincé
 			stuck_timer = 0.0
 			tried_jump = false
+		
+		# Gestion des problèmes de boss coincé Système 2 (Au moins on est sûr) | Utile lors des tremblements du boss
+		if abs(global_position.x - target.position.x) < 2:
+			stuck_occurence += 1
+		else:
+			stuck_occurence = 0
+		if stuck_occurence >= 20:
+			$JumpComponent.handle_jump(self, true)
+			stuck_occurence = 0
 
 		# Activer la bonne collision de jump
 		if direction_x == 1:
