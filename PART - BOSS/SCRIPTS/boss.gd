@@ -175,6 +175,7 @@ func change_layer(l:int = 0):
 	print("Player : ", target.collision_layer)
 	print("layer av :", collision_layer)
 	self.reparent(Layers[l])
+	print(Layers, Layers[l], l)
 	self.collision_mask = 2**l
 	self.collision_layer = 2**l
 	self.z_index = -l

@@ -20,6 +20,7 @@ size = Vector2(24, 11.5)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5mdup"]
 
 [node name="Boss" type="CharacterBody2D"]
+z_as_relative = false
 script = ExtResource("1_4dqck")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
