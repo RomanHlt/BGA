@@ -1,0 +1,152 @@
+[gd_scene load_steps=10 format=3 uid="uid://d4ndv0hm537a1"]
+
+[ext_resource type="Script" path="res://api.gd" id="1_gy20e"]
+[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="2_jw0by"]
+
+[sub_resource type="Theme" id="Theme_8n5wq"]
+Label/colors/font_color = Color(1, 0, 0.733333, 1)
+Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
+Label/constants/outline_size = 10
+Label/font_sizes/font_size = 6
+Label/fonts/font = ExtResource("2_jw0by")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgbdf"]
+content_margin_top = 7.0
+bg_color = Color(0.326738, 0.26043, 0.298994, 1)
+border_width_bottom = 3
+border_color = Color(0.237021, 0.177179, 0.215978, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynyw2"]
+content_margin_top = 7.0
+bg_color = Color(0.501961, 0, 0.376471, 1)
+border_width_bottom = 3
+border_color = Color(0.401794, 1.04203e-05, 0.298874, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_left = 10.0
+expand_margin_top = 3.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8y6fy"]
+content_margin_top = 7.0
+bg_color = Color(0.501961, 0, 0.376471, 1)
+border_width_bottom = 7
+border_color = Color(0.401794, 1.04203e-05, 0.298874, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_left = 10.0
+expand_margin_top = 7.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q16tk"]
+bg_color = Color(0.501961, 0, 0.376471, 1)
+border_width_bottom = 10
+border_color = Color(0.401794, 1.04203e-05, 0.298874, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2u7yr"]
+content_margin_top = 7.0
+bg_color = Color(0.501961, 0, 0.376471, 1)
+border_width_bottom = 3
+border_color = Color(0.401794, 1.04203e-05, 0.298874, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_left = 10.0
+expand_margin_top = 3.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_to8w7"]
+Button/colors/font_color = Color(1, 0, 0.733333, 1)
+Button/colors/font_focus_color = Color(0.86346, 2.21401e-06, 0.489164, 1)
+Button/colors/font_hover_color = Color(0.862745, 0, 0.490196, 1)
+Button/colors/font_pressed_color = Color(0.862745, 0, 0.490196, 1)
+Button/font_sizes/font_size = 23
+Button/fonts/font = ExtResource("2_jw0by")
+Button/styles/disabled = SubResource("StyleBoxFlat_lgbdf")
+Button/styles/focus = SubResource("StyleBoxFlat_ynyw2")
+Button/styles/hover = SubResource("StyleBoxFlat_8y6fy")
+Button/styles/normal = SubResource("StyleBoxFlat_q16tk")
+Button/styles/pressed = SubResource("StyleBoxFlat_2u7yr")
+
+[node name="API" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_gy20e")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -406.0
+offset_top = -25.0
+offset_right = 406.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_8n5wq")
+theme_override_font_sizes/font_size = 15
+text = "Vous avez fini le jeu en : XX.XX secondes.
+Pour envoyer ce score entrez un pseudo."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 100.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+placeholder_text = "Entrez un pseudo"
+alignment = 1
+max_length = 16
+
+[node name="Envoyer" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = 175.0
+offset_right = 240.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+focus_mode = 0
+theme = SubResource("Theme_to8w7")
+text = "Envoyer"
+
+[connection signal="pressed" from="Envoyer" to="." method="_on_envoyer_pressed"]

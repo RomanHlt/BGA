@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BGA"
-run/main_scene="res://PART - LEVELS/SCENES/M0.tscn"
+run/main_scene="res://PART - LEVELS/SCENES/M0/M0.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://GLOBAL - APP/icon.svg"
 

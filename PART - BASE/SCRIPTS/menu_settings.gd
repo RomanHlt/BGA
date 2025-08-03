@@ -85,6 +85,8 @@ func _on_menu_accueil_settings_from_menu() -> void:
 
 func _on_menu_controls_controls_closed() -> void:
 	show()
+	Main.get_node("/root/Map/TileMapLayer/Player").position.x = 1109
+	Main.get_node("/root/Map/TileMapLayer/Player").position.y = -325
 	if Main.get_node("Globals Options").controller:
 		justArrived = true
 

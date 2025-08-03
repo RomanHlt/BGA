@@ -12,7 +12,7 @@ func _process(delta : float):
 	
 	if PlayerDataSaver.PlayerStats.current_lvl == "999.0.0":
 		stop()
-		Main.get_node("CanvasLayer/Menus").hide()
+		#Main.get_node("CanvasLayer/Menus").hide() # Ca casse tout depuis mon update de la fin
 
 func start():
 	reset()
@@ -22,6 +22,7 @@ func start():
 
 func stop():
 	chronoOn = false
+	hide()
 
 func reset():
 	timer = 0.0
