@@ -209,7 +209,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="MenuAccueil" type="Control" parent="CanvasLayer/Menus"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -232,9 +231,9 @@ vertical_alignment = 1
 
 [node name="Load" type="Button" parent="CanvasLayer/Menus/MenuAccueil"]
 layout_mode = 0
-offset_left = 196.0
+offset_left = 205.0
 offset_top = 257.0
-offset_right = 242.0
+offset_right = 251.0
 offset_bottom = 288.0
 focus_neighbor_bottom = NodePath("../Settings")
 text = "Load
@@ -242,9 +241,9 @@ text = "Load
 
 [node name="Settings" type="Button" parent="CanvasLayer/Menus/MenuAccueil"]
 layout_mode = 0
-offset_left = 196.0
+offset_left = 205.0
 offset_top = 301.0
-offset_right = 266.0
+offset_right = 275.0
 offset_bottom = 332.0
 focus_neighbor_top = NodePath("../Load")
 focus_neighbor_bottom = NodePath("../NewGame")
@@ -252,9 +251,9 @@ text = "Settings"
 
 [node name="NewGame" type="Button" parent="CanvasLayer/Menus/MenuAccueil"]
 layout_mode = 0
-offset_left = 196.0
+offset_left = 205.0
 offset_top = 344.0
-offset_right = 289.0
+offset_right = 298.0
 offset_bottom = 375.0
 focus_neighbor_top = NodePath("../Settings")
 text = "New Game
