@@ -16,7 +16,7 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 # --
 # --
 # --
-# --- Variable interne  ---
+# --- Variables internes  ---
 @onready var target : CharacterBody2D 		# Cible du boss
 @onready var health = health_max			# Vie max
 @onready var stuned = false					# Boss stuned ?
@@ -42,6 +42,7 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @onready var is_using_capacity = false	# Utilise une capacité (Hors attaque : heal, tp, bouclier)
 @onready var lvl_evolution = 1			# Niveau d'évolution/Numéro de la phase
 @onready var is_dead = false
+# --- Variables spécifiques
 # --
 # --
 # --
@@ -73,8 +74,7 @@ func _on_zone_de_détéction_body_entered(body: Node2D) -> void:
 
 func action():
 	"""Choisi l'action à faire en fonction de certains paramètres et de l'état (idle, attacking, ...) du boss."""
-	# var actions = ["attack", "follow", "use_capacity"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
-	var actions = ["follow", "nothing"] # ligne pour les tests, utiliser celle au dessus
+	var actions = ["attack", "follow", "use_capacity"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
 	if not target:
 		while "attack" in actions:
 			actions.erase("attack")
@@ -96,7 +96,7 @@ func pick_random_action(actions: Array) -> String:
 
 
 func attack():
-	"""Choisi quel type d'attaque utiliser"""
+	"""Choisi quel type d'attaque utiliser (peut être modifier entièrement, pas forcement besoin du système de distance)"""
 	is_idle = false
 	is_attacking = true
 	if self.global_position.distance_to(target.global_position) <= distance_max_melee: # Distance entre boss et cible <= max melee ?

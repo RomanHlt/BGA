@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7xo8lj0knoj2"]
+[gd_scene load_steps=14 format=3 uid="uid://b7xo8lj0knoj2"]
 
 [ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss_cvl.gd" id="1_7si3l"]
 [ext_resource type="Texture2D" uid="uid://c7n1n6uxdmoxw" path="res://GLOBAL - APP/godot icon.svg" id="2_0byy4"]
@@ -21,6 +21,12 @@ size = Vector2(24, 32)
 size = Vector2(12, 11.5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5mdup"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5d6pk"]
+size = Vector2(64, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt74q"]
+size = Vector2(64, 31)
 
 [node name="Boss_CVL" type="CharacterBody2D"]
 z_as_relative = false
@@ -90,6 +96,22 @@ debug_color = Color(0.180008, 0.630132, 0.37304, 0.42)
 [node name="JumpComponent" parent="." instance=ExtResource("4_wamul")]
 jump_velocity = -450.0
 
+[node name="MeleeLeft" type="Area2D" parent="."]
+position = Vector2(-37, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeLeft"]
+position = Vector2(5, 0)
+shape = SubResource("RectangleShape2D_5d6pk")
+debug_color = Color(0.925611, 0.302939, 0, 0.42)
+
+[node name="MeleeRight" type="Area2D" parent="."]
+position = Vector2(37, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeRight"]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_kt74q")
+debug_color = Color(0.925611, 0.302939, 0, 0.42)
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Zone de détéction" to="." method="_on_zone_de_détéction_body_entered"]
 [connection signal="body_entered" from="JumpLeft" to="." method="_on_jump_left_body_entered"]
@@ -100,3 +122,7 @@ jump_velocity = -450.0
 [connection signal="body_exited" from="Deeper" to="." method="_on_deeper_body_exited"]
 [connection signal="body_entered" from="Closer" to="." method="_on_closer_body_entered"]
 [connection signal="body_exited" from="Closer" to="." method="_on_closer_body_exited"]
+[connection signal="body_entered" from="MeleeLeft" to="." method="_on_melee_left_body_entered"]
+[connection signal="body_exited" from="MeleeLeft" to="." method="_on_melee_left_body_exited"]
+[connection signal="body_entered" from="MeleeRight" to="." method="_on_melee_right_body_entered"]
+[connection signal="body_exited" from="MeleeRight" to="." method="_on_melee_right_body_exited"]

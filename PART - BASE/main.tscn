@@ -209,6 +209,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="MenuAccueil" type="Control" parent="CanvasLayer/Menus"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
