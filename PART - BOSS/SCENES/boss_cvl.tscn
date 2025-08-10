@@ -1,9 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmwc4dgmjldxn"]
+[gd_scene load_steps=12 format=3 uid="uid://b7xo8lj0knoj2"]
 
-[ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss.gd" id="1_4dqck"]
-[ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="2_846my"]
-[ext_resource type="Texture2D" uid="uid://c7n1n6uxdmoxw" path="res://GLOBAL - APP/godot icon.svg" id="2_k7clo"]
-[ext_resource type="PackedScene" uid="uid://be2qn5hghb0f4" path="res://PART - COMPONENT/SCENES/jump_component.tscn" id="3_dcikb"]
+[ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss_cvl.gd" id="1_7si3l"]
+[ext_resource type="Texture2D" uid="uid://c7n1n6uxdmoxw" path="res://GLOBAL - APP/godot icon.svg" id="2_0byy4"]
+[ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="3_3s4ka"]
+[ext_resource type="PackedScene" uid="uid://be2qn5hghb0f4" path="res://PART - COMPONENT/SCENES/jump_component.tscn" id="4_wamul"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fy24r"]
 
@@ -22,13 +22,13 @@ size = Vector2(12, 11.5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5mdup"]
 
-[node name="Boss" type="CharacterBody2D"]
+[node name="Boss_CVL" type="CharacterBody2D"]
 z_as_relative = false
-script = ExtResource("1_4dqck")
+script = ExtResource("1_7si3l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_k7clo")
+texture = ExtResource("2_0byy4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -85,9 +85,9 @@ debug_color = Color(0.180008, 0.630132, 0.37304, 0.42)
 shape = SubResource("CapsuleShape2D_5mdup")
 debug_color = Color(0.180008, 0.630132, 0.37304, 0.42)
 
-[node name="GravityComponent" parent="." instance=ExtResource("2_846my")]
+[node name="GravityComponent" parent="." instance=ExtResource("3_3s4ka")]
 
-[node name="JumpComponent" parent="." instance=ExtResource("3_dcikb")]
+[node name="JumpComponent" parent="." instance=ExtResource("4_wamul")]
 jump_velocity = -450.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
