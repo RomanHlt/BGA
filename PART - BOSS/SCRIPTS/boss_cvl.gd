@@ -60,6 +60,8 @@ func _ready() -> void:
 	$JumpRight.collision_mask = 2**layer
 	$Above.collision_mask = 2**layer
 	$Below.collision_mask = 2**layer
+	$MeleeRight.collision_mask = 2**layer
+	$MeleeLeft.collision_mask = 2**layer
 	$JumpLeft.hide()
 	$JumpRight.hide()
 	Layers = get_parent().get_parent().get_children().filter(func (x): if x.is_class("TileMapLayer"): return x) # Ah gros l'arbre généalogique de fou si cette ligne marche encore à la fin du jeu c'est un miracle
@@ -208,6 +210,8 @@ func change_layer(l:int = 0):
 	$JumpRight.collision_mask = 2**l
 	$Above.collision_mask = 2**l
 	$Below.collision_mask = 2**l
+	$MeleeRight.collision_mask = 2**l
+	$MeleeLeft.collision_mask = 2**l
 	# Rajouter toutes les areas s'ils y en a +
 
 
