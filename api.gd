@@ -1,6 +1,6 @@
 extends Control
 
-var url = "https://jsonplaceholder.typicode.com/posts/1"  # URL de l'API
+var url = "https://bga.insash.org/api/send/scores/"
 var send = false
 
 @onready var http_request = $HTTPRequest
@@ -25,11 +25,10 @@ func _process(delta: float) -> void:
 func _on_envoyer_pressed() -> void:
 	var pseudo = $LineEdit.text
 	var temps = Main.get_node("CanvasLayer/Clock").timer
-	var date = get_current_date()
 	var score_data = {
 	"pseudo": pseudo,
 	"time": temps,
-	"date": date
+	"token" : "letoken"
 	}
 	send_score(score_data)
 	send = true
@@ -50,12 +49,8 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 			Main.get_node("Globals Stats").scores = json
 			print("Données récupérées :")
 			for score in json:
-				print("Nom :", score["name"], " | Temps :", score["time"], " | Date :", score["date"])
+				print("Nom :", score["name"], " | Temps :", score["time"])
 		else:
 			print("Format inattendu :", json)
 	else:
 		print("Erreur HTTP :", response_code)
-		
-func get_current_date() -> String:
-	var d = Time.get_datetime_dict_from_system() # Prend la date complète (avec jour de la semaine etcc flm)
-	return "%04d-%02d-%02d" % [d.year, d.month, d.day]  # Format ISO : 2025-07-29 (mieux, je comprends pas le debut de la ligne mais ca marche)
