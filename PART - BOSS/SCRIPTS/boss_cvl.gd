@@ -42,7 +42,10 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @onready var is_using_capacity = false	# Utilise une capacité (Hors attaque : heal, tp, bouclier)
 @onready var lvl_evolution = 1			# Niveau d'évolution/Numéro de la phase
 @onready var is_dead = false
-# --- Variables spécifiques
+# --- Variables spécifiques (A un boss précis) ---
+# Coup_de_groin
+@onready var on_melee_left = false
+@onready var on_melee_right = false
 # --
 # --
 # --
@@ -57,6 +60,8 @@ func _ready() -> void:
 	$JumpRight.collision_mask = 2**layer
 	$Above.collision_mask = 2**layer
 	$Below.collision_mask = 2**layer
+	$MeleeRight.collision_mask = 2**layer
+	$MeleeLeft.collision_mask = 2**layer
 	$JumpLeft.hide()
 	$JumpRight.hide()
 	Layers = get_parent().get_parent().get_children().filter(func (x): if x.is_class("TileMapLayer"): return x) # Ah gros l'arbre généalogique de fou si cette ligne marche encore à la fin du jeu c'est un miracle
@@ -74,7 +79,8 @@ func _on_zone_de_détéction_body_entered(body: Node2D) -> void:
 
 func action():
 	"""Choisi l'action à faire en fonction de certains paramètres et de l'état (idle, attacking, ...) du boss."""
-	var actions = ["attack", "follow", "use_capacity"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
+	#var actions = ["attack", "follow", "use_capacity"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
+	var actions = ["attack", "flop"]# Ligne debug, reelle au dessus
 	if not target:
 		while "attack" in actions:
 			actions.erase("attack")
@@ -96,10 +102,10 @@ func pick_random_action(actions: Array) -> String:
 
 
 func attack():
-	"""Choisi quel type d'attaque utiliser (peut être modifier entièrement, pas forcement besoin du système de distance)"""
+	"""Choisi quel type d'attaque utiliser"""
 	is_idle = false
 	is_attacking = true
-	if self.global_position.distance_to(target.global_position) <= distance_max_melee: # Distance entre boss et cible <= max melee ?
+	if on_melee_left or on_melee_right:
 		melee()
 	else:
 		long()
@@ -108,38 +114,15 @@ func attack():
 func use_capacity():
 	is_idle = false
 	is_using_capacity = true
-	var capas = ["Heal", "Tp", "Summon"] 
-	if health == health_max: # Exemple de condition modifiant les possibilités
-		while "Heal" in capas:
-			capas.erase("Heal")
-	if lvl_evolution < 2: # La capa summon sera utilisée que apres la phase 1
-		while "Summon" in capas:
-			capas.erase("Summon")
-	var choice = pick_random_action(capas)
-	if choice == "Heal":
-		heal()
-	if choice == "Tp":
-		tp()
-	if choice == "Summon":
-		summon()
+	double_jump()
 
 
 func melee():
-	var melees = ["melee_1", "melee_2"] # Différente attaque de mélée si besoin
-	var choice = pick_random_action(melees)
-	if choice == "melee_1":
-		melee_1()
-	if choice == "melee_2":
-		melee_2()
-
+	"""Une seule attaque donc en soit fonction inutile"""
+	coup_de_groin()
 
 func long():
-	var longs = ["long_1", "long_2", "long_2", "long_2"] # Exemple pour modifier les proba, long_1 est rare
-	var choice = pick_random_action(longs)
-	if choice == "long_1":
-		long_1()
-	if choice == "long_2":
-		long_2()
+	grognement()
 
 
 func _takeDamages(damages):
@@ -152,6 +135,20 @@ func _takeDamages(damages):
 		is_dead = true
 		dead()
 	evolve() # Au cas où on change de phase
+
+
+func _on_melee_left_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		on_melee_left = true
+func _on_melee_left_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		on_melee_left = false
+func _on_melee_right_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		on_melee_right = true
+func _on_melee_right_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		on_melee_right = false
 
 
 func _on_closer_body_entered(body: Node2D) -> void:
@@ -213,54 +210,50 @@ func change_layer(l:int = 0):
 	$JumpRight.collision_mask = 2**l
 	$Above.collision_mask = 2**l
 	$Below.collision_mask = 2**l
+	$MeleeRight.collision_mask = 2**l
+	$MeleeLeft.collision_mask = 2**l
 	# Rajouter toutes les areas s'ils y en a +
 
 
 # - Attaques/capas -
-func melee_1():
-	print("ATTACK : Melee 1 !")
-	await get_tree().create_timer(2).timeout 
+func coup_de_groin():
+	print("coup de groin")
+	direction_x = sign(target.position.x - position.x)
+	velocity.x = direction_x * (speed + 150) # Dash en dur on s'en fou il est utilisé que ici
+	await get_tree().create_timer(0.30).timeout
+	velocity.x = 0
+	if on_melee_left:
+		#animer l'attaque à gauche
+		target._takeDamages(2)
+		target.stun(2)
+		target.velocity.y = -600
+		target.velocity.x = -600
+	elif on_melee_right:
+		#animer l'attaque à droite
+		target._takeDamages(2)
+		target.stun(2)
+		target.velocity.y = -600
+		target.velocity.x = 600
+	else:
+		#animer l'attaque vers là ou on aller mais pas toucher le joueur
+		pass
 	is_attacking = false	# Ne pas oublier ces deux dernières ligne
 	is_idle = true
 
 
-func melee_2():
-	print("ATTACK : Melee 2 !")
-	await get_tree().create_timer(2).timeout
+func grognement():
+	print("Grognement")
+
+	
+	
 	is_attacking = false
 	is_idle = true
 
 
-func long_1():
-	print("ATTACK RARE 1/4 : Long 1 ! ")
-	await get_tree().create_timer(2).timeout
-	is_attacking = false
-	is_idle = true
-
-
-func long_2():
-	print("ATTACK : Long 2 !")
-	await get_tree().create_timer(2).timeout
-	is_attacking = false
-	is_idle = true
-
-
-func heal():
-	print("CAPA : HEAL !!!")
-	is_using_capacity = false
-	is_idle = true
-
-
-func tp():
-	print("CAPA : TP")
-	await get_tree().create_timer(2).timeout
-	is_using_capacity = false
-	is_idle = true
-
-
-func summon():
-	print("CAPA PHASE 2: Summon !")
-	await get_tree().create_timer(2).timeout
+func double_jump():
+	print("double jump")
+	
+	
 	is_using_capacity = false
 	is_idle = true
 
@@ -338,7 +331,7 @@ func _physics_process(delta):
 		# Calculer direction et mouvement
 		direction_x = sign(target.position.x - position.x)
 		velocity.x = direction_x * speed # Que le x sinon on annule la gravité en écrasant la valeur en y
-		
+
 		if tried_jump:
 			if can_go_closer and layer != 0:
 				change_layer(layer - 1)
@@ -383,14 +376,14 @@ func _physics_process(delta):
 		# Conditions d'arrêt
 		if (follow_timer >= following_time or distance_traveled >= following_distance) and is_on_floor():
 			stop_follow()
-
+			
+			
 	move_and_slide()
 
 # --- Animation ---
 func handle_animation():
 	"""Toutes les animations"""
 	pass
-
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	pass # Replace with function body.

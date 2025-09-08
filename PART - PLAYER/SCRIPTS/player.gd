@@ -20,6 +20,7 @@ var canGoCloser:bool = true
 var layerJump:bool = false
 var fire:bool = false
 var isRunning:bool = false
+var stuned = false
 @export var canMove:bool = true
 
 
@@ -32,6 +33,8 @@ func _ready():
 
 
 func _process(delta: float) -> void:
+	if stuned:
+		return
 	if input_component.get_fire():
 		fire = true
 	if input_component.get_run() and PlayerDataSaver.SettingsStats.runAsToggle:
@@ -57,6 +60,15 @@ func _takeDamages(damages:int):
 		camera.shake()
 		if PlayerDataSaver.PlayerStats.health == 0:
 			_dead()
+
+func stun(time):
+	"""Appeler depuis le joueur pour stun le boss"""
+	stuned = true
+	canMove = false
+	# Animation de stun ?
+	await get_tree().create_timer(time).timeout
+	canMove = true
+	stuned = false
 
 func _heal(heals:int):
 	if heals > 4 - PlayerDataSaver.PlayerStats.health: # 4 - la vie qu'on a déjà = ce qu'il nous manque
