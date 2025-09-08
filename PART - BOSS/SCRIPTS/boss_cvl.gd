@@ -157,6 +157,7 @@ func change_layer(l:int = 0):
 # - Attaques/capas -
 func dash():
 	print("dash")
+	await get_tree().create_timer(1).timeout
 	direction_x = sign(target.position.x - position.x)
 	dashing = true
 	if direction_x == 1:
