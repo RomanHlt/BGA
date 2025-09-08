@@ -24,6 +24,7 @@ size = Vector2(15.5, 29)
 
 [node name="Boss_CVL" type="CharacterBody2D"]
 z_as_relative = false
+scale = Vector2(2, 2)
 script = ExtResource("1_7si3l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

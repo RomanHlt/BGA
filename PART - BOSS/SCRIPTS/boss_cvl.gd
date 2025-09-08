@@ -173,7 +173,13 @@ func dash():
 
 
 func long():
-	print("long")
+	print("Eboulement")
+	await get_tree().create_timer(3).timeout
+	for i in range(100):
+		var scene = preload("res://PART - OBJECTS/SCENES/dangerousrock.tscn")
+		var child = scene.instantiate()
+		child.position = Vector2(randi_range(-2212, -324), randi_range(-1084, -1514))
+		get_parent().get_parent().add_child(child)
 
 
 	is_attacking = false
