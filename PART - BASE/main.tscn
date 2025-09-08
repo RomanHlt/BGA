@@ -306,12 +306,12 @@ offset_right = 238.0
 offset_bottom = 375.0
 text = "Quit"
 
-[node name="MenuSettings" type="Control" parent="CanvasLayer/Menus"]
-visible = false
+[node name="MenuSettings" type="Control" parent="CanvasLayer/Menus" node_paths=PackedStringArray("musicPlayer")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("9_lkxfd")
+musicPlayer = NodePath("../../../AudioStreamPlayer")
 
 [node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuSettings"]
 layout_mode = 1
@@ -344,6 +344,9 @@ offset_top = 224.0
 offset_right = 439.0
 offset_bottom = 240.0
 focus_neighbor_left = NodePath("../CheckButton")
+min_value = -80.0
+max_value = -20.0
+value = -20.0
 
 [node name="CheckButton" type="CheckButton" parent="CanvasLayer/Menus/MenuSettings"]
 layout_mode = 0
@@ -362,6 +365,9 @@ offset_top = 268.0
 offset_right = 439.0
 offset_bottom = 284.0
 focus_neighbor_left = NodePath("../MusicButton2")
+min_value = -80.0
+max_value = -20.0
+value = -30.0
 
 [node name="MusicButton2" type="CheckButton" parent="CanvasLayer/Menus/MenuSettings"]
 layout_mode = 0

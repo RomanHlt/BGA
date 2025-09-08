@@ -3,11 +3,14 @@ signal SettingsClosed
 signal SettingsToMenu
 signal openControls
 
-var son:int = 50
+@export var musicPlayer:AudioStreamPlayer
+
+var son:int = -30
 var sonOn:bool = true
 
-var music:int = 50
+var music:int = -30
 var musicOn:bool = true
+
 
 var speedRun:bool = false
 
@@ -39,6 +42,12 @@ func _process(delta: float) -> void:
 		$CheckBox.disabled = false
 	else:
 		$CheckBox.disabled = true
+	
+	#actualisation de la musique
+	if visible:
+		if !musicOn: musicPlayer.volume_db = -80
+		else:
+			musicPlayer.volume_db = music
 
 #detection des boutons de ce menu
 func _on_controls_pressed() -> void:
