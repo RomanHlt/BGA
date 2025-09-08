@@ -65,8 +65,10 @@ func stun(time):
 	"""Appeler depuis le joueur pour stun le boss"""
 	stuned = true
 	canMove = false
+	animation_component.get_stuned()
 	# Animation de stun ?
 	await get_tree().create_timer(time).timeout
+	animation_component.end_stun()
 	canMove = true
 	stuned = false
 
