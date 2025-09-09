@@ -122,7 +122,7 @@ func follow():
 	"""Pour follow un joueur en mouvement constant ça va se faire dans le physics process"""
 	is_idle = false
 	is_following = true
-	following_time = randi_range(2, 4) # random entre 2 et 4 inclus
+	following_time = randi_range(1, 3)
 	following_distance = randi_range(100, 400)
 	
 	follow_timer = 0.0
@@ -178,7 +178,7 @@ func long():
 	for i in range(100):
 		var scene = preload("res://PART - OBJECTS/SCENES/dangerousrock.tscn")
 		var child = scene.instantiate()
-		child.position = Vector2(randi_range(-2212, -324), randi_range(-1084, -1514))
+		child.position = Vector2(randi_range(-1012, 1025), randi_range(-2324, -1416))
 		get_parent().get_parent().add_child(child)
 
 
