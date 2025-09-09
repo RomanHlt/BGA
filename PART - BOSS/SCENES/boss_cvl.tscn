@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b7xo8lj0knoj2"]
+[gd_scene load_steps=11 format=3 uid="uid://b7xo8lj0knoj2"]
 
 [ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss_cvl.gd" id="1_7si3l"]
 [ext_resource type="Texture2D" uid="uid://c7n1n6uxdmoxw" path="res://GLOBAL - APP/godot icon.svg" id="2_0byy4"]
@@ -10,37 +10,21 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_yoxbf"]
 radius = 406.492
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfajn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cehe"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owica"]
 size = Vector2(24, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8ra8"]
 size = Vector2(12, 11.5)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5mdup"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50swa"]
+size = Vector2(16, 29)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5d6pk"]
-size = Vector2(64, 31)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt74q"]
-size = Vector2(64, 31)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_53vi1"]
-radius = 75.1066
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_d0nh1"]
-a = Vector2(20, -9)
-b = Vector2(155, -71)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_j6xi3"]
-a = Vector2(20, -9)
-b = Vector2(154, 53)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atwoa"]
+size = Vector2(15.5, 29)
 
 [node name="Boss_CVL" type="CharacterBody2D"]
 z_as_relative = false
+scale = Vector2(2, 2)
 script = ExtResource("1_7si3l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -61,20 +45,6 @@ collision_mask = 65535
 shape = SubResource("CircleShape2D_yoxbf")
 debug_color = Color(0.0287684, 0.101651, 0.263391, 0.42)
 
-[node name="JumpLeft" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpLeft"]
-position = Vector2(-30, 0)
-shape = SubResource("RectangleShape2D_wfajn")
-debug_color = Color(0.498039, 0.435294, 0.984314, 0.419608)
-
-[node name="JumpRight" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpRight"]
-position = Vector2(30, 0)
-shape = SubResource("RectangleShape2D_4cehe")
-debug_color = Color(0.497009, 0.437089, 0.982462, 0.42)
-
 [node name="Above" type="Area2D" parent="."]
 position = Vector2(0, -15)
 
@@ -90,68 +60,26 @@ position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_b8ra8")
 debug_color = Color(0.833049, 0.0886156, 0.539656, 0.42)
 
-[node name="Deeper" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Deeper"]
-shape = SubResource("CapsuleShape2D_5mdup")
-debug_color = Color(0.180008, 0.630132, 0.37304, 0.42)
-
-[node name="Closer" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Closer"]
-shape = SubResource("CapsuleShape2D_5mdup")
-debug_color = Color(0.180008, 0.630132, 0.37304, 0.42)
-
-[node name="MeleeLeft" type="Area2D" parent="."]
-position = Vector2(-37, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeLeft"]
-position = Vector2(5, 0)
-shape = SubResource("RectangleShape2D_5d6pk")
-debug_color = Color(0.925611, 0.302939, 0, 0.42)
-
-[node name="MeleeRight" type="Area2D" parent="."]
-position = Vector2(37, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeRight"]
-position = Vector2(-5, 0)
-shape = SubResource("RectangleShape2D_kt74q")
-debug_color = Color(0.925611, 0.302939, 0, 0.42)
-
 [node name="GravityComponent" parent="." instance=ExtResource("3_3s4ka")]
 
 [node name="JumpComponent" parent="." instance=ExtResource("4_wamul")]
 jump_velocity = -450.0
 
-[node name="LongLeft" type="Area2D" parent="."]
+[node name="meleeLeft" type="Area2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LongLeft"]
-polygon = PackedVector2Array(-20, -10, -20, 11, -205, 25, -211, 20, -216, 15, -220, 10, -222, 5, -224, 0, -222, -10, -220, -20, -216, -30, -211, -35, -205, -66)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="meleeLeft"]
+position = Vector2(-19, -1.5)
+shape = SubResource("RectangleShape2D_50swa")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="meleeRight" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(174, 0)
-shape = SubResource("CircleShape2D_53vi1")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("SegmentShape2D_d0nh1")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 18)
-shape = SubResource("SegmentShape2D_j6xi3")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="meleeRight"]
+position = Vector2(18.75, -1.5)
+shape = SubResource("RectangleShape2D_atwoa")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Zone de détéction" to="." method="_on_zone_de_détéction_body_entered"]
-[connection signal="body_entered" from="JumpLeft" to="." method="_on_jump_left_body_entered"]
-[connection signal="body_entered" from="JumpRight" to="." method="_on_jump_right_body_entered"]
 [connection signal="body_entered" from="Above" to="." method="_on_above_body_entered"]
 [connection signal="body_entered" from="Below" to="." method="_on_below_body_entered"]
-[connection signal="body_entered" from="Deeper" to="." method="_on_deeper_body_entered"]
-[connection signal="body_exited" from="Deeper" to="." method="_on_deeper_body_exited"]
-[connection signal="body_entered" from="Closer" to="." method="_on_closer_body_entered"]
-[connection signal="body_exited" from="Closer" to="." method="_on_closer_body_exited"]
-[connection signal="body_entered" from="MeleeLeft" to="." method="_on_melee_left_body_entered"]
-[connection signal="body_exited" from="MeleeLeft" to="." method="_on_melee_left_body_exited"]
-[connection signal="body_entered" from="MeleeRight" to="." method="_on_melee_right_body_entered"]
-[connection signal="body_exited" from="MeleeRight" to="." method="_on_melee_right_body_exited"]
+[connection signal="body_entered" from="meleeLeft" to="." method="_on_melee_left_body_entered"]
+[connection signal="body_entered" from="meleeRight" to="." method="_on_melee_right_body_entered"]

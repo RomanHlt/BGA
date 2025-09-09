@@ -184,8 +184,8 @@ grow_vertical = 0
 theme = SubResource("Theme_7t71u")
 theme_override_font_sizes/font_size = 25
 text = "Version :
--
--"
+- Démo 1
+- 06/09/25"
 
 [node name="Retour au menu" type="Button" parent="."]
 texture_filter = 1

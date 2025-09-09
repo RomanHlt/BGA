@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1n8fsn48t3aj"]
+
+[ext_resource type="Texture2D" uid="uid://ck8p2q5qufxrn" path="res://PART - OBJECTS/ASSETS/Brick.png" id="1_4fjww"]
+[ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/dangerousrock.gd" id="1_lwy8u"]
+[ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="3_7hc4l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2u67"]
+size = Vector2(24, 24)
+
+[sub_resource type="Animation" id="Animation_e8cy8"]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ilkwh"]
+_data = {
+"Break": SubResource("Animation_e8cy8")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvbgb"]
+size = Vector2(24, 3)
+
+[node name="KAYOU" type="CharacterBody2D"]
+collision_mask = 0
+script = ExtResource("1_lwy8u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_4fjww")
+hframes = 3
+vframes = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://PART - LEVELS/ASSETS/Trap/Brick.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "5f5bfc38b58a7ebab2b1aef3da93ff0a"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n2u67")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ilkwh")
+}
+
+[node name="GravityComponent" parent="." instance=ExtResource("3_7hc4l")]
+gravity = 300.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 14.5)
+shape = SubResource("RectangleShape2D_dvbgb")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
