@@ -75,6 +75,7 @@ func action():
 		actions = ["Idle"]
 	
 	var action = pick_random_action(actions)
+	print(action)
 	if action == "attack":
 		attack()
 	if action == "follow":
@@ -164,12 +165,7 @@ func dash():
 		$meleeRight.collision_mask = 2**layer
 	else:
 		$meleeLeft.collision_mask = 2**layer
-	velocity.x = direction_x * (speed + 300) # Dash en dur on s'en fou il est utilisé que ici
-	while dashing:
-		await get_tree().create_timer(0.16).timeout
-	velocity.x = 0
-	$meleeLeft.collision_mask = 0
-	$meleeRight.collision_mask = 0
+
 
 
 func long():
@@ -213,10 +209,17 @@ func _on_melee_left_body_entered(body: Node2D) -> void:
 			target.velocity.y = -600
 			target.velocity.x = -600
 			stun(0.5)
+			dashing = false
+			velocity.x = 0
+			$meleeLeft.collision_mask = 0
+			$meleeRight.collision_mask = 0
 		elif body.name =="TileMapLayer":
 			print(body, body.name)
 			stun(3)
-		dashing = false
+			dashing = false
+			velocity.x = 0
+			$meleeLeft.collision_mask = 0
+			$meleeRight.collision_mask = 0
 
 func _on_melee_right_body_entered(body: Node2D) -> void:
 	if dashing:
@@ -228,11 +231,17 @@ func _on_melee_right_body_entered(body: Node2D) -> void:
 			target.velocity.x = 600
 			stun(0.5)
 			dashing = false
+			velocity.x = 0
+			$meleeLeft.collision_mask = 0
+			$meleeRight.collision_mask = 0
 		elif body.name =="TileMapLayer":
 			print(body, body.name)
 			stun(3)
 			dashing = false
-		
+			velocity.x = 0
+			$meleeLeft.collision_mask = 0
+			$meleeRight.collision_mask = 0
+
 func _on_above_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body.velocity.y = -600
@@ -281,8 +290,10 @@ func _physics_process(delta):
 		# Conditions d'arrêt
 		if (follow_timer >= following_time or distance_traveled >= following_distance or global_position.distance_to(target.global_position) < 25) and is_on_floor():
 			stop_follow()
-			
-			
+	
+	if dashing:
+		velocity.x = direction_x * (speed + 300) # Dash en dur on s'en fou il est utilisé que ici
+	
 	move_and_slide()
 
 # --- Animation ---
