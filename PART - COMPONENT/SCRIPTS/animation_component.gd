@@ -1,5 +1,6 @@
 class_name AnimationComponent
 extends Node2D
+signal awaken
 
 @export_subgroup("Nodes")
 @export var animator: AnimationPlayer
@@ -66,3 +67,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "WakeUp":
 		stuned = false
 		animator.play("IDLE")
+		awaken.emit()

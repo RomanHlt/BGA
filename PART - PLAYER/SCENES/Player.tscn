@@ -157,8 +157,8 @@ tracks/0/keys = {
 "values": [6, 7, 8, 9, 10, 11, 12, 13]
 }
 
-[sub_resource type="Animation" id="Animation_6kfk2"]
-length = 0.5
+[sub_resource type="Animation" id="Animation_l06ck"]
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -167,10 +167,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [47, 48, 49, 50, 47]
+"values": [54, 55, 56, 57, 58, 55]
 }
 
 [sub_resource type="Animation" id="Animation_i5im3"]
@@ -189,8 +189,8 @@ tracks/0/keys = {
 "values": [25, 26, 27, 51, 52, 53]
 }
 
-[sub_resource type="Animation" id="Animation_l06ck"]
-length = 0.6
+[sub_resource type="Animation" id="Animation_6kfk2"]
+length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -199,10 +199,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [54, 55, 56, 57, 58, 55]
+"values": [47, 48, 49, 50, 47]
 }
 
 [sub_resource type="Animation" id="Animation_l8y04"]
@@ -375,3 +375,4 @@ stream = ExtResource("10_su3rv")
 [connection signal="body_exited" from="deeperChecker" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="closerChecker" to="." method="_on_closer_checker_body_entered"]
 [connection signal="body_exited" from="closerChecker" to="." method="_on_closer_checker_body_exited"]
+[connection signal="awaken" from="AnimationComponent" to="." method="_on_animation_component_awaken"]

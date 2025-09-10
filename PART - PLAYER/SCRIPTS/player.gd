@@ -69,7 +69,6 @@ func stun(time):
 	# Animation de stun ?
 	await get_tree().create_timer(time).timeout
 	animation_component.end_stun()
-	canMove = true
 	stuned = false
 
 func _heal(heals:int):
@@ -105,3 +104,7 @@ func _on_closer_checker_body_entered(body: Node2D) -> void:
 	canGoCloser = false
 func _on_closer_checker_body_exited(body: Node2D) -> void:
 	canGoCloser = true
+
+
+func _on_animation_component_awaken() -> void:
+	canMove = true #Attendre que l'animation soit finie avant de bouger

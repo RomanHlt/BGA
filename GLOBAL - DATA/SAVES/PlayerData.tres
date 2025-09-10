@@ -6,7 +6,7 @@
 script = ExtResource("1_udter")
 level = 0
 items = ["Apple", "Gun", "Key"]
-health = 4
+health = 2
 is_dead = false
 max_health = 4
 current_lvl = "1.0.0"

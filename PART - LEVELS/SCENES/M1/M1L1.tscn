@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://c1mehavpp4x4w"]
+[gd_scene load_steps=32 format=4 uid="uid://c1mehavpp4x4w"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_1ucby"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_5idw8"]
@@ -724,6 +724,17 @@ terrain_set_0/terrain_1/name = "Glass"
 terrain_set_0/terrain_1/color = Color(0, 0, 1, 1)
 sources/3 = SubResource("TileSetAtlasSource_riv22")
 sources/2 = SubResource("TileSetAtlasSource_dlmjl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lskog"]
+lifetime_randomness = 0.11
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+damping_max = 27.068
+scale_max = 2.0
+collision_mode = 1
+collision_friction = 0.16
+collision_bounce = 0.39
+collision_use_scale = true
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dywvd"]
 load_path = "res://.godot/imported/Terrain (16x16).png-965ee5e8399323c88aab03397ec562aa.ctex"
@@ -2088,6 +2099,11 @@ position = Vector2(-1, -31)
 isHub = false
 isDecorative = true
 id_last_lvl = "1.0.0"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="TileMapLayer"]
+z_as_relative = false
+position = Vector2(290, -19)
+process_material = SubResource("ParticleProcessMaterial_lskog")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
