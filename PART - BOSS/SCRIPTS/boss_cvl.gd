@@ -10,7 +10,7 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @export var layer : int = 0
 
 @export_category("Boss specificity")
-@export var health_max = 10 			# Vie du boss
+@export var health_max = 5 			# Vie du boss
 @export var speed = 100
 # --
 # --
@@ -35,7 +35,8 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @onready var is_using_capacity = false	# Utilise une capacité (Hors attaque : heal, tp, bouclier)
 @onready var lvl_evolution = 1			# Niveau d'évolution/Numéro de la phase
 @onready var is_dead = false
-# Attaques
+# Actions
+@onready var last_choice = ""
 @onready var dashing = false
 # --- Variables spécifiques (A un boss précis) ---
 # --
@@ -63,23 +64,28 @@ func _on_zone_de_détéction_body_entered(body: Node2D) -> void:
 
 func action():
 	"""Choisi l'action à faire en fonction de certains paramètres et de l'état (idle, attacking, ...) du boss."""
-	var actions = ["attack", "follow"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
+	var actions = ["attack"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
 	#var actions = ["attack", "flop"]# Ligne debug, reelle au dessus
 	if not target:
 		while "attack" in actions:
 			actions.erase("attack")
 		while "follow" in actions:
 			actions.erase("follow")
-	
+			
+	while last_choice in actions:
+		actions.erase(last_choice)
+		
 	if actions == []:
 		actions = ["Idle"]
 	
 	var action = pick_random_action(actions)
-	print(action)
+	last_choice = action
 	if action == "attack":
 		attack()
 	if action == "follow":
 		follow()
+	if action == "Idle":
+		idle()
 
 func pick_random_action(actions: Array) -> String:
 	"""Renvoie une action au hasard"""
@@ -105,6 +111,7 @@ func _takeDamages(damages):
 	else:
 		health = 0
 		# Retirer les dégats à la barre de vie du boss
+	if health == 0:
 		is_dead = true
 		dead()
 	evolve() # Au cas où on change de phase
@@ -117,6 +124,10 @@ func evolve():
 	if health <= 5:
 		lvl_evolution = 2
 		health_max = 5 # Il va pas se heal au dessus de 5 s'il change de phase
+
+
+func idle():
+	await get_tree().create_timer(randi_range(3, 5)).timeout
 
 
 func follow():
@@ -157,7 +168,6 @@ func change_layer(l:int = 0):
 
 # - Attaques/capas -
 func dash():
-	print("dash")
 	await get_tree().create_timer(1).timeout
 	direction_x = sign(target.position.x - position.x)
 	dashing = true
@@ -169,13 +179,15 @@ func dash():
 
 
 func long():
-	print("Eboulement")
 	await get_tree().create_timer(3).timeout
 	for i in range(100):
 		var scene = preload("res://PART - OBJECTS/SCENES/dangerousrock.tscn")
 		var child = scene.instantiate()
 		child.position = Vector2(randi_range(-1012, 1025), randi_range(-2324, -1416))
 		get_parent().get_parent().add_child(child)
+		if target.collision_layer != 1:
+			get_parent().get_parent().get_node("TileMapLayer2").ejectPlayer()
+		get_parent().get_parent().get_node("TileMapLayer2").roll()
 
 
 	is_attacking = false
@@ -214,8 +226,8 @@ func _on_melee_left_body_entered(body: Node2D) -> void:
 			$meleeLeft.collision_mask = 0
 			$meleeRight.collision_mask = 0
 		elif body.name =="TileMapLayer":
-			print(body, body.name)
 			stun(3)
+			self._takeDamages(1)
 			dashing = false
 			velocity.x = 0
 			$meleeLeft.collision_mask = 0
@@ -235,8 +247,8 @@ func _on_melee_right_body_entered(body: Node2D) -> void:
 			$meleeLeft.collision_mask = 0
 			$meleeRight.collision_mask = 0
 		elif body.name =="TileMapLayer":
-			print(body, body.name)
 			stun(3)
+			self._takeDamages(1)
 			dashing = false
 			velocity.x = 0
 			$meleeLeft.collision_mask = 0
