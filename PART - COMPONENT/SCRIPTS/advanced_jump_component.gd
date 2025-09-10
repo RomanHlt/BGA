@@ -57,7 +57,7 @@ func handle_jump_buffer(body:CharacterBody2D, want_to_jump:bool) -> void:
 	if body.is_on_floor() and not jump_buffer_timer.is_stopped():
 		jump(body)	
 func handle_variable_jump_height(body:CharacterBody2D, jump_released:bool) -> void:
-	if jump_released and is_going_up:
+	if jump_released and is_going_up and is_jumping:
 		body.velocity.y = 0
 
 func jump(body: CharacterBody2D) -> void:

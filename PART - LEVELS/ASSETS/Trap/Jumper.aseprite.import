@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bod7qlumrghi1"
+path="res://.godot/imported/Jumper.aseprite-8b923e3c26607919f4e82c6a1d3338da.res"
+
+[deps]
+
+source_file="res://PART - LEVELS/ASSETS/Trap/Jumper.aseprite"
+dest_files=["res://.godot/imported/Jumper.aseprite-8b923e3c26607919f4e82c6a1d3338da.res"]
+
+[params]
+

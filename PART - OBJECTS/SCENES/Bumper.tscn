@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3kgi3qbdejid"]
+
+[ext_resource type="Texture2D" uid="uid://cs7pbvmdc7j2c" path="res://PART - OBJECTS/SCENES/Jumper.png" id="1_agnm6"]
+[ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/Bumper.gd" id="1_gqce7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2v0vg"]
+size = Vector2(42, 18)
+
+[sub_resource type="Animation" id="Animation_espdx"]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_fq37f"]
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0uk0g"]
+_data = {
+"Bump": SubResource("Animation_espdx"),
+"IDLE": SubResource("Animation_fq37f")
+}
+
+[node name="Bumper" type="CharacterBody2D"]
+script = ExtResource("1_gqce7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_agnm6")
+hframes = 3
+vframes = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://PART - LEVELS/ASSETS/Trap/Jumper.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "4e7f4b2c840638831a5f5c98236fd37b"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_2v0vg")
+debug_color = Color(0.881025, 0.233635, 0.613782, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0uk0g")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
