@@ -4,6 +4,7 @@ extends CharacterBody2D
 var is_broken = false
 
 func _ready() -> void:
+	$AnimationPlayer.speed_scale = 2
 	collision_layer = 2**layer
 	$Area2D.collision_mask = 2**layer
 

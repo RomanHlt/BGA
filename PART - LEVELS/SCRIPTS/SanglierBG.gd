@@ -12,10 +12,8 @@ func _ready() -> void:
 	roll()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("fire"):
-		roll()
-	if Input.is_action_just_pressed("stats"):
-		ejectPlayer()
+	pass
+
 
 func roll():
 	if x == 2: x=0
