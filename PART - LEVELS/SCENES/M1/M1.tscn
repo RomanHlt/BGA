@@ -2096,8 +2096,8 @@ sous_titre = "Le méchant chat"
 position = Vector2(113, -31)
 id_next_lvl = "1.4.0"
 id_last_lvl = "1.4.0"
-titre = "PORTE TEST"
-sous_titre = "PORTE A SUPPRIMER"
+titre = "Monde 1"
+sous_titre = "BOSS INSA CVL"
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
@@ -2112,14 +2112,6 @@ id_next_lvl = "1.2.0"
 id_last_lvl = "1.2.0"
 titre = "Monde 1"
 sous_titre = "Niveau 2 | Grotte piquante"
-
-[node name="door2" parent="TileMapLayer2" instance=ExtResource("3_vs5vi")]
-position = Vector2(377, -63)
-layer = 1
-id_next_lvl = "1.9.0"
-id_last_lvl = "1.0.0"
-titre = "CVL"
-sous_titre = "(cul)"
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 modulate = Color(0.305077, 0.305077, 0.305077, 1)

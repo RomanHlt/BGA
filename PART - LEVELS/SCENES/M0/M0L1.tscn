@@ -2395,6 +2395,16 @@ theme_override_font_sizes/font_size = 15
 text = "Le méchant"
 horizontal_alignment = 1
 
+[node name="Label2" type="Label" parent="CanvasLayer/InGame/Label"]
+layout_mode = 1
+offset_left = 423.0
+offset_top = 80.0
+offset_right = 669.0
+offset_bottom = 175.0
+theme_override_font_sizes/font_size = 12
+text = "Toujours cassé mais croquette reviendra plus fort que jamais, promis <3"
+autowrap_mode = 2
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_fkqh5")
 volume_db = 20.0
