@@ -10,7 +10,7 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @export var layer : int = 0
 
 @export_category("Boss specificity")
-@export var health_max = 5 			# Vie du boss
+@export var health_max = 1	# Vie du boss
 @export var speed = 100
 # --
 # --
@@ -174,7 +174,7 @@ func change_layer(l:int = 0):
 # - Attaques/capas -
 func dash():
 	await get_tree().create_timer(1).timeout
-	direction_x = sign(target.position.x - position.x)
+	direction_x = sign(target.global_position.x - global_position.x)
 	dashing = true
 	if direction_x == 1:
 		$meleeRight.collision_mask = 2**layer
@@ -203,7 +203,9 @@ func stop_follow():
 	velocity = Vector2.ZERO
 	is_idle = true
 
-func dead():
+func dead():	
+	get_parent().get_parent().get_node("TileMapLayer2").ejectPlayer()
+	get_parent().get_parent().get_node("TileMapLayer2").end()
 	is_idle = false
 	is_following = false
 	is_using_capacity = false
@@ -232,6 +234,7 @@ func _on_melee_left_body_entered(body: Node2D) -> void:
 				self._takeDamages(1)
 			stun(0.5)
 			dashing = false
+			target_hit = false
 			velocity.x = 0
 			$meleeLeft.collision_mask = 0
 			$meleeRight.collision_mask = 0
@@ -250,6 +253,7 @@ func _on_melee_right_body_entered(body: Node2D) -> void:
 				self._takeDamages(1)
 			stun(0.5)
 			dashing = false
+			target_hit = false
 			velocity.x = 0
 			$meleeLeft.collision_mask = 0
 			$meleeRight.collision_mask = 0

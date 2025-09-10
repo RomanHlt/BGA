@@ -31,3 +31,6 @@ func ejectPlayer():
 		map.player._takeDamages(0)
 		map.player.stun(2)
 		
+
+func end():
+	position.x = -2256
