@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=4 uid="uid://i6db2tv3o5xn"]
+[gd_scene load_steps=30 format=4 uid="uid://i6db2tv3o5xn"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_8b662"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_w1jw6"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_iymmh"]
 [ext_resource type="PackedScene" uid="uid://b7xo8lj0knoj2" path="res://PART - BOSS/SCENES/boss_cvl.tscn" id="3_qqtlb"]
+[ext_resource type="PackedScene" uid="uid://c3kgi3qbdejid" path="res://test.tscn" id="4_qdb7r"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_yhaln"]
 [ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://PART - UI/SCENES/menu.tscn" id="5_aqt5b"]
 [ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="6_mtwr6"]
@@ -2730,6 +2731,9 @@ tile_set = SubResource("TileSet_k3r57")
 [node name="Boss_CVL" parent="TileMapLayer" instance=ExtResource("3_qqtlb")]
 position = Vector2(-401, -799)
 
+[node name="CharacterBody2D" parent="TileMapLayer" instance=ExtResource("4_qdb7r")]
+position = Vector2(-1704, -744)
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
 z_index = -1
@@ -2749,7 +2753,7 @@ tile_map_data = PackedByteArray("AADv/wkAAwAFAAUAAADv/wgAAwAFAAMAAADv/wcAAwAFAAE
 tile_set = SubResource("TileSet_or0l0")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_iymmh")]
-position = Vector2(-976, -865)
+position = Vector2(-1803, -831)
 scale = Vector2(1.5, 1.5)
 collision_layer = 0
 camera = NodePath("../Camera2D")
