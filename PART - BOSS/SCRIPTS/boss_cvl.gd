@@ -39,6 +39,7 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 # Actions
 @onready var last_choice = ""
 @onready var dashing = false
+@onready var target_hit = false
 # --- Variables spécifiques (A un boss précis) ---
 # --
 # --
@@ -220,18 +221,16 @@ func _on_melee_left_body_entered(body: Node2D) -> void:
 	if dashing:
 		if body.name == "Player":
 			#animer l'attaque à gauche
+			target_hit = true
 			target._takeDamages(2)
 			target.stun(2)
 			target.velocity.y = -600
-			target.velocity.x = -600
-			stun(0.5)
-			dashing = false
-			velocity.x = 0
-			$meleeLeft.collision_mask = 0
-			$meleeRight.collision_mask = 0
+			target.velocity.x = -100
 		elif body.name =="TileMapLayer":
-			stun(3)
-			self._takeDamages(1)
+			if not target_hit:
+				stun(3)
+				self._takeDamages(1)
+			stun(0.5)
 			dashing = false
 			velocity.x = 0
 			$meleeLeft.collision_mask = 0
@@ -244,15 +243,12 @@ func _on_melee_right_body_entered(body: Node2D) -> void:
 			target._takeDamages(2)
 			target.stun(2)
 			target.velocity.y = -600
-			target.velocity.x = 600
-			stun(0.5)
-			dashing = false
-			velocity.x = 0
-			$meleeLeft.collision_mask = 0
-			$meleeRight.collision_mask = 0
+			target.velocity.x = 100
 		elif body.name =="TileMapLayer":
-			stun(3)
-			self._takeDamages(1)
+			if not target_hit:
+				stun(3)
+				self._takeDamages(1)
+			stun(0.5)
 			dashing = false
 			velocity.x = 0
 			$meleeLeft.collision_mask = 0
