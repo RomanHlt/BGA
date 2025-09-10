@@ -33,7 +33,6 @@ func _ready():
 
 
 func _process(delta: float) -> void:
-	print(canGoCloser,canGoDeeper)
 	if stuned:
 		return
 	if input_component.get_fire():
@@ -101,6 +100,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	canGoDeeper = false
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	canGoDeeper = true
+	print(body.name)
 func _on_closer_checker_body_entered(body: Node2D) -> void:
 	canGoCloser = false
 func _on_closer_checker_body_exited(body: Node2D) -> void:
