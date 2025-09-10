@@ -21,8 +21,12 @@ func roll():
 	for i in range(len(Layers)):
 		if i == x:
 			Layers[i].enabled = true
+			Layers[i].position.y = 0
 		else:
 			Layers[i].enabled = false
+			Layers[i].position.y = -1500
+
+
 
 func ejectPlayer():
 	if map.currentPlayerLayer == 1:
