@@ -174,6 +174,9 @@ func long():
 		var child = scene.instantiate()
 		child.position = Vector2(randi_range(-1012, 1025), randi_range(-2324, -1416))
 		get_parent().get_parent().add_child(child)
+		if target.collision_layer != 1:
+			get_parent().get_parent().get_node("TileMapLayer2").ejectPlayer()
+		get_parent().get_parent().get_node("TileMapLayer2").roll()
 
 
 	is_attacking = false

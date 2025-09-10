@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dmwc4dgmjldxn"]
 
-[ext_resource type="Script" path="res://PART - LEVELS/ASSETS/Map/boss.gd" id="1_4dqck"]
+[ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss.gd" id="1_4dqck"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="2_846my"]
 [ext_resource type="Texture2D" uid="uid://c7n1n6uxdmoxw" path="res://GLOBAL - APP/godot icon.svg" id="2_k7clo"]
 [ext_resource type="PackedScene" uid="uid://be2qn5hghb0f4" path="res://PART - COMPONENT/SCENES/jump_component.tscn" id="3_dcikb"]
