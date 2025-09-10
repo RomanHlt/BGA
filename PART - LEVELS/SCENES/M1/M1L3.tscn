@@ -2739,7 +2739,7 @@ id_next_lvl = "1.0.0"
 id_last_lvl = "1.3.0"
 id_unlocked_lvl = "1.4.0"
 titre = "Retour au Hub"
-sous_titre = "Félicitation"
+sous_titre = "Fin du troisième niveau"
 
 [node name="door2" parent="TileMapLayer" instance=ExtResource("15_4eyro")]
 position = Vector2(-34, -31)

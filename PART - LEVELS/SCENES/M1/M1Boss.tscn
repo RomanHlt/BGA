@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_gylic"]
 [ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://PART - UI/SCENES/menu.tscn" id="5_qhbax"]
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/SanglierBG.gd" id="6_237lq"]
-[ext_resource type="PackedScene" uid="uid://c3kgi3qbdejid" path="res://PART - OBJECTS/SCENES/Bumper.tscn" id="6_bnmkh"]
+[ext_resource type="PackedScene" path="res://PART - OBJECTS/SCENES/Bumper.tscn" id="6_bnmkh"]
 [ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="6_uyp4k"]
 [ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://PART - UI/SCENES/progrès.tscn" id="7_ai68r"]
 [ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="8_ota7m"]
@@ -2099,7 +2099,6 @@ position = Vector2(2444, -975)
 layer = 1
 isHub = false
 id_next_lvl = "999.0.0"
-id_last_lvl = "1.4.0"
 id_unlocked_lvl = "1.0.0"
 titre = "Ras le CUL"
 sous_titre = "HDF 1 - CVL 0"
