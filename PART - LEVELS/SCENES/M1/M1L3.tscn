@@ -2735,8 +2735,9 @@ tile_set = SubResource("TileSet_k3r57")
 [node name="door" parent="TileMapLayer" instance=ExtResource("15_4eyro")]
 position = Vector2(-31, -1007)
 isHub = false
-id_next_lvl = "999.0.0"
-id_unlocked_lvl = "1.0.0"
+id_next_lvl = "1.0.0"
+id_last_lvl = "1.3.0"
+id_unlocked_lvl = "1.4.0"
 titre = "Retour au Hub"
 sous_titre = "Félicitation"
 

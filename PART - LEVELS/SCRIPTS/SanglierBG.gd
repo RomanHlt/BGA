@@ -6,9 +6,7 @@ var map:Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	randomize()
 	map = get_parent()
-	Layers = get_children()
 	roll()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -18,13 +16,12 @@ func _process(delta: float) -> void:
 func roll():
 	if x == 2: x=0
 	else: x+=1
-	for i in range(len(Layers)):
-		if i == x:
-			Layers[i].enabled = true
-			Layers[i].position.y = 0
-		else:
-			Layers[i].enabled = false
-			Layers[i].position.y = -1500
+	if x==0:
+		position.x = 0
+	if x==1:
+		position.x = -752
+	if x==2:
+		position.x = -1504
 
 
 
@@ -34,3 +31,6 @@ func ejectPlayer():
 		map.player._takeDamages(0)
 		map.player.stun(2)
 		
+
+func end():
+	position.x = -2256
