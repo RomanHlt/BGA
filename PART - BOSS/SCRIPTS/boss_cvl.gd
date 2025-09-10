@@ -35,7 +35,8 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @onready var is_using_capacity = false	# Utilise une capacité (Hors attaque : heal, tp, bouclier)
 @onready var lvl_evolution = 1			# Niveau d'évolution/Numéro de la phase
 @onready var is_dead = false
-# Attaques
+# Actions
+@onready var last_choice = ""
 @onready var dashing = false
 # --- Variables spécifiques (A un boss précis) ---
 # --
@@ -70,15 +71,21 @@ func action():
 			actions.erase("attack")
 		while "follow" in actions:
 			actions.erase("follow")
-	
+			
+	while last_choice in actions:
+		actions.erase(last_choice)
+		
 	if actions == []:
 		actions = ["Idle"]
 	
 	var action = pick_random_action(actions)
+	last_choice = action
 	if action == "attack":
 		attack()
 	if action == "follow":
 		follow()
+	if action == "Idle":
+		idle()
 
 func pick_random_action(actions: Array) -> String:
 	"""Renvoie une action au hasard"""
@@ -117,6 +124,10 @@ func evolve():
 	if health <= 5:
 		lvl_evolution = 2
 		health_max = 5 # Il va pas se heal au dessus de 5 s'il change de phase
+
+
+func idle():
+	await get_tree().create_timer(randi_range(3, 5)).timeout
 
 
 func follow():
