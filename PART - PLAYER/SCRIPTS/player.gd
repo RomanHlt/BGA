@@ -65,9 +65,10 @@ func stun(time):
 	"""Appeler depuis le joueur pour stun le boss"""
 	stuned = true
 	canMove = false
+	animation_component.get_stuned()
 	# Animation de stun ?
 	await get_tree().create_timer(time).timeout
-	canMove = true
+	animation_component.end_stun()
 	stuned = false
 
 func _heal(heals:int):
@@ -103,3 +104,7 @@ func _on_closer_checker_body_entered(body: Node2D) -> void:
 	canGoCloser = false
 func _on_closer_checker_body_exited(body: Node2D) -> void:
 	canGoCloser = true
+
+
+func _on_animation_component_awaken() -> void:
+	canMove = true #Attendre que l'animation soit finie avant de bouger
