@@ -10,7 +10,7 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @export var layer : int = 0
 
 @export_category("Boss specificity")
-@export var health_max = 10 			# Vie du boss
+@export var health_max = 5 			# Vie du boss
 @export var speed = 100
 # --
 # --
@@ -63,7 +63,7 @@ func _on_zone_de_détéction_body_entered(body: Node2D) -> void:
 
 func action():
 	"""Choisi l'action à faire en fonction de certains paramètres et de l'état (idle, attacking, ...) du boss."""
-	var actions = ["attack", "follow"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
+	var actions = ["attack"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
 	#var actions = ["attack", "flop"]# Ligne debug, reelle au dessus
 	if not target:
 		while "attack" in actions:
@@ -75,7 +75,6 @@ func action():
 		actions = ["Idle"]
 	
 	var action = pick_random_action(actions)
-	print(action)
 	if action == "attack":
 		attack()
 	if action == "follow":
@@ -105,6 +104,7 @@ func _takeDamages(damages):
 	else:
 		health = 0
 		# Retirer les dégats à la barre de vie du boss
+	if health == 0:
 		is_dead = true
 		dead()
 	evolve() # Au cas où on change de phase
@@ -157,7 +157,6 @@ func change_layer(l:int = 0):
 
 # - Attaques/capas -
 func dash():
-	print("dash")
 	await get_tree().create_timer(1).timeout
 	direction_x = sign(target.position.x - position.x)
 	dashing = true
@@ -169,7 +168,6 @@ func dash():
 
 
 func long():
-	print("Eboulement")
 	await get_tree().create_timer(3).timeout
 	for i in range(100):
 		var scene = preload("res://PART - OBJECTS/SCENES/dangerousrock.tscn")
@@ -214,8 +212,8 @@ func _on_melee_left_body_entered(body: Node2D) -> void:
 			$meleeLeft.collision_mask = 0
 			$meleeRight.collision_mask = 0
 		elif body.name =="TileMapLayer":
-			print(body, body.name)
 			stun(3)
+			self._takeDamages(1)
 			dashing = false
 			velocity.x = 0
 			$meleeLeft.collision_mask = 0
@@ -235,8 +233,8 @@ func _on_melee_right_body_entered(body: Node2D) -> void:
 			$meleeLeft.collision_mask = 0
 			$meleeRight.collision_mask = 0
 		elif body.name =="TileMapLayer":
-			print(body, body.name)
 			stun(3)
+			self._takeDamages(1)
 			dashing = false
 			velocity.x = 0
 			$meleeLeft.collision_mask = 0
