@@ -7,7 +7,6 @@ extends Node2D
 var is_falling:bool = false
 
 func handle_gravity(body: CharacterBody2D, delta: float)-> void:
-	print(body.velocity)
 	if not body.is_on_floor():
 		body.velocity.y += gravity * delta
 		

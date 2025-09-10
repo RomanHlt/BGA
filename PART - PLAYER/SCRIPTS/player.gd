@@ -33,6 +33,7 @@ func _ready():
 
 
 func _process(delta: float) -> void:
+	print(canGoCloser,canGoDeeper)
 	if stuned:
 		return
 	if input_component.get_fire():

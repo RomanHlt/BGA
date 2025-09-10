@@ -30,6 +30,7 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @onready var Layers							# Listes des layers
 # Variables d'état
 @onready var is_idle = true				# Ne fait rien
+@onready var is_sleeping = false		# dort
 @onready var is_attacking = false		# Attaque (Corps à corps, tir, magie)
 @onready var is_following = false		# Suit la cible
 @onready var is_using_capacity = false	# Utilise une capacité (Hors attaque : heal, tp, bouclier)
@@ -77,7 +78,7 @@ func action():
 		actions.erase(last_choice)
 		
 	if actions == []:
-		actions = ["Idle"]
+		actions = ["sleep"]
 	
 	var action = pick_random_action(actions)
 	last_choice = action
@@ -85,8 +86,8 @@ func action():
 		attack()
 	if action == "follow":
 		follow()
-	if action == "Idle":
-		idle()
+	if action == "sleep":
+		sleep()
 
 func pick_random_action(actions: Array) -> String:
 	"""Renvoie une action au hasard"""
@@ -127,9 +128,12 @@ func evolve():
 		health_max = 5 # Il va pas se heal au dessus de 5 s'il change de phase
 
 
-func idle():
+func sleep():
+	is_idle = false
+	is_sleeping = true
 	await get_tree().create_timer(randi_range(3, 5)).timeout
-
+	is_sleeping = false
+	is_idle = true
 
 func follow():
 	"""Pour follow un joueur en mouvement constant ça va se faire dans le physics process"""
@@ -306,8 +310,9 @@ func _physics_process(delta):
 
 # --- Animation ---
 func handle_animation():
-	"""Toutes les animations"""
-	pass
+	if is_attacking: $AnimationPlayer.play("DASH")
+	if is_sleeping: $AnimationPlayer.play("IDLE")
+	if stuned: $AnimationPlayer.play("STUNED")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	pass # Replace with function body.
