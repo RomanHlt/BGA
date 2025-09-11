@@ -95,7 +95,7 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if isOut:
 		$AnimationPlayer.play("Open")
-	if GlobalsOptions.controller:
+	if Main.get_node("Globals Options").controller:
 		$"Panel/Controller label".text = textController
 		$"Panel/Controller label".visible = true
 		$"Panel/Keyboard label".visible = false

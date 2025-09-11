@@ -11,6 +11,7 @@ var pathObstured:bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = $Player
+	Main.get_node("Globals Options").player = player
 	player.z_index = -spawnLayer
 	player.collision_mask = 2**spawnLayer
 	player.collision_layer = 2**spawnLayer

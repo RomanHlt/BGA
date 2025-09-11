@@ -19,6 +19,10 @@ var Musique_disable = false # Musique coupée
 var onMenu:bool = true
 var ingame = false # trues si le joueur est en jeu. (Mettre false à chaque fois que le joueur ne doit pas ouvrir le menu : cinématique/accueil/...)
 
+# Player
+var player : CharacterBody2D
+var godmod_active = false
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("controllerUsed"):
 		if !controller:
@@ -28,6 +32,26 @@ func _process(delta: float) -> void:
 		if controller:
 			emit_signal("controllerOff")
 		controller=false
+	if Input.is_action_just_pressed("GodMod"):
+		if godmod_active:
+			player.collision_layer = 2**player.get_parent().get_parent().currentPlayerLayer
+			player.collision_mask = 2**player.get_parent().get_parent().currentPlayerLayer
+			player.get_node("GravityComponent").gravity = 1200
+			godmod_active = false
+		else:
+			player.collision_layer = 0
+			player.collision_mask = 0
+			player.get_node("GravityComponent").gravity = 0
+			godmod_active = true
+	if godmod_active:
+		if Input.is_action_just_pressed("jump"):
+			player.velocity.y = -300
+		if Input.is_action_just_released("jump"):
+			player.velocity.y = 0
+		if Input.is_action_just_pressed("fast_fall"):
+			player.velocity.y = 300
+		if Input.is_action_just_released("fast_fall"):
+			player.velocity.y = 0
 """
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("menu") and ingame == true:

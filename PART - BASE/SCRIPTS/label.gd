@@ -9,7 +9,7 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	if GlobalsOptions.controller:
+	if Main.get_node("Globals Options").controller:
 		text = text_controller
 	else:
 		text = text_keyboard
