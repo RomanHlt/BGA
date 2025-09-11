@@ -51,6 +51,7 @@ func _ready() -> void:
 	collision_mask = 2**layer
 	$Above.collision_mask = 2**layer
 	$Below.collision_mask = 2**layer
+	get_tree().root.get_node("/root/Map/CanvasLayer/InGame/lifeController").play(str(health))
 	Layers = get_parent().get_parent().get_children().filter(func (x): if x.is_class("TileMapLayer"): return x) # Ah gros l'arbre généalogique de fou si cette ligne marche encore à la fin du jeu c'est un miracle
 	self.reparent(Layers[layer])
 	# Afficher la barre de vie du boss
@@ -109,10 +110,10 @@ func attack():
 func _takeDamages(damages):
 	if damages <= health:
 		health -= damages
-		# Retirer les dégats à la barre de vie du boss
+		get_tree().root.get_node("/root/Map/CanvasLayer/InGame/lifeController").play(str(health))
 	else:
 		health = 0
-		# Retirer les dégats à la barre de vie du boss
+		get_tree().root.get_node("/root/Map/CanvasLayer/InGame/lifeController").play(str(health))
 	if health == 0:
 		is_dead = true
 		dead()
