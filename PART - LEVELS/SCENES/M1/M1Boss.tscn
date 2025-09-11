@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://hn7aksqbcxxm"]
+[gd_scene load_steps=45 format=4 uid="uid://hn7aksqbcxxm"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_yowet"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_6gb05"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_gylic"]
 [ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://PART - UI/SCENES/menu.tscn" id="5_qhbax"]
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/SanglierBG.gd" id="6_237lq"]
-[ext_resource type="PackedScene" uid="uid://c3kgi3qbdejid" path="res://PART - OBJECTS/SCENES/Bumper.tscn" id="6_bnmkh"]
+[ext_resource type="PackedScene" path="res://PART - OBJECTS/SCENES/Bumper.tscn" id="6_bnmkh"]
 [ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="6_uyp4k"]
 [ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://PART - UI/SCENES/progrès.tscn" id="7_ai68r"]
 [ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="8_ota7m"]
@@ -15,6 +15,9 @@
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="10_1yd7c"]
 [ext_resource type="PackedScene" uid="uid://cf2hmbbroucx1" path="res://PART - OBJECTS/SCENES/TraversablePlatform.tscn" id="12_uta1g"]
 [ext_resource type="PackedScene" uid="uid://b7xo8lj0knoj2" path="res://PART - BOSS/SCENES/boss_cvl.tscn" id="13_26vgp"]
+[ext_resource type="Texture2D" uid="uid://chub1yc38lwvj" path="res://PART - LEVELS/ASSETS/lifecat.png" id="15_fxrm7"]
+[ext_resource type="FontFile" uid="uid://tlbpimwifcpa" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Regular.otf" id="16_7rkui"]
+[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="17_1dwkm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dlmjl"]
 texture = ExtResource("2_6gb05")
@@ -2062,6 +2065,197 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_yfp5m")
 sources/3 = SubResource("TileSetAtlasSource_5p5ar")
 
+[sub_resource type="Animation" id="Animation_fwkt5"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
+[sub_resource type="Animation" id="Animation_mnq3e"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_mr3vo"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hojvl"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_yxk4g"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="Animation" id="Animation_auksc"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_i2l73"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_lem03"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_quqet"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_ilkvq"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_bjeiu"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_18jug"]
+_data = {
+"0": SubResource("Animation_fwkt5"),
+"1": SubResource("Animation_mnq3e"),
+"10": SubResource("Animation_mr3vo"),
+"2": SubResource("Animation_hojvl"),
+"3": SubResource("Animation_yxk4g"),
+"4": SubResource("Animation_auksc"),
+"5": SubResource("Animation_i2l73"),
+"6": SubResource("Animation_lem03"),
+"7": SubResource("Animation_quqet"),
+"8": SubResource("Animation_ilkvq"),
+"9": SubResource("Animation_bjeiu")
+}
+
 [node name="Map" type="Node2D"]
 script = ExtResource("1_yowet")
 id = "1.4.0"
@@ -2145,6 +2339,83 @@ visible = false
 
 [node name="Ecran d\'accueil" parent="CanvasLayer" instance=ExtResource("9_reibo")]
 visible = false
+
+[node name="InGame" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="life" type="Sprite2D" parent="CanvasLayer/InGame"]
+texture_filter = 1
+position = Vector2(100, 125)
+scale = Vector2(6.0625, 6.0625)
+texture = ExtResource("15_fxrm7")
+hframes = 4
+vframes = 3
+frame = 10
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "CanvasLayer/InGame/lifeController",
+"slice": "",
+"source": "res://PART - MOBS/ASSETS/Drag/lifecat.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "676c20ca845714637710d5d75141f524"
+
+[node name="lifeController" type="AnimationPlayer" parent="CanvasLayer/InGame"]
+libraries = {
+"": SubResource("AnimationLibrary_18jug")
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/InGame"]
+layout_mode = 0
+offset_left = -83.0
+offset_top = 29.0
+offset_right = 142.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0.000643412, 0.218362, 1, 1)
+theme_override_fonts/font = ExtResource("16_7rkui")
+theme_override_font_sizes/font_size = 30
+text = "Croquette"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/InGame/Label"]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 50.0
+offset_right = 228.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0.129491, 0.365382, 1, 1)
+theme_override_fonts/font = ExtResource("17_1dwkm")
+theme_override_font_sizes/font_size = 15
+text = "Le méchant"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/InGame/Label"]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 87.0
+offset_right = 650.0
+offset_bottom = 203.0
+text = "Toujours pas réparé mais croquette reviendra encore plus fort promis !"
+autowrap_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_1yd7c")

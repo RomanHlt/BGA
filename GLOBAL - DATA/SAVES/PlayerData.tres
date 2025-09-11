@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://xditgcwicdmg"]
 
 [ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/playerStats.gd" id="1_udter"]
 

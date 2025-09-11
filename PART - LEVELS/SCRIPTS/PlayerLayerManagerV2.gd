@@ -58,8 +58,9 @@ func goToLayer(layer:int = 0):
 			player.layerJump = true
 			player.reparent(Layers[layer])
 			$AudioStreamPlayer.play()
-			player.collision_mask = 2**layer
-			player.collision_layer = 2**layer
+			if not Main.get_node("Globals Options").godmod_active:
+				player.collision_mask = 2**layer
+				player.collision_layer = 2**layer
 			player.z_index = -layer 
 			player.deeperChecker.collision_mask = 2**(layer+1)
 			player.closerChecker.collision_mask = 2**(layer-1)
@@ -69,8 +70,9 @@ func goToLayer(layer:int = 0):
 			player.layerJump = true
 			player.reparent(Layers[layer])
 			$AudioStreamPlayer.play()
-			player.collision_mask = 2**layer
-			player.collision_layer = 2**layer
+			if not Main.get_node("Globals Options").godmod_active:
+				player.collision_mask = 2**layer
+				player.collision_layer = 2**layer
 			player.deeperChecker.collision_mask = 2**(layer+1)
 			player.closerChecker.collision_mask = 2**(layer-1)
 			player.z_index = -layer

@@ -31,7 +31,12 @@ func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS # Le script ne sera pas afecté par les pauses.
 	
 	
-	if isHub:
+	if Main.get_node("Globals Options").full_access:
+		canAccess = true
+		if !canAccess: $AnimationPlayer.play("Closed")
+		else: $AnimationPlayer.play("Idle")
+		
+	elif isHub:
 		#Récupérer les infos enregistrées
 		var level = int(id_next_lvl.split(".")[1]) #On récupère le num du niveau
 		notes = PlayerDataSaver.WorldStats.compo[level]
@@ -48,6 +53,7 @@ func _ready() -> void:
 	else:
 		$AnimationPlayer.play("Idle")
 		canAccess=true
+	
 	
 	z_index = get_parent().z_index
 	collision_layer = 0
@@ -82,11 +88,9 @@ func _input(event: InputEvent) -> void:
 		$AnimationPlayer.play("Opening")
 		$AudioStreamPlayer.play()
 
-		print("Before: ",PlayerDataSaver.PlayerStats.last_lvl,"/",PlayerDataSaver.PlayerStats.current_lvl)
 
 		PlayerDataSaver.PlayerStats.last_lvl = PlayerDataSaver.PlayerStats.current_lvl
 		PlayerDataSaver.PlayerStats.current_lvl = id_next_lvl
-		print("After: ",PlayerDataSaver.PlayerStats.last_lvl,"/",PlayerDataSaver.PlayerStats.current_lvl)
 
 		if not isHub:PlayerDataSaver.WorldStats.level_completed(id_unlocked_lvl)
 		unique = false
