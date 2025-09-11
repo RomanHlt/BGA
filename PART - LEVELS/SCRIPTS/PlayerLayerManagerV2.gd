@@ -53,7 +53,7 @@ func goToLayer(layer:int = 0):
 		if PlayerDataSaver.PlayerStats.is_dead:
 			player.collision_layer = 2**layer
 		
-		elif player.canGoDeeper == true and currentPlayerLayer < layer:
+		if player.canGoDeeper == true and currentPlayerLayer < layer:
 			player.layerJump = true
 			player.reparent(Layers[layer])
 			$AudioStreamPlayer.play()
@@ -75,3 +75,5 @@ func goToLayer(layer:int = 0):
 			player.z_index = -layer
 			currentPlayerLayer=layer
 			player.position.y+=1 #Eviter que les checker ne detectent plus de collisions (patch de brute)
+	
+	

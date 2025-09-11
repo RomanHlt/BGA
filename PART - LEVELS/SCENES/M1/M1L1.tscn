@@ -1,15 +1,10 @@
-[gd_scene load_steps=31 format=4 uid="uid://c1mehavpp4x4w"]
+[gd_scene load_steps=26 format=4 uid="uid://c1mehavpp4x4w"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_1ucby"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_5idw8"]
 [ext_resource type="PackedScene" uid="uid://c1r0k08xd0ibm" path="res://PART - OBJECTS/SCENES/Note.tscn" id="3_11nbo"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_n1b2c"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_bufs7"]
-[ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://PART - UI/SCENES/menu.tscn" id="5_jc45o"]
-[ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="6_4ts45"]
-[ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://PART - UI/SCENES/progrès.tscn" id="7_a84tw"]
-[ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="8_yav5e"]
-[ext_resource type="PackedScene" uid="uid://5q55qevow2dp" path="res://PART - UI/SCENES/Menu_d'accueil.tscn" id="9_amkfv"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="11_gjoes"]
 [ext_resource type="Script" path="res://PART - LEVELS/SCENES/M1/scripts M1/zonetuto.gd" id="12_txy00"]
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="13_13kxi"]
@@ -2141,24 +2136,6 @@ script = ExtResource("4_bufs7")
 PLAYER = NodePath("../Player")
 playerOffset = Vector2(0, -80)
 metadata/_edit_lock_ = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 3
-
-[node name="Menu" parent="CanvasLayer" instance=ExtResource("5_jc45o")]
-visible = false
-
-[node name="Options" parent="CanvasLayer" instance=ExtResource("6_4ts45")]
-visible = false
-
-[node name="Progrès" parent="CanvasLayer" instance=ExtResource("7_a84tw")]
-visible = false
-
-[node name="Statistiques" parent="CanvasLayer" instance=ExtResource("8_yav5e")]
-visible = false
-
-[node name="Ecran d\'accueil" parent="CanvasLayer" instance=ExtResource("9_amkfv")]
-visible = false
 
 [node name="Zonetuto" type="Area2D" parent="."]
 position = Vector2(-10, 0)

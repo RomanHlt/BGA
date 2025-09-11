@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://b8l2yx17cpu62"]
+[gd_scene load_steps=28 format=4 uid="uid://b8l2yx17cpu62"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_0o0kq"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_e64i4"]
@@ -7,14 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://c1r0k08xd0ibm" path="res://PART - OBJECTS/SCENES/Note.tscn" id="4_8xouu"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_qna7o"]
 [ext_resource type="PackedScene" uid="uid://bog4f2sni7fny" path="res://PART - OBJECTS/SCENES/spike.tscn" id="5_oog17"]
-[ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://PART - UI/SCENES/menu.tscn" id="5_yrxqf"]
-[ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="6_fhg80"]
 [ext_resource type="PackedScene" uid="uid://cjf1qy228ipvq" path="res://PART - OBJECTS/SCENES/platform.tscn" id="6_vkp28"]
-[ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://PART - UI/SCENES/progrès.tscn" id="7_5otyq"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="7_eqv1d"]
 [ext_resource type="PackedScene" uid="uid://cydkw5arp1n4i" path="res://PART - OBJECTS/SCENES/heal.tscn" id="8_sinku"]
-[ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="8_tbncp"]
-[ext_resource type="PackedScene" uid="uid://5q55qevow2dp" path="res://PART - UI/SCENES/Menu_d'accueil.tscn" id="9_vl7g3"]
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="13_v6nq7"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="17_71ayi"]
 
@@ -2182,18 +2177,23 @@ layer = 1
 
 [node name="Spike4" parent="TileMapLayer2" instance=ExtResource("5_oog17")]
 position = Vector2(-344, 342)
+layer = 1
 
 [node name="Spike5" parent="TileMapLayer2" instance=ExtResource("5_oog17")]
 position = Vector2(-424, 342)
+layer = 1
 
 [node name="Spike6" parent="TileMapLayer2" instance=ExtResource("5_oog17")]
 position = Vector2(-504, 342)
+layer = 1
 
 [node name="Spike7" parent="TileMapLayer2" instance=ExtResource("5_oog17")]
 position = Vector2(-584, 342)
+layer = 1
 
 [node name="Spike8" parent="TileMapLayer2" instance=ExtResource("5_oog17")]
 position = Vector2(-664, 342)
+layer = 1
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 modulate = Color(0.305077, 0.305077, 0.305077, 1)
@@ -2222,24 +2222,6 @@ position_smoothing_speed = 15.0
 script = ExtResource("4_qna7o")
 PLAYER = NodePath("../Player")
 playerOffset = Vector2(0, -80)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 3
-
-[node name="Menu" parent="CanvasLayer" instance=ExtResource("5_yrxqf")]
-visible = false
-
-[node name="Options" parent="CanvasLayer" instance=ExtResource("6_fhg80")]
-visible = false
-
-[node name="Progrès" parent="CanvasLayer" instance=ExtResource("7_5otyq")]
-visible = false
-
-[node name="Statistiques" parent="CanvasLayer" instance=ExtResource("8_tbncp")]
-visible = false
-
-[node name="Ecran d\'accueil" parent="CanvasLayer" instance=ExtResource("9_vl7g3")]
-visible = false
 
 [node name="Label" parent="." instance=ExtResource("13_v6nq7")]
 offset_left = 882.0
