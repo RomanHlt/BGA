@@ -40,8 +40,10 @@ func _process(delta: float) -> void:
 	
 	if Main.get_node("Globals Options").onMenu:
 		$CheckBox.disabled = false
+		buttons = [$Back,$Controls,$CheckButton,$MusicButton2,$CheckBox]
 	else:
 		$CheckBox.disabled = true
+		buttons = [$Back,$Controls,$CheckButton,$MusicButton2]
 	
 	#actualisation de la musique
 	if visible:
