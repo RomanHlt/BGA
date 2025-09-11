@@ -21,6 +21,9 @@ var ingame = false # trues si le joueur est en jeu. (Mettre false à chaque fois
 
 # Player
 var player : CharacterBody2D
+
+# GodMod
+var is_dev = false
 var godmod_active = false
 
 func _process(delta: float) -> void:
@@ -33,16 +36,22 @@ func _process(delta: float) -> void:
 			emit_signal("controllerOff")
 		controller=false
 	if Input.is_action_just_pressed("GodMod"):
-		if godmod_active:
-			player.collision_layer = 2**player.get_parent().get_parent().currentPlayerLayer
-			player.collision_mask = 2**player.get_parent().get_parent().currentPlayerLayer
-			player.get_node("GravityComponent").gravity = 1200
-			godmod_active = false
+		if not is_dev:
+			var scene = preload("res://PART - BASE/SCENES/dev_mod.tscn")
+			var child = scene.instantiate()
+			Main.get_node("CanvasLayer").add_child(child)
 		else:
-			player.collision_layer = 0
-			player.collision_mask = 0
-			player.get_node("GravityComponent").gravity = 0
-			godmod_active = true
+			if godmod_active:
+				player.collision_layer = 2**player.get_parent().get_parent().currentPlayerLayer
+				player.collision_mask = 2**player.get_parent().get_parent().currentPlayerLayer
+				player.get_node("GravityComponent").gravity = 1200
+				godmod_active = false
+			else:
+				player.collision_layer = 0
+				player.collision_mask = 0
+				player.get_node("GravityComponent").gravity = 0
+				godmod_active = true
+
 	if godmod_active:
 		if Input.is_action_just_pressed("jump"):
 			player.velocity.y = -300
