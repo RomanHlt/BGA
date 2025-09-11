@@ -1,14 +1,9 @@
-[gd_scene load_steps=25 format=4 uid="uid://cewmedl0mcisq"]
+[gd_scene load_steps=20 format=4 uid="uid://cewmedl0mcisq"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_q1wir"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_0r3xd"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_tivg1"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_rh114"]
-[ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://PART - UI/SCENES/menu.tscn" id="5_fcial"]
-[ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="6_0dsga"]
-[ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://PART - UI/SCENES/progrès.tscn" id="7_8881l"]
-[ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="8_3cgyw"]
-[ext_resource type="PackedScene" uid="uid://5q55qevow2dp" path="res://PART - UI/SCENES/Menu_d'accueil.tscn" id="9_d3r6g"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="10_2580w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dlmjl"]
@@ -2100,24 +2095,6 @@ position_smoothing_speed = 15.0
 script = ExtResource("4_rh114")
 PLAYER = NodePath("../Player")
 playerOffset = Vector2(-190, -80)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 3
-
-[node name="Menu" parent="CanvasLayer" instance=ExtResource("5_fcial")]
-visible = false
-
-[node name="Options" parent="CanvasLayer" instance=ExtResource("6_0dsga")]
-visible = false
-
-[node name="Progrès" parent="CanvasLayer" instance=ExtResource("7_8881l")]
-visible = false
-
-[node name="Statistiques" parent="CanvasLayer" instance=ExtResource("8_3cgyw")]
-visible = false
-
-[node name="Ecran d\'accueil" parent="CanvasLayer" instance=ExtResource("9_d3r6g")]
-visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_2580w")
