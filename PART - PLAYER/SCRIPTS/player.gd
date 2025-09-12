@@ -21,6 +21,7 @@ var layerJump:bool = false
 var fire:bool = false
 var isRunning:bool = false
 var stuned = false
+var dashing = false
 @export var canMove:bool = true
 
 
@@ -43,6 +44,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	gravity_component.handle_gravity(self,delta)
 	if canMove:
+		if input_component.get_dash(): dash()#Euh jsp si c'est comme ça qu'il faut faire mais j'incruste ma ligne par ici
 		if PlayerDataSaver.SettingsStats.runAsToggle:
 			movement_component.handle_horizontal_movement(self, input_component.input_horizontal, isRunning)
 		else:
@@ -92,7 +94,15 @@ func _respawn():
 	await get_tree().create_timer(1).timeout
 	show()
 	PlayerDataSaver.PlayerStats.is_dead = false
-	
+
+func dash():
+	dashing = true
+	if velocity.x >= 0:
+		velocity.x += 1000
+	else:
+		velocity.x -= 1000
+	await get_tree().create_timer(1).timeout
+	dashing = false
 
 
 # Layer Checkers
@@ -109,3 +119,18 @@ func _on_closer_checker_body_exited(body: Node2D) -> void:
 
 func _on_animation_component_awaken() -> void:
 	canMove = true #Attendre que l'animation soit finie avant de bouger
+
+
+
+
+func _on_destroy_body_entered(body: Node2D) -> void:
+	if body is TileMapLayer and dashing:
+		var pos_in_tilemap: Vector2 = body.to_local(global_position)  # position locale du joueur dans le TileMap
+		var cell: Vector2i = body.local_to_map(pos_in_tilemap)
+		destroy_area(body,cell,1)
+
+func destroy_area(body, center: Vector2i, radius: int = 1) -> void:
+	for x in range(-radius, radius + 1):
+		for y in range(-radius, radius + 1):
+			var cell = center + Vector2i(x, y)
+			body.set_cell(cell, -1, Vector2i(-1, -1), 0)

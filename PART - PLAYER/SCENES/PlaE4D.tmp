@@ -259,7 +259,7 @@ radius = 4.0
 height = 12.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_stdyd"]
-size = Vector2(5, 9)
+size = Vector2(13.75, 15)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "advanced_jump_component", "animation_component", "weapon_component")]
 z_as_relative = false
@@ -272,6 +272,7 @@ advanced_jump_component = NodePath("AdvancedJumpComponent")
 animation_component = NodePath("AnimationComponent")
 weapon_component = NodePath("WeaponComponent")
 data = SubResource("Resource_ft5p8")
+canMove = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -376,7 +377,7 @@ stream = ExtResource("10_su3rv")
 [node name="Destroy" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Destroy"]
-position = Vector2(6.5, -6.5)
+position = Vector2(13, -7.5)
 shape = SubResource("RectangleShape2D_stdyd")
 debug_color = Color(0.75063, 0.458229, 0.0686009, 0.42)
 
