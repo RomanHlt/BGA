@@ -50,7 +50,6 @@ func _process(delta: float) -> void:
 		fire = true
 	if input_component.get_run() and PlayerDataSaver.SettingsStats.runAsToggle:
 		isRunning = !isRunning
-	if input_component.get_dash(): dash()#Euh jsp si c'est comme ça qu'il faut faire mais j'incruste ma ligne par ici
 
 
 func _physics_process(delta: float) -> void:
@@ -111,19 +110,6 @@ func _respawn():
 	show()
 	PlayerDataSaver.PlayerStats.is_dead = false
 
-
-func dash():
-	return
-	# j'annule tout
-	dashing = true
-	if $Sprite2D.flip_h:
-		velocity.x -= 1000
-	else:
-		velocity.x += 1000
-	await get_tree().create_timer(0.5).timeout
-	dashing = false
-
-
 # Layer Checkers
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	canGoDeeper = false
@@ -163,4 +149,3 @@ func destroy_area(body, center: Vector2i, radius: int = 1) -> void:
 		for y in range(-radius, radius + 1):
 			var cell = center + Vector2i(x, y)
 			body.set_cell(cell, -1, Vector2i(-1, -1), 0)
-			
