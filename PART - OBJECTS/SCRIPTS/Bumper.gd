@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 @export var Force:Vector2
+@export var layer:int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimationPlayer.speed_scale = 3
+	$Area2D.collision_mask = 2**layer
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

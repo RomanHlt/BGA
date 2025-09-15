@@ -15,8 +15,12 @@ signal pathObstrued
 
 var deeperChecker
 var closerChecker
+var closerRight
+var closerLeft
 var canGoDeeper:bool = true
 var canGoCloser:bool = true
+var behindLeft:bool = false
+var behindRight:bool = false
 var layerJump:bool = false
 var fire:bool = false
 var isRunning:bool = false
@@ -31,20 +35,27 @@ func _ready():
 	#setup the layer checkers
 	deeperChecker = $deeperChecker
 	closerChecker = $closerChecker
+	closerLeft = $CloserLeft
+	closerRight = $CloserRight
 
 
 func _process(delta: float) -> void:
+	var mat = get_parent().material
+	if mat and mat is ShaderMaterial:
+		mat.set_shader_parameter("player_pos", global_position)
+		
 	if stuned:
 		return
 	if input_component.get_fire():
 		fire = true
 	if input_component.get_run() and PlayerDataSaver.SettingsStats.runAsToggle:
 		isRunning = !isRunning
-	
+	if input_component.get_dash(): dash()#Euh jsp si c'est comme ça qu'il faut faire mais j'incruste ma ligne par ici
+
+
 func _physics_process(delta: float) -> void:
 	gravity_component.handle_gravity(self,delta)
 	if canMove:
-		if input_component.get_dash(): dash()#Euh jsp si c'est comme ça qu'il faut faire mais j'incruste ma ligne par ici
 		if PlayerDataSaver.SettingsStats.runAsToggle:
 			movement_component.handle_horizontal_movement(self, input_component.input_horizontal, isRunning)
 		else:
@@ -54,6 +65,7 @@ func _physics_process(delta: float) -> void:
 	animation_component.handle_move_animation(self, input_component.input_horizontal)
 	move_and_slide()
 
+
 func _takeDamages(damages:int):
 	if not PlayerDataSaver.PlayerStats.is_dead:
 		if damages > PlayerDataSaver.PlayerStats.health:
@@ -62,6 +74,7 @@ func _takeDamages(damages:int):
 		camera.shake()
 		if PlayerDataSaver.PlayerStats.health == 0:
 			_dead()
+
 
 func stun(time):
 	"""Appeler depuis le joueur pour stun le boss"""
@@ -73,10 +86,12 @@ func stun(time):
 	animation_component.end_stun()
 	stuned = false
 
+
 func _heal(heals:int):
 	if heals > 4 - PlayerDataSaver.PlayerStats.health: # 4 - la vie qu'on a déjà = ce qu'il nous manque
 		heals = 4 - PlayerDataSaver.PlayerStats.health
 	PlayerDataSaver.PlayerStats.health += heals
+
 
 func _dead():
 	PlayerDataSaver.PlayerStats.is_dead = true
@@ -87,6 +102,7 @@ func _dead():
 	await get_tree().create_timer(1.5).timeout
 	_respawn()
 
+
 func _respawn():
 	"""Est automatiquement appellée après la mort du joueur"""
 	PlayerDataSaver.PlayerStats.health = PlayerDataSaver.PlayerStats.max_health
@@ -95,13 +111,16 @@ func _respawn():
 	show()
 	PlayerDataSaver.PlayerStats.is_dead = false
 
+
 func dash():
+	return
+	# j'annule tout
 	dashing = true
-	if velocity.x >= 0:
-		velocity.x += 1000
-	else:
+	if $Sprite2D.flip_h:
 		velocity.x -= 1000
-	await get_tree().create_timer(1).timeout
+	else:
+		velocity.x += 1000
+	await get_tree().create_timer(0.5).timeout
 	dashing = false
 
 
@@ -110,11 +129,19 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	canGoDeeper = false
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	canGoDeeper = true
-	print(body.name)
 func _on_closer_checker_body_entered(body: Node2D) -> void:
 	canGoCloser = false
 func _on_closer_checker_body_exited(body: Node2D) -> void:
 	canGoCloser = true
+
+func _on_closer_left_body_entered(body: Node2D) -> void:
+	behindLeft = true
+func _on_closer_left_body_exited(body: Node2D) -> void:
+	behindLeft = false
+func _on_closer_right_body_entered(body: Node2D) -> void:
+	behindRight = true
+func _on_closer_right_body_exited(body: Node2D) -> void:
+	behindRight = false
 
 
 func _on_animation_component_awaken() -> void:
@@ -127,10 +154,13 @@ func _on_destroy_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer and dashing:
 		var pos_in_tilemap: Vector2 = body.to_local(global_position)  # position locale du joueur dans le TileMap
 		var cell: Vector2i = body.local_to_map(pos_in_tilemap)
+		print(cell)
 		destroy_area(body,cell,1)
+
 
 func destroy_area(body, center: Vector2i, radius: int = 1) -> void:
 	for x in range(-radius, radius + 1):
 		for y in range(-radius, radius + 1):
 			var cell = center + Vector2i(x, y)
 			body.set_cell(cell, -1, Vector2i(-1, -1), 0)
+			
