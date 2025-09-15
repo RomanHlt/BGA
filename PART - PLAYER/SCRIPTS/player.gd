@@ -89,6 +89,7 @@ func _respawn():
 	"""Est automatiquement appellée après la mort du joueur"""
 	PlayerDataSaver.PlayerStats.health = PlayerDataSaver.PlayerStats.max_health
 	get_tree().root.get_node("Map").findRightSpawn()
+	camera.exitBossMode()
 	await get_tree().create_timer(1).timeout
 	show()
 	PlayerDataSaver.PlayerStats.is_dead = false
@@ -100,7 +101,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	canGoDeeper = false
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	canGoDeeper = true
-	print(body.name)
 func _on_closer_checker_body_entered(body: Node2D) -> void:
 	canGoCloser = false
 func _on_closer_checker_body_exited(body: Node2D) -> void:

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dautqm73kaq6i"]
+
+[ext_resource type="Script" path="res://camera_target.gd" id="1_qn0c6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4d2sj"]
+radius = 100.0
+
+[node name="cameraTarget" type="Node2D"]
+script = ExtResource("1_qn0c6")
+offset = null
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_4d2sj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://hn7aksqbcxxm"]
+[gd_scene load_steps=41 format=4 uid="uid://hn7aksqbcxxm"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_yowet"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_6gb05"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_gylic"]
 [ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://PART - UI/SCENES/menu.tscn" id="5_qhbax"]
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/SanglierBG.gd" id="6_237lq"]
-[ext_resource type="PackedScene" path="res://PART - OBJECTS/SCENES/Bumper.tscn" id="6_bnmkh"]
+[ext_resource type="PackedScene" uid="uid://c3kgi3qbdejid" path="res://PART - OBJECTS/SCENES/Bumper.tscn" id="6_bnmkh"]
 [ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="6_uyp4k"]
 [ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://PART - UI/SCENES/progrès.tscn" id="7_ai68r"]
 [ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="8_ota7m"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ddfksuqkfrjub" path="res://PART - LEVELS/SCENES/M1/CVL_life.png" id="15_1fo0g"]
 [ext_resource type="FontFile" uid="uid://tlbpimwifcpa" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Regular.otf" id="16_7rkui"]
 [ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="17_1dwkm"]
+[ext_resource type="PackedScene" uid="uid://dautqm73kaq6i" path="res://camera_target.tscn" id="19_00tsk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dlmjl"]
 texture = ExtResource("2_6gb05")
@@ -2325,3 +2326,7 @@ horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_1yd7c")
+
+[node name="cameraTarget" parent="." instance=ExtResource("19_00tsk")]
+position = Vector2(1, -981)
+offset = Vector2(0, 0)
