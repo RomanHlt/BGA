@@ -1,9 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://dmnpm6nnnf4kg"]
+[gd_scene load_steps=37 format=3 uid="uid://dmnpm6nnnf4kg"]
 
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/player.gd" id="1_1sa3q"]
 [ext_resource type="Texture2D" uid="uid://ct1xirtcxkdkn" path="res://PART - PLAYER/SCENES/Bari_animated.png" id="2_3iiil"]
+[ext_resource type="Shader" path="res://PART - PLAYER/ASSETS/Shaders/Player.gdshader" id="3_k7kuk"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="3_l1u33"]
 [ext_resource type="PackedScene" uid="uid://ks173cmm3lsc" path="res://PART - COMPONENT/SCENES/input_component.tscn" id="4_03rw7"]
+[ext_resource type="Texture2D" uid="uid://byaysd7swnuys" path="res://PART - PLAYER/ASSETS/Shaders/White Circle.png" id="4_xm8aq"]
 [ext_resource type="PackedScene" uid="uid://bqnm2cty672tn" path="res://PART - COMPONENT/SCENES/movement_component.tscn" id="5_3jvcs"]
 [ext_resource type="PackedScene" uid="uid://dl03bv2s0el6b" path="res://PART - COMPONENT/SCENES/animation_component.tscn" id="7_blyk2"]
 [ext_resource type="PackedScene" uid="uid://codccv1hd133u" path="res://PART - COMPONENT/SCENES/advanced_jump_component.tscn" id="7_eboik"]
@@ -13,6 +15,10 @@
 
 [sub_resource type="Resource" id="Resource_ft5p8"]
 metadata/__load_path__ = "res://GLOBAL - DATA/SAVES/Data00.tres"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5k0iw"]
+shader = ExtResource("3_k7kuk")
+shader_parameter/radius_px = 200.0
 
 [sub_resource type="Animation" id="Animation_f3f3u"]
 length = 0.5
@@ -278,6 +284,11 @@ advanced_jump_component = NodePath("AdvancedJumpComponent")
 animation_component = NodePath("AnimationComponent")
 weapon_component = NodePath("WeaponComponent")
 data = SubResource("Resource_ft5p8")
+
+[node name="Shader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5k0iw")
+position = Vector2(0, -7)
+texture = ExtResource("4_xm8aq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
