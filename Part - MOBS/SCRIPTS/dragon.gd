@@ -11,6 +11,7 @@ var flame = preload("res://PART - MOBS/SCENES/dragon_flame.tscn")
 @onready var on_spike = false
 @onready var health = 10
 @onready var is_attacked = false
+@onready var is_stun = false
 
 func _ready() -> void:
 	collision_layer = 2**layer
@@ -47,10 +48,10 @@ func _process(delta: float) -> void:
 		elif is_sleeping: 
 			$DragonAnimator.play("Idle_left")
 			velocity[0] = 0 # Arreter son déplacement
-		elif lock:
+		elif lock and not is_stun:
 			velocity[0] = 0 # Arreter son déplacement
 			$DragonAnimator.stop()
-		else:
+		elif not is_stun:
 			var direction = sign(target.position[0] - self.position[0]) # direction = 1 ou -1 en fonction de la position du joueur par rapport au mob
 			velocity[0] = direction * 100 # Vitesse 100
 			$DragonAnimator.play("walk_left")
@@ -128,6 +129,7 @@ func _on_detectionright_body_exited(body: Node2D) -> void:
 func _on_detectionup_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		lock = true
+		await get_tree().create_timer(1).timeout
 		$DragonAnimator.play("Spikes")
 
 func _on_detectionup_body_exited(body: Node2D) -> void:
@@ -137,6 +139,7 @@ func _on_detectionup_body_exited(body: Node2D) -> void:
 func _on_spike_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		on_spike = true
+		await get_tree().create_timer(1).timeout
 		while on_spike:
 			body._takeDamages(1)
 			await get_tree().create_timer(1).timeout
@@ -162,3 +165,15 @@ func _on_dragon_animator_animation_finished(anim_name: StringName) -> void:
 		queue_free()
 	if anim_name == "ouch":
 		is_attacked = false
+
+
+func _on_below_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		is_stun = true
+		self.velocity.y = -500
+		if randi() % 2 == 1:
+			self.velocity.x = 600
+		else:
+			self.velocity.x = -600
+		await get_tree().create_timer(1).timeout
+		is_stun = false

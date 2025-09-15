@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SettingsData" load_steps=158 format=3]
+[gd_resource type="Resource" script_class="SettingsData" load_steps=159 format=3]
 
 [ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/SettigsStats.gd" id="1_7nyb7"]
 
@@ -131,6 +131,10 @@ pressed = true
 device = -1
 axis = 2
 axis_value = 1.0
+
+[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_wxstq"]
+device = -1
+button_index = 1
 
 [sub_resource type="InputEventKey" id="InputEventKey_ryjsv"]
 keycode = 90
@@ -647,6 +651,7 @@ inputs_events = {
 "GodMod": [SubResource("InputEventKey_iop14")],
 "closerLayer": [SubResource("InputEventKey_2nrg1"), SubResource("InputEventJoypadMotion_jbned")],
 "controllerUsed": [SubResource("InputEventJoypadButton_vm0y2"), SubResource("InputEventJoypadButton_ipv4i"), SubResource("InputEventJoypadButton_7y78y"), SubResource("InputEventJoypadButton_n66hc"), SubResource("InputEventJoypadButton_cplq2"), SubResource("InputEventJoypadMotion_gyv5t"), SubResource("InputEventJoypadButton_oc8gk"), SubResource("InputEventJoypadMotion_41cmu"), SubResource("InputEventJoypadMotion_stxjl"), SubResource("InputEventJoypadMotion_8nayg"), SubResource("InputEventJoypadMotion_grf4i"), SubResource("InputEventJoypadButton_1b7qr"), SubResource("InputEventJoypadButton_lf15o"), SubResource("InputEventJoypadButton_65k8e"), SubResource("InputEventJoypadButton_t24kq"), SubResource("InputEventJoypadButton_c4n3v"), SubResource("InputEventJoypadButton_h7ru5"), SubResource("InputEventJoypadMotion_rm4mt"), SubResource("InputEventJoypadMotion_xx54g"), SubResource("InputEventJoypadMotion_j2s1w"), SubResource("InputEventJoypadMotion_mpgjg"), SubResource("InputEventJoypadButton_jw68a"), SubResource("InputEventJoypadButton_ev13i"), SubResource("InputEventJoypadMotion_4xof0")],
+"dash": [SubResource("InputEventMouseButton_wxstq")],
 "deeperLayer": [SubResource("InputEventKey_ryjsv"), SubResource("InputEventJoypadMotion_38hbw")],
 "fastSave": [SubResource("InputEventKey_c0kk6")],
 "fast_fall": [SubResource("InputEventKey_fpmaq")],

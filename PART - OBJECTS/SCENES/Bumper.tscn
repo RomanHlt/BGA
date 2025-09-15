@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3kgi3qbdejid"]
+[gd_scene load_steps=7 format=3 uid="uid://digirtaqdarvr"]
 
 [ext_resource type="Texture2D" uid="uid://cs7pbvmdc7j2c" path="res://PART - OBJECTS/SCENES/Jumper.png" id="1_agnm6"]
 [ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/Bumper.gd" id="1_gqce7"]

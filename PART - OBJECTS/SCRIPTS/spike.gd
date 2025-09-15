@@ -7,7 +7,7 @@ extends Node2D
 @onready var on_area = false			# Le joueur est dans la zone de la spear (Zone rouge dans le debug)
 @onready var running = false			# La spear est entrain d'attaquer
 @onready var timer = 0.0				# Timer lancer au début de l'animation
-@onready var target : CharacterBody2D	# Cible (qui sera le joueur)
+@onready var targets : Array				# Cible(s)
 @onready var is_first_touch = true	# Première fois qu'on touche le joueur en montant (pour eviter de prendre un coup/frame)
 @onready var is_first_touch_drag = true
 
@@ -24,13 +24,14 @@ func _process(delta: float) -> void:
 		timer += delta * 1000.0  # convertit en ms
 
 	if timer >= 410.0 and timer <= 1700.0 and on_area and is_first_touch: # Si le spike est entrain de monter et que le joueur est dans la zone et que on l'a pas déjà touché
-		target._takeDamages(damage)
+		for target in targets:
+			target._takeDamages(damage)
 		is_first_touch = false
 		is_first_touch_drag = false
 
 func _on_dps_2_body_entered(body: Node2D) -> void:
 	if body.name == "Player" or body.name == "Dragon":
-		target = body	# Le joueur devient la cible
+		targets.append(body)
 		on_area = true	# Il rentre dans la zone
 		if not running:	# Si l'attaque n'est pas déjà en cours on attaque
 			running = true
@@ -41,6 +42,7 @@ func _on_dps_2_body_entered(body: Node2D) -> void:
 func _on_dps_2_body_exited(body: Node2D) -> void:
 	"""Zone rouge dans le debug"""
 	if body.name == "Player" or body.name == "Dragon":
+		targets.erase(body)
 		on_area = false
 		is_first_touch = true
 		is_first_touch_drag = true

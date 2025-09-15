@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dmnpm6nnnf4kg"]
+[gd_scene load_steps=32 format=3 uid="uid://dmnpm6nnnf4kg"]
 
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/player.gd" id="1_1sa3q"]
 [ext_resource type="Texture2D" uid="uid://ct1xirtcxkdkn" path="res://PART - PLAYER/SCENES/Bari_animated.png" id="2_3iiil"]
@@ -250,12 +250,6 @@ height = 14.0
 radius = 4.0
 height = 14.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3y8vv"]
-size = Vector2(3, 11)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_llr4i"]
-size = Vector2(3, 11)
-
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_8cjfj"]
 a = Vector2(2, -1)
 b = Vector2(-3, -1)
@@ -265,7 +259,7 @@ radius = 4.0
 height = 12.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_stdyd"]
-size = Vector2(5, 9)
+size = Vector2(13.75, 15)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "advanced_jump_component", "animation_component", "weapon_component")]
 z_as_relative = false
@@ -278,6 +272,7 @@ advanced_jump_component = NodePath("AdvancedJumpComponent")
 animation_component = NodePath("AnimationComponent")
 weapon_component = NodePath("WeaponComponent")
 data = SubResource("Resource_ft5p8")
+canMove = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -285,7 +280,7 @@ position = Vector2(-2, -11)
 texture = ExtResource("2_3iiil")
 hframes = 8
 vframes = 8
-frame = 39
+frame = 43
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -331,25 +326,6 @@ collision_mask = 0
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="closerChecker"]
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_504fc")
-
-[node name="CloserLeft" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CloserLeft"]
-position = Vector2(-6, -8)
-shape = SubResource("RectangleShape2D_3y8vv")
-debug_color = Color(0, 0, 0, 0.42)
-
-[node name="CloserRight" type="Area2D" parent="."]
-position = Vector2(13, 0)
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CloserRight"]
-position = Vector2(-6, -8)
-shape = SubResource("RectangleShape2D_llr4i")
-debug_color = Color(0, 0, 0, 0.42)
 
 [node name="GravityComponent" parent="." instance=ExtResource("3_l1u33")]
 gravity = 1200.0
@@ -399,10 +375,9 @@ stream = ExtResource("9_jnhds")
 stream = ExtResource("10_su3rv")
 
 [node name="Destroy" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Destroy"]
-position = Vector2(6.5, -6.5)
+position = Vector2(13, -7.5)
 shape = SubResource("RectangleShape2D_stdyd")
 debug_color = Color(0.75063, 0.458229, 0.0686009, 0.42)
 
@@ -411,9 +386,5 @@ debug_color = Color(0.75063, 0.458229, 0.0686009, 0.42)
 [connection signal="body_exited" from="deeperChecker" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="closerChecker" to="." method="_on_closer_checker_body_entered"]
 [connection signal="body_exited" from="closerChecker" to="." method="_on_closer_checker_body_exited"]
-[connection signal="body_entered" from="CloserLeft" to="." method="_on_closer_left_body_entered"]
-[connection signal="body_exited" from="CloserLeft" to="." method="_on_closer_left_body_exited"]
-[connection signal="body_entered" from="CloserRight" to="." method="_on_closer_right_body_entered"]
-[connection signal="body_exited" from="CloserRight" to="." method="_on_closer_right_body_exited"]
 [connection signal="awaken" from="AnimationComponent" to="." method="_on_animation_component_awaken"]
 [connection signal="body_entered" from="Destroy" to="." method="_on_destroy_body_entered"]

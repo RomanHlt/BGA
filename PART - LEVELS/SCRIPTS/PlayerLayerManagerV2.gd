@@ -34,8 +34,11 @@ func _process(delta: float) -> void:
 	elif player.canGoCloser and Input.is_action_just_pressed("closerLayer") and currentPlayerLayer > 0:
 		goToLayer(currentPlayerLayer-1)
 		
-	if Input.is_action_just_pressed("stats"):
-		print(player.deeperChecker.get_overlapping_areas())
+	if player.behindLeft and player.behindRight and not player.canGoCloser:
+		player.z_index = 0
+	else:
+		player.z_index = -currentPlayerLayer
+		
 
 func findRightSpawn():
 	var rightDoor:Door
@@ -64,6 +67,8 @@ func goToLayer(layer:int = 0):
 			player.z_index = -layer 
 			player.deeperChecker.collision_mask = 2**(layer+1)
 			player.closerChecker.collision_mask = 2**(layer-1)
+			player.closerRight.collision_mask = 2**(layer-1)
+			player.closerLeft.collision_mask = 2**(layer-1)
 			currentPlayerLayer=layer
 			player.position.y+=1 #Eviter que les checker ne detectent plus de collisions (patch de brute)
 		elif player.canGoCloser == true and currentPlayerLayer > layer:
@@ -75,8 +80,9 @@ func goToLayer(layer:int = 0):
 				player.collision_layer = 2**layer
 			player.deeperChecker.collision_mask = 2**(layer+1)
 			player.closerChecker.collision_mask = 2**(layer-1)
+			player.closerRight.collision_mask = 2**(layer-1)
+			player.closerLeft.collision_mask = 2**(layer-1)
 			player.z_index = -layer
 			currentPlayerLayer=layer
 			player.position.y+=1 #Eviter que les checker ne detectent plus de collisions (patch de brute)
-	
 	
