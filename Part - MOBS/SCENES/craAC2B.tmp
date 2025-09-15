@@ -1,0 +1,184 @@
+[gd_scene load_steps=14 format=3 uid="uid://1k7d857u5qep"]
+
+[ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/crapaud.gd" id="1_d71ty"]
+[ext_resource type="Texture2D" uid="uid://bqjg33ehp0ndf" path="res://PART - MOBS/SCENES/General Spritesheet.png" id="2_2vg3l"]
+[ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="9_2bn1m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cqaiv"]
+height = 28.0
+
+[sub_resource type="Animation" id="Animation_g5hnb"]
+length = 0.91
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13, 0.26, 0.39, 0.52, 0.65, 0.78),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [11, 12, 13, 14, 15, 16, 17]
+}
+
+[sub_resource type="Animation" id="Animation_4udmd"]
+length = 0.91
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13, 0.26, 0.39, 0.52, 0.65, 0.78),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29, 30]
+}
+
+[sub_resource type="Animation" id="Animation_1byxi"]
+length = 1.17
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13, 0.26, 0.39, 0.52, 0.65, 0.78, 0.91, 1.04),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 18, 19, 20, 21, 21, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Animation_krdmr"]
+length = 0.65
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13, 0.26, 0.39, 0.52),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 36, 38, 39]
+}
+
+[sub_resource type="Animation" id="Animation_c80o1"]
+length = 0.91
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13, 0.26, 0.39, 0.52, 0.65, 0.78),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_7b446"]
+length = 0.65
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13, 0.26, 0.39, 0.52),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [31, 32, 33, 34, 35]
+}
+
+[sub_resource type="Animation" id="Animation_xnjh7"]
+length = 0.52
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13, 0.26, 0.39),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8xeoh"]
+_data = {
+"attack": SubResource("Animation_g5hnb"),
+"chill": SubResource("Animation_4udmd"),
+"dead": SubResource("Animation_1byxi"),
+"hurt": SubResource("Animation_krdmr"),
+"idle": SubResource("Animation_c80o1"),
+"jump": SubResource("Animation_7b446"),
+"walk": SubResource("Animation_xnjh7")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nsdbw"]
+radius = 176.182
+
+[node name="crapaud" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent", "animator")]
+script = ExtResource("1_d71ty")
+speed = 50.0
+gravityComponent = NodePath("GravityComponent")
+animator = NodePath("AnimationPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_2vg3l")
+hframes = 7
+vframes = 6
+frame = 11
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Part - MOBS/ASSETS/Wandering Frog Pack/Aseprite Files/General Spritesheet.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "60246782d3d01e155df4e8f9010ae814"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
+shape = SubResource("CapsuleShape2D_cqaiv")
+
+[node name="GravityComponent" parent="." instance=ExtResource("9_2bn1m")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8xeoh")
+}
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="PlayerDetectionShape" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CircleShape2D_nsdbw")
+
+[node name="Pt_ref" type="Node2D" parent="."]
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
