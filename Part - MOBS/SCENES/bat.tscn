@@ -934,6 +934,7 @@ size = Vector2(11, 7)
 
 [node name="bat" type="CharacterBody2D"]
 script = ExtResource("1_ex5ae")
+SPEED = 100.0
 
 [node name="Fire" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7t2yo")
