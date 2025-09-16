@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bclxknnv5k8la"]
+[gd_scene load_steps=42 format=3 uid="uid://bclxknnv5k8la"]
 
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_stats.gd" id="1_mhxmp"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_progres.gd" id="2_vpaa8"]
@@ -8,12 +8,25 @@
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_accueilV2.gd" id="6_mcu2i"]
 [ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="7_spnxo"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_pause.gd" id="8_3p656"]
+[ext_resource type="Texture2D" uid="uid://b66sntcpi64ih" path="res://PART - BASE/ASSETS/Buttons/ControllerButton.png" id="8_ciay0"]
+[ext_resource type="Texture2D" uid="uid://bftnaddtxr804" path="res://PART - BASE/ASSETS/Buttons/ControllerButtonDown.png" id="9_6h412"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_settings.gd" id="9_lkxfd"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_controls.gd" id="10_uidfn"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/fondu.gd" id="11_pxm00"]
 [ext_resource type="Texture2D" uid="uid://ns1vlm7c873h" path="res://PART - BASE/ASSETS/Sprite-0002.png" id="12_xyxh5"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/color_rect.gd" id="13_q0hjm"]
 [ext_resource type="AudioStream" uid="uid://1nt8mu0m8ddr" path="res://PART - BASE/ASSETS/level-iv-339695.mp3" id="14_ii25n"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/virtual_controller.gd" id="14_q8g5t"]
+[ext_resource type="Texture2D" uid="uid://de14wiwvsf16m" path="res://PART - BASE/ASSETS/Buttons/rightButton.png" id="15_vd2si"]
+[ext_resource type="Texture2D" uid="uid://deakgu5cgtymn" path="res://PART - BASE/ASSETS/Buttons/rightButtonDown.png" id="16_6iwn4"]
+[ext_resource type="Texture2D" uid="uid://u6rts5aayyvb" path="res://PART - BASE/ASSETS/Buttons/upButton.png" id="19_1x408"]
+[ext_resource type="Texture2D" uid="uid://d1w0kbax31jgb" path="res://PART - BASE/ASSETS/Buttons/leftButton.png" id="19_qp4e5"]
+[ext_resource type="Texture2D" uid="uid://bg4hwuflk6egq" path="res://PART - BASE/ASSETS/Buttons/upButtonDown.png" id="20_5crrs"]
+[ext_resource type="Texture2D" uid="uid://b2jsgtl8ab50b" path="res://PART - BASE/ASSETS/Buttons/leftButtonDown.png" id="20_jugld"]
+[ext_resource type="Texture2D" uid="uid://l5r7gw6rkctp" path="res://PART - BASE/ASSETS/Buttons/deeperButton.png" id="23_qpc4c"]
+[ext_resource type="Texture2D" uid="uid://2f6dhfb8ebjh" path="res://PART - BASE/ASSETS/Buttons/deeperButtonDown.png" id="24_cdf6m"]
+[ext_resource type="Texture2D" uid="uid://cjasdx3m12vrg" path="res://PART - BASE/ASSETS/Buttons/closerButton.png" id="25_f4d58"]
+[ext_resource type="Texture2D" uid="uid://dh56ppqjehs0o" path="res://PART - BASE/ASSETS/Buttons/closerButtonDown.png" id="26_5f7ki"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hkfqr"]
 font_size = 32
@@ -211,7 +224,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="MenuAccueil" type="Control" parent="CanvasLayer/Menus"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -262,6 +274,19 @@ focus_neighbor_top = NodePath("../Settings")
 text = "New Game
 "
 
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer/Menus/MenuAccueil"]
+layout_mode = 0
+offset_left = 981.0
+offset_top = 499.0
+offset_right = 1021.0
+offset_bottom = 539.0
+scale = Vector2(2, 2)
+focus_mode = 0
+theme_override_icons/checked = ExtResource("9_6h412")
+theme_override_icons/unchecked = ExtResource("8_ciay0")
+text = "
+"
+
 [node name="MenuPause" type="Control" parent="CanvasLayer/Menus"]
 visible = false
 anchors_preset = 0
@@ -309,6 +334,7 @@ offset_bottom = 375.0
 text = "Quit"
 
 [node name="MenuSettings" type="Control" parent="CanvasLayer/Menus" node_paths=PackedStringArray("musicPlayer")]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -646,6 +672,68 @@ libraries = {
 "": SubResource("AnimationLibrary_ky16c")
 }
 
+[node name="VirtualController" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("14_q8g5t")
+
+[node name="right" type="TextureButton" parent="CanvasLayer/VirtualController"]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 499.0
+offset_right = 326.0
+offset_bottom = 531.0
+scale = Vector2(2, 2)
+focus_mode = 0
+texture_normal = ExtResource("15_vd2si")
+texture_pressed = ExtResource("16_6iwn4")
+
+[node name="up" type="TextureButton" parent="CanvasLayer/VirtualController"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 438.0
+offset_right = 247.0
+offset_bottom = 470.0
+scale = Vector2(2, 2)
+focus_mode = 0
+texture_normal = ExtResource("19_1x408")
+texture_pressed = ExtResource("20_5crrs")
+
+[node name="left" type="TextureButton" parent="CanvasLayer/VirtualController"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 499.0
+offset_right = 169.0
+offset_bottom = 531.0
+scale = Vector2(2, 2)
+focus_mode = 0
+texture_normal = ExtResource("19_qp4e5")
+texture_pressed = ExtResource("20_jugld")
+
+[node name="deeper" type="TextureButton" parent="CanvasLayer/VirtualController"]
+layout_mode = 0
+offset_left = 928.0
+offset_top = 507.0
+offset_right = 960.0
+offset_bottom = 539.0
+scale = Vector2(2, 2)
+focus_mode = 0
+texture_normal = ExtResource("23_qpc4c")
+texture_pressed = ExtResource("24_cdf6m")
+
+[node name="closer" type="TextureButton" parent="CanvasLayer/VirtualController"]
+layout_mode = 0
+offset_left = 838.0
+offset_top = 445.0
+offset_right = 870.0
+offset_bottom = 477.0
+scale = Vector2(2, 2)
+focus_mode = 0
+texture_normal = ExtResource("25_f4d58")
+texture_pressed = ExtResource("26_5f7ki")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_ii25n")
 volume_db = -20.0
@@ -664,6 +752,7 @@ autoplay = true
 [connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/Load" to="CanvasLayer/Menus/MenuAccueil" method="_on_load_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/Settings" to="CanvasLayer/Menus/MenuAccueil" method="_on_settings_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/NewGame" to="CanvasLayer/Menus/MenuAccueil" method="_on_new_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/CheckBox" to="CanvasLayer/Menus/MenuAccueil" method="_on_check_box_pressed"]
 [connection signal="SettingsOpened" from="CanvasLayer/Menus/MenuPause" to="CanvasLayer/Menus/MenuSettings" method="_on_menu_pause_settings_opened"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuPause/Resume" to="CanvasLayer/Menus/MenuPause" method="_on_resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuPause/Settings" to="CanvasLayer/Menus/MenuPause" method="_on_settings_pressed"]
@@ -691,3 +780,13 @@ autoplay = true
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/ControllerJump" to="CanvasLayer/Menus/MenuControls" method="_on_controller_jump_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Reset" to="CanvasLayer/Menus/MenuControls" method="_on_reset_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Run Toggle" to="CanvasLayer/Menus/MenuControls" method="_on_run_toggle_pressed"]
+[connection signal="button_down" from="CanvasLayer/VirtualController/right" to="CanvasLayer/VirtualController" method="_on_right_button_down"]
+[connection signal="button_up" from="CanvasLayer/VirtualController/right" to="CanvasLayer/VirtualController" method="_on_right_button_up"]
+[connection signal="button_down" from="CanvasLayer/VirtualController/up" to="CanvasLayer/VirtualController" method="_on_up_button_down"]
+[connection signal="button_up" from="CanvasLayer/VirtualController/up" to="CanvasLayer/VirtualController" method="_on_up_button_up"]
+[connection signal="button_down" from="CanvasLayer/VirtualController/left" to="CanvasLayer/VirtualController" method="_on_left_button_down"]
+[connection signal="button_up" from="CanvasLayer/VirtualController/left" to="CanvasLayer/VirtualController" method="_on_left_button_up"]
+[connection signal="button_down" from="CanvasLayer/VirtualController/deeper" to="CanvasLayer/VirtualController" method="_on_deeper_button_down"]
+[connection signal="button_up" from="CanvasLayer/VirtualController/deeper" to="CanvasLayer/VirtualController" method="_on_deeper_button_up"]
+[connection signal="button_down" from="CanvasLayer/VirtualController/closer" to="CanvasLayer/VirtualController" method="_on_closer_button_down"]
+[connection signal="button_up" from="CanvasLayer/VirtualController/closer" to="CanvasLayer/VirtualController" method="_on_closer_button_up"]

@@ -2,6 +2,7 @@ extends Control
 signal settingsFromMenu
 signal start
 var justArrived = false
+var virtualController:bool = false
 
 func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -74,3 +75,8 @@ func _on_menu_settings_settings_to_menu() -> void:
 	#Main.get_node("/root/Map/TileMapLayer/Player").position.y = 72
 	if Main.get_node("Globals Options").controller:
 		$Load.grab_focus()
+
+
+func _on_check_box_pressed() -> void:
+	virtualController = !virtualController
+	Main.get_node("CanvasLayer/VirtualController").visible = virtualController
