@@ -692,10 +692,10 @@ texture_pressed = ExtResource("16_6iwn4")
 
 [node name="up" type="TextureButton" parent="CanvasLayer/VirtualController"]
 layout_mode = 0
-offset_left = 215.0
-offset_top = 438.0
-offset_right = 247.0
-offset_bottom = 470.0
+offset_left = 849.0
+offset_top = 507.0
+offset_right = 881.0
+offset_bottom = 539.0
 scale = Vector2(2, 2)
 focus_mode = 0
 texture_normal = ExtResource("19_1x408")
@@ -714,10 +714,10 @@ texture_pressed = ExtResource("20_jugld")
 
 [node name="deeper" type="TextureButton" parent="CanvasLayer/VirtualController"]
 layout_mode = 0
-offset_left = 928.0
-offset_top = 507.0
-offset_right = 960.0
-offset_bottom = 539.0
+offset_left = 919.0
+offset_top = 470.0
+offset_right = 951.0
+offset_bottom = 502.0
 scale = Vector2(2, 2)
 focus_mode = 0
 texture_normal = ExtResource("23_qpc4c")
@@ -725,10 +725,10 @@ texture_pressed = ExtResource("24_cdf6m")
 
 [node name="closer" type="TextureButton" parent="CanvasLayer/VirtualController"]
 layout_mode = 0
-offset_left = 838.0
-offset_top = 445.0
-offset_right = 870.0
-offset_bottom = 477.0
+offset_left = 920.0
+offset_top = 543.0
+offset_right = 952.0
+offset_bottom = 575.0
 scale = Vector2(2, 2)
 focus_mode = 0
 texture_normal = ExtResource("25_f4d58")
