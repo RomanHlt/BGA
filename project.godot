@@ -13,6 +13,7 @@ config_version=5
 config/name="BGA"
 run/main_scene="res://PART - LEVELS/SCENES/M0/M0.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/show_image=false
 config/icon="res://GLOBAL - APP/icon.svg"
 
 [autoload]
@@ -27,7 +28,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/virtual_joystick/plugin.cfg")
 
 [input]
 
