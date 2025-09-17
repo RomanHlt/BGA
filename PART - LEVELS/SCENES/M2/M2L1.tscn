@@ -2708,6 +2708,7 @@ sources/0 = SubResource("TileSetAtlasSource_7hcx0")
 sources/3 = SubResource("TileSetAtlasSource_qgfii")
 
 [node name="Map" type="Node2D"]
+modulate = Color(0.313726, 0.45098, 0.654902, 1)
 script = ExtResource("1_i2k76")
 id = "2.0.0"
 

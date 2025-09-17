@@ -1,11 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://dmnpm6nnnf4kg"]
+[gd_scene load_steps=36 format=3 uid="uid://dmnpm6nnnf4kg"]
 
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/player.gd" id="1_1sa3q"]
 [ext_resource type="Texture2D" uid="uid://ct1xirtcxkdkn" path="res://PART - PLAYER/SCENES/Bari_animated.png" id="2_3iiil"]
-[ext_resource type="Shader" path="res://PART - PLAYER/ASSETS/Shaders/Player.gdshader" id="3_k7kuk"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="3_l1u33"]
 [ext_resource type="PackedScene" uid="uid://ks173cmm3lsc" path="res://PART - COMPONENT/SCENES/input_component.tscn" id="4_03rw7"]
-[ext_resource type="Texture2D" uid="uid://byaysd7swnuys" path="res://PART - PLAYER/ASSETS/Shaders/White Circle.png" id="4_xm8aq"]
 [ext_resource type="PackedScene" uid="uid://bqnm2cty672tn" path="res://PART - COMPONENT/SCENES/movement_component.tscn" id="5_3jvcs"]
 [ext_resource type="PackedScene" uid="uid://dl03bv2s0el6b" path="res://PART - COMPONENT/SCENES/animation_component.tscn" id="7_blyk2"]
 [ext_resource type="PackedScene" uid="uid://codccv1hd133u" path="res://PART - COMPONENT/SCENES/advanced_jump_component.tscn" id="7_eboik"]
@@ -16,9 +14,14 @@
 [sub_resource type="Resource" id="Resource_ft5p8"]
 metadata/__load_path__ = "res://GLOBAL - DATA/SAVES/Data00.tres"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5k0iw"]
-shader = ExtResource("3_k7kuk")
-shader_parameter/radius_px = 200.0
+[sub_resource type="Gradient" id="Gradient_mrp1t"]
+offsets = PackedFloat32Array(0, 0.708333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_urhr5"]
+gradient = SubResource("Gradient_mrp1t")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="Animation" id="Animation_f3f3u"]
 length = 0.5
@@ -257,10 +260,10 @@ radius = 4.0
 height = 14.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y8vv"]
-size = Vector2(3, 11)
+size = Vector2(2.5, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_llr4i"]
-size = Vector2(3, 11)
+size = Vector2(2.5, 2)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_8cjfj"]
 a = Vector2(2, -1)
@@ -284,11 +287,6 @@ advanced_jump_component = NodePath("AdvancedJumpComponent")
 animation_component = NodePath("AnimationComponent")
 weapon_component = NodePath("WeaponComponent")
 data = SubResource("Resource_ft5p8")
-
-[node name="Shader" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_5k0iw")
-position = Vector2(0, -7)
-texture = ExtResource("4_xm8aq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -317,6 +315,14 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://PART - PLAYER/ASSETS/Bari_animated.aseprite"
 }
 metadata/_aseprite_wizard_source_file_hash_ = "977cf3e2117f52c0e51a211c2b59d8fe"
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(2, 11)
+color = Color(0.470588, 0.34902, 0.160784, 1)
+energy = 4.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_urhr5")
+texture_scale = 6.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -348,7 +354,7 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CloserLeft"]
-position = Vector2(-6, -8)
+position = Vector2(-6.25, -8)
 shape = SubResource("RectangleShape2D_3y8vv")
 debug_color = Color(0, 0, 0, 0.42)
 
@@ -358,7 +364,7 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CloserRight"]
-position = Vector2(-6, -8)
+position = Vector2(-5.75, -8)
 shape = SubResource("RectangleShape2D_llr4i")
 debug_color = Color(0, 0, 0, 0.42)
 

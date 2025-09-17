@@ -1,9 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://b7xo8lj0knoj2"]
+[gd_scene load_steps=18 format=3 uid="uid://b7xo8lj0knoj2"]
 
 [ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss_cvl.gd" id="1_7si3l"]
 [ext_resource type="Texture2D" uid="uid://bmcetmmus7f4g" path="res://PART - BOSS/SCENES/CVL.png" id="2_jdfjt"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="3_3s4ka"]
 [ext_resource type="PackedScene" uid="uid://be2qn5hghb0f4" path="res://PART - COMPONENT/SCENES/jump_component.tscn" id="4_wamul"]
+
+[sub_resource type="Gradient" id="Gradient_sphv3"]
+offsets = PackedFloat32Array(0, 0.708333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ylibx"]
+gradient = SubResource("Gradient_sphv3")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="Animation" id="Animation_tmixk"]
 length = 0.1
@@ -121,6 +130,14 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://PART - BOSS/ASSETS/CVL.aseprite"
 }
 metadata/_aseprite_wizard_source_file_hash_ = "c461a10ce8bdda84afbff19a8203f0c6"
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(2, 11)
+color = Color(0.367896, 0.0896998, 0.3769, 1)
+energy = 4.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_ylibx")
+texture_scale = 8.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

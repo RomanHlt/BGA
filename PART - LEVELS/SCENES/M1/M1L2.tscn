@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_0o0kq"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_e64i4"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_cg2gl"]
-[ext_resource type="PackedScene" uid="uid://ct5ytlgut187g" path="res://PART - OBJECTS/SCENES/Spear.tscn" id="3_dgg32"]
-[ext_resource type="PackedScene" uid="uid://c1r0k08xd0ibm" path="res://PART - OBJECTS/SCENES/Note.tscn" id="4_8xouu"]
+[ext_resource type="PackedScene" uid="uid://ct5ytlgut187g" path="res://PART - OBJECTS/SCENES/Traps/Spear.tscn" id="3_dgg32"]
+[ext_resource type="PackedScene" uid="uid://c1r0k08xd0ibm" path="res://PART - OBJECTS/SCENES/Others/Note.tscn" id="4_8xouu"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_qna7o"]
-[ext_resource type="PackedScene" uid="uid://bog4f2sni7fny" path="res://PART - OBJECTS/SCENES/spike.tscn" id="5_oog17"]
-[ext_resource type="PackedScene" uid="uid://cjf1qy228ipvq" path="res://PART - OBJECTS/SCENES/platform.tscn" id="6_vkp28"]
+[ext_resource type="PackedScene" uid="uid://bog4f2sni7fny" path="res://PART - OBJECTS/SCENES/Traps/spike.tscn" id="5_oog17"]
+[ext_resource type="PackedScene" uid="uid://cjf1qy228ipvq" path="res://PART - OBJECTS/SCENES/Others/platform.tscn" id="6_vkp28"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="7_eqv1d"]
-[ext_resource type="PackedScene" uid="uid://cydkw5arp1n4i" path="res://PART - OBJECTS/SCENES/heal.tscn" id="8_sinku"]
+[ext_resource type="PackedScene" uid="uid://cydkw5arp1n4i" path="res://PART - OBJECTS/SCENES/Others/heal.tscn" id="8_sinku"]
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="13_v6nq7"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="17_71ayi"]
 
@@ -2065,6 +2065,7 @@ sources/0 = SubResource("TileSetAtlasSource_yfp5m")
 sources/3 = SubResource("TileSetAtlasSource_5p5ar")
 
 [node name="Map" type="Node2D"]
+modulate = Color(0.313726, 0.45098, 0.654902, 1)
 script = ExtResource("1_0o0kq")
 id = "1.2.0"
 

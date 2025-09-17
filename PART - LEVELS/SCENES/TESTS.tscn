@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_8b662"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_w1jw6"]
-[ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/tilemaplayertest.gd" id="3_8u36x"]
+[ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/TileMapLayerShaders.gd" id="3_8u36x"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_iymmh"]
-[ext_resource type="PackedScene" uid="uid://digirtaqdarvr" path="res://PART - OBJECTS/SCENES/Bumper.tscn" id="4_qdb7r"]
+[ext_resource type="PackedScene" uid="uid://digirtaqdarvr" path="res://PART - OBJECTS/SCENES/Traps/Bumper.tscn" id="4_qdb7r"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_yhaln"]
 [ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://PART - UI/SCENES/menu.tscn" id="5_aqt5b"]
 [ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="6_mtwr6"]

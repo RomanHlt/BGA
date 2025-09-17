@@ -37,7 +37,6 @@ func _ready():
 	closerChecker = $closerChecker
 	closerLeft = $CloserLeft
 	closerRight = $CloserRight
-	$Shader.material.set_shader_parameter("radius_px", 50)
 
 
 

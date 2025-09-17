@@ -15,6 +15,7 @@ func _ready() -> void:
 	player.z_index = -spawnLayer
 	player.collision_mask = 2**spawnLayer
 	player.collision_layer = 2**spawnLayer
+	player.get_node("Sprite2D").light_mask = 2**spawnLayer
 	Layers = get_children().filter(func (x): if x.is_class("TileMapLayer"): return x)
 	player.reparent(Layers[spawnLayer])
 	if !isHome:
@@ -69,6 +70,8 @@ func goToLayer(layer:int = 0):
 			player.closerChecker.collision_mask = 2**(layer-1)
 			player.closerRight.collision_mask = 2**(layer-1)
 			player.closerLeft.collision_mask = 2**(layer-1)
+			player.get_node("Sprite2D").light_mask = 2**layer
+			player.get_node("Sprite2D").get_node("PointLight2D").range_item_cull_mask = 2**layer
 			currentPlayerLayer=layer
 			player.position.y+=1 #Eviter que les checker ne detectent plus de collisions (patch de brute)
 		elif player.canGoCloser == true and currentPlayerLayer > layer:
@@ -82,6 +85,8 @@ func goToLayer(layer:int = 0):
 			player.closerChecker.collision_mask = 2**(layer-1)
 			player.closerRight.collision_mask = 2**(layer-1)
 			player.closerLeft.collision_mask = 2**(layer-1)
+			player.get_node("Sprite2D").light_mask = 2**layer
+			player.get_node("Sprite2D").get_node("PointLight2D").range_item_cull_mask = 2**layer
 			player.z_index = -layer
 			currentPlayerLayer=layer
 			player.position.y+=1 #Eviter que les checker ne detectent plus de collisions (patch de brute)

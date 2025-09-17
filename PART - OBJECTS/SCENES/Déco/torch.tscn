@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddkfyhcivyb8"]
+
+[ext_resource type="Texture2D" uid="uid://c7n1n6uxdmoxw" path="res://GLOBAL - APP/godot icon.svg" id="1_yxxhl"]
+
+[sub_resource type="Gradient" id="Gradient_jwd0d"]
+offsets = PackedFloat32Array(0, 0.75)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yk1e5"]
+gradient = SubResource("Gradient_jwd0d")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Torch" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.335938, 0.34375)
+texture = ExtResource("1_yxxhl")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_yk1e5")
+texture_scale = 4.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

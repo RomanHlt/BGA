@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_1ucby"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_5idw8"]
-[ext_resource type="PackedScene" uid="uid://c1r0k08xd0ibm" path="res://PART - OBJECTS/SCENES/Note.tscn" id="3_11nbo"]
+[ext_resource type="PackedScene" uid="uid://c1r0k08xd0ibm" path="res://PART - OBJECTS/SCENES/Others/Note.tscn" id="3_11nbo"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_n1b2c"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_bufs7"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="11_gjoes"]
@@ -2060,6 +2060,7 @@ sources/3 = SubResource("TileSetAtlasSource_5p5ar")
 size = Vector2(42, 433)
 
 [node name="Map" type="Node2D"]
+modulate = Color(0.313726, 0.45098, 0.654902, 1)
 script = ExtResource("1_1ucby")
 id = "1.1.0"
 metadata/_edit_lock_ = true

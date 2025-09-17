@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_qvps0"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_8ckhi"]
-[ext_resource type="PackedScene" uid="uid://bog4f2sni7fny" path="res://PART - OBJECTS/SCENES/spike.tscn" id="3_l0wy3"]
+[ext_resource type="PackedScene" uid="uid://bog4f2sni7fny" path="res://PART - OBJECTS/SCENES/Traps/spike.tscn" id="3_l0wy3"]
 [ext_resource type="PackedScene" uid="uid://bsmv04evs2r56" path="res://PART - MOBS/SCENES/dragon.tscn" id="4_g7eit"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="5_jcd8c"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="6_4x1jd"]
@@ -2254,6 +2254,7 @@ _data = {
 }
 
 [node name="Map" type="Node2D"]
+modulate = Color(0.313726, 0.45098, 0.654902, 1)
 script = ExtResource("1_qvps0")
 id = "0.1.0"
 
