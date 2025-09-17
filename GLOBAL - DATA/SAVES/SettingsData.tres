@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SettingsData" load_steps=158 format=3]
+[gd_resource type="Resource" script_class="SettingsData" load_steps=159 format=3]
 
 [ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/SettigsStats.gd" id="1_n0w3m"]
 
@@ -133,6 +133,12 @@ axis = 2
 axis_value = 1.0
 
 [sub_resource type="InputEventKey" id="InputEventKey_mwn73"]
+
+[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_wxstq"]
+device = -1
+button_index = 1
+
+[sub_resource type="InputEventKey" id="InputEventKey_ryjsv"]
 keycode = 90
 
 [sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_q1p2v"]
@@ -645,6 +651,7 @@ sonVolume = 100
 musicVolume = 100
 events = Array[StringName]([&"ui_accept", &"ui_select", &"ui_cancel", &"ui_focus_next", &"ui_focus_prev", &"ui_left", &"ui_right", &"ui_up", &"ui_down", &"ui_page_up", &"ui_page_down", &"ui_home", &"ui_end", &"ui_cut", &"ui_copy", &"ui_paste", &"ui_undo", &"ui_redo", &"ui_text_completion_query", &"ui_text_completion_accept", &"ui_text_completion_replace", &"ui_text_newline", &"ui_text_newline_blank", &"ui_text_newline_above", &"ui_text_indent", &"ui_text_dedent", &"ui_text_backspace", &"ui_text_backspace_word", &"ui_text_backspace_word.macos", &"ui_text_backspace_all_to_left", &"ui_text_backspace_all_to_left.macos", &"ui_text_delete", &"ui_text_delete_word", &"ui_text_delete_word.macos", &"ui_text_delete_all_to_right", &"ui_text_delete_all_to_right.macos", &"ui_text_caret_left", &"ui_text_caret_word_left", &"ui_text_caret_word_left.macos", &"ui_text_caret_right", &"ui_text_caret_word_right", &"ui_text_caret_word_right.macos", &"ui_text_caret_up", &"ui_text_caret_down", &"ui_text_caret_line_start", &"ui_text_caret_line_start.macos", &"ui_text_caret_line_end", &"ui_text_caret_line_end.macos", &"ui_text_caret_page_up", &"ui_text_caret_page_down", &"ui_text_caret_document_start", &"ui_text_caret_document_start.macos", &"ui_text_caret_document_end", &"ui_text_caret_document_end.macos", &"ui_text_caret_add_below", &"ui_text_caret_add_below.macos", &"ui_text_caret_add_above", &"ui_text_caret_add_above.macos", &"ui_text_scroll_up", &"ui_text_scroll_up.macos", &"ui_text_scroll_down", &"ui_text_scroll_down.macos", &"ui_text_select_all", &"ui_text_select_word_under_caret", &"ui_text_select_word_under_caret.macos", &"ui_text_add_selection_for_next_occurrence", &"ui_text_skip_selection_for_next_occurrence", &"ui_text_clear_carets_and_selection", &"ui_text_toggle_insert_mode", &"ui_menu", &"ui_text_submit", &"ui_graph_duplicate", &"ui_graph_delete", &"ui_filedialog_up_one_level", &"ui_filedialog_refresh", &"ui_filedialog_show_hidden", &"ui_swap_input_direction", &"move_right", &"move_left", &"jump", &"tp", &"run", &"fast_fall", &"deeperLayer", &"closerLayer", &"menu", &"stats", &"interagir", &"fire", &"fastSave", &"controllerUsed", &"keyboardUsed", &"ok", &"GodMod"])
 inputs_events = {
+
 "GodMod": [SubResource("InputEventKey_s0kmo")],
 "closerLayer": [SubResource("InputEventKey_vc56t"), SubResource("InputEventJoypadMotion_dqthv")],
 "controllerUsed": [SubResource("InputEventJoypadButton_8tkkm"), SubResource("InputEventJoypadButton_bykhu"), SubResource("InputEventJoypadButton_hmc2i"), SubResource("InputEventJoypadButton_fp7e0"), SubResource("InputEventJoypadButton_3025p"), SubResource("InputEventJoypadMotion_22l3l"), SubResource("InputEventJoypadButton_y1at0"), SubResource("InputEventJoypadMotion_eebir"), SubResource("InputEventJoypadMotion_d7kbk"), SubResource("InputEventJoypadMotion_ip5ne"), SubResource("InputEventJoypadMotion_g06rn"), SubResource("InputEventJoypadButton_jvi47"), SubResource("InputEventJoypadButton_ktl2r"), SubResource("InputEventJoypadButton_jg8cp"), SubResource("InputEventJoypadButton_djnvk"), SubResource("InputEventJoypadButton_li1m7"), SubResource("InputEventJoypadButton_h1cwc"), SubResource("InputEventJoypadMotion_t585y"), SubResource("InputEventJoypadMotion_xjunc"), SubResource("InputEventJoypadMotion_juu6l"), SubResource("InputEventJoypadMotion_siaar"), SubResource("InputEventJoypadButton_g4sul"), SubResource("InputEventJoypadButton_oim65"), SubResource("InputEventJoypadMotion_ec32l")],
@@ -687,6 +694,7 @@ inputs_events = {
 "ui_swap_input_direction": [SubResource("InputEventKey_fis10")],
 "ui_text_add_selection_for_next_occurrence": [SubResource("InputEventKey_a18yo")],
 "ui_text_backspace": [SubResource("InputEventKey_1vps8"), SubResource("InputEventKey_msra2")],
+
 "ui_text_backspace_all_to_left": [],
 "ui_text_backspace_all_to_left.macos": [SubResource("InputEventKey_x51r2")],
 "ui_text_backspace_word": [SubResource("InputEventKey_oqfeo")],
