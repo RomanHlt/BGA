@@ -3015,7 +3015,7 @@ sources/0 = SubResource("TileSetAtlasSource_dory2")
 sources/3 = SubResource("TileSetAtlasSource_u8ghp")
 
 [node name="Map" type="Node2D"]
-modulate = Color(0.376471, 0.435294, 0.537255, 1)
+modulate = Color(0.52549, 0.596078, 0.815686, 1)
 script = ExtResource("1_q1wir")
 id = "0.0.0"
 isHome = true
