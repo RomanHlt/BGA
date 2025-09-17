@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bclxknnv5k8la"]
+[gd_scene load_steps=44 format=3 uid="uid://bclxknnv5k8la"]
 
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_stats.gd" id="1_mhxmp"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_progres.gd" id="2_vpaa8"]
@@ -27,6 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://2f6dhfb8ebjh" path="res://PART - BASE/ASSETS/Buttons/deeperButtonDown.png" id="24_cdf6m"]
 [ext_resource type="Texture2D" uid="uid://cjasdx3m12vrg" path="res://PART - BASE/ASSETS/Buttons/closerButton.png" id="25_f4d58"]
 [ext_resource type="Texture2D" uid="uid://dh56ppqjehs0o" path="res://PART - BASE/ASSETS/Buttons/closerButtonDown.png" id="26_5f7ki"]
+[ext_resource type="Texture2D" uid="uid://dp6yoc3h81pq5" path="res://PART - BASE/ASSETS/Buttons/interactButton.png" id="27_ugl23"]
+[ext_resource type="Texture2D" uid="uid://b7kwr2dmygdgq" path="res://PART - BASE/ASSETS/Buttons/interactButtonDown.png" id="28_udacs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hkfqr"]
 font_size = 32
@@ -276,10 +278,10 @@ text = "New Game
 
 [node name="CheckBox" type="CheckBox" parent="CanvasLayer/Menus/MenuAccueil"]
 layout_mode = 0
-offset_left = 981.0
-offset_top = 499.0
-offset_right = 1021.0
-offset_bottom = 539.0
+offset_left = 1046.0
+offset_top = 15.0
+offset_right = 1086.0
+offset_bottom = 55.0
 scale = Vector2(2, 2)
 focus_mode = 0
 theme_override_icons/checked = ExtResource("9_6h412")
@@ -679,60 +681,41 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("14_q8g5t")
 
-[node name="right" type="TextureButton" parent="CanvasLayer/VirtualController"]
-layout_mode = 0
-offset_left = 294.0
-offset_top = 499.0
-offset_right = 326.0
-offset_bottom = 531.0
-scale = Vector2(2, 2)
-focus_mode = 0
-texture_normal = ExtResource("15_vd2si")
-texture_pressed = ExtResource("16_6iwn4")
+[node name="closer" type="TouchScreenButton" parent="CanvasLayer/VirtualController"]
+position = Vector2(997, 346)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("25_f4d58")
+texture_pressed = ExtResource("26_5f7ki")
 
-[node name="up" type="TextureButton" parent="CanvasLayer/VirtualController"]
-layout_mode = 0
-offset_left = 849.0
-offset_top = 507.0
-offset_right = 881.0
-offset_bottom = 539.0
-scale = Vector2(2, 2)
-focus_mode = 0
-texture_normal = ExtResource("19_1x408")
-texture_pressed = ExtResource("20_5crrs")
-
-[node name="left" type="TextureButton" parent="CanvasLayer/VirtualController"]
-layout_mode = 0
-offset_left = 137.0
-offset_top = 499.0
-offset_right = 169.0
-offset_bottom = 531.0
-scale = Vector2(2, 2)
-focus_mode = 0
-texture_normal = ExtResource("19_qp4e5")
-texture_pressed = ExtResource("20_jugld")
-
-[node name="deeper" type="TextureButton" parent="CanvasLayer/VirtualController"]
-layout_mode = 0
-offset_left = 919.0
-offset_top = 470.0
-offset_right = 951.0
-offset_bottom = 502.0
-scale = Vector2(2, 2)
-focus_mode = 0
+[node name="deeper" type="TouchScreenButton" parent="CanvasLayer/VirtualController"]
+position = Vector2(997, 457)
+scale = Vector2(3, 3)
 texture_normal = ExtResource("23_qpc4c")
 texture_pressed = ExtResource("24_cdf6m")
 
-[node name="closer" type="TextureButton" parent="CanvasLayer/VirtualController"]
-layout_mode = 0
-offset_left = 920.0
-offset_top = 543.0
-offset_right = 952.0
-offset_bottom = 575.0
-scale = Vector2(2, 2)
-focus_mode = 0
-texture_normal = ExtResource("25_f4d58")
-texture_pressed = ExtResource("26_5f7ki")
+[node name="right" type="TouchScreenButton" parent="CanvasLayer/VirtualController"]
+position = Vector2(247, 448)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("15_vd2si")
+texture_pressed = ExtResource("16_6iwn4")
+
+[node name="left" type="TouchScreenButton" parent="CanvasLayer/VirtualController"]
+position = Vector2(111, 448)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("19_qp4e5")
+texture_pressed = ExtResource("20_jugld")
+
+[node name="jump" type="TouchScreenButton" parent="CanvasLayer/VirtualController"]
+position = Vector2(861, 514)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("19_1x408")
+texture_pressed = ExtResource("20_5crrs")
+
+[node name="Interact" type="TouchScreenButton" parent="CanvasLayer/VirtualController"]
+position = Vector2(861, 403)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("27_ugl23")
+texture_pressed = ExtResource("28_udacs")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_ii25n")
@@ -780,13 +763,15 @@ autoplay = true
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/ControllerJump" to="CanvasLayer/Menus/MenuControls" method="_on_controller_jump_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Reset" to="CanvasLayer/Menus/MenuControls" method="_on_reset_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Run Toggle" to="CanvasLayer/Menus/MenuControls" method="_on_run_toggle_pressed"]
-[connection signal="button_down" from="CanvasLayer/VirtualController/right" to="CanvasLayer/VirtualController" method="_on_right_button_down"]
-[connection signal="button_up" from="CanvasLayer/VirtualController/right" to="CanvasLayer/VirtualController" method="_on_right_button_up"]
-[connection signal="button_down" from="CanvasLayer/VirtualController/up" to="CanvasLayer/VirtualController" method="_on_up_button_down"]
-[connection signal="button_up" from="CanvasLayer/VirtualController/up" to="CanvasLayer/VirtualController" method="_on_up_button_up"]
-[connection signal="button_down" from="CanvasLayer/VirtualController/left" to="CanvasLayer/VirtualController" method="_on_left_button_down"]
-[connection signal="button_up" from="CanvasLayer/VirtualController/left" to="CanvasLayer/VirtualController" method="_on_left_button_up"]
-[connection signal="button_down" from="CanvasLayer/VirtualController/deeper" to="CanvasLayer/VirtualController" method="_on_deeper_button_down"]
-[connection signal="button_up" from="CanvasLayer/VirtualController/deeper" to="CanvasLayer/VirtualController" method="_on_deeper_button_up"]
-[connection signal="button_down" from="CanvasLayer/VirtualController/closer" to="CanvasLayer/VirtualController" method="_on_closer_button_down"]
-[connection signal="button_up" from="CanvasLayer/VirtualController/closer" to="CanvasLayer/VirtualController" method="_on_closer_button_up"]
+[connection signal="pressed" from="CanvasLayer/VirtualController/closer" to="CanvasLayer/VirtualController" method="_on_closer_pressed"]
+[connection signal="released" from="CanvasLayer/VirtualController/closer" to="CanvasLayer/VirtualController" method="_on_closer_released"]
+[connection signal="pressed" from="CanvasLayer/VirtualController/deeper" to="CanvasLayer/VirtualController" method="_on_deeper_pressed"]
+[connection signal="released" from="CanvasLayer/VirtualController/deeper" to="CanvasLayer/VirtualController" method="_on_deeper_released"]
+[connection signal="pressed" from="CanvasLayer/VirtualController/right" to="CanvasLayer/VirtualController" method="_on_right_pressed"]
+[connection signal="released" from="CanvasLayer/VirtualController/right" to="CanvasLayer/VirtualController" method="_on_right_released"]
+[connection signal="pressed" from="CanvasLayer/VirtualController/left" to="CanvasLayer/VirtualController" method="_on_left_pressed"]
+[connection signal="released" from="CanvasLayer/VirtualController/left" to="CanvasLayer/VirtualController" method="_on_left_released"]
+[connection signal="pressed" from="CanvasLayer/VirtualController/jump" to="CanvasLayer/VirtualController" method="_on_jump_pressed"]
+[connection signal="released" from="CanvasLayer/VirtualController/jump" to="CanvasLayer/VirtualController" method="_on_jump_released"]
+[connection signal="pressed" from="CanvasLayer/VirtualController/Interact" to="CanvasLayer/VirtualController" method="_on_interact_pressed"]
+[connection signal="released" from="CanvasLayer/VirtualController/Interact" to="CanvasLayer/VirtualController" method="_on_interact_released"]
