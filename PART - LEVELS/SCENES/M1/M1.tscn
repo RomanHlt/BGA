@@ -2298,6 +2298,7 @@ sources/3 = SubResource("TileSetAtlasSource_5p5ar")
 size = Vector2(21, 79)
 
 [node name="Map" type="Node2D"]
+modulate = Color(0.376815, 0.433511, 0.537151, 1)
 position = Vector2(92, -40)
 script = ExtResource("1_kn1tx")
 id = "1.0.0"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dmnpm6nnnf4kg"]
+[gd_scene load_steps=40 format=3 uid="uid://dmnpm6nnnf4kg"]
 
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/player.gd" id="1_1sa3q"]
 [ext_resource type="Texture2D" uid="uid://ct1xirtcxkdkn" path="res://PART - PLAYER/SCENES/Bari_animated.png" id="2_3iiil"]
@@ -14,12 +14,30 @@
 [sub_resource type="Resource" id="Resource_ft5p8"]
 metadata/__load_path__ = "res://GLOBAL - DATA/SAVES/Data00.tres"
 
-[sub_resource type="Gradient" id="Gradient_mrp1t"]
+[sub_resource type="Gradient" id="Gradient_ttrv7"]
 offsets = PackedFloat32Array(0, 0.708333, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_urhr5"]
-gradient = SubResource("Gradient_mrp1t")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iyuui"]
+gradient = SubResource("Gradient_ttrv7")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_ghji3"]
+offsets = PackedFloat32Array(0, 0.708333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f8eck"]
+gradient = SubResource("Gradient_ghji3")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_eyibe"]
+offsets = PackedFloat32Array(0, 0.708333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t6c1q"]
+gradient = SubResource("Gradient_eyibe")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -294,7 +312,7 @@ position = Vector2(-2, -11)
 texture = ExtResource("2_3iiil")
 hframes = 8
 vframes = 8
-frame = 39
+frame = 43
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -316,14 +334,47 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "977cf3e2117f52c0e51a211c2b59d8fe"
 
-[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+[node name="PointLight2D0" type="PointLight2D" parent="Sprite2D"]
+visible = false
 position = Vector2(2, 4)
-color = Color(0.470588, 0.34902, 0.160784, 1)
-energy = 6.0
-range_item_cull_mask = 3
+color = Color(0.776471, 0.721569, 0.529412, 1)
+energy = 2.5
 shadow_enabled = true
-texture = SubResource("GradientTexture2D_urhr5")
-texture_scale = 6.0
+shadow_filter = 2
+shadow_filter_smooth = 1.0
+texture = SubResource("GradientTexture2D_iyuui")
+texture_scale = 4.0
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+modulate = Color(0.776471, 0.721569, 0.529412, 1)
+position = Vector2(2, 4)
+color = Color(0.776471, 0.721569, 0.529412, 1)
+energy = 10.0
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 1.0
+texture = SubResource("GradientTexture2D_iyuui")
+texture_scale = 4.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(2, 4)
+color = Color(0.776471, 0.721569, 0.529412, 1)
+energy = 5.0
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 1.0
+texture = SubResource("GradientTexture2D_f8eck")
+texture_scale = 4.0
+
+[node name="PointLight2D3" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(2, 4)
+color = Color(0.776471, 0.721569, 0.529412, 1)
+energy = 2.5
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 1.0
+texture = SubResource("GradientTexture2D_t6c1q")
+texture_scale = 4.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
