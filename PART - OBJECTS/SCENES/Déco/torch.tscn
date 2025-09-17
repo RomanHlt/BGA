@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddkfyhcivyb8"]
+
+[ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/torch.gd" id="1_nsb1i"]
+[ext_resource type="Texture2D" uid="uid://c7n1n6uxdmoxw" path="res://GLOBAL - APP/godot icon.svg" id="1_yxxhl"]
+
+[sub_resource type="Gradient" id="Gradient_jwd0d"]
+offsets = PackedFloat32Array(0, 0.75)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yk1e5"]
+gradient = SubResource("Gradient_jwd0d")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Torch" type="Node2D"]
+script = ExtResource("1_nsb1i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_yxxhl")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 4.0
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 5.0
+texture = SubResource("GradientTexture2D_yk1e5")
+texture_scale = 3.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

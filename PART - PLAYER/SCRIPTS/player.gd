@@ -44,6 +44,7 @@ func _ready():
 	closerRight = $CloserRight
 
 
+
 func _process(delta: float) -> void:
 	var mat = get_parent().material
 	if mat and mat is ShaderMaterial:

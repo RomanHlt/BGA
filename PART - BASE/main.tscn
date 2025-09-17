@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=52 format=3 uid="uid://bclxknnv5k8la"]
+
 
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_stats.gd" id="1_mhxmp"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_progres.gd" id="2_vpaa8"]
@@ -13,6 +15,7 @@
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_settings.gd" id="9_lkxfd"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_controls.gd" id="10_uidfn"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/fondu.gd" id="11_pxm00"]
+[ext_resource type="Texture2D" uid="uid://ccxx73413l321" path="res://PART - BASE/ASSETS/supprimecefichiersitulevois.png" id="12_4jjpx"]
 [ext_resource type="Texture2D" uid="uid://ns1vlm7c873h" path="res://PART - BASE/ASSETS/Sprite-0002.png" id="12_xyxh5"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/color_rect.gd" id="13_q0hjm"]
 [ext_resource type="AudioStream" uid="uid://1nt8mu0m8ddr" path="res://PART - BASE/ASSETS/level-iv-339695.mp3" id="14_ii25n"]
@@ -596,6 +599,10 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 script = ExtResource("11_pxm00")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Fondu"]
+position = Vector2(575, 323)
+texture = ExtResource("12_4jjpx")
 
 [node name="Background" type="ColorRect" parent="CanvasLayer/Fondu"]
 layout_mode = 1
