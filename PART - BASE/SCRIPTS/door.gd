@@ -58,6 +58,7 @@ func _ready() -> void:
 	z_index = get_parent().z_index
 	collision_layer = 0
 	collision_mask = 2**layer
+	$Sprite2D.light_mask = 2**(layer+1)
 	if sprite:
 		$Sprite2D.texture = sprite
 	else:
