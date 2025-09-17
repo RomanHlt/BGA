@@ -3012,7 +3012,7 @@ sources/3 = SubResource("TileSetAtlasSource_5aocy")
 size = Vector2(42, 433)
 
 [node name="Map" type="Node2D"]
-modulate = Color(0.376471, 0.435294, 0.537255, 1)
+modulate = Color(0.5258, 0.596483, 0.816154, 1)
 script = ExtResource("1_1ucby")
 id = "1.1.0"
 metadata/_edit_lock_ = true
