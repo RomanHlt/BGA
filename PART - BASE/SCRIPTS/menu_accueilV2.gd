@@ -31,6 +31,8 @@ func _process(delta: float) -> void:
 		justArrived = false
 
 func _on_load_pressed() -> void:
+	if virtualController:
+		PlayerDataSaver.SettingsStats.runAsToggle = true
 	if PlayerDataSaver.dataExist:
 		print("Load")
 		var lvl = PlayerDataSaver.PlayerStats.current_lvl
@@ -55,6 +57,9 @@ func _on_settings_pressed() -> void:
 """
 
 func _on_new_game_pressed() -> void:
+	if virtualController:
+		PlayerDataSaver.SettingsStats.runAsToggle = true
+
 	PlayerDataSaver.dataExist = true
 	PlayerDataSaver.PlayerStats = PlayerData.new()
 	PlayerDataSaver.WorldStats = WorldData.new()
