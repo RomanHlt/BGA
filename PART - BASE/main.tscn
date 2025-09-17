@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bclxknnv5k8la"]
+[gd_scene load_steps=52 format=3 uid="uid://bclxknnv5k8la"]
 
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_stats.gd" id="1_mhxmp"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_progres.gd" id="2_vpaa8"]
@@ -20,7 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://de14wiwvsf16m" path="res://PART - BASE/ASSETS/Buttons/rightButton.png" id="15_vd2si"]
 [ext_resource type="Texture2D" uid="uid://deakgu5cgtymn" path="res://PART - BASE/ASSETS/Buttons/rightButtonDown.png" id="16_6iwn4"]
 [ext_resource type="Texture2D" uid="uid://u6rts5aayyvb" path="res://PART - BASE/ASSETS/Buttons/upButton.png" id="19_1x408"]
+[ext_resource type="Texture2D" uid="uid://xetvk3ywu205" path="res://PART - BASE/ASSETS/Buttons/runButton.png" id="19_f0slm"]
 [ext_resource type="Texture2D" uid="uid://d1w0kbax31jgb" path="res://PART - BASE/ASSETS/Buttons/leftButton.png" id="19_qp4e5"]
+[ext_resource type="Texture2D" uid="uid://bqg8mqvc7ewgx" path="res://PART - BASE/ASSETS/Buttons/runButtonDown.png" id="20_2ww6i"]
 [ext_resource type="Texture2D" uid="uid://bg4hwuflk6egq" path="res://PART - BASE/ASSETS/Buttons/upButtonDown.png" id="20_5crrs"]
 [ext_resource type="Texture2D" uid="uid://b2jsgtl8ab50b" path="res://PART - BASE/ASSETS/Buttons/leftButtonDown.png" id="20_jugld"]
 [ext_resource type="Texture2D" uid="uid://l5r7gw6rkctp" path="res://PART - BASE/ASSETS/Buttons/deeperButton.png" id="23_qpc4c"]
@@ -157,6 +159,24 @@ _data = {
 "Dead": SubResource("Animation_mt16m"),
 "RESET": SubResource("Animation_wtfy6")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ol1mu"]
+size = Vector2(40, 30)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sf5rr"]
+radius = 15.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opsdv"]
+size = Vector2(40, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sn18e"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7g5je"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1iuet"]
+size = Vector2(30, 30)
 
 [node name="MAIN" type="Control"]
 process_mode = 3
@@ -675,6 +695,7 @@ libraries = {
 }
 
 [node name="VirtualController" type="Control" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.635294)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -682,40 +703,78 @@ offset_bottom = 40.0
 script = ExtResource("14_q8g5t")
 
 [node name="closer" type="TouchScreenButton" parent="CanvasLayer/VirtualController"]
-position = Vector2(997, 346)
+position = Vector2(1004, 510)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("25_f4d58")
 texture_pressed = ExtResource("26_5f7ki")
+shape = SubResource("RectangleShape2D_ol1mu")
+passby_press = true
+visibility_mode = 1
+
+[node name="runToggle" type="TouchScreenButton" parent="CanvasLayer/VirtualController"]
+position = Vector2(30, 370)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("19_f0slm")
+texture_pressed = ExtResource("20_2ww6i")
+shape = SubResource("CircleShape2D_sf5rr")
+visibility_mode = 1
 
 [node name="deeper" type="TouchScreenButton" parent="CanvasLayer/VirtualController"]
-position = Vector2(997, 457)
+position = Vector2(1004, 310)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("23_qpc4c")
 texture_pressed = ExtResource("24_cdf6m")
+shape = SubResource("RectangleShape2D_opsdv")
+passby_press = true
+visibility_mode = 1
 
 [node name="right" type="TouchScreenButton" parent="CanvasLayer/VirtualController"]
 position = Vector2(247, 448)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("15_vd2si")
 texture_pressed = ExtResource("16_6iwn4")
+shape = SubResource("RectangleShape2D_sn18e")
+passby_press = true
+visibility_mode = 1
 
 [node name="left" type="TouchScreenButton" parent="CanvasLayer/VirtualController"]
 position = Vector2(111, 448)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("19_qp4e5")
 texture_pressed = ExtResource("20_jugld")
+shape = SubResource("RectangleShape2D_7g5je")
+passby_press = true
+visibility_mode = 1
 
 [node name="jump" type="TouchScreenButton" parent="CanvasLayer/VirtualController"]
-position = Vector2(861, 514)
+position = Vector2(1004, 410)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("19_1x408")
 texture_pressed = ExtResource("20_5crrs")
+shape = SubResource("RectangleShape2D_1iuet")
+passby_press = true
+visibility_mode = 1
 
 [node name="Interact" type="TouchScreenButton" parent="CanvasLayer/VirtualController"]
-position = Vector2(861, 403)
+position = Vector2(904, 410)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("27_ugl23")
 texture_pressed = ExtResource("28_udacs")
+passby_press = true
+visibility_mode = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/VirtualController"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 562.0
+offset_top = 33.0
+offset_right = 597.0
+offset_bottom = 64.0
+grow_horizontal = 2
+focus_mode = 0
+text = "|||"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_ii25n")
@@ -765,6 +824,8 @@ autoplay = true
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Run Toggle" to="CanvasLayer/Menus/MenuControls" method="_on_run_toggle_pressed"]
 [connection signal="pressed" from="CanvasLayer/VirtualController/closer" to="CanvasLayer/VirtualController" method="_on_closer_pressed"]
 [connection signal="released" from="CanvasLayer/VirtualController/closer" to="CanvasLayer/VirtualController" method="_on_closer_released"]
+[connection signal="pressed" from="CanvasLayer/VirtualController/runToggle" to="CanvasLayer/VirtualController" method="_on_run_toggle_pressed"]
+[connection signal="released" from="CanvasLayer/VirtualController/runToggle" to="CanvasLayer/VirtualController" method="_on_run_toggle_released"]
 [connection signal="pressed" from="CanvasLayer/VirtualController/deeper" to="CanvasLayer/VirtualController" method="_on_deeper_pressed"]
 [connection signal="released" from="CanvasLayer/VirtualController/deeper" to="CanvasLayer/VirtualController" method="_on_deeper_released"]
 [connection signal="pressed" from="CanvasLayer/VirtualController/right" to="CanvasLayer/VirtualController" method="_on_right_pressed"]
@@ -775,3 +836,5 @@ autoplay = true
 [connection signal="released" from="CanvasLayer/VirtualController/jump" to="CanvasLayer/VirtualController" method="_on_jump_released"]
 [connection signal="pressed" from="CanvasLayer/VirtualController/Interact" to="CanvasLayer/VirtualController" method="_on_interact_pressed"]
 [connection signal="released" from="CanvasLayer/VirtualController/Interact" to="CanvasLayer/VirtualController" method="_on_interact_released"]
+[connection signal="button_down" from="CanvasLayer/VirtualController/Button" to="CanvasLayer/VirtualController" method="_on_button_button_down"]
+[connection signal="button_up" from="CanvasLayer/VirtualController/Button" to="CanvasLayer/VirtualController" method="_on_button_button_up"]

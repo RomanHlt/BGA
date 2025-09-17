@@ -1,11 +1,10 @@
 extends Control
 
 var a:InputEventAction
+var run:bool
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	hide()
-	a = InputEventAction.new()
-	a.action = "interact"
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -59,3 +58,19 @@ func _on_interact_pressed() -> void:
 
 func _on_interact_released() -> void:
 	Input.action_release("interagir")
+
+
+func _on_button_button_down() -> void:
+	if Main.get_node("CanvasLayer/Menus/MenuAccueil").visible == false and Main.get_node("CanvasLayer/Menus/MenuPause").visible == false:
+		Input.action_press("menu")
+
+func _on_button_button_up() -> void:
+	Input.action_release("menu")
+
+
+func _on_run_toggle_pressed() -> void:
+	run = !run
+	Input.action_press("run")
+
+func _on_run_toggle_released() -> void:
+	Input.action_release("run")

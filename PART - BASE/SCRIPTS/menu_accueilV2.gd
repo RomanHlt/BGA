@@ -6,6 +6,14 @@ var virtualController:bool = false
 
 func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
+	if DisplayServer.is_touchscreen_available():
+		$CheckBox.show()
+		virtualController = true
+		PlayerDataSaver.SettingsStats.runAsToggle = true
+		Main.get_node("CanvasLayer/VirtualController").show()
+	else:
+		$CheckBox.hide()
+		Main.get_node("CanvasLayer/VirtualController").hide()
 
 
 func _process(delta: float) -> void:
@@ -79,4 +87,5 @@ func _on_menu_settings_settings_to_menu() -> void:
 
 func _on_check_box_pressed() -> void:
 	virtualController = !virtualController
+	PlayerDataSaver.SettingsStats.runAsToggle = virtualController
 	Main.get_node("CanvasLayer/VirtualController").visible = virtualController
