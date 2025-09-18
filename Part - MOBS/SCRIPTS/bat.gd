@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export_category("Nodes")
 @export var layer:int = 0
 @export var SPEED : float
+@export var health_max : int = 3
 var animatedSprite:AnimatedSprite2D
 var map
 var direction: Vector2
@@ -75,3 +76,20 @@ func _animation():
 				animatedSprite.play("chasing")
 			elif is_attacking:
 				animatedSprite.play("attack")
+
+
+func _on_taking_damage_area_entered(area: Area2D) -> void:
+	if area.name == "PlayerDealingDamageZone":
+		_takes_damages()
+
+
+func _takes_damages():
+	pass
+
+
+func _death():
+	if dead == true:
+		animatedSprite.play("death")
+		collision_layer = 0
+		await (animatedSprite.animation_finished)
+		self.queue_free()

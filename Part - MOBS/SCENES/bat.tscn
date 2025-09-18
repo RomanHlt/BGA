@@ -145,7 +145,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e8pgl")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 7.0
 }, {
@@ -443,7 +443,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l8fbg")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 7.0
 }, {
@@ -592,7 +592,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xq6nt")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 7.0
 }, {
@@ -741,7 +741,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pnmbc")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 7.0
 }, {
@@ -890,7 +890,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ak5u0")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 7.0
 }, {
@@ -938,27 +938,27 @@ SPEED = 100.0
 
 [node name="Fire" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7t2yo")
-animation = &"attack"
+animation = &"death"
 
 [node name="Albino" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1sj5l")
-animation = &"attack"
+animation = &"death"
 
 [node name="Root" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nvqm8")
-animation = &"attack"
+animation = &"death"
 
 [node name="Standart" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_102fq")
-animation = &"attack"
+animation = &"death"
 
 [node name="Vampire" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rqruc")
-animation = &"attack"
+animation = &"death"
 
 [node name="Zombie" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qm0vy")
-animation = &"sleeping"
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)
