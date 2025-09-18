@@ -186,6 +186,9 @@ func dash():
 
 
 func long():
+	$AnimationPlayer.play("Eboulement")
+	await get_tree().create_timer(0.5).timeout
+	target.camera.shake(10)
 	for i in range(100):
 		var scene = preload("res://PART - OBJECTS/SCENES/Traps/dangerousrock.tscn")
 		var child = scene.instantiate()
@@ -194,6 +197,8 @@ func long():
 		if target.collision_layer != 1:
 			get_parent().get_parent().get_node("TileMapLayer2").ejectPlayer()
 		get_parent().get_parent().get_node("TileMapLayer2").roll()
+
+	
 	
 func stop_follow():
 	is_following = false
@@ -318,26 +323,21 @@ func handle_animation():
 	if direction_x and is_idle:
 		$Sprite2D.flip_h = sign(self.position.x) == -1
 	if is_attacking:
-		await get_tree().create_timer(1).timeout 
-		if dashing: 
+		if dashing:
 			$AnimationPlayer.play("Dash")
-		else: 
-			$AnimationPlayer.play("Eboulement")
-			target.camera.shake()
-			await get_tree().create_timer(0.74).timeout 
-			$AnimationPlayer.play("Eboulement")
-			target.camera.shake()
-			await get_tree().create_timer(0.74).timeout 
-			$AnimationPlayer.play("Eboulement")
-			target.camera.shake()
 	if is_sleeping: $AnimationPlayer.play("Idle")
-	
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Eboulement":
 		incr_eboulement += 1
-	if incr_eboulement == 3:
-		incr_eboulement = 0
-		is_attacking = false
-		is_idle = true
-		
+		print(incr_eboulement)
+		if incr_eboulement < 3:
+			$AnimationPlayer.stop()
+			$AnimationPlayer.play("Eboulement")
+			await get_tree().create_timer(0.5).timeout
+			target.camera.shake(10)
+		else :
+			is_attacking = false
+			is_idle = true
+			incr_eboulement = 0
+			
