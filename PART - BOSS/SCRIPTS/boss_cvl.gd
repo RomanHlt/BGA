@@ -187,7 +187,7 @@ func dash():
 func long():
 	await get_tree().create_timer(3).timeout
 	for i in range(100):
-		var scene = preload("res://PART - OBJECTS/SCENES/dangerousrock.tscn")
+		var scene = preload("res://PART - OBJECTS/SCENES/Traps/dangerousrock.tscn")
 		var child = scene.instantiate()
 		child.position = Vector2(randi_range(-1012, 1025), randi_range(-2324, -1416))
 		get_parent().get_parent().add_child(child)

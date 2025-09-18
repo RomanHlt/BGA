@@ -81,7 +81,6 @@ func _on_globals_options_controller_off() -> void:
 			b.release_focus()
 
 #detection des autres menus
-
 func _on_menu_settings_settings_to_menu() -> void:
 	show()
 	#Main.get_node("/root/Map/TileMapLayer/Player").position.x = 187
