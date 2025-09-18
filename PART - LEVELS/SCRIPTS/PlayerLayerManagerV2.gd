@@ -4,6 +4,7 @@ extends Node2D
 @export var id : String
 @export var spawnLayer:int = 0
 @export var isHome:bool = false
+@export var isBoss : bool = false
 var Layers:Array
 var player:CharacterBody2D
 var currentPlayerLayer:int = spawnLayer
