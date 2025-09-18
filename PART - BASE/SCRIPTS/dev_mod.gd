@@ -3,7 +3,9 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$TextEdit.grab_focus()
 	await get_tree().create_timer(6).timeout
+	$TextEdit.release_focus()
 	if Main.get_node("Globals Options").is_dev == false:
 		self.queue_free()
 
@@ -11,7 +13,7 @@ var main = Main.get_node("Globals Options")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if $TextEdit.text == "jesuisdev":
+	if $TextEdit.text == "ytreza":
 		$TextEdit.hide()
 		$Access.show()
 		$GodMod.show()

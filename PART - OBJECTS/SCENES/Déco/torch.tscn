@@ -27,6 +27,6 @@ shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 5.0
 texture = SubResource("GradientTexture2D_yk1e5")
-texture_scale = 3.0
+texture_scale = 4.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

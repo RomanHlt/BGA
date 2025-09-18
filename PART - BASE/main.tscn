@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=52 format=3 uid="uid://bclxknnv5k8la"]
-
+[gd_scene load_steps=53 format=3 uid="uid://bclxknnv5k8la"]
 
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_stats.gd" id="1_mhxmp"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_progres.gd" id="2_vpaa8"]
@@ -15,9 +13,9 @@
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_settings.gd" id="9_lkxfd"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/menu_controls.gd" id="10_uidfn"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/fondu.gd" id="11_pxm00"]
-[ext_resource type="Texture2D" uid="uid://ccxx73413l321" path="res://PART - BASE/ASSETS/supprimecefichiersitulevois.png" id="12_4jjpx"]
 [ext_resource type="Texture2D" uid="uid://ns1vlm7c873h" path="res://PART - BASE/ASSETS/Sprite-0002.png" id="12_xyxh5"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/color_rect.gd" id="13_q0hjm"]
+[ext_resource type="Texture2D" uid="uid://ctqmqiuf8j35g" path="res://PART - BASE/ASSETS/BGA Wallpaper.png" id="14_0214v"]
 [ext_resource type="AudioStream" uid="uid://1nt8mu0m8ddr" path="res://PART - BASE/ASSETS/level-iv-339695.mp3" id="14_ii25n"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/virtual_controller.gd" id="14_q8g5t"]
 [ext_resource type="Texture2D" uid="uid://de14wiwvsf16m" path="res://PART - BASE/ASSETS/Buttons/rightButton.png" id="15_vd2si"]
@@ -57,14 +55,14 @@ outline_size = 16
 outline_color = Color(0.501961, 0, 0.376471, 1)
 
 [sub_resource type="Theme" id="Theme_s4t4w"]
-Label/colors/font_color = Color(1, 0, 0.733333, 1)
-Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
+Label/colors/font_color = Color(1, 0, 0.733333, 0.423529)
+Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 0.423529)
 Label/constants/shadow_outline_size = 20
 Label/fonts/font = ExtResource("7_spnxo")
 
 [sub_resource type="Theme" id="Theme_d06oq"]
-Label/colors/font_color = Color(1, 0, 0.733333, 1)
-Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
+Label/colors/font_color = Color(1, 0, 0.733333, 0.423529)
+Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 0.423529)
 Label/constants/shadow_outline_size = 10
 Label/fonts/font = ExtResource("7_spnxo")
 
@@ -602,17 +600,19 @@ script = ExtResource("11_pxm00")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Fondu"]
 position = Vector2(575, 323)
-texture = ExtResource("12_4jjpx")
 
-[node name="Background" type="ColorRect" parent="CanvasLayer/Fondu"]
+[node name="Background" type="TextureRect" parent="CanvasLayer/Fondu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 mouse_filter = 2
-color = Color(0.0549426, 0.0908001, 0.31992, 1)
+texture = ExtResource("14_0214v")
 
 [node name="Titre" type="Label" parent="CanvasLayer/Fondu"]
 layout_mode = 1
@@ -644,14 +644,16 @@ vertical_alignment = 1
 
 [node name="Loading" type="Control" parent="CanvasLayer/Fondu"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -148.0
-offset_bottom = -148.0
-grow_horizontal = 2
+offset_left = -52.0
+offset_top = -48.0
+offset_right = -52.0
+offset_bottom = -48.0
+grow_horizontal = 0
 grow_vertical = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Fondu/Loading"]

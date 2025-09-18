@@ -35,6 +35,7 @@ var dashing = false
 
 
 func _ready():
+	show()
 	#setup playerdata
 	data = PlayerDataSaver.PlayerStats
 	#setup the layer checkers
@@ -114,8 +115,11 @@ func _dead():
 
 func _respawn():
 	"""Est automatiquement appellée après la mort du joueur"""
+	if get_parent().get_parent().isBoss:
+		Main.get_node("Globals Levels").change_lvl(PlayerDataSaver.PlayerStats.current_lvl,"",str(PlayerDataSaver.PlayerStats.current_lvl))
+	else:
+		get_tree().root.get_node("Map").findRightSpawn()
 	PlayerDataSaver.PlayerStats.health = PlayerDataSaver.PlayerStats.max_health
-	get_tree().root.get_node("Map").findRightSpawn()
 	camera.exitBossMode()
 	await get_tree().create_timer(1).timeout
 	show()
