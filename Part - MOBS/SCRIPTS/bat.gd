@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var layer:int = 0
 @export var SPEED : float
 @export var health_max : int = 3
+var health : int
 var animatedSprite:AnimatedSprite2D
 var map
 var direction: Vector2
@@ -11,6 +12,7 @@ var target : CharacterBody2D
 
 var dead : bool = false
 var is_sleeping : bool = true
+var is_hurt : bool = false
 var is_chasing : bool = false
 var is_attacking : bool = false
 
@@ -36,6 +38,7 @@ func _ready() -> void:
 	#l'area des dégats donnés est désactivée
 	$AttackArea.collision_mask = 0
 
+	health = health_max
 
 func _choose(array):
 	#on mélange l'array et on récupère le 1er élément
@@ -71,20 +74,26 @@ func _animation():
 	if !dead:
 		if is_sleeping:
 			animatedSprite.play("sleeping")
-		else:
-			if is_chasing:
-				animatedSprite.play("chasing")
-			elif is_attacking:
-				animatedSprite.play("attack")
+		elif is_hurt:
+			animatedSprite.play("hurt")
+		elif is_chasing:
+			animatedSprite.play("chasing")
+		elif is_attacking:
+			animatedSprite.play("attack")
 
 
 func _on_taking_damage_area_entered(area: Area2D) -> void:
 	if area.name == "PlayerDealingDamageZone":
-		_takes_damages()
+		_takes_damages(1)
 
 
-func _takes_damages():
-	pass
+func _takes_damages(damages):
+	health -= damages
+	if health > 0 :
+		is_hurt = true
+	elif health <= 0: 
+		dead = true
+		_death()
 
 
 func _death():
