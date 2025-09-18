@@ -24,9 +24,10 @@ func _ready() -> void:
 	updateControls()
 
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("deeperLayer"):
+		print("deeper")
 	#Detection de l'action du joueur
 	if Input.is_action_just_pressed("ok") and visible and !justArrived:
 		for b in controllerButtons+[$Reset,$Back, $"Run Toggle"]:
