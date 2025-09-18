@@ -40,6 +40,7 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @onready var last_choice = ""
 @onready var dashing = false
 @onready var target_hit = false
+@onready var incr_eboulement = 0
 # --- Variables spécifiques (A un boss précis) ---
 # --
 # --
@@ -185,7 +186,6 @@ func dash():
 
 
 func long():
-	await get_tree().create_timer(3).timeout
 	for i in range(100):
 		var scene = preload("res://PART - OBJECTS/SCENES/Traps/dangerousrock.tscn")
 		var child = scene.instantiate()
@@ -194,11 +194,7 @@ func long():
 		if target.collision_layer != 1:
 			get_parent().get_parent().get_node("TileMapLayer2").ejectPlayer()
 		get_parent().get_parent().get_node("TileMapLayer2").roll()
-
-
-	is_attacking = false
-	is_idle = true
-
+	
 func stop_follow():
 	is_following = false
 	velocity = Vector2.ZERO
@@ -315,9 +311,33 @@ func _physics_process(delta):
 
 # --- Animation ---
 func handle_animation():
-	if is_attacking: $AnimationPlayer.play("DASH")
-	if is_sleeping: $AnimationPlayer.play("IDLE")
-	if stuned: $AnimationPlayer.play("STUNED")
+	if stuned:
+		$AnimationPlayer.stop()
+		$AnimationPlayer.play("Idle")
+		# play stun
+	if direction_x and is_idle:
+		$Sprite2D.flip_h = sign(self.position.x) == -1
+	if is_attacking:
+		await get_tree().create_timer(1).timeout 
+		if dashing: 
+			$AnimationPlayer.play("Dash")
+		else: 
+			$AnimationPlayer.play("Eboulement")
+			target.camera.shake()
+			await get_tree().create_timer(0.74).timeout 
+			$AnimationPlayer.play("Eboulement")
+			target.camera.shake()
+			await get_tree().create_timer(0.74).timeout 
+			$AnimationPlayer.play("Eboulement")
+			target.camera.shake()
+	if is_sleeping: $AnimationPlayer.play("Idle")
+	
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	pass # Replace with function body.
+	if anim_name == "Eboulement":
+		incr_eboulement += 1
+	if incr_eboulement == 3:
+		incr_eboulement = 0
+		is_attacking = false
+		is_idle = true
+		
