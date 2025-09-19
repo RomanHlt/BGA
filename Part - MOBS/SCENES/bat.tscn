@@ -181,7 +181,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tpjk1")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -349,7 +349,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tr1aw")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -517,7 +517,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fpxl5")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -685,7 +685,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7277e")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -853,7 +853,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o2j4i")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -1021,7 +1021,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xr27l")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -1041,7 +1041,7 @@ size = Vector2(9, 5)
 radius = 40.05
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gr426"]
-radius = 8.0
+radius = 9.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lavbg"]
 size = Vector2(11, 7)

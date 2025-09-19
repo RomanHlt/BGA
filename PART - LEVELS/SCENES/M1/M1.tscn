@@ -2069,6 +2069,7 @@ tile_set = SubResource("TileSet_k3r57")
 
 [node name="bat" parent="TileMapLayer" instance=ExtResource("3_c25xf")]
 position = Vector2(292, -57)
+scale = Vector2(1.5, 1.5)
 
 [node name="door" parent="TileMapLayer" instance=ExtResource("3_vs5vi")]
 position = Vector2(-119, -15)

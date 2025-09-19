@@ -76,6 +76,8 @@ func _animation():
 			animatedSprite.play("sleeping")
 		elif is_hurt:
 			animatedSprite.play("hurt")
+			await (animatedSprite.animation_finished)
+			is_hurt = false
 		elif is_chasing:
 			animatedSprite.play("chasing")
 		elif is_attacking:
@@ -102,3 +104,27 @@ func _death():
 		collision_layer = 0
 		await (animatedSprite.animation_finished)
 		self.queue_free()
+
+
+func _on_detection_player_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		is_chasing = true
+		target = body
+
+
+func _on_detection_player_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		is_chasing = false
+
+
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		is_attacking = true
+		while is_attacking:
+			body._takeDamages(1)
+			await get_tree().create_timer(1).timeout
+
+
+func _on_attack_area_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		is_attacking = false
