@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 func _move(delta):
 	if is_sleeping or dead:
 		velocity = Vector2(0,0)
-	elif is_chasing:
+	elif is_chasing or is_attacking:
 		direction.x = sign(target.position.x - position.x)
 		direction.y = sign(target.position.y - position.y)
 		direction = Vector2(direction.x, direction.y)
@@ -108,6 +108,7 @@ func _death():
 
 func _on_detection_player_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		is_sleeping =  false
 		is_chasing = true
 		target = body
 
