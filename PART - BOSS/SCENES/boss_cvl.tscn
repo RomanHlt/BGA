@@ -1,7 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://b7xo8lj0knoj2"]
+[gd_scene load_steps=17 format=3 uid="uid://b7xo8lj0knoj2"]
 
 [ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss_cvl.gd" id="1_7si3l"]
-[ext_resource type="Texture2D" uid="uid://bmcetmmus7f4g" path="res://PART - BOSS/SCENES/CVL.png" id="2_jdfjt"]
+[ext_resource type="Texture2D" uid="uid://plgun4vexxp7" path="res://PART - BOSS/SCENES/new boss CVL.png" id="2_ch3be"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="3_3s4ka"]
 [ext_resource type="PackedScene" uid="uid://be2qn5hghb0f4" path="res://PART - COMPONENT/SCENES/jump_component.tscn" id="4_wamul"]
 
@@ -14,8 +14,8 @@ gradient = SubResource("Gradient_sphv3")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="Animation" id="Animation_tmixk"]
-length = 0.1
+[sub_resource type="Animation" id="Animation_xqsk3"]
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -24,15 +24,14 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [1]
+"values": [3, 4, 5, 6]
 }
 
-[sub_resource type="Animation" id="Animation_ejsmo"]
-length = 0.1
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_0xeyn"]
+length = 0.74
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -40,14 +39,14 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.58, 0.66),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [2]
+"values": [7, 8, 9, 10, 11, 12, 13, 14]
 }
 
-[sub_resource type="Animation" id="Animation_oru7w"]
-length = 0.1
+[sub_resource type="Animation" id="Animation_w8q8e"]
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -56,46 +55,30 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_8w3k0"]
-length = 0.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
+"values": [0, 1, 2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_75os3"]
 _data = {
-"DASH": SubResource("Animation_tmixk"),
-"Ground": SubResource("Animation_ejsmo"),
-"IDLE": SubResource("Animation_oru7w"),
-"STUNED": SubResource("Animation_8w3k0")
+"Dash": SubResource("Animation_xqsk3"),
+"Eboulement": SubResource("Animation_0xeyn"),
+"Idle": SubResource("Animation_w8q8e")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fy24r"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ld21o"]
+size = Vector2(50, 29.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b537b"]
 size = Vector2(811.5, 102.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owica"]
-size = Vector2(24, 32)
+size = Vector2(49, 10.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8ra8"]
-size = Vector2(12, 11.5)
+size = Vector2(45, 11.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50swa"]
 size = Vector2(16, 29)
@@ -110,10 +93,11 @@ script = ExtResource("1_7si3l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_jdfjt")
-hframes = 2
-vframes = 2
+position = Vector2(-1.5, -17)
+texture = ExtResource("2_ch3be")
+hframes = 4
+vframes = 4
+frame = 7
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -127,9 +111,9 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": false,
 "player": "AnimationPlayer",
 "slice": "",
-"source": "res://PART - BOSS/ASSETS/CVL.aseprite"
+"source": "res://PART - BOSS/ASSETS/new boss CVL.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "c461a10ce8bdda84afbff19a8203f0c6"
+metadata/_aseprite_wizard_source_file_hash_ = "1764c09d85e755b72ac3c20d95fb8ad2"
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
 position = Vector2(2, 11)
@@ -146,7 +130,8 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_fy24r")
+position = Vector2(0, -4.75)
+shape = SubResource("RectangleShape2D_ld21o")
 debug_color = Color(0.081039, 0.159472, 0.471104, 0.42)
 
 [node name="Zone de détéction" type="Area2D" parent="."]
@@ -156,18 +141,18 @@ collision_mask = 65535
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Zone de détéction"]
 position = Vector2(-0.75, -41.25)
 shape = SubResource("RectangleShape2D_b537b")
-debug_color = Color(0.184314, 0.215686, 0.282353, 1)
+debug_color = Color(0.184314, 0.215686, 0.282353, 0.203922)
 
 [node name="Above" type="Area2D" parent="."]
 position = Vector2(0, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Above"]
-position = Vector2(0, 5)
+position = Vector2(0, -5.75)
 shape = SubResource("RectangleShape2D_owica")
 debug_color = Color(0.833049, 0.0886156, 0.539656, 0.42)
 
 [node name="Below" type="Area2D" parent="."]
-position = Vector2(0, 15)
+position = Vector2(0, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Below"]
 shape = SubResource("RectangleShape2D_b8ra8")
@@ -179,15 +164,17 @@ debug_color = Color(0.833049, 0.0886156, 0.539656, 0.42)
 jump_velocity = -450.0
 
 [node name="meleeLeft" type="Area2D" parent="."]
+position = Vector2(-5.5, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="meleeLeft"]
-position = Vector2(-19, -1.5)
+position = Vector2(-19, -7)
 shape = SubResource("RectangleShape2D_50swa")
 
 [node name="meleeRight" type="Area2D" parent="."]
+position = Vector2(7.5, -0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="meleeRight"]
-position = Vector2(18.75, -1.5)
+position = Vector2(19, -7)
 shape = SubResource("RectangleShape2D_atwoa")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
