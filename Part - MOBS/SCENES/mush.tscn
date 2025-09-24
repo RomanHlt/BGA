@@ -1,0 +1,220 @@
+[gd_scene load_steps=16 format=3 uid="uid://bt18ja3s12mm3"]
+
+[ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/mush.gd" id="1_d181g"]
+[ext_resource type="Texture2D" uid="uid://ce7ov0bul51p1" path="res://PART - MOBS/SCENES/Mush.png" id="1_jgqa0"]
+[ext_resource type="Texture2D" uid="uid://txojcsld0hlt" path="res://PART - MOBS/SCENES/smoke.png" id="3_fl1yg"]
+
+[sub_resource type="Animation" id="Animation_8kfmh"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
+[sub_resource type="Animation" id="Animation_kodb7"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_mj4ml"]
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 5]
+}
+
+[sub_resource type="Animation" id="Animation_60wib"]
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [10, 9, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u4spu"]
+_data = {
+"HIDDEN": SubResource("Animation_8kfmh"),
+"HIDE": SubResource("Animation_kodb7"),
+"IDLE": SubResource("Animation_mj4ml"),
+"SHOW": SubResource("Animation_60wib")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdqga"]
+size = Vector2(20, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qixvr"]
+size = Vector2(133, 63.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_er1k8"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="Animation" id="Animation_8w7l0"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("smoke:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_l4uss"]
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("smoke:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p0aeu"]
+_data = {
+"IDLE": SubResource("Animation_8w7l0"),
+"SPLASH": SubResource("Animation_l4uss")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wxwg6"]
+radius = 42.2019
+
+[node name="Mush" type="RigidBody2D"]
+script = ExtResource("1_d181g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_jgqa0")
+hframes = 4
+vframes = 3
+frame = 10
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://PART - MOBS/ASSETS/Mush/Mush.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "0c12beebf18a9f51e483d41606604cb2"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u4spu")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_hdqga")
+debug_color = Color(0.854116, 0.348883, 0.322906, 0.42)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -17.25)
+shape = SubResource("RectangleShape2D_qixvr")
+debug_color = Color(0.328335, 0.604729, 0.437239, 0.42)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_er1k8")
+
+[node name="smoke" type="Sprite2D" parent="."]
+modulate = Color(1, 0.301961, 0.494118, 1)
+light_mask = 524289
+texture_filter = 1
+position = Vector2(3, 3)
+texture = ExtResource("3_fl1yg")
+hframes = 4
+vframes = 3
+frame = 9
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "SmokePlayer",
+"slice": "",
+"source": "res://PART - MOBS/ASSETS/Mush/smoke.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "e7d4ae9b6a7a121401c88f0a6b055b56"
+
+[node name="SmokePlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p0aeu")
+}
+
+[node name="DamagesZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagesZone"]
+shape = SubResource("CircleShape2D_wxwg6")
+debug_color = Color(0.842123, 0.370771, 0.243775, 0.42)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="animation_finished" from="SmokePlayer" to="." method="_on_smoke_player_animation_finished"]
+[connection signal="body_entered" from="DamagesZone" to="." method="_on_damages_zone_body_entered"]
+[connection signal="body_exited" from="DamagesZone" to="." method="_on_damages_zone_body_exited"]

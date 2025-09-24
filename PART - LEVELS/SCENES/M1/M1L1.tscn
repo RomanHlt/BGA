@@ -1,10 +1,11 @@
-[gd_scene load_steps=37 format=4 uid="uid://c1mehavpp4x4w"]
+[gd_scene load_steps=38 format=4 uid="uid://c1mehavpp4x4w"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_1ucby"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_5idw8"]
 [ext_resource type="PackedScene" uid="uid://c1r0k08xd0ibm" path="res://PART - OBJECTS/SCENES/Others/Note.tscn" id="3_11nbo"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_n1b2c"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_bufs7"]
+[ext_resource type="PackedScene" uid="uid://bt18ja3s12mm3" path="res://PART - MOBS/SCENES/mush.tscn" id="11_6p31v"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="11_gjoes"]
 [ext_resource type="Script" path="res://PART - LEVELS/SCENES/M1/scripts M1/zonetuto.gd" id="12_txy00"]
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="13_13kxi"]
@@ -3298,6 +3299,9 @@ metadata/_edit_lock_ = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_eqlam")
 volume_db = 20.0
+
+[node name="Mush" parent="." instance=ExtResource("11_6p31v")]
+position = Vector2(183, -16)
 
 [connection signal="body_entered" from="Zonetuto" to="Zonetuto" method="_on_body_entered"]
 [connection signal="body_exited" from="Zonetuto" to="Zonetuto" method="_on_body_exited"]
