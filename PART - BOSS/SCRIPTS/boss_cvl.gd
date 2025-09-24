@@ -335,6 +335,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			$AnimationPlayer.stop()
 			$AnimationPlayer.play("Eboulement")
 			await get_tree().create_timer(0.5).timeout
+			get_parent().get_parent().get_node("GPUParticles2D").emitting = true
 			target.camera.shake(10)
 		else :
 			is_attacking = false
