@@ -3084,6 +3084,10 @@ tile_map_data = PackedByteArray("AABnAAcAAwAEAAIAAABnAAYAAwADAAQAAABnAAUAAwABAAM
 tile_set = SubResource("TileSet_syulu")
 metadata/_edit_lock_ = true
 
+[node name="Mush" parent="TileMapLayer2" instance=ExtResource("11_6p31v")]
+position = Vector2(-240, -16)
+layer = 1
+
 [node name="Note0" parent="TileMapLayer2" instance=ExtResource("3_11nbo")]
 position = Vector2(1490, -32)
 number = 0
@@ -3299,9 +3303,6 @@ metadata/_edit_lock_ = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_eqlam")
 volume_db = 20.0
-
-[node name="Mush" parent="." instance=ExtResource("11_6p31v")]
-position = Vector2(183, -16)
 
 [connection signal="body_entered" from="Zonetuto" to="Zonetuto" method="_on_body_entered"]
 [connection signal="body_exited" from="Zonetuto" to="Zonetuto" method="_on_body_exited"]

@@ -128,6 +128,8 @@ _data = {
 radius = 42.2019
 
 [node name="Mush" type="RigidBody2D"]
+z_as_relative = false
+freeze = true
 script = ExtResource("1_d181g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -207,6 +209,7 @@ libraries = {
 }
 
 [node name="DamagesZone" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamagesZone"]
 shape = SubResource("CircleShape2D_wxwg6")
