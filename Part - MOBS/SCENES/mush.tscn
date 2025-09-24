@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bt18ja3s12mm3"]
+[gd_scene load_steps=17 format=3 uid="uid://bt18ja3s12mm3"]
 
 [ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/mush.gd" id="1_d181g"]
 [ext_resource type="Texture2D" uid="uid://ce7ov0bul51p1" path="res://PART - MOBS/SCENES/Mush.png" id="1_jgqa0"]
 [ext_resource type="Texture2D" uid="uid://txojcsld0hlt" path="res://PART - MOBS/SCENES/smoke.png" id="3_fl1yg"]
+[ext_resource type="Texture2D" uid="uid://byaysd7swnuys" path="res://PART - PLAYER/ASSETS/Shaders/White Circle.png" id="4_kie2l"]
 
 [sub_resource type="Animation" id="Animation_8kfmh"]
 length = 0.1
@@ -177,7 +178,7 @@ process_material = SubResource("ParticleProcessMaterial_er1k8")
 
 [node name="smoke" type="Sprite2D" parent="."]
 modulate = Color(1, 0.301961, 0.494118, 1)
-light_mask = 524289
+light_mask = 524288
 texture_filter = 1
 position = Vector2(3, 3)
 texture = ExtResource("3_fl1yg")
@@ -200,6 +201,10 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://PART - MOBS/ASSETS/Mush/smoke.aseprite"
 }
 metadata/_aseprite_wizard_source_file_hash_ = "e7d4ae9b6a7a121401c88f0a6b055b56"
+
+[node name="PointLight2D" type="PointLight2D" parent="smoke"]
+range_item_cull_mask = 524288
+texture = ExtResource("4_kie2l")
 
 [node name="SmokePlayer" type="AnimationPlayer" parent="."]
 libraries = {
