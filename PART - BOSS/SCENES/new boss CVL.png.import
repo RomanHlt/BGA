@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctqmqiuf8j35g"
-path="res://.godot/imported/BGA Wallpaper.png-9d9c3b9983da5931beffb78ac608ebf1.ctex"
+uid="uid://plgun4vexxp7"
+path="res://.godot/imported/new boss CVL.png-75eace986560eaf6e7c940fef389f965.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - BASE/ASSETS/BGA Wallpaper.png"
-dest_files=["res://.godot/imported/BGA Wallpaper.png-9d9c3b9983da5931beffb78ac608ebf1.ctex"]
+source_file="res://PART - BOSS/SCENES/new boss CVL.png"
+dest_files=["res://.godot/imported/new boss CVL.png-75eace986560eaf6e7c940fef389f965.ctex"]
 
 [params]
 
