@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://d332b48inemil"]
+[gd_scene load_steps=29 format=3 uid="uid://d332b48inemil"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_hk1ph"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_jgtid"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_tt8wm"]
+[ext_resource type="Texture2D" uid="uid://bseeoey2b8kg0" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tileset2.png" id="3_v4x0t"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_wp0o8"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="10_qsfg0"]
 
@@ -79,11 +80,8 @@ texture = ExtResource("2_jgtid")
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ysl51"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bkhn3"]
-load_path = "res://.godot/imported/Tileset.png-d445de6cb65ca66204becc50c7666184.ctex"
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8ixp"]
-texture = SubResource("CompressedTexture2D_bkhn3")
+texture = ExtResource("3_v4x0t")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -831,11 +829,8 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cq3ns"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kvcw4"]
-load_path = "res://.godot/imported/Tileset.png-d445de6cb65ca66204becc50c7666184.ctex"
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4tcfj"]
-texture = SubResource("CompressedTexture2D_kvcw4")
+texture = ExtResource("3_v4x0t")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -1575,11 +1570,8 @@ texture = SubResource("CompressedTexture2D_17lxt")
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lbeaf"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2qheu"]
-load_path = "res://.godot/imported/Tileset.png-d445de6cb65ca66204becc50c7666184.ctex"
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uinua"]
-texture = SubResource("CompressedTexture2D_2qheu")
+texture = ExtResource("3_v4x0t")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -2317,7 +2309,7 @@ texture = SubResource("CompressedTexture2D_17lxt")
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a0c6o"]
-texture = SubResource("CompressedTexture2D_2qheu")
+texture = ExtResource("3_v4x0t")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
