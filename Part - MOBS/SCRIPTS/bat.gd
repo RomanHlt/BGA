@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 
 
 func _move(delta):
-	if is_sleeping or dead:
+	if is_sleeping or is_hurt or dead:
 		velocity = Vector2(0,0)
 	elif is_chasing or is_attacking:
 		direction.x = sign(target.position.x - position.x)
@@ -74,14 +74,14 @@ func _animation():
 	if !dead:
 		if is_sleeping:
 			animatedSprite.play("sleeping")
+		elif is_attacking:
+			animatedSprite.play("attack")
 		elif is_hurt:
 			animatedSprite.play("hurt")
 			await (animatedSprite.animation_finished)
 			is_hurt = false
-		elif is_chasing:
-			animatedSprite.play("chasing")
-		elif is_attacking:
-			animatedSprite.play("attack")
+		else :
+			animatedSprite.play("flying")
 
 
 func _on_taking_damage_area_entered(area: Area2D) -> void:
@@ -120,6 +120,7 @@ func _on_detection_player_body_exited(body: Node2D) -> void:
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		is_chasing =  false
 		is_attacking = true
 		while is_attacking:
 			body._takeDamages(1)
@@ -129,3 +130,4 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 func _on_attack_area_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		is_attacking = false
+		is_attacking = true
