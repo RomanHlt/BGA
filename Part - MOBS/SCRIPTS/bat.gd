@@ -87,6 +87,8 @@ func _animation():
 func _on_taking_damage_area_entered(area: Area2D) -> void:
 	if area.name == "PlayerDealingDamageZone":
 		_takes_damages(1)
+		target.velocity.x = -200
+		target.velocity.y = -500
 
 
 func _takes_damages(damages):
@@ -111,23 +113,22 @@ func _on_detection_player_body_entered(body: Node2D) -> void:
 		is_sleeping =  false
 		is_chasing = true
 		target = body
+		$AttackArea.collision_mask = 2**layer
 
 
 func _on_detection_player_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		is_chasing = false
+		$AttackArea.collision_mask = 0
 
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		is_chasing =  false
 		is_attacking = true
-		while is_attacking:
-			body._takeDamages(1)
-			await get_tree().create_timer(1).timeout
-
-
-func _on_attack_area_body_exited(body: Node2D) -> void:
-	if body.name == "Player":
+		body._takeDamages(1)
+		await get_tree().create_timer(1).timeout
+		velocity.x = 100
+		velocity.y = -100
 		is_attacking = false
-		is_attacking = true
+		is_chasing = true

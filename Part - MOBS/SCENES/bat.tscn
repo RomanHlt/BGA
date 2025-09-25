@@ -1130,15 +1130,15 @@ size = Vector2(9, 5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_w7jto"]
 radius = 67.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gr426"]
-radius = 9.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i18kr"]
+size = Vector2(13, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lavbg"]
-size = Vector2(13, 2)
+size = Vector2(13, 4)
 
 [node name="bat" type="CharacterBody2D"]
 script = ExtResource("1_ex5ae")
-SPEED = 100.0
+SPEED = 500.0
 
 [node name="Fire" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7t2yo")
@@ -1169,6 +1169,7 @@ position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_fxfyv")
 
 [node name="DetectionPlayer" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionPlayer"]
 shape = SubResource("CircleShape2D_w7jto")
@@ -1176,16 +1177,16 @@ shape = SubResource("CircleShape2D_w7jto")
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-shape = SubResource("CircleShape2D_gr426")
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_i18kr")
 
 [node name="TakingDamage" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TakingDamage"]
-position = Vector2(0.5, -3)
+position = Vector2(0.5, -4)
 shape = SubResource("RectangleShape2D_lavbg")
 
 [connection signal="body_entered" from="DetectionPlayer" to="." method="_on_detection_player_body_entered"]
 [connection signal="body_exited" from="DetectionPlayer" to="." method="_on_detection_player_body_exited"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
-[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
 [connection signal="area_entered" from="TakingDamage" to="." method="_on_taking_damage_area_entered"]
