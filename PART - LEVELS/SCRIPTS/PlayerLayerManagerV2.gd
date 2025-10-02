@@ -16,6 +16,7 @@ func _ready() -> void:
 	player.z_index = -spawnLayer
 	player.collision_mask = 2**spawnLayer
 	player.collision_layer = 2**spawnLayer
+	player.dealingDamages.collision_mask = 2**spawnLayer
 	player.get_node("Sprite2D").light_mask = 2**spawnLayer
 	player.get_node("Sprite2D").get_node("PointLight2D").range_item_cull_mask = 1
 	player.get_node("Sprite2D").get_node("PointLight2D").shadow_item_cull_mask = 0
@@ -74,6 +75,7 @@ func goToLayer(layer:int = 0):
 				player.collision_mask = 2**layer
 				player.collision_layer = 2**layer
 			player.z_index = -layer 
+			player.dealingDamages.collision_mask = 2**layer
 			player.deeperChecker.collision_mask = 2**(layer+1)
 			player.closerChecker.collision_mask = 2**(layer-1)
 			player.closerRight.collision_mask = 2**(layer-1)
@@ -88,6 +90,7 @@ func goToLayer(layer:int = 0):
 			if not Main.get_node("Globals Options").godmod_active:
 				player.collision_mask = 2**layer
 				player.collision_layer = 2**layer
+			player.dealingDamages.collision_mask = 2**layer
 			player.deeperChecker.collision_mask = 2**(layer+1)
 			player.closerChecker.collision_mask = 2**(layer-1)
 			player.closerRight.collision_mask = 2**(layer-1)
