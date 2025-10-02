@@ -27,15 +27,15 @@ func _ready() -> void:
 	map = self.owner
 	
 	collision_layer = 2**layer
-	collision_mask = 2**layer
+	collision_mask = 0
 	
 	#l'area de detection du player et des dégats reçus est sur le meme layer que bat
 	$DetectionPlayer.collision_mask = 2**layer
-	$DetectionPlayer.collision_layer = 2**layer
+	$DetectionPlayer.collision_layer = 0
 	
-	$TakingDamage.collision_layer = 2**layer
 	$TakingDamage.collision_mask = 2**layer
-	
+	$TakingDamage.collision_layer = 0
+
 	#l'area des dégats donnés est désactivée
 	$AttackArea.collision_mask = 0
 
@@ -85,8 +85,8 @@ func _animation():
 			animatedSprite.play("flying")
 
 
-func _on_taking_damage_area_entered(area: Area2D) -> void:
-	if area.name == "PlayerDealingDamageZone":
+func _on_taking_damage_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
 		_takes_damages(1)
 		dir = _choose([-1, 1])
 		target.velocity.x = dir*200

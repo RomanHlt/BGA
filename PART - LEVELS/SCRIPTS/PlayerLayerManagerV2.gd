@@ -15,6 +15,7 @@ func _ready() -> void:
 	player.z_index = -spawnLayer
 	player.collision_mask = 2**spawnLayer
 	player.collision_layer = 2**spawnLayer
+	player.dealingDamages.collision_mask = 2**spawnLayer
 	Layers = get_children().filter(func (x): if x.is_class("TileMapLayer"): return x)
 	player.reparent(Layers[spawnLayer])
 	if !isHome:
@@ -62,6 +63,7 @@ func goToLayer(layer:int = 0):
 				player.collision_mask = 2**layer
 				player.collision_layer = 2**layer
 			player.z_index = -layer 
+			player.dealingDamages.collision_mask = 2**layer
 			player.deeperChecker.collision_mask = 2**(layer+1)
 			player.closerChecker.collision_mask = 2**(layer-1)
 			currentPlayerLayer=layer
@@ -73,6 +75,7 @@ func goToLayer(layer:int = 0):
 			if not Main.get_node("Globals Options").godmod_active:
 				player.collision_mask = 2**layer
 				player.collision_layer = 2**layer
+			player.dealingDamages.collision_mask = 2**layer
 			player.deeperChecker.collision_mask = 2**(layer+1)
 			player.closerChecker.collision_mask = 2**(layer-1)
 			player.z_index = -layer

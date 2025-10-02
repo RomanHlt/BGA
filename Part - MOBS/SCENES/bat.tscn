@@ -1125,16 +1125,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxfyv"]
-size = Vector2(9, 5)
+size = Vector2(9, 4)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w7jto"]
 radius = 67.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i18kr"]
-size = Vector2(13, 4)
+size = Vector2(11, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lavbg"]
-size = Vector2(13, 4)
+size = Vector2(9, 3)
 
 [node name="bat" type="CharacterBody2D"]
 script = ExtResource("1_ex5ae")
@@ -1165,7 +1165,7 @@ sprite_frames = SubResource("SpriteFrames_qm0vy")
 animation = &"hurt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -0.5)
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_fxfyv")
 
 [node name="DetectionPlayer" type="Area2D" parent="."]
@@ -1178,17 +1178,17 @@ shape = SubResource("CircleShape2D_w7jto")
 modulate = Color(0.904563, 0.57404, 0.336438, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, 3)
+position = Vector2(0.5, 3)
 shape = SubResource("RectangleShape2D_i18kr")
 
 [node name="TakingDamage" type="Area2D" parent="."]
 modulate = Color(0.44682, 0.739083, 0.384082, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TakingDamage"]
-position = Vector2(0.5, -4)
+position = Vector2(0.5, -4.5)
 shape = SubResource("RectangleShape2D_lavbg")
 
 [connection signal="body_entered" from="DetectionPlayer" to="." method="_on_detection_player_body_entered"]
 [connection signal="body_exited" from="DetectionPlayer" to="." method="_on_detection_player_body_exited"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
-[connection signal="area_entered" from="TakingDamage" to="." method="_on_taking_damage_area_entered"]
+[connection signal="body_entered" from="TakingDamage" to="." method="_on_taking_damage_body_entered"]

@@ -15,6 +15,7 @@ signal pathObstrued
 
 var deeperChecker
 var closerChecker
+var dealingDamages
 var canGoDeeper:bool = true
 var canGoCloser:bool = true
 var layerJump:bool = false
@@ -30,6 +31,7 @@ func _ready():
 	#setup the layer checkers
 	deeperChecker = $deeperChecker
 	closerChecker = $closerChecker
+	dealingDamages = $PlayerDealingDamageZone
 
 
 func _process(delta: float) -> void:
