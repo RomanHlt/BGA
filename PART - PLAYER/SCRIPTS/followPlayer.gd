@@ -19,8 +19,8 @@ const MAX_SPEED = 2000.0
 var _velocity = Vector2.ZERO
 var _anchor_position = Vector2.ZERO
 
-func shake():
-	shake_strength = random_strength
+func shake(strength = random_strength):
+	shake_strength = strength
 func random_offset():
 	return Vector2(randf_range(-shake_strength,shake_strength),randf_range(-shake_strength,shake_strength))
 

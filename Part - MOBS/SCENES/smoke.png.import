@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs7pbvmdc7j2c"
-path="res://.godot/imported/Jumper.png-4a509d0a9714114c417696c055441fe3.ctex"
+uid="uid://txojcsld0hlt"
+path="res://.godot/imported/smoke.png-2927b19eeb57549eb2df50875d9d0e2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - OBJECTS/SCENES/Jumper.png"
-dest_files=["res://.godot/imported/Jumper.png-4a509d0a9714114c417696c055441fe3.ctex"]
+source_file="res://PART - MOBS/SCENES/smoke.png"
+dest_files=["res://.godot/imported/smoke.png-2927b19eeb57549eb2df50875d9d0e2d.ctex"]
 
 [params]
 

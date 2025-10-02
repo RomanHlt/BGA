@@ -19,6 +19,7 @@ var isOut:bool = false
 
 @onready var can_interact = false  # Peut-on interagir ?qd
 var is_loading = false  # Empêche de spammer le changement de scène
+var act:bool #detection de l'action
 
 var notes = [false,false,false]
 var canAccess = false
@@ -58,6 +59,7 @@ func _ready() -> void:
 	z_index = get_parent().z_index
 	collision_layer = 0
 	collision_mask = 2**layer
+	$Sprite2D.light_mask = 2**(layer+1)
 	if sprite:
 		$Sprite2D.texture = sprite
 	else:
@@ -84,7 +86,7 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _input(event: InputEvent) -> void:
 	"""Déclenche le changement de niveau"""
-	if Input.is_action_just_pressed("interagir") and can_interact and canAccess and !isDecorative and unique:
+	if act and can_interact and canAccess and !isDecorative and unique:
 		$AnimationPlayer.play("Opening")
 		$AudioStreamPlayer.play()
 
@@ -97,6 +99,11 @@ func _input(event: InputEvent) -> void:
 		Main.get_node("Globals Levels").change_lvl(id_next_lvl, titre, sous_titre)
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("interagir"):
+		act = true
+	elif Input.is_action_just_released("interagir"):
+		act = false
+	
 	if isOut:
 		$AnimationPlayer.play("Open")
 	if Main.get_node("Globals Options").controller:

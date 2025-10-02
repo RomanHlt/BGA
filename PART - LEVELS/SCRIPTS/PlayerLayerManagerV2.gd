@@ -4,6 +4,7 @@ extends Node2D
 @export var id : String
 @export var spawnLayer:int = 0
 @export var isHome:bool = false
+@export var isBoss : bool = false
 var Layers:Array
 var player:CharacterBody2D
 var currentPlayerLayer:int = spawnLayer
@@ -16,6 +17,14 @@ func _ready() -> void:
 	player.collision_mask = 2**spawnLayer
 	player.collision_layer = 2**spawnLayer
 	player.dealingDamages.collision_mask = 2**spawnLayer
+	player.get_node("Sprite2D").light_mask = 2**spawnLayer
+	player.get_node("Sprite2D").get_node("PointLight2D").range_item_cull_mask = 1
+	player.get_node("Sprite2D").get_node("PointLight2D").shadow_item_cull_mask = 0
+	player.get_node("Sprite2D").get_node("PointLight2D2").range_item_cull_mask = 2
+	player.get_node("Sprite2D").get_node("PointLight2D2").shadow_item_cull_mask = 1
+	player.get_node("Sprite2D").get_node("PointLight2D3").range_item_cull_mask = 4
+	player.get_node("Sprite2D").get_node("PointLight2D3").shadow_item_cull_mask = 2
+
 	Layers = get_children().filter(func (x): if x.is_class("TileMapLayer"): return x)
 	player.reparent(Layers[spawnLayer])
 	if !isHome:
@@ -35,8 +44,11 @@ func _process(delta: float) -> void:
 	elif player.canGoCloser and Input.is_action_just_pressed("closerLayer") and currentPlayerLayer > 0:
 		goToLayer(currentPlayerLayer-1)
 		
-	if Input.is_action_just_pressed("stats"):
-		print(player.deeperChecker.get_overlapping_areas())
+	if player.behindLeft and player.behindRight and not player.canGoCloser:
+		player.z_index = 0
+	else:
+		player.z_index = -currentPlayerLayer
+		
 
 func findRightSpawn():
 	var rightDoor:Door
@@ -66,6 +78,9 @@ func goToLayer(layer:int = 0):
 			player.dealingDamages.collision_mask = 2**layer
 			player.deeperChecker.collision_mask = 2**(layer+1)
 			player.closerChecker.collision_mask = 2**(layer-1)
+			player.closerRight.collision_mask = 2**(layer-1)
+			player.closerLeft.collision_mask = 2**(layer-1)
+			player.get_node("Sprite2D").light_mask = 2**layer
 			currentPlayerLayer=layer
 			player.position.y+=1 #Eviter que les checker ne detectent plus de collisions (patch de brute)
 		elif player.canGoCloser == true and currentPlayerLayer > layer:
@@ -78,8 +93,12 @@ func goToLayer(layer:int = 0):
 			player.dealingDamages.collision_mask = 2**layer
 			player.deeperChecker.collision_mask = 2**(layer+1)
 			player.closerChecker.collision_mask = 2**(layer-1)
+			player.closerRight.collision_mask = 2**(layer-1)
+			player.closerLeft.collision_mask = 2**(layer-1)
+			player.get_node("Sprite2D").light_mask = 2**layer
+			
+			
 			player.z_index = -layer
 			currentPlayerLayer=layer
 			player.position.y+=1 #Eviter que les checker ne detectent plus de collisions (patch de brute)
-	
 	

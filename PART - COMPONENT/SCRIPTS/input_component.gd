@@ -30,3 +30,8 @@ func get_fire() -> bool:
 	if PlayerDataSaver.PlayerStats.is_dead:
 		return false
 	return Input.is_action_just_pressed("fire")
+
+func get_dash():
+	if PlayerDataSaver.PlayerStats.is_dead:
+		return false
+	return Input.is_action_just_pressed("dash")

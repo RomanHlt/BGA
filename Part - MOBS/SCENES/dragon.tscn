@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bsmv04evs2r56"]
+[gd_scene load_steps=21 format=3 uid="uid://bsmv04evs2r56"]
 
 [ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/dragon.gd" id="1_fg141"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="1_j3vgy"]
@@ -161,6 +161,9 @@ size = Vector2(12.4, 7.6)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5rjw"]
 size = Vector2(8, 9)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5t5gq"]
+size = Vector2(12, 4.8)
+
 [node name="Dragon" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 texture_filter = 1
 scale = Vector2(1.25, 1.25)
@@ -229,14 +232,14 @@ debug_color = Color(0.786781, 0.337647, 0.691059, 0.42)
 [node name="Collision_left" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_left"]
-position = Vector2(-20, 4)
+position = Vector2(-16, 4)
 shape = SubResource("RectangleShape2D_2pvbv")
 debug_color = Color(0.383416, 0.269255, 0.0287384, 0.42)
 
 [node name="Collision_right" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_right"]
-position = Vector2(20.8, 4)
+position = Vector2(16, 4)
 shape = SubResource("RectangleShape2D_2pvbv")
 debug_color = Color(0.383416, 0.269255, 0.0287384, 0.42)
 
@@ -253,6 +256,13 @@ wall_jump_max = 999999
 
 [node name="GravityComponent" parent="." instance=ExtResource("1_j3vgy")]
 
+[node name="below" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="below"]
+position = Vector2(0.4, 8.8)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_5t5gq")
+
 [connection signal="animation_finished" from="DragonAnimator" to="." method="_on_dragon_animator_animation_finished"]
 [connection signal="body_entered" from="Detectionarea" to="." method="_on_detectionarea_body_entered"]
 [connection signal="body_exited" from="Detectionarea" to="." method="_on_detectionarea_body_exited"]
@@ -266,3 +276,4 @@ wall_jump_max = 999999
 [connection signal="body_entered" from="Collision_right" to="." method="_on_collision_right_body_entered"]
 [connection signal="body_entered" from="Spike" to="." method="_on_spike_body_entered"]
 [connection signal="body_exited" from="Spike" to="." method="_on_spike_body_exited"]
+[connection signal="body_entered" from="below" to="." method="_on_below_body_entered"]
