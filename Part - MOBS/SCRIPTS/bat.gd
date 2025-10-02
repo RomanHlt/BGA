@@ -9,6 +9,7 @@ var animatedSprite:AnimatedSprite2D
 var map
 var direction: Vector2
 var target : CharacterBody2D
+var dir : float
 
 var dead : bool = false
 var is_sleeping : bool = true
@@ -56,7 +57,7 @@ func _process(delta: float) -> void:
 func _move(delta):
 	if is_sleeping or is_hurt or dead:
 		velocity = Vector2(0,0)
-	elif is_chasing or is_attacking:
+	elif is_chasing:
 		direction.x = sign(target.position.x - position.x)
 		direction.y = sign(target.position.y - position.y)
 		direction = Vector2(direction.x, direction.y)
@@ -65,7 +66,7 @@ func _move(delta):
 
 func _animation():
 	#orientation en fct de la direction
-	if direction.x > 0:
+	if direction.x >= 0:
 		animatedSprite.flip_h = false
 	elif direction.x < 0:
 		animatedSprite.flip_h = true
@@ -87,7 +88,8 @@ func _animation():
 func _on_taking_damage_area_entered(area: Area2D) -> void:
 	if area.name == "PlayerDealingDamageZone":
 		_takes_damages(1)
-		target.velocity.x = -200
+		dir = _choose([-1, 1])
+		target.velocity.x = dir*200
 		target.velocity.y = -500
 
 
@@ -128,7 +130,9 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 		is_attacking = true
 		body._takeDamages(1)
 		await get_tree().create_timer(1).timeout
-		velocity.x = 100
-		velocity.y = -100
 		is_attacking = false
+		dir = _choose([-1,1])
+		velocity.x = dir * 10
+		velocity.y = -10
+		await get_tree().create_timer(1).timeout
 		is_chasing = true
