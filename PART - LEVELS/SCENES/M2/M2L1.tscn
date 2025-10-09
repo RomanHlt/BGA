@@ -797,11 +797,11 @@ terrain_set_0/terrain_1/color = Color(0, 0, 1, 1)
 sources/3 = SubResource("TileSetAtlasSource_y8ixp")
 sources/2 = SubResource("TileSetAtlasSource_wilsx")
 
-[sub_resource type="Curve2D" id="Curve2D_c4b65"]
+[sub_resource type="Curve2D" id="Curve2D_kieki"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -100, 88, 0, 0, 0, 0, 640, -44, 0, 0, 0, 0, 1176, -264, 0, 0, 0, 0, 1532, -492, 0, 0, 0, 0, 1816, -848, 0, 0, 0, 0, 2028, -1240, 0, 0, 0, 0, 2208, -1680, 0, 0, 0, 0, 2292, -2160, 0, 0, 0, 0, 2292, -2452, 0, 0, 0, 0, 1688, -2460, 0, 0, 0, 0, 952, -2460, 0, 0, 0, 0, 120, -2480, 0, 0, 0, 0, -96, -2460, 0, 0, 0, 0, -96, -404, 0, 0, 0, 0, -96, -308, 0, 0, 0, 0, -96, -232, 0, 0, 0, 0, -96, -160, 0, 0, 0, 0, -96, -72, 0, 0, 0, 0, -100, -8, 0, 0, 0, 0, -100, 24, 0, 0, 0, 0, -100, 52, 0, 0, 0, 0, -100, 72, 0, 0, 0, 0, -100, 88)
+"points": PackedVector2Array(0, 0, 0, 0, -32, 180, 0, 0, 0, 0, 456, 88, 0, 0, 0, 0, 1072, -180, 0, 0, 0, 0, 1412, -552, 0, 0, 0, 0, 1680, -956, 0, 0, 0, 0, 1860, -1288, 0, 0, 0, 0, 2084, -1704, 0, 0, 0, 0, 2204, -2120, 0, 0, 0, 0, 2244, -2444, 0, 0, 0, 0, -84, -2432, 0, 0, 0, 0, -32, 180)
 }
-point_count = 23
+point_count = 11
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dywvd"]
 load_path = "res://.godot/imported/Terrain (16x16).png-965ee5e8399323c88aab03397ec562aa.ctex"
@@ -3041,7 +3041,7 @@ tile_set = SubResource("TileSet_epdyc")
 
 [node name="Path2D" parent="TileMapLayer" instance=ExtResource("4_vs574")]
 position = Vector2(2775, -139)
-curve = SubResource("Curve2D_c4b65")
+curve = SubResource("Curve2D_kieki")
 speed_scale = 0.05
 loop = true
 
