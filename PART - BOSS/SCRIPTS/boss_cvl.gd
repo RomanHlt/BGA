@@ -116,15 +116,19 @@ func _takeDamages(damages):
 		health = 0
 		get_tree().root.get_node("/root/Map/CanvasLayer/InGame/lifeController").play(str(health))
 	if health == 0:
+		is_attacking = false
+		is_following = false
+		is_idle = false
+		is_sleeping = false
+		is_using_capacity = false
 		is_dead = true
 		dead()
-	evolve() # Au cas où on change de phase
 # --
 # --
 # --
 # --- Actions externes (Attaquer, suivre, tout ce qui est visible) ---
 func evolve():
-	"""Vérifie si les conditions pour changer de phase sont bonne, change de phase si oui"""
+	"""Vérifie si les conditions pour changer de phase sont bonne, change de phase si oui --- pas dans sanglier ---"""
 	if health <= 5:
 		lvl_evolution = 2
 		health_max = 5 # Il va pas se heal au dessus de 5 s'il change de phase
@@ -188,7 +192,7 @@ func dash():
 func long():
 	$AnimationPlayer.play("Eboulement")
 	await get_tree().create_timer(0.5).timeout
-	target.camera.shake(10)
+	target.camera.shake(20)
 	for i in range(100):
 		var scene = preload("res://PART - OBJECTS/SCENES/Traps/dangerousrock.tscn")
 		var child = scene.instantiate()
@@ -208,15 +212,9 @@ func stop_follow():
 func dead():	
 	get_parent().get_parent().get_node("TileMapLayer2").ejectPlayer()
 	get_parent().get_parent().get_node("TileMapLayer2").end()
-	is_idle = false
-	is_following = false
-	is_using_capacity = false
-	is_attacking = false
 	$Above.hide()
 	$Below.hide()
 	self.velocity = Vector2.ZERO
-	# attendre que l'animation de mort se joue dans handle_animation()
-	self.queue_free()
 	# Faire spawn une récompense etc
 
 # - Collisions -
@@ -224,7 +222,7 @@ func dead():
 func _on_melee_left_body_entered(body: Node2D) -> void:
 	if dashing:
 		if body.name == "Player":
-			#animer l'attaque à gauche
+			target.camera.shake(3)
 			target_hit = true
 			target._takeDamages(2)
 			target.stun(2)
@@ -232,33 +230,48 @@ func _on_melee_left_body_entered(body: Node2D) -> void:
 			target.velocity.x = -100
 		elif body.name =="TileMapLayer":
 			if not target_hit:
-				stun(3)
+				target.camera.shake(10)
 				self._takeDamages(1)
-			stun(0.5)
+				if not is_dead:
+					stun(3.5)
+			target.camera.shake(3)
+			stun(2)
 			dashing = false
 			target_hit = false
 			velocity.x = 0
 			$meleeLeft.collision_mask = 0
 			$meleeRight.collision_mask = 0
+			if not is_dead:
+				$AnimationPlayer.play("Impact")
+			else:
+				$AnimationPlayer.play("Death")
 
 func _on_melee_right_body_entered(body: Node2D) -> void:
 	if dashing:
 		if body.name == "Player":
-			#animer l'attaque à droite
+			target.camera.shake(3)
 			target._takeDamages(2)
 			target.stun(2)
 			target.velocity.y = -600
 			target.velocity.x = 100
 		elif body.name =="TileMapLayer":
 			if not target_hit:
-				stun(3)
+				target.camera.shake(10)
 				self._takeDamages(1)
-			stun(0.5)
+				if not is_dead:
+					stun(3.5)
+			stun(2)
 			dashing = false
 			target_hit = false
 			velocity.x = 0
 			$meleeLeft.collision_mask = 0
 			$meleeRight.collision_mask = 0
+			if not is_dead:
+				$AnimationPlayer.play("Impact")
+				target.camera.shake(3)
+			else:
+				$AnimationPlayer.play("Death")
+				target.camera.shake(10)
 
 func _on_above_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -285,7 +298,7 @@ func _process(delta: float) -> void:
 	handle_animation()
 	if stuned:
 		return
-	elif is_idle:
+	elif is_idle and not is_dead:
 		action()
 
 
@@ -316,29 +329,36 @@ func _physics_process(delta):
 
 # --- Animation ---
 func handle_animation():
-	if stuned:
-		$AnimationPlayer.stop()
-		$AnimationPlayer.play("Idle")
-		# play stun
-	if direction_x and is_idle:
+	if is_dead:
+		return
+	if direction_x and is_idle and not stuned:
 		$Sprite2D.flip_h = sign(self.position.x) == -1
 	if is_attacking:
 		if dashing:
 			$AnimationPlayer.play("Dash")
-	if is_sleeping: $AnimationPlayer.play("Idle")
+	if is_sleeping: 
+		$AnimationPlayer.play("Idle")
+
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Eboulement":
 		incr_eboulement += 1
-		print(incr_eboulement)
 		if incr_eboulement < 3:
 			$AnimationPlayer.stop()
 			$AnimationPlayer.play("Eboulement")
 			await get_tree().create_timer(0.5).timeout
 			get_parent().get_parent().get_node("GPUParticles2D").emitting = true
-			target.camera.shake(10)
+			target.camera.shake(20)
 		else :
+			$AnimationPlayer.stop()
 			is_attacking = false
 			is_idle = true
 			incr_eboulement = 0
-			
+		
+	if anim_name == "Impact":
+		$AnimationPlayer.play("Stunt")
+	
+		
+
+	if anim_name == "Death":
+		self.queue_free()
