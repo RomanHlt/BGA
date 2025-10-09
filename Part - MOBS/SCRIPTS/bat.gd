@@ -35,7 +35,7 @@ func _ready() -> void:
 	
 	$TakingDamage.collision_mask = 2**layer
 	$TakingDamage.collision_layer = 0
-
+	
 	#l'area des dégats donnés est désactivée
 	$AttackArea.collision_mask = 0
 
@@ -59,7 +59,7 @@ func _move(delta):
 		velocity = Vector2(0,0)
 	elif is_chasing:
 		direction.x = sign(target.position.x - position.x)
-		direction.y = sign(target.position.y - position.y)
+		direction.y = sign(target.position.y - position.y -20)
 		direction = Vector2(direction.x, direction.y)
 		velocity = direction * SPEED * delta
 	
@@ -106,7 +106,7 @@ func _death():
 	if dead == true:
 		animatedSprite.play("death")
 		collision_layer = 0
-		$AttackArea.collision_layer = 0
+		$AttackArea.collision_layer = 0 
 		await (animatedSprite.animation_finished)
 		self.queue_free()
 

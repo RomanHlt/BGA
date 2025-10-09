@@ -3064,7 +3064,6 @@ metadata/_edit_lock_ = true
 [node name="bat" parent="TileMapLayer" instance=ExtResource("3_scni6")]
 position = Vector2(223, -75)
 scale = Vector2(2, 2)
-SPEED = 3000.0
 
 [node name="door" parent="TileMapLayer" instance=ExtResource("11_gjoes")]
 position = Vector2(-1209, -575)
