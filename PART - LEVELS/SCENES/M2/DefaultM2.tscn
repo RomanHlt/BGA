@@ -1,11 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://d332b48inemil"]
+[gd_scene load_steps=29 format=3 uid="uid://d0hvehabnvcnh"]
 
-[ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_hk1ph"]
-[ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_jgtid"]
-[ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_tt8wm"]
-[ext_resource type="Texture2D" uid="uid://bseeoey2b8kg0" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tileset2.png" id="3_v4x0t"]
-[ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_wp0o8"]
-[ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="10_qsfg0"]
+[ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_sneiy"]
+[ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_067j1"]
+[ext_resource type="Texture2D" uid="uid://bseeoey2b8kg0" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tileset2.png" id="3_ebdv8"]
+[ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_vw4px"]
+[ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_txggu"]
+[ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="5_d6wax"]
 
 [sub_resource type="Shader" id="Shader_wghwi"]
 
@@ -13,8 +13,8 @@
 render_priority = 0
 shader = SubResource("Shader_wghwi")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wilsx"]
-texture = ExtResource("2_jgtid")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o35yw"]
+texture = ExtResource("2_067j1")
 0:4/0 = 0
 0:4/0/modulate = Color(1, 1, 1, 0.313726)
 0:4/0/terrain_set = 0
@@ -80,8 +80,8 @@ texture = ExtResource("2_jgtid")
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ysl51"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y8ixp"]
-texture = ExtResource("3_v4x0t")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qjwxx"]
+texture = ExtResource("3_ebdv8")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -783,7 +783,7 @@ texture = ExtResource("3_v4x0t")
 19:5/0 = 0
 19:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
 
-[sub_resource type="TileSet" id="TileSet_epdyc"]
+[sub_resource type="TileSet" id="TileSet_e2p71"]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
@@ -792,13 +792,13 @@ terrain_set_0/terrain_0/name = "Dirt"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_0/terrain_1/name = "Glass"
 terrain_set_0/terrain_1/color = Color(0, 0, 1, 1)
-sources/3 = SubResource("TileSetAtlasSource_y8ixp")
-sources/2 = SubResource("TileSetAtlasSource_wilsx")
+sources/3 = SubResource("TileSetAtlasSource_qjwxx")
+sources/2 = SubResource("TileSetAtlasSource_o35yw")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dywvd"]
 load_path = "res://.godot/imported/Terrain (16x16).png-965ee5e8399323c88aab03397ec562aa.ctex"
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t161r"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v00b0"]
 texture = SubResource("CompressedTexture2D_dywvd")
 8:2/0 = 0
 8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -829,8 +829,8 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cq3ns"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4tcfj"]
-texture = ExtResource("3_v4x0t")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bg2bl"]
+texture = ExtResource("3_ebdv8")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -1532,20 +1532,20 @@ texture = ExtResource("3_v4x0t")
 19:5/0 = 0
 19:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
 
-[sub_resource type="TileSet" id="TileSet_lui4w"]
+[sub_resource type="TileSet" id="TileSet_1wucg"]
 occlusion_layer_0/light_mask = 2
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
 terrain_set_0/mode = 1
 terrain_set_0/terrain_0/name = "Dirt"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_t161r")
-sources/3 = SubResource("TileSetAtlasSource_4tcfj")
+sources/0 = SubResource("TileSetAtlasSource_v00b0")
+sources/3 = SubResource("TileSetAtlasSource_bg2bl")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_17lxt"]
 load_path = "res://.godot/imported/Terrain (16x16).png-965ee5e8399323c88aab03397ec562aa.ctex"
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7aml"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bl55q"]
 texture = SubResource("CompressedTexture2D_17lxt")
 8:2/0 = 0
 8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1570,8 +1570,8 @@ texture = SubResource("CompressedTexture2D_17lxt")
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lbeaf"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uinua"]
-texture = ExtResource("3_v4x0t")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2x7hg"]
+texture = ExtResource("3_ebdv8")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -2273,17 +2273,17 @@ texture = ExtResource("3_v4x0t")
 19:5/0 = 0
 19:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
 
-[sub_resource type="TileSet" id="TileSet_iqj67"]
+[sub_resource type="TileSet" id="TileSet_lburc"]
 occlusion_layer_0/light_mask = 4
 physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 0
 terrain_set_0/mode = 1
 terrain_set_0/terrain_0/name = "Dirt"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_j7aml")
-sources/3 = SubResource("TileSetAtlasSource_uinua")
+sources/0 = SubResource("TileSetAtlasSource_bl55q")
+sources/3 = SubResource("TileSetAtlasSource_2x7hg")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pggkh"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_phceq"]
 texture = SubResource("CompressedTexture2D_17lxt")
 8:2/0 = 0
 8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -2308,8 +2308,8 @@ texture = SubResource("CompressedTexture2D_17lxt")
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xdr8l"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a0c6o"]
-texture = ExtResource("3_v4x0t")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fipg5"]
+texture = ExtResource("3_ebdv8")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -3011,43 +3011,43 @@ texture = ExtResource("3_v4x0t")
 19:5/0 = 0
 19:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
 
-[sub_resource type="TileSet" id="TileSet_hvi37"]
+[sub_resource type="TileSet" id="TileSet_2vm6m"]
 occlusion_layer_0/light_mask = 8
 physics_layer_0/collision_layer = 8
 physics_layer_0/collision_mask = 0
 terrain_set_0/mode = 1
 terrain_set_0/terrain_0/name = "Dirt"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_pggkh")
-sources/3 = SubResource("TileSetAtlasSource_a0c6o")
+sources/0 = SubResource("TileSetAtlasSource_phceq")
+sources/3 = SubResource("TileSetAtlasSource_fipg5")
 
 [node name="Map" type="Node2D"]
 modulate = Color(0.52549, 0.596078, 0.815686, 1)
-script = ExtResource("1_hk1ph")
+script = ExtResource("1_sneiy")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 material = SubResource("ShaderMaterial_dq4jg")
-tile_set = SubResource("TileSet_epdyc")
+tile_set = SubResource("TileSet_e2p71")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
 light_mask = 2
 z_index = -1
-tile_set = SubResource("TileSet_lui4w")
+tile_set = SubResource("TileSet_1wucg")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 modulate = Color(0.305077, 0.305077, 0.305077, 1)
 light_mask = 4
 z_index = -2
-tile_set = SubResource("TileSet_iqj67")
+tile_set = SubResource("TileSet_lburc")
 
 [node name="TileMapLayer4" type="TileMapLayer" parent="."]
 modulate = Color(0.305077, 0.305077, 0.305077, 1)
 light_mask = 8
 z_index = -3
-tile_set = SubResource("TileSet_hvi37")
+tile_set = SubResource("TileSet_2vm6m")
 
-[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_tt8wm")]
+[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_vw4px")]
 position = Vector2(-4, -108)
 scale = Vector2(1.5, 1.5)
 collision_layer = 0
@@ -3061,9 +3061,9 @@ process_callback = 0
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
-script = ExtResource("4_wp0o8")
+script = ExtResource("4_txggu")
 PLAYER = NodePath("../Player")
 playerOffset = Vector2(0, -80)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_qsfg0")
+stream = ExtResource("5_d6wax")

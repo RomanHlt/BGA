@@ -116,7 +116,7 @@ func _death():
 	animatedSprite.play("death")
 	collision_layer = 0
 	await (animatedSprite.animation_finished)
-	self.queue_free()	
+	self.queue_free()
 
 func _on_frog_dealing_damage_right_body_entered(body: CharacterBody2D) -> void:
 	if body.name == "Player":
