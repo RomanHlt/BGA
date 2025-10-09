@@ -1,12 +1,17 @@
 extends RigidBody2D
 
 @export var damages:int = 1
+@export var layer:int = 0
 var isAttacking:bool = false
 var isPlayerNear:bool = false
 var Player:CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
+	z_index = -layer
+	collision_mask = 2**layer
+	collision_layer = 2**layer
+	$Area2D.collision_mask = 2**layer
+	$DamagesZone.collision_mask = 2**layer
 	$AnimationPlayer.speed_scale = 1.2
 	$AnimationPlayer.play("IDLE")
 	$AnimationPlayer.get_animation("HIDE").loop_mode = Animation.LOOP_NONE
