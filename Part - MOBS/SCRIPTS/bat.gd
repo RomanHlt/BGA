@@ -27,7 +27,7 @@ func _ready() -> void:
 	map = self.owner
 	
 	collision_layer = 2**layer
-	collision_mask = 0
+	collision_mask = 2**layer
 	
 	#l'area de detection du player et des dégats reçus est sur le meme layer que bat
 	$DetectionPlayer.collision_mask = 2**layer
@@ -106,6 +106,7 @@ func _death():
 	if dead == true:
 		animatedSprite.play("death")
 		collision_layer = 0
+		$AttackArea.collision_layer = 0
 		await (animatedSprite.animation_finished)
 		self.queue_free()
 
