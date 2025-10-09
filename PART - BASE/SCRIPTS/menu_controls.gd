@@ -19,7 +19,7 @@ func _ready() -> void:
 		
 		runToggle = PlayerDataSaver.SettingsStats.runAsToggle
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
-	buttons = [$Right,$Left,$Deeper,$Closer,$Jump]
+	buttons = [$Right,$Left,$Deeper,$Closer,$Jump,$Dash]
 	controllerButtons = [$ControllerCloser,$ControllerDeeper,$ControllerJump,$ControllerRun]
 	updateControls()
 
@@ -50,15 +50,19 @@ func findKeyController(action:String)->String:
 
 
 func updateControls():
+	#Keyboard
 	$Right.text="Move Right: " + findKey("move_right")
 	$Left.text="Move Left: " + findKey("move_left")
 	$Deeper.text="Jump Deeper: " + findKey("deeperLayer")
 	$Closer.text="Jump Closer: " + findKey("closerLayer")
 	$Jump.text="Jump: "+ findKey("jump")
+	$Dash.text="Dash: " + findKey("dash")
+	#Controller
 	$ControllerDeeper.text="Jump Deeper: " + findKeyController("deeperLayer")
 	$ControllerCloser.text="Jump Closer: " + findKeyController("closerLayer")
 	$ControllerJump.text="Jump: " + findKeyController("jump")
 	$ControllerRun.text="Run: " + findKeyController("run")
+
 
 	
 	
@@ -133,7 +137,9 @@ func _on_closer_pressed() -> void:
 
 func _on_jump_pressed() -> void:
 	Listen($Jump,"jump")
-
+	
+func _on_dash_pressed() -> void:
+	Listen($Dash, "dash")
 #Parametre des touches controller
 
 func _on_controller_deeper_pressed() -> void:
@@ -148,6 +154,7 @@ func _on_controller_jump_pressed() -> void:
 
 func _on_controller_run_pressed() -> void:
 	ListenController($ControllerRun, "run")
+
 
 #Autres Boutons du menu
 func _on_back_pressed() -> void:
