@@ -64,13 +64,15 @@ func _physics_process(delta: float) -> void:
 	if ! Main.get_node("CanvasLayer/Menus/MenuAccueil").virtualController:
 		direction = input_component.input_horizontal
 	if canMove:
-		if PlayerDataSaver.SettingsStats.runAsToggle:
-			movement_component.handle_horizontal_movement(self,direction, isRunning)
-		else:
-			movement_component.handle_horizontal_movement(self, direction, input_component.get_run())
+		movement_component.handle_dash(self,$Sprite2D.flip_h,input_component.get_dash())
 		advanced_jump_component.handle_jump(self, input_component.get_jump_input() or virtualJumpPressed,virtualJumpReleased or input_component.get_jump_input_released())
 		virtualJumpReleased = false
 		virtualJumpPressed = false
+	if PlayerDataSaver.SettingsStats.runAsToggle:
+		movement_component.handle_horizontal_movement(self,direction, isRunning,canMove)
+	else:
+		movement_component.handle_horizontal_movement(self, direction, input_component.get_run(),canMove)
+
 		#weapon_component._handle_fire(self, input_component.get_fire())
 	animation_component.handle_move_animation(self, direction)
 	move_and_slide()
