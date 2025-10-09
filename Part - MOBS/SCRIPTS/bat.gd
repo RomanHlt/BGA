@@ -27,7 +27,7 @@ func _ready() -> void:
 	map = self.owner
 	
 	collision_layer = 2**layer
-	collision_mask = 0
+	collision_mask = 2**layer
 	
 	#l'area de detection du player et des dégats reçus est sur le meme layer que bat
 	$DetectionPlayer.collision_mask = 2**layer
@@ -35,7 +35,7 @@ func _ready() -> void:
 	
 	$TakingDamage.collision_mask = 2**layer
 	$TakingDamage.collision_layer = 0
-
+	
 	#l'area des dégats donnés est désactivée
 	$AttackArea.collision_mask = 0
 
@@ -59,10 +59,25 @@ func _move(delta):
 		velocity = Vector2(0,0)
 	elif is_chasing:
 		direction.x = sign(target.position.x - position.x)
-		direction.y = sign(target.position.y - position.y)
+		direction.y = sign(target.position.y - position.y -20)
 		direction = Vector2(direction.x, direction.y)
 		velocity = direction * SPEED * delta
-	
+	if !is_sleeping and !is_hurt and !dead and !is_chasing and !is_attacking:
+		velocity = direction * SPEED * delta
+
+
+func _on_direction_timer_timeout() -> void:
+	if !is_sleeping and !is_hurt and !dead and !is_chasing and !is_attacking:
+		$DirectionTimer.wait_time = _choose([1, 1.5, 2])
+		direction = _choose([Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN, Vector2(1,-1), Vector2(1,1), Vector2(-1,1), Vector2(-1,-1)])
+		if is_on_ceiling():
+			direction = _choose([Vector2.DOWN, Vector2(1,-1), Vector2(-1,1)])
+		elif is_on_floor():
+			direction = _choose([Vector2.UP, Vector2(1,1), Vector2(-1,1)])
+		elif is_on_wall():
+			direction = _choose([Vector2(1,-1), Vector2(1,1), Vector2(-1,1), Vector2(-1,-1)])
+			
+
 
 func _animation():
 	#orientation en fct de la direction
@@ -106,6 +121,7 @@ func _death():
 	if dead == true:
 		animatedSprite.play("death")
 		collision_layer = 0
+		$AttackArea.collision_layer = 0 
 		await (animatedSprite.animation_finished)
 		self.queue_free()
 

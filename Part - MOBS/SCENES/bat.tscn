@@ -1138,7 +1138,7 @@ size = Vector2(9, 3)
 
 [node name="bat" type="CharacterBody2D"]
 script = ExtResource("1_ex5ae")
-SPEED = 500.0
+SPEED = 3000.0
 
 [node name="Fire" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7t2yo")
@@ -1188,7 +1188,11 @@ modulate = Color(0.44682, 0.739083, 0.384082, 1)
 position = Vector2(0.5, -4.5)
 shape = SubResource("RectangleShape2D_lavbg")
 
+[node name="DirectionTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="body_entered" from="DetectionPlayer" to="." method="_on_detection_player_body_entered"]
 [connection signal="body_exited" from="DetectionPlayer" to="." method="_on_detection_player_body_exited"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_entered" from="TakingDamage" to="." method="_on_taking_damage_body_entered"]
+[connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]
