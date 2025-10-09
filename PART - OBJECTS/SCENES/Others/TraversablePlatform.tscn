@@ -7,7 +7,7 @@
 size = Vector2(48, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arvck"]
-size = Vector2(52, 17.3333)
+size = Vector2(52, 25.3333)
 
 [node name="Traversable platform" type="Node2D"]
 scale = Vector2(1.5, 1.5)
@@ -24,7 +24,7 @@ shape = SubResource("RectangleShape2D_36emy")
 [node name="under" type="Area2D" parent="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/under"]
-position = Vector2(0, 4.66668)
+position = Vector2(0, 8.66668)
 shape = SubResource("RectangleShape2D_arvck")
 debug_color = Color(0.302295, 0.620263, 0.287676, 0.42)
 
