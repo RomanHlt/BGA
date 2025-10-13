@@ -215,6 +215,8 @@ func dead():
 	$Above.hide()
 	$Below.hide()
 	self.velocity = Vector2.ZERO
+	#On débloque le dash du joueur !
+	PlayerDataSaver.PlayerStats.dashUnlocked = true
 	# attendre que l'animation de mort se joue dans handle_animation()
 	self.queue_free()
 	# Faire spawn une récompense etc
@@ -233,6 +235,7 @@ func _on_melee_left_body_entered(body: Node2D) -> void:
 		elif body.name =="TileMapLayer":
 			if not target_hit:
 				stun(3)
+				get_parent().get_parent().get_node("Camera2D").shake()
 				self._takeDamages(1)
 			stun(0.5)
 			dashing = false
@@ -252,6 +255,7 @@ func _on_melee_right_body_entered(body: Node2D) -> void:
 		elif body.name =="TileMapLayer":
 			if not target_hit:
 				stun(3)
+				get_parent().get_parent().get_node("Camera2D").shake()
 				self._takeDamages(1)
 			stun(0.5)
 			dashing = false
@@ -335,8 +339,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			$AnimationPlayer.stop()
 			$AnimationPlayer.play("Eboulement")
 			await get_tree().create_timer(0.5).timeout
+			target.camera.shake(100)
 			get_parent().get_parent().get_node("GPUParticles2D").emitting = true
-			target.camera.shake(10)
 		else :
 			is_attacking = false
 			is_idle = true

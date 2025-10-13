@@ -25,3 +25,8 @@ func _process(delta: float) -> void:
 		$InGame/Label.text = "C"
 	else:
 		$InGame/Label.text = "K"
+	
+	if PlayerDataSaver.PlayerStats.dashUnlocked and $InGame/Dash.animation == "EMPTY":
+		$InGame/Dash.play("FULL")
+	else:
+		$InGame/Dash.play("EMPTY")
