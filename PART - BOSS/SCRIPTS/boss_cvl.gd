@@ -215,6 +215,8 @@ func dead():
 	$Above.hide()
 	$Below.hide()
 	self.velocity = Vector2.ZERO
+	#On débloque le dash du joueur !
+	PlayerDataSaver.PlayerStats.dashUnlocked = true
 	# Faire spawn une récompense etc
 
 # - Collisions -
@@ -351,6 +353,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			$AnimationPlayer.stop()
 			$AnimationPlayer.play("Eboulement")
 			await get_tree().create_timer(0.5).timeout
+			target.camera.shake(100)
 			get_parent().get_parent().get_node("GPUParticles2D").emitting = true
 			target.camera.shake(20)
 		else :

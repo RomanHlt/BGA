@@ -571,6 +571,14 @@ offset_bottom = 421.0
 disabled = true
 text = "-----------------"
 
+[node name="Dash" type="Button" parent="CanvasLayer/Menus/MenuControls"]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 228.0
+offset_right = 511.0
+offset_bottom = 259.0
+text = "-----------------"
+
 [node name="Reset" type="Button" parent="CanvasLayer/Menus/MenuControls"]
 layout_mode = 0
 offset_left = 202.0
@@ -829,6 +837,7 @@ autoplay = true
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/ControllerCloser" to="CanvasLayer/Menus/MenuControls" method="_on_controller_closer_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/ControllerRun" to="CanvasLayer/Menus/MenuControls" method="_on_controller_run_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/ControllerJump" to="CanvasLayer/Menus/MenuControls" method="_on_controller_jump_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Dash" to="CanvasLayer/Menus/MenuControls" method="_on_dash_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Reset" to="CanvasLayer/Menus/MenuControls" method="_on_reset_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Run Toggle" to="CanvasLayer/Menus/MenuControls" method="_on_run_toggle_pressed"]
 [connection signal="pressed" from="CanvasLayer/VirtualController/closer" to="CanvasLayer/VirtualController" method="_on_closer_pressed"]
