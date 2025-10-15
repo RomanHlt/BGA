@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SettingsData" load_steps=158 format=3]
+[gd_resource type="Resource" script_class="SettingsData" load_steps=159 format=3]
 
 [ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/SettigsStats.gd" id="1_qg1rf"]
 
@@ -6,6 +6,10 @@
 device = -1
 physical_keycode = 71
 unicode = 103
+
+[sub_resource type="InputEventKey" id="InputEventKey_4ov2a"]
+physical_keycode = 4194326
+location = 1
 
 [sub_resource type="InputEventKey" id="InputEventKey_qhmnp"]
 keycode = 83
@@ -646,6 +650,7 @@ musicVolume = 100
 events = Array[StringName]([&"ui_accept", &"ui_select", &"ui_cancel", &"ui_focus_next", &"ui_focus_prev", &"ui_left", &"ui_right", &"ui_up", &"ui_down", &"ui_page_up", &"ui_page_down", &"ui_home", &"ui_end", &"ui_cut", &"ui_copy", &"ui_paste", &"ui_undo", &"ui_redo", &"ui_text_completion_query", &"ui_text_completion_accept", &"ui_text_completion_replace", &"ui_text_newline", &"ui_text_newline_blank", &"ui_text_newline_above", &"ui_text_indent", &"ui_text_dedent", &"ui_text_backspace", &"ui_text_backspace_word", &"ui_text_backspace_word.macos", &"ui_text_backspace_all_to_left", &"ui_text_backspace_all_to_left.macos", &"ui_text_delete", &"ui_text_delete_word", &"ui_text_delete_word.macos", &"ui_text_delete_all_to_right", &"ui_text_delete_all_to_right.macos", &"ui_text_caret_left", &"ui_text_caret_word_left", &"ui_text_caret_word_left.macos", &"ui_text_caret_right", &"ui_text_caret_word_right", &"ui_text_caret_word_right.macos", &"ui_text_caret_up", &"ui_text_caret_down", &"ui_text_caret_line_start", &"ui_text_caret_line_start.macos", &"ui_text_caret_line_end", &"ui_text_caret_line_end.macos", &"ui_text_caret_page_up", &"ui_text_caret_page_down", &"ui_text_caret_document_start", &"ui_text_caret_document_start.macos", &"ui_text_caret_document_end", &"ui_text_caret_document_end.macos", &"ui_text_caret_add_below", &"ui_text_caret_add_below.macos", &"ui_text_caret_add_above", &"ui_text_caret_add_above.macos", &"ui_text_scroll_up", &"ui_text_scroll_up.macos", &"ui_text_scroll_down", &"ui_text_scroll_down.macos", &"ui_text_select_all", &"ui_text_select_word_under_caret", &"ui_text_select_word_under_caret.macos", &"ui_text_add_selection_for_next_occurrence", &"ui_text_skip_selection_for_next_occurrence", &"ui_text_clear_carets_and_selection", &"ui_text_toggle_insert_mode", &"ui_menu", &"ui_text_submit", &"ui_graph_duplicate", &"ui_graph_delete", &"ui_filedialog_up_one_level", &"ui_filedialog_refresh", &"ui_filedialog_show_hidden", &"ui_swap_input_direction", &"move_right", &"move_left", &"jump", &"tp", &"run", &"fast_fall", &"deeperLayer", &"closerLayer", &"menu", &"stats", &"interagir", &"fire", &"fastSave", &"controllerUsed", &"keyboardUsed", &"ok", &"GodMod", &"dash"])
 inputs_events = {
 "GodMod": [SubResource("InputEventKey_m1ysv")],
+"c": [SubResource("InputEventKey_4ov2a")],
 "closerLayer": [SubResource("InputEventKey_qhmnp"), SubResource("InputEventJoypadMotion_wavdh")],
 "controllerUsed": [SubResource("InputEventJoypadButton_vje26"), SubResource("InputEventJoypadButton_os7h7"), SubResource("InputEventJoypadButton_r8k0y"), SubResource("InputEventJoypadButton_kx6cb"), SubResource("InputEventJoypadButton_sfuf1"), SubResource("InputEventJoypadMotion_mgav2"), SubResource("InputEventJoypadButton_6h3rd"), SubResource("InputEventJoypadMotion_ytism"), SubResource("InputEventJoypadMotion_uvw7g"), SubResource("InputEventJoypadMotion_3tyts"), SubResource("InputEventJoypadMotion_vk74t"), SubResource("InputEventJoypadButton_nsa5s"), SubResource("InputEventJoypadButton_81veq"), SubResource("InputEventJoypadButton_6oh7m"), SubResource("InputEventJoypadButton_qtiop"), SubResource("InputEventJoypadButton_2x6t3"), SubResource("InputEventJoypadButton_itbxw"), SubResource("InputEventJoypadMotion_jb5l8"), SubResource("InputEventJoypadMotion_ah1ww"), SubResource("InputEventJoypadMotion_qfrp1"), SubResource("InputEventJoypadMotion_xny5k"), SubResource("InputEventJoypadButton_pjsdr"), SubResource("InputEventJoypadButton_relev"), SubResource("InputEventJoypadMotion_aywgo")],
 "dash": [SubResource("InputEventKey_po4o6")],

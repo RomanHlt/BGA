@@ -33,7 +33,6 @@ func handle_dash(body:CharacterBody2D,flipH:bool,onDash:bool):
 		else:
 			body.velocity.x = dashForce
 		body.velocity.y = 0
-		print("dash")
 		await get_tree().create_timer(0.3).timeout
 		dash = false
 		body.velocity.x = 0
