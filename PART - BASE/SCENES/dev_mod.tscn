@@ -34,6 +34,7 @@ offset_left = 1051.0
 offset_top = 141.0
 offset_right = 1142.0
 offset_bottom = 184.0
+focus_mode = 0
 text = "Full Access"
 
 [node name="GodMod" type="Button" parent="."]
@@ -43,8 +44,21 @@ offset_left = 1053.0
 offset_top = 200.0
 offset_right = 1141.0
 offset_bottom = 239.0
+focus_mode = 0
 action_mode = 0
 text = "GodMod"
 
+[node name="Unlock Power" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1026.0
+offset_top = 254.0
+offset_right = 1141.0
+offset_bottom = 293.0
+focus_mode = 0
+action_mode = 0
+text = "Unlock Power"
+
 [connection signal="pressed" from="Access" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="GodMod" to="." method="_on_god_mod_pressed"]
+[connection signal="pressed" from="Unlock Power" to="." method="_on_unlock_power_pressed"]

@@ -17,11 +17,12 @@ func _process(delta: float) -> void:
 		$TextEdit.hide()
 		$Access.show()
 		$GodMod.show()
+		$"Unlock Power".show()
 		main.is_dev = true
 
 
 func _on_button_pressed() -> void:
-	$Access.release_focus()
+	$"Unlock Power".release_focus()
 	if main.full_access:
 		main.full_access = false
 	else:
@@ -40,3 +41,8 @@ func _on_god_mod_pressed() -> void:
 		main.player.collision_mask = 0
 		main.player.get_node("GravityComponent").gravity = 0
 		main.godmod_active = true
+
+
+func _on_unlock_power_pressed() -> void:
+	$GodMod.release_focus()
+	PlayerDataSaver.PlayerStats.dashUnlocked = PlayerDataSaver.PlayerStats.dashUnlocked == false
