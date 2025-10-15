@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://b7xo8lj0knoj2"]
+[gd_scene load_steps=21 format=3 uid="uid://b7xo8lj0knoj2"]
 
 [ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss_cvl.gd" id="1_7si3l"]
-[ext_resource type="Texture2D" uid="uid://plgun4vexxp7" path="res://PART - BOSS/SCENES/new boss CVL.png" id="2_ch3be"]
+[ext_resource type="Texture2D" uid="uid://bumdo3gaxsnuv" path="res://PART - BOSS/SCENES/new_boss_CVL.png" id="2_dska8"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="3_3s4ka"]
 [ext_resource type="PackedScene" uid="uid://be2qn5hghb0f4" path="res://PART - COMPONENT/SCENES/jump_component.tscn" id="4_wamul"]
 
@@ -77,7 +77,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_kvwma"]
-length = 0.45
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -85,7 +85,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.075, 0.15, 0.225, 0.3, 0.375),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [15, 16, 17, 18, 19, 19]
@@ -107,6 +107,21 @@ tracks/0/keys = {
 "values": [20, 21, 22, 23, 24, 25]
 }
 
+[sub_resource type="Animation" id="Animation_1c8xq"]
+length = 0.625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [19, 41, 42, 43, 44]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_75os3"]
 _data = {
 "Dash": SubResource("Animation_xqsk3"),
@@ -114,6 +129,7 @@ _data = {
 "Eboulement": SubResource("Animation_0xeyn"),
 "Idle": SubResource("Animation_w8q8e"),
 "Impact": SubResource("Animation_kvwma"),
+"Stand": SubResource("Animation_1c8xq"),
 "Stunt": SubResource("Animation_82r5k")
 }
 
@@ -143,9 +159,9 @@ script = ExtResource("1_7si3l")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-1.5, -17)
-texture = ExtResource("2_ch3be")
+texture = ExtResource("2_dska8")
 hframes = 7
-vframes = 6
+vframes = 7
 frame = 3
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
@@ -160,9 +176,9 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": false,
 "player": "AnimationPlayer",
 "slice": "",
-"source": "res://PART - BOSS/ASSETS/new boss CVL.aseprite"
+"source": "res://PART - BOSS/ASSETS/new_boss_CVL.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "13cb3f78a07a84b0d51ee6a8360a9120"
+metadata/_aseprite_wizard_source_file_hash_ = "57a729d0d343010dfa2bb70f1e14e012"
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
 position = Vector2(2, 11)

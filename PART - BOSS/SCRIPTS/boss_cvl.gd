@@ -159,10 +159,10 @@ func stun(time):
 	is_attacking = false
 	is_following = false
 	is_using_capacity = false
-	is_idle = true
+	is_idle = false
 	stop_follow()
 	await get_tree().create_timer(time).timeout
-	stuned = false
+	$AnimationPlayer.play("Stand")
 
 
 func change_layer(l:int = 0):
@@ -364,8 +364,10 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		
 	if anim_name == "Impact":
 		$AnimationPlayer.play("Stunt")
-	
-		
+
+	if anim_name == "Stand":
+		stuned = false
+		is_idle= true
 
 	if anim_name == "Death":
 		self.queue_free()
