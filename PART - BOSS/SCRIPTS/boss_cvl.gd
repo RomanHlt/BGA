@@ -243,13 +243,16 @@ func _on_melee_left_body_entered(body: Node2D) -> void:
 			$meleeRight.collision_mask = 0
 			if not is_dead:
 				$AnimationPlayer.play("Impact")
+				target.camera.shake(3)
 			else:
 				$AnimationPlayer.play("Death")
+				target.camera.shake(10)
 
 func _on_melee_right_body_entered(body: Node2D) -> void:
 	if dashing:
 		if body.name == "Player":
 			target.camera.shake(3)
+			target_hit = true
 			target._takeDamages(2)
 			target.stun(2)
 			target.velocity.y = -600
@@ -260,6 +263,7 @@ func _on_melee_right_body_entered(body: Node2D) -> void:
 				self._takeDamages(1)
 				if not is_dead:
 					stun(3.5)
+			target.camera.shake(3)
 			stun(2)
 			dashing = false
 			target_hit = false
