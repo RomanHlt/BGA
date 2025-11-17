@@ -3141,6 +3141,7 @@ position = Vector2(-664, 342)
 position = Vector2(-617, -69)
 curve = SubResource("Curve2D_wmux6")
 speed_scale = 0.25
+break_time = 2.0
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
