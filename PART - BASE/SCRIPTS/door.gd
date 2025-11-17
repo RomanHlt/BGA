@@ -40,6 +40,7 @@ func _ready() -> void:
 	elif isHub:
 		#Récupérer les infos enregistrées
 		var level = int(id_next_lvl.split(".")[1]) #On récupère le num du niveau
+		print("Door problème ? Level = ", level, "\nNext level =", id_next_lvl, "\nDoor name =", self.name)
 		notes = PlayerDataSaver.WorldStats.compo[level]
 		var n=""
 		for i in notes:
