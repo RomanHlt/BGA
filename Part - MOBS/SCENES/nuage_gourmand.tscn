@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://blknhf2vevq6i"]
+
+[ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/nuage_gourmand.gd" id="1_o3n52"]
+[ext_resource type="Texture2D" uid="uid://c7n1n6uxdmoxw" path="res://GLOBAL - APP/godot icon.svg" id="2_h8p62"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_66wqb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5k1cq"]
+radius = 53.0094
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hoj7d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lvmqa"]
+radius = 366.4
+
+[node name="NuageGourmand" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 15
+script = ExtResource("1_o3n52")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.210938, 0.210938)
+texture = ExtResource("2_h8p62")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_66wqb")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_5k1cq")
+
+[node name="Centre" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Centre"]
+shape = SubResource("CircleShape2D_hoj7d")
+debug_color = Color(0, 0.182744, 0.88637, 0.42)
+
+[node name="target" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="target"]
+shape = SubResource("CircleShape2D_lvmqa")
+debug_color = Color(0.610183, 0.374999, 0.974222, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Centre" to="." method="_on_centre_body_entered"]
+[connection signal="body_entered" from="Centre" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="target" to="." method="_on_target_body_entered"]

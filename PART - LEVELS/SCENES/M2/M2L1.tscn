@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://qmqbhcy1ntjv"]
+[gd_scene load_steps=39 format=4 uid="uid://qmqbhcy1ntjv"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_lw6fj"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_51l1m"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://PART - LEVELS/SCENES/M2/script M2/respawn.gd" id="9_0tl66"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="9_fsc1j"]
 [ext_resource type="PackedScene" uid="uid://digirtaqdarvr" path="res://PART - OBJECTS/SCENES/Traps/Bumper.tscn" id="12_4tqyh"]
+[ext_resource type="PackedScene" uid="uid://blknhf2vevq6i" path="res://PART - MOBS/SCENES/nuage_gourmand.tscn" id="14_f8t3s"]
 
 [sub_resource type="Shader" id="Shader_wghwi"]
 
@@ -3246,5 +3247,8 @@ shape = SubResource("RectangleShape2D_efydt")
 
 [node name="Marker2D" type="Marker2D" parent="Area2D"]
 position = Vector2(1, -63)
+
+[node name="NuageGourmand" parent="." instance=ExtResource("14_f8t3s")]
+position = Vector2(-160, 10)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
