@@ -1,17 +1,89 @@
-[gd_scene load_steps=7 format=3 uid="uid://blknhf2vevq6i"]
+[gd_scene load_steps=12 format=3 uid="uid://blknhf2vevq6i"]
 
 [ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/nuage_gourmand.gd" id="1_o3n52"]
-[ext_resource type="Texture2D" uid="uid://c7n1n6uxdmoxw" path="res://GLOBAL - APP/godot icon.svg" id="2_h8p62"]
+[ext_resource type="Texture2D" uid="uid://kwgnyokfrrcg" path="res://PART - MOBS/SCENES/nuage.png" id="2_l5uij"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_66wqb"]
 
+[sub_resource type="Animation" id="Animation_58arr"]
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_tiovl"]
+length = 1.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5, 6, 7, 3, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_j57ua"]
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_4ypmd"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_apx3k"]
+_data = {
+"Idle": SubResource("Animation_58arr"),
+"Inspiration": SubResource("Animation_tiovl"),
+"Souffle": SubResource("Animation_j57ua"),
+"wait": SubResource("Animation_4ypmd")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_5k1cq"]
-radius = 53.0094
+radius = 82.0061
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hoj7d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvmqa"]
-radius = 128.141
+radius = 251.018
 
 [node name="NuageGourmand" type="CharacterBody2D"]
 collision_layer = 0
@@ -20,14 +92,37 @@ script = ExtResource("1_o3n52")
 power = 1000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.210938, 0.210938)
-texture = ExtResource("2_h8p62")
+texture_filter = 1
+position = Vector2(-6, -11)
+scale = Vector2(2, 2)
+texture = ExtResource("2_l5uij")
+hframes = 4
+vframes = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://PART - BOSS/ASSETS/nuage.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "0fab3a0ebc474fa2ab9a88741cc10619"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_66wqb")
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_apx3k")
+}
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
