@@ -3,7 +3,6 @@ extends CharacterBody2D
 @export var power : float = 500
 @export var power_aspiration : float = 50
 @export var angle : float = 45 # En degré
-@export var stun_time : float = 3
 
 @onready var centre : Vector2 = self.global_position
 @onready var dir : Vector2 = Vector2(power, 0).rotated(-angle/180 * PI)
@@ -20,7 +19,7 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.name == "Player" and not cooldown:
 		body.canMove = false
 		g_temp = body.gravity_component.gravity
 		body.gravity_component.gravity = 0
@@ -35,14 +34,12 @@ func _on_centre_body_entered(body: Node2D) -> void:
 		body.global_position = centre
 		body.velocity = Vector2.ZERO
 		look_at(dir)
-		print(dir)
 		await get_tree().create_timer(2).timeout
 		body.velocity = dir
 		body.show()
 		body.gravity_component.gravity = g_temp
 		body.canMove = true
-		body.stun(stun_time)
-		await get_tree().create_timer(1).timeout
+		target = null
 		cooldown = false
 
 

@@ -11,12 +11,13 @@ radius = 53.0094
 [sub_resource type="CircleShape2D" id="CircleShape2D_hoj7d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvmqa"]
-radius = 366.4
+radius = 128.141
 
 [node name="NuageGourmand" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 15
 script = ExtResource("1_o3n52")
+power = 1000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.210938, 0.210938)
@@ -29,17 +30,23 @@ disabled = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_5k1cq")
 
 [node name="Centre" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Centre"]
 shape = SubResource("CircleShape2D_hoj7d")
 debug_color = Color(0, 0.182744, 0.88637, 0.42)
 
 [node name="target" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="target"]
 shape = SubResource("CircleShape2D_lvmqa")

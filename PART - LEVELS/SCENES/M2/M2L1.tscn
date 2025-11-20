@@ -3190,6 +3190,9 @@ isHub = false
 isDecorative = true
 id_last_lvl = "2.0.0"
 
+[node name="NuageGourmand" parent="TileMapLayer" instance=ExtResource("14_f8t3s")]
+position = Vector2(-160, 10)
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
 light_mask = 2
@@ -3247,8 +3250,5 @@ shape = SubResource("RectangleShape2D_efydt")
 
 [node name="Marker2D" type="Marker2D" parent="Area2D"]
 position = Vector2(1, -63)
-
-[node name="NuageGourmand" parent="." instance=ExtResource("14_f8t3s")]
-position = Vector2(-160, 10)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
