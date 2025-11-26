@@ -32,8 +32,8 @@ func _on_button_pressed() -> void:
 func _on_god_mod_pressed() -> void:
 	$GodMod.release_focus()
 	if main.godmod_active:
-		main.player.collision_layer = 2**main.player.get_parent().get_parent().currentPlayerLayer
-		main.player.collision_mask = 2**main.player.get_parent().get_parent().currentPlayerLayer
+		main.player.collision_layer = 2**get_tree().current_scene.currentPlayerLayer
+		main.player.collision_mask = 2**get_tree().current_scene.currentPlayerLayer
 		main.player.get_node("GravityComponent").gravity = 1200
 		main.godmod_active = false
 	else:
