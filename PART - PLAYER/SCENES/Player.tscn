@@ -337,6 +337,7 @@ metadata/_aseprite_wizard_source_file_hash_ = "977cf3e2117f52c0e51a211c2b59d8fe"
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
 modulate = Color(0.776471, 0.721569, 0.529412, 1)
 position = Vector2(2, 2)
+enabled = false
 color = Color(0.626379, 0.538101, 0.265228, 1)
 energy = 2.0
 shadow_enabled = true
@@ -347,6 +348,7 @@ texture_scale = 4.0
 
 [node name="PointLight2D2" type="PointLight2D" parent="Sprite2D"]
 position = Vector2(2, 2)
+enabled = false
 color = Color(0.47451, 0.403922, 0.184314, 1)
 energy = 2.0
 shadow_enabled = true
@@ -357,6 +359,7 @@ texture_scale = 4.0
 
 [node name="PointLight2D3" type="PointLight2D" parent="Sprite2D"]
 position = Vector2(2, 2)
+enabled = false
 color = Color(0.627451, 0.537255, 0.266667, 1)
 energy = 2.0
 shadow_enabled = true
