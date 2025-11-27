@@ -1,7 +1,10 @@
-[gd_scene load_steps=39 format=4 uid="uid://qmqbhcy1ntjv"]
+
+[gd_scene load_steps=40 format=4 uid="uid://qmqbhcy1ntjv"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_lw6fj"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_51l1m"]
+[ext_resource type="Texture2D" uid="uid://cjhbhg1h1ql4u" path="res://PART - LEVELS/ASSETS/Map/2 Background/sky/BG Image.png" id="2_e5m6b"]
+[ext_resource type="Texture2D" uid="uid://d3mh7iapp7i12" path="res://PART - LEVELS/ASSETS/Map/2 Background/sky/Small Cloud 1.png" id="3_7mpr0"]
 [ext_resource type="Texture2D" uid="uid://bseeoey2b8kg0" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tileset2.png" id="3_48jcu"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_k4wc5"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_g4baw"]
@@ -3038,10 +3041,87 @@ sources/3 = SubResource("TileSetAtlasSource_a0c6o")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efydt"]
 size = Vector2(6058, 1036)
 
-[node name="Map" type="Node2D"]
-modulate = Color(0.52549, 0.596078, 0.815686, 1)
+[node name="Map" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_lw6fj")
 id = "2.1.0"
+player = NodePath("Player")
+
+[node name="ParallaxBG" type="Parallax2D" parent="."]
+z_index = -100
+scroll_scale = Vector2(0.2, 0.001)
+scroll_offset = Vector2(-922, -450)
+repeat_size = Vector2(1401.28, 0)
+limit_begin = Vector2(-1401.28, -1e+07)
+limit_end = Vector2(1401.28, 1e+07)
+
+[node name="BG" type="Sprite2D" parent="ParallaxBG"]
+position = Vector2(1401.28, 852.851)
+scale = Vector2(5, 5)
+texture = ExtResource("2_e5m6b")
+
+[node name="ParallaxCloud1" type="Parallax2D" parent="."]
+z_index = -100
+scroll_scale = Vector2(0.4, 0.001)
+scroll_offset = Vector2(-954, 272)
+repeat_size = Vector2(1401.28, 0)
+autoscroll = Vector2(-4, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxCloud1"]
+position = Vector2(1035, 45)
+texture = ExtResource("3_7mpr0")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxCloud1"]
+position = Vector2(2025.59, -58.8762)
+texture = ExtResource("3_7mpr0")
+
+[node name="ParallaxCloud2" type="Parallax2D" parent="."]
+z_index = -100
+scroll_scale = Vector2(0.6, 0.01)
+scroll_offset = Vector2(-1694, 117)
+repeat_size = Vector2(1401.28, 0)
+autoscroll = Vector2(-6, 0)
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxCloud2"]
+position = Vector2(700.74, 115.62)
+scale = Vector2(2, 2)
+texture = ExtResource("3_7mpr0")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxCloud2"]
+position = Vector2(1069.11, 262.681)
+scale = Vector2(2, 2)
+texture = ExtResource("3_7mpr0")
+
+[node name="ParallaxCloud3" type="Parallax2D" parent="."]
+z_index = -100
+scroll_scale = Vector2(0.8, 0.1)
+repeat_size = Vector2(1401.28, 0)
+autoscroll = Vector2(-8, 0)
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxCloud3"]
+position = Vector2(492, 317)
+scale = Vector2(2, 2)
+texture = ExtResource("3_7mpr0")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxCloud3"]
+position = Vector2(1332.01, 135.291)
+scale = Vector2(2, 2)
+texture = ExtResource("3_7mpr0")
+
+[node name="ParallaxCloud4" type="Parallax2D" parent="."]
+z_index = -100
+scroll_scale = Vector2(0.4, 0.01)
+repeat_size = Vector2(1401.28, 0)
+autoscroll = Vector2(-4, 0)
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxCloud4"]
+position = Vector2(542.689, 346.117)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_7mpr0")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxCloud4"]
+position = Vector2(1178.03, 437.62)
+scale = Vector2(2, 2)
+texture = ExtResource("3_7mpr0")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 material = SubResource("ShaderMaterial_dq4jg")
@@ -3228,10 +3308,12 @@ position = Vector2(-4, -108)
 scale = Vector2(1.5, 1.5)
 collision_layer = 0
 camera = NodePath("../Camera2D")
+enableLight = false
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("PLAYER")]
 z_index = 1
 texture_filter = 1
+position = Vector2(-3, -175)
 zoom = Vector2(1.5, 1.5)
 process_callback = 0
 limit_smoothed = true
@@ -3252,8 +3334,5 @@ script = ExtResource("9_0tl66")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(2274, 895)
 shape = SubResource("RectangleShape2D_efydt")
-
-[node name="Marker2D" type="Marker2D" parent="Area2D"]
-position = Vector2(1, -63)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

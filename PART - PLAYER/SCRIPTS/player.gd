@@ -10,6 +10,7 @@ signal pathObstrued
 @export var weapon_component: WeaponComponent
 @export_subgroup("External Nodes")
 @export var camera:Camera2D
+@export var enableLight:bool = true
 @export_subgroup("Data")
 @export var data: PlayerData = PlayerData.new()
 
@@ -39,13 +40,17 @@ func _ready():
 	show()
 	#setup playerdata
 	data = PlayerDataSaver.PlayerStats
+	print(data.health)
 	#setup the layer checkers
 	deeperChecker = $deeperChecker
 	closerChecker = $closerChecker
 	dealingDamages = $PlayerDealingDamageZone
 	closerLeft = $CloserLeft
 	closerRight = $CloserRight
-
+	
+	$Sprite2D/PointLight2D.enabled = enableLight
+	$Sprite2D/PointLight2D2.enabled = enableLight
+	$Sprite2D/PointLight2D3.enabled = enableLight
 
 
 func _process(delta: float) -> void:
@@ -119,10 +124,10 @@ func _dead():
 
 func _respawn():
 	"""Est automatiquement appellée après la mort du joueur"""
-	if get_parent().get_parent().isBoss:
+	if get_tree().current_scene.isBoss:
 		Main.get_node("Globals Levels").change_lvl(PlayerDataSaver.PlayerStats.current_lvl,"",str(PlayerDataSaver.PlayerStats.current_lvl))
 	else:
-		get_tree().root.get_node("Map").findRightSpawn()
+		get_tree().current_scene.findRightSpawn()
 	PlayerDataSaver.PlayerStats.health = PlayerDataSaver.PlayerStats.max_health
 	camera.exitBossMode()
 	await get_tree().create_timer(1).timeout

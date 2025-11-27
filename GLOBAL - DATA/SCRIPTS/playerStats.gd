@@ -19,6 +19,9 @@ func load_game():
 		var player = ResourceLoader.load('res://GLOBAL - DATA/SAVES/PlayerData.tres')
 		if player is PlayerData:
 			print("PlayerData Found")
+			if player.is_dead == true: 
+				player.is_dead = false
+				player.health = player.max_health
 			return player
 	else:
 		return null
