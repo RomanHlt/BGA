@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcdmxt1m5xkmk"
-path="res://.godot/imported/Totem.png-301281cb25082dd230a621bae7cc1005.ctex"
+uid="uid://dj7arm6ndykjx"
+path="res://.godot/imported/heads.png-413821973c634428c481f582414cd3c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - MOBS/SCENES/Totem.png"
-dest_files=["res://.godot/imported/Totem.png-301281cb25082dd230a621bae7cc1005.ctex"]
+source_file="res://PART - MOBS/SCENES/Totem/heads.png"
+dest_files=["res://.godot/imported/heads.png-413821973c634428c481f582414cd3c1.ctex"]
 
 [params]
 
