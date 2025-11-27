@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=40 format=4 uid="uid://qmqbhcy1ntjv"]
+[gd_scene load_steps=41 format=4 uid="uid://qmqbhcy1ntjv"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_lw6fj"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_51l1m"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v7vb881bajg"
-path="res://.godot/imported/piggy_sheet.png-122453e5a5e31b0f5151cac989baf5f3.ctex"
+uid="uid://kwgnyokfrrcg"
+path="res://.godot/imported/nuage.png-6fcae1129f7823385ee86fc6718315db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - MOBS/SCENES/piggy_sheet.png"
-dest_files=["res://.godot/imported/piggy_sheet.png-122453e5a5e31b0f5151cac989baf5f3.ctex"]
+source_file="res://PART - MOBS/ASSETS/nuage.png"
+dest_files=["res://.godot/imported/nuage.png-6fcae1129f7823385ee86fc6718315db.ctex"]
 
 [params]
 

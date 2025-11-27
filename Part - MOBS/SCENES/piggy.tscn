@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://d2sv0yhjr40sk"]
 
-[ext_resource type="Texture2D" uid="uid://v7vb881bajg" path="res://PART - MOBS/SCENES/piggy_sheet.png" id="1_iomcu"]
+[ext_resource type="Texture2D" uid="uid://v7vb881bajg" path="res://PART - MOBS/ASSETS/piggy_sheet.png" id="1_iomcu"]
 [ext_resource type="Script" path="res://PART - MOBS/scripts/piggy.gd" id="1_s5eru"]
 
 [sub_resource type="Animation" id="Animation_x688j"]
