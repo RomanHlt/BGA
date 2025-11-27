@@ -19,7 +19,11 @@ func _process(delta: float) -> void:
 		$GodMod.show()
 		$"Unlock Power".show()
 		main.is_dev = true
-
+	if get_tree().root.get_node("Map"):
+		if get_tree().root.get_node("Map").id == "1.4.0" and main.is_dev:
+			$End_CVL.show()
+		else:
+			$End_CVL.hide()
 
 func _on_button_pressed() -> void:
 	$"Unlock Power".release_focus()
@@ -44,5 +48,10 @@ func _on_god_mod_pressed() -> void:
 
 
 func _on_unlock_power_pressed() -> void:
-	$GodMod.release_focus()
+	$"Unlock Power".release_focus()
 	PlayerDataSaver.PlayerStats.dashUnlocked = PlayerDataSaver.PlayerStats.dashUnlocked == false
+
+
+func _on_end_cvl_pressed() -> void:
+	$End_CVL.release_focus()
+	get_tree().root.get_node("Map").get_node("TileMapLayer2").end()
