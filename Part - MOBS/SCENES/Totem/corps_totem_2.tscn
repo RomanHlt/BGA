@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://beqadnuaj4wkx"]
 
-[ext_resource type="Texture2D" uid="uid://dj7arm6ndykjx" path="res://PART - MOBS/SCENES/Totem/heads.png" id="1_o5ks1"]
+[ext_resource type="Texture2D" uid="uid://bprtvg0nasr3f" path="res://PART - MOBS/SCENES/Totem/corpsTotem2.png" id="1_tc8g1"]
 
 [sub_resource type="Animation" id="Animation_t2kqh"]
-length = 3.15
+length = 2.85
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -12,10 +12,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 1.65, 1.8, 1.95, 2.1, 2.25, 2.4, 2.55, 2.7, 2.85, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 1.65, 1.8, 1.95, 2.1, 2.25, 2.4, 2.55, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 1, 2, 2, 3, 4, 3, 4, 3, 5, 6, 7]
+"values": [0, 1, 2, 1, 2, 2, 3, 4, 3, 4, 3, 5]
 }
 
 [sub_resource type="Animation" id="Animation_plqse"]
@@ -34,22 +34,6 @@ tracks/0/keys = {
 "values": [0, 1, 2, 1]
 }
 
-[sub_resource type="Animation" id="Animation_qcp1q"]
-length = 0.45
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [1, 2, 2]
-}
-
 [sub_resource type="Animation" id="Animation_7ghnn"]
 length = 0.9
 loop_mode = 1
@@ -66,8 +50,8 @@ tracks/0/keys = {
 "values": [3, 4, 3, 4, 3, 5]
 }
 
-[sub_resource type="Animation" id="Animation_ta8fb"]
-length = 0.15
+[sub_resource type="Animation" id="Animation_qcp1q"]
+length = 0.45
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -76,14 +60,14 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [6]
+"values": [1, 2, 2]
 }
 
-[sub_resource type="Animation" id="Animation_d6x3t"]
-length = 0.15
+[sub_resource type="Animation" id="Animation_fre2l"]
+length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -95,27 +79,27 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [7]
+"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1x8wv"]
 _data = {
-"Corps1": SubResource("Animation_ta8fb"),
-"Corps2": SubResource("Animation_d6x3t"),
 "Head": SubResource("Animation_t2kqh"),
 "Idle": SubResource("Animation_plqse"),
 "attackContinue": SubResource("Animation_7ghnn"),
-"attackDebut": SubResource("Animation_qcp1q")
+"attackDebut": SubResource("Animation_qcp1q"),
+"default": SubResource("Animation_fre2l")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsdft"]
+size = Vector2(21, 20)
 
 [node name="CorpsTotem2" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_o5ks1")
-hframes = 3
-vframes = 3
-frame = 6
+position = Vector2(-1, -2)
+texture = ExtResource("1_tc8g1")
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -129,9 +113,9 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": false,
 "player": "Sprite2D/AnimationPlayer",
 "slice": "",
-"source": "res://PART - MOBS/ASSETS/Totem/heads.aseprite"
+"source": "res://PART - MOBS/ASSETS/Totem/corpsTotem2.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "255d0bd66dada5c3e738eed0e36993eb"
+metadata/_aseprite_wizard_source_file_hash_ = "fb4ae20ece001817b49f2bbcc01000e7"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
@@ -139,3 +123,5 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_gsdft")
