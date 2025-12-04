@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends RigidBody2D
 
 @export_category("Nodes")
 @export var layer:int
@@ -15,11 +15,7 @@ func _ready() -> void:
 	$WindArea.collision_mask = 2**layer
 	$Sprite2D/AnimationPlayer.play("Idle")
 	map = self.owner
-	
-func _physics_process(delta: float) -> void:
-	if !is_on_floor():
-		velocity.y += gravity*delta
-	move_and_slide()
+
 
 func _on_wind_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and blowing:

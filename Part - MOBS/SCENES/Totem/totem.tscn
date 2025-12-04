@@ -82,7 +82,7 @@ size = Vector2(21, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twf2j"]
 size = Vector2(32.5, 31)
 
-[node name="Totem" type="CharacterBody2D"]
+[node name="Totem" type="RigidBody2D"]
 script = ExtResource("1_3xsc1")
 wind_force = Vector2(-500, -100)
 gravity = 1000
