@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://w2pjjvo13wb3"]
+
+[ext_resource type="Texture2D" uid="uid://bprtvg0nasr3f" path="res://PART - MOBS/SCENES/Totem/corpsTotem2.png" id="1_tc8g1"]
+[ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/corps_totem.gd" id="2_7l0ee"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5el3f"]
+size = Vector2(21, 20)
+
+[node name="corps_totem2" type="RigidBody2D"]
+script = ExtResource("2_7l0ee")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tc8g1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_5el3f")

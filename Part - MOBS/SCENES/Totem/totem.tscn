@@ -1,0 +1,138 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxfqd3h3h2t2e"]
+
+[ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/totem.gd" id="1_3xsc1"]
+[ext_resource type="Texture2D" uid="uid://dj7arm6ndykjx" path="res://PART - MOBS/SCENES/Totem/heads.png" id="2_u02n2"]
+
+[sub_resource type="Animation" id="Animation_2eusu"]
+length = 2.85
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 1.65, 1.8, 1.95, 2.1, 2.25, 2.4, 2.55, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1, 2, 2, 3, 4, 3, 4, 3, 5]
+}
+
+[sub_resource type="Animation" id="Animation_6164u"]
+length = 2.0
+loop_mode = 1
+step = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1]
+}
+
+[sub_resource type="Animation" id="Animation_4r4jv"]
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 3, 4, 3, 5]
+}
+
+[sub_resource type="Animation" id="Animation_7sbet"]
+length = 0.45
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yaiek"]
+_data = {
+"Head": SubResource("Animation_2eusu"),
+"Idle": SubResource("Animation_6164u"),
+"attackContinue": SubResource("Animation_4r4jv"),
+"attackDebut": SubResource("Animation_7sbet")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2ggo"]
+size = Vector2(21, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twf2j"]
+size = Vector2(32.5, 31)
+
+[node name="Totem" type="RigidBody2D"]
+script = ExtResource("1_3xsc1")
+wind_force = Vector2(-500, -100)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-17, 0)
+texture = ExtResource("2_u02n2")
+hframes = 3
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "Sprite2D/AnimationPlayer",
+"slice": "",
+"source": "res://PART - MOBS/ASSETS/Totem/heads.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "5f2da76716cae6e1491be2bd5ce09445"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_yaiek")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_c2ggo")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="WindArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindArea"]
+position = Vector2(-27.25, 3)
+shape = SubResource("RectangleShape2D_twf2j")
+debug_color = Color(0.809118, 0.346618, 0.585495, 0.42)
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="body_entered" from="WindArea" to="." method="_on_wind_area_body_entered"]
