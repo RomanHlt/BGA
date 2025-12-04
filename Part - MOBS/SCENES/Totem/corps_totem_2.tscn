@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://beqadnuaj4wkx"]
+[gd_scene load_steps=10 format=3 uid="uid://beqadnuaj4wkx"]
 
 [ext_resource type="Texture2D" uid="uid://bprtvg0nasr3f" path="res://PART - MOBS/SCENES/Totem/corpsTotem2.png" id="1_tc8g1"]
+[ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/corps_totem.gd" id="2_7l0ee"]
 
 [sub_resource type="Animation" id="Animation_t2kqh"]
 length = 2.85
@@ -100,6 +101,7 @@ size = Vector2(21, 20)
 texture_filter = 1
 position = Vector2(-1, -2)
 texture = ExtResource("1_tc8g1")
+script = ExtResource("2_7l0ee")
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }

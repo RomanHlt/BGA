@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://d30qgd6vea4b4"]
+[gd_scene load_steps=12 format=3 uid="uid://d30qgd6vea4b4"]
 
+[ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/corps_totem.gd" id="1_60syg"]
 [ext_resource type="Texture2D" uid="uid://c7golp262a1yk" path="res://PART - MOBS/SCENES/Totem/corpsTotem1.png" id="1_afc85"]
 
 [sub_resource type="Animation" id="Animation_220sw"]
@@ -129,6 +130,7 @@ _data = {
 size = Vector2(21, 20)
 
 [node name="CorpsTotem1" type="StaticBody2D"]
+script = ExtResource("1_60syg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
