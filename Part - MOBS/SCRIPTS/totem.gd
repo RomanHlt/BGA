@@ -3,7 +3,6 @@ extends RigidBody2D
 @export_category("Nodes")
 @export var layer:int
 @export var wind_force : Vector2
-@export var gravity: int
 var blowing : bool = false
 var map
 

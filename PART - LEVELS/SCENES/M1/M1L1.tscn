@@ -1,14 +1,11 @@
-[gd_scene load_steps=40 format=4 uid="uid://c1mehavpp4x4w"]
+[gd_scene load_steps=37 format=4 uid="uid://c1mehavpp4x4w"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_1ucby"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_5idw8"]
 [ext_resource type="PackedScene" uid="uid://c1r0k08xd0ibm" path="res://PART - OBJECTS/SCENES/Others/Note.tscn" id="3_11nbo"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_n1b2c"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_bufs7"]
-[ext_resource type="PackedScene" uid="uid://d30qgd6vea4b4" path="res://PART - MOBS/SCENES/Totem/corps_totem_1.tscn" id="5_sc5ae"]
-[ext_resource type="PackedScene" uid="uid://w2pjjvo13wb3" path="res://PART - MOBS/SCENES/Totem/corps_totem_2.tscn" id="6_xy3sv"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="11_gjoes"]
-[ext_resource type="PackedScene" uid="uid://dxfqd3h3h2t2e" path="res://PART - MOBS/SCENES/Totem/totem.tscn" id="11_wx0je"]
 [ext_resource type="Script" path="res://PART - LEVELS/SCENES/M1/scripts M1/zonetuto.gd" id="12_txy00"]
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="13_13kxi"]
 [ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="14_4groo"]
@@ -3063,9 +3060,6 @@ tile_map_data = PackedByteArray("AABaAAcAAwAEAAQAAABaAAYAAwACAAQAAABaAAUAAwAEAAI
 tile_set = SubResource("TileSet_k3r57")
 metadata/_edit_lock_ = true
 
-[node name="Totem" parent="TileMapLayer" instance=ExtResource("11_wx0je")]
-position = Vector2(286, -97)
-
 [node name="door" parent="TileMapLayer" instance=ExtResource("11_gjoes")]
 position = Vector2(-1209, -575)
 isHub = false
@@ -3080,12 +3074,6 @@ position = Vector2(-1, -31)
 isHub = false
 isDecorative = true
 id_last_lvl = "1.0.0"
-
-[node name="CorpsTotem1" parent="TileMapLayer" instance=ExtResource("5_sc5ae")]
-position = Vector2(286, -51)
-
-[node name="corps_totem2" parent="TileMapLayer" instance=ExtResource("6_xy3sv")]
-position = Vector2(285, -74)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.517647, 0.517647, 0.517647, 1)
