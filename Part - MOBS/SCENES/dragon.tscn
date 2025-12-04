@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/dragon.gd" id="1_fg141"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="1_j3vgy"]
-[ext_resource type="Texture2D" uid="uid://c38xevtly8jcx" path="res://PART - MOBS/SCENES/Dragon cat.png" id="2_x5nxf"]
+[ext_resource type="Texture2D" uid="uid://c38xevtly8jcx" path="res://PART - MOBS/ASSETS/Dragon cat.png" id="2_x5nxf"]
 [ext_resource type="PackedScene" uid="uid://codccv1hd133u" path="res://PART - COMPONENT/SCENES/advanced_jump_component.tscn" id="3_r26lh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vw250"]

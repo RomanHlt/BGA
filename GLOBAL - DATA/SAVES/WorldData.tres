@@ -15,6 +15,7 @@ compo = {
 9: [false, false, false]
 }
 access = {
+0: true,
 1: true,
 2: false,
 3: false,

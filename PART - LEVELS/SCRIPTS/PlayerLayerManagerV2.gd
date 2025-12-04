@@ -5,13 +5,14 @@ extends Node2D
 @export var spawnLayer:int = 0
 @export var isHome:bool = false
 @export var isBoss : bool = false
+@export_subgroup("Player")
+@export var player:CharacterBody2D
 var Layers:Array
-var player:CharacterBody2D
 var currentPlayerLayer:int = spawnLayer
 var pathObstured:bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player = $Player
 	Main.get_node("Globals Options").player = player
 	player.z_index = -spawnLayer
 	player.collision_mask = 2**spawnLayer

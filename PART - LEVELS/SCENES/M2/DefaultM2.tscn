@@ -3021,9 +3021,10 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_phceq")
 sources/3 = SubResource("TileSetAtlasSource_fipg5")
 
-[node name="Map" type="Node2D"]
+[node name="Map" type="Node2D" node_paths=PackedStringArray("player")]
 modulate = Color(0.52549, 0.596078, 0.815686, 1)
 script = ExtResource("1_sneiy")
+player = NodePath("Player")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 material = SubResource("ShaderMaterial_dq4jg")

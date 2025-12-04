@@ -3049,10 +3049,11 @@ sources/3 = SubResource("TileSetAtlasSource_5aocy")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdexf"]
 size = Vector2(42, 433)
 
-[node name="Map" type="Node2D"]
+[node name="Map" type="Node2D" node_paths=PackedStringArray("player")]
 modulate = Color(0.5258, 0.596483, 0.816154, 1)
 script = ExtResource("1_1ucby")
 id = "1.1.0"
+player = NodePath("Player")
 metadata/_edit_lock_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -3116,19 +3117,6 @@ metadata/_edit_lock_ = true
 scale = Vector2(1.5, 1.5)
 collision_layer = 0
 camera = NodePath("../Camera2D")
-
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("PLAYER")]
-z_index = 1
-texture_filter = 1
-zoom = Vector2(2, 2)
-process_callback = 0
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 15.0
-script = ExtResource("4_bufs7")
-PLAYER = NodePath("../Player")
-playerOffset = Vector2(0, -80)
-metadata/_edit_lock_ = true
 
 [node name="Zonetuto" type="Area2D" parent="."]
 position = Vector2(-10, 0)
@@ -3293,6 +3281,19 @@ offset_bottom = -77.0
 text = "Par là"
 text_keyboard = "Par là"
 text_controller = "Par là"
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("PLAYER")]
+z_index = 1
+texture_filter = 1
+zoom = Vector2(2, 2)
+process_callback = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+script = ExtResource("4_bufs7")
+PLAYER = NodePath("../Player")
+playerOffset = Vector2(0, -80)
 metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
