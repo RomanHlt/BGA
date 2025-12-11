@@ -28,7 +28,7 @@ func _on_envoyer_pressed() -> void:
 	var score_data = {
 	"pseudo": pseudo,
 	"time": temps,
-	"token" : "cestpaslebontoken"
+	"token" : "MMgZKu4IhpvJbAifxMjYpUBtxTyH1RU8IRo05ZR9WLIFvUyJ9u1giT1bC7sLV4AD"
 	}
 	send_score(score_data)
 	send = true

@@ -2429,10 +2429,10 @@ tile_map_data = PackedByteArray("AAARAAkAAwACAAMAAAARAAgAAwACAAEAAAARAAcAAwABAAM
 tile_set = SubResource("TileSet_k3r57")
 
 [node name="Torch" parent="TileMapLayer" instance=ExtResource("3_5pbph")]
-position = Vector2(-217, -1100)
+position = Vector2(-273, -1100)
 
 [node name="Torch2" parent="TileMapLayer" instance=ExtResource("3_5pbph")]
-position = Vector2(202, -1099)
+position = Vector2(272, -1099)
 
 [node name="door" parent="TileMapLayer" instance=ExtResource("3_tg7be")]
 position = Vector2(98, 16)

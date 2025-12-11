@@ -2419,4 +2419,15 @@ playerOffset = Vector2(0, -80)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_e4u6r")
 
+[node name="Torch2" parent="." instance=ExtResource("3_tt8ig")]
+position = Vector2(317, -80)
+layer = 1
+
+[node name="Torch4" parent="." instance=ExtResource("3_tt8ig")]
+position = Vector2(582, 523)
+layer = 1
+
+[node name="Torch5" parent="." instance=ExtResource("3_tt8ig")]
+position = Vector2(785, 572)
+
 [connection signal="body_exited" from="Control/Area2D" to="Control" method="_on_area_2d_body_exited"]

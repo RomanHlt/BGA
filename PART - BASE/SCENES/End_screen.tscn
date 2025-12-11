@@ -2,18 +2,12 @@
 
 [ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="1_8imnm"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/end_screen.gd" id="1_yopie"]
+[ext_resource type="Theme" uid="uid://bjoq4h1pkupm" path="res://PART - BASE/ASSETS/End_screen_font.tres" id="3_qqbqs"]
 
 [sub_resource type="Theme" id="Theme_xhkxq"]
 Label/colors/font_color = Color(1, 0, 0.733333, 1)
 Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
 Label/constants/shadow_outline_size = 20
-Label/fonts/font = ExtResource("1_8imnm")
-
-[sub_resource type="Theme" id="Theme_7t71u"]
-Label/colors/font_color = Color(1, 0, 0.733333, 1)
-Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
-Label/constants/outline_size = 10
-Label/font_sizes/font_size = 6
 Label/fonts/font = ExtResource("1_8imnm")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abvc2"]
@@ -138,7 +132,7 @@ offset_right = 406.0
 offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_7t71u")
+theme = ExtResource("3_qqbqs")
 theme_override_font_sizes/font_size = 25
 text = "Félicitation vous avez réussi à finir le jeu !
 
@@ -155,15 +149,15 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 231.0
-offset_top = -125.0
+offset_top = -143.0
 offset_right = 552.0
-offset_bottom = -62.0
+offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = SubResource("Theme_7t71u")
+theme = ExtResource("3_qqbqs")
 theme_override_font_sizes/font_size = 25
 text = "Notre Instagram : 
-@insa_bga"
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -181,11 +175,11 @@ offset_right = -363.0
 offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = SubResource("Theme_7t71u")
+theme = ExtResource("3_qqbqs")
 theme_override_font_sizes/font_size = 25
 text = "Version :
-- Démo 4
-- 15/10/25"
+- BGA-1.0.0
+- 27/11/25"
 
 [node name="Retour au menu" type="Button" parent="."]
 texture_filter = 1
@@ -206,4 +200,15 @@ theme = SubResource("Theme_lrrad")
 text = "Retour au menu
 "
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 866.0
+offset_top = 555.0
+offset_right = 1056.0
+offset_bottom = 613.0
+theme = ExtResource("3_qqbqs")
+theme_override_font_sizes/font_size = 36
+text = "@insa_bga"
+
 [connection signal="pressed" from="Retour au menu" to="." method="_on_retour_au_menu_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

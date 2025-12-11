@@ -162,7 +162,8 @@ func stun(time):
 	is_idle = false
 	stop_follow()
 	await get_tree().create_timer(time).timeout
-	$AnimationPlayer.play("Stand")
+	if !is_dead:
+		$AnimationPlayer.play("Stand")
 
 
 func change_layer(l:int = 0):
@@ -210,6 +211,7 @@ func stop_follow():
 	is_idle = true
 
 func dead():	
+	
 	get_parent().get_parent().get_node("TileMapLayer2").ejectPlayer()
 	get_parent().get_parent().get_node("TileMapLayer2").end()
 	$Above.hide()

@@ -8,3 +8,7 @@ func _on_retour_au_menu_pressed() -> void:
 	hide()
 	Main.get_node("Globals Options").controller = false
 	Main.get_node("Globals Options").onMenu = true
+
+
+func _on_button_pressed() -> void:
+	JavaScriptBridge.eval("window.open('https://www.instagram.com/insa.bga/', '_blank')")

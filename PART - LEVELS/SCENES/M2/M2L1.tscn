@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://qmqbhcy1ntjv"]
+[gd_scene load_steps=41 format=4 uid="uid://qmqbhcy1ntjv"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_lw6fj"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_51l1m"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://PART - LEVELS/SCENES/M2/script M2/respawn.gd" id="9_0tl66"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="9_fsc1j"]
 [ext_resource type="PackedScene" uid="uid://digirtaqdarvr" path="res://PART - OBJECTS/SCENES/Traps/Bumper.tscn" id="12_4tqyh"]
+[ext_resource type="PackedScene" uid="uid://dcji7726pefly" path="res://PART - MOBS/SCENES/Bird.tscn" id="12_75qor"]
 
 [sub_resource type="Shader" id="Shader_wghwi"]
 
@@ -3268,6 +3269,10 @@ isHub = false
 isDecorative = true
 id_last_lvl = "2.0.0"
 
+[node name="Bird" parent="TileMapLayer" instance=ExtResource("12_75qor")]
+position = Vector2(1175, -233)
+collision_mask = 0
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
 light_mask = 2
@@ -3296,7 +3301,6 @@ tile_set = SubResource("TileSet_hvi37")
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_k4wc5")]
 position = Vector2(-4, -108)
 scale = Vector2(1.5, 1.5)
-collision_layer = 0
 camera = NodePath("../Camera2D")
 enableLight = false
 
