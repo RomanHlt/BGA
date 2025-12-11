@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://dcji7726pefly"]
+
+[ext_resource type="Texture2D" uid="uid://b42a7u8c7o4on" path="res://PART - MOBS/SCENES/bird_w.png" id="1_qekv8"]
+[ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/bird.gd" id="1_vnlrw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_viyyw"]
+radius = 9.0
+
+[sub_resource type="Animation" id="Animation_7i6sm"]
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k6roc"]
+_data = {
+"default": SubResource("Animation_7i6sm")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkulj"]
+size = Vector2(7, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhlp2"]
+size = Vector2(8, 10)
+
+[node name="Bird" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_vnlrw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -8)
+shape = SubResource("CircleShape2D_viyyw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_qekv8")
+hframes = 3
+vframes = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://PART - MOBS/ASSETS/Bird/bird_w.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "c3466c0156c3327ee28c8993633c4006"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k6roc")
+}
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-9.5, -7)
+shape = SubResource("RectangleShape2D_qkulj")
+debug_color = Color(0.631359, 0.448322, 0.739097, 0.42)
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_vhlp2")
+debug_color = Color(0.814024, 0.394154, 0.294282, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

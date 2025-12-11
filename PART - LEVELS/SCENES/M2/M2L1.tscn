@@ -3305,7 +3305,6 @@ tile_set = SubResource("TileSet_hvi37")
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("3_k4wc5")]
 position = Vector2(-4, -108)
 scale = Vector2(1.5, 1.5)
-collision_layer = 0
 camera = NodePath("../Camera2D")
 enableLight = false
 

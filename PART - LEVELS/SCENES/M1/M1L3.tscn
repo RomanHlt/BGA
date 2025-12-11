@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://5tcyudbnkee5"]
+[gd_scene load_steps=36 format=4 uid="uid://5tcyudbnkee5"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_q40v1"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_l7ylb"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://fm1aomfwwiti" path="res://PART - OBJECTS/SCENES/Traps/fallingrock.tscn" id="6_jbwyu"]
 [ext_resource type="PackedScene" uid="uid://ct5ytlgut187g" path="res://PART - OBJECTS/SCENES/Traps/Spear.tscn" id="7_wqcqh"]
 [ext_resource type="PackedScene" uid="uid://cf2hmbbroucx1" path="res://PART - OBJECTS/SCENES/Others/TraversablePlatform.tscn" id="10_jsikg"]
+[ext_resource type="PackedScene" uid="uid://ddkfyhcivyb8" path="res://PART - OBJECTS/SCENES/Déco/torch.tscn" id="12_op6xw"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="15_4eyro"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="16_qkdw6"]
 
@@ -3176,3 +3177,17 @@ playerOffset = Vector2(0, -80)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_qkdw6")
 volume_db = 20.0
+
+[node name="Torch" parent="." instance=ExtResource("12_op6xw")]
+position = Vector2(-81, -37)
+
+[node name="Torch2" parent="." instance=ExtResource("12_op6xw")]
+position = Vector2(39, -368)
+layer = 2
+
+[node name="Torch3" parent="." instance=ExtResource("12_op6xw")]
+position = Vector2(666, -528)
+layer = 1
+
+[node name="Torch4" parent="." instance=ExtResource("12_op6xw")]
+position = Vector2(19, -1002)

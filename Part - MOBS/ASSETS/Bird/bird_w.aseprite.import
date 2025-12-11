@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cc05nnyq3tqt6"
+path="res://.godot/imported/bird_w.aseprite-2eded78722504f21e93e85c61cd13d56.res"
+
+[deps]
+
+source_file="res://PART - MOBS/ASSETS/Bird/bird_w.aseprite"
+dest_files=["res://.godot/imported/bird_w.aseprite-2eded78722504f21e93e85c61cd13d56.res"]
+
+[params]
+
