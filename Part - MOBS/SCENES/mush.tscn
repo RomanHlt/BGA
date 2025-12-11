@@ -1,8 +1,8 @@
 [gd_scene load_steps=17 format=3 uid="uid://bt18ja3s12mm3"]
 
 [ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/mush.gd" id="1_d181g"]
-[ext_resource type="Texture2D" uid="uid://ce7ov0bul51p1" path="res://PART - MOBS/SCENES/Mush.png" id="1_jgqa0"]
-[ext_resource type="Texture2D" uid="uid://txojcsld0hlt" path="res://PART - MOBS/SCENES/smoke.png" id="3_fl1yg"]
+[ext_resource type="Texture2D" uid="uid://ce7ov0bul51p1" path="res://PART - MOBS/ASSETS/Mush.png" id="1_jgqa0"]
+[ext_resource type="Texture2D" uid="uid://txojcsld0hlt" path="res://PART - MOBS/ASSETS/smoke.png" id="3_fl1yg"]
 [ext_resource type="Texture2D" uid="uid://byaysd7swnuys" path="res://PART - PLAYER/ASSETS/Shaders/White Circle.png" id="4_kie2l"]
 
 [sub_resource type="Animation" id="Animation_8kfmh"]

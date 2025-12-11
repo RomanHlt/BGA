@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://biya2j8e7u66t"]
 
-[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/dev_mod.gd" id="1_rnv30"]
+[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/dev_mode.gd" id="1_7caty"]
 
 [node name="DevMod" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_rnv30")
+script = ExtResource("1_7caty")
 
 [node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 1
@@ -59,6 +59,17 @@ focus_mode = 0
 action_mode = 0
 text = "Unlock Power"
 
+[node name="End_CVL" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1047.0
+offset_top = 572.0
+offset_right = 1138.0
+offset_bottom = 615.0
+focus_mode = 0
+text = "End CVL"
+
 [connection signal="pressed" from="Access" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="GodMod" to="." method="_on_god_mod_pressed"]
 [connection signal="pressed" from="Unlock Power" to="." method="_on_unlock_power_pressed"]
+[connection signal="pressed" from="End_CVL" to="." method="_on_end_cvl_pressed"]

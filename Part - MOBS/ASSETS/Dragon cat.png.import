@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v7vb881bajg"
-path="res://.godot/imported/piggy_sheet.png-122453e5a5e31b0f5151cac989baf5f3.ctex"
+uid="uid://c38xevtly8jcx"
+path="res://.godot/imported/Dragon cat.png-81d8d9eca74bad4a7052e329b0d0c150.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - MOBS/SCENES/piggy_sheet.png"
-dest_files=["res://.godot/imported/piggy_sheet.png-122453e5a5e31b0f5151cac989baf5f3.ctex"]
+source_file="res://PART - MOBS/ASSETS/Dragon cat.png"
+dest_files=["res://.godot/imported/Dragon cat.png-81d8d9eca74bad4a7052e329b0d0c150.ctex"]
 
 [params]
 

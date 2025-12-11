@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://txojcsld0hlt"
-path="res://.godot/imported/smoke.png-2927b19eeb57549eb2df50875d9d0e2d.ctex"
+uid="uid://co6y8xs507eme"
+path="res://.godot/imported/heads.png-1d44016315764210cc2dc50ab765b362.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - MOBS/SCENES/smoke.png"
-dest_files=["res://.godot/imported/smoke.png-2927b19eeb57549eb2df50875d9d0e2d.ctex"]
+source_file="res://PART - MOBS/SCENES/heads.png"
+dest_files=["res://.godot/imported/heads.png-1d44016315764210cc2dc50ab765b362.ctex"]
 
 [params]
 

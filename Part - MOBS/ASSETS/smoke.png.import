@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c38xevtly8jcx"
-path="res://.godot/imported/Dragon cat.png-21bed691c7b43db9d4869c3ecd3fdfcb.ctex"
+uid="uid://txojcsld0hlt"
+path="res://.godot/imported/smoke.png-27df3c19745e2367363bb8e3589684ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - MOBS/SCENES/Dragon cat.png"
-dest_files=["res://.godot/imported/Dragon cat.png-21bed691c7b43db9d4869c3ecd3fdfcb.ctex"]
+source_file="res://PART - MOBS/ASSETS/smoke.png"
+dest_files=["res://.godot/imported/smoke.png-27df3c19745e2367363bb8e3589684ce.ctex"]
 
 [params]
 

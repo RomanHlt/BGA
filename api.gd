@@ -25,11 +25,19 @@ func _process(delta: float) -> void:
 func _on_envoyer_pressed() -> void:
 	var pseudo = $LineEdit.text
 	var temps = Main.get_node("CanvasLayer/Clock").timer
-	var score_data = {
-	"pseudo": pseudo,
-	"time": temps,
-	"token" : "MMgZKu4IhpvJbAifxMjYpUBtxTyH1RU8IRo05ZR9WLIFvUyJ9u1giT1bC7sLV4AD"
-	}
+	var score_data = {}
+	if Main.get_node("Globals Options").is_dev:
+		score_data = {
+		"pseudo": pseudo + " [dev_mode]",
+		"time": temps,
+		"token" : "cestpaslebontoken"
+		}
+	else:
+		score_data = {
+		"pseudo": pseudo,
+		"time": temps,
+		"token" : "cestpaslebontoken"
+		}
 	send_score(score_data)
 	send = true
 	$Envoyer.text = "OK"

@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 		controller=false
 	if Input.is_action_just_pressed("GodMod"):
 		if not is_dev:
-			var scene = preload("res://PART - BASE/SCENES/dev_mod.tscn")
+			var scene = preload("res://PART - BASE/SCENES/dev_mode.tscn")
 			var child = scene.instantiate()
 			Main.get_node("CanvasLayer").add_child(child)
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce7ov0bul51p1"
-path="res://.godot/imported/Mush.png-0cf227a48546b5b2e8a33db88017935e.ctex"
+uid="uid://v7vb881bajg"
+path="res://.godot/imported/piggy_sheet.png-347870b15cd99ead0946bd932732161c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - MOBS/SCENES/Mush.png"
-dest_files=["res://.godot/imported/Mush.png-0cf227a48546b5b2e8a33db88017935e.ctex"]
+source_file="res://PART - MOBS/ASSETS/piggy_sheet.png"
+dest_files=["res://.godot/imported/piggy_sheet.png-347870b15cd99ead0946bd932732161c.ctex"]
 
 [params]
 

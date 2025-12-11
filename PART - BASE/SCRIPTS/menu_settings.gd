@@ -12,7 +12,7 @@ var music:int = -30
 var musicOn:bool = true
 
 
-var speedRun:bool = false
+var speedRun:bool = true
 
 var justArrived:bool = false
 
