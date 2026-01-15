@@ -3277,6 +3277,30 @@ marker = NodePath("../Marker1")
 [node name="Marker1" type="Marker2D" parent="TileMapLayer"]
 position = Vector2(2415, -1253)
 
+[node name="Nuage2" parent="TileMapLayer" node_paths=PackedStringArray("marker") instance=ExtResource("14_f8t3s")]
+position = Vector2(3504, -986)
+power_aspiration = 100.0
+marker = NodePath("../Marker2")
+
+[node name="Marker2" type="Marker2D" parent="TileMapLayer"]
+position = Vector2(3403, -1185)
+
+[node name="Nuage3" parent="TileMapLayer" node_paths=PackedStringArray("marker") instance=ExtResource("14_f8t3s")]
+position = Vector2(2174, -1015)
+power_aspiration = 100.0
+marker = NodePath("../Marker3")
+
+[node name="Marker3" type="Marker2D" parent="TileMapLayer"]
+position = Vector2(2380, -1029)
+
+[node name="Nuage4" parent="TileMapLayer" node_paths=PackedStringArray("marker") instance=ExtResource("14_f8t3s")]
+position = Vector2(3057, -36)
+power_aspiration = 100.0
+marker = NodePath("../Marker4")
+
+[node name="Marker4" type="Marker2D" parent="TileMapLayer"]
+position = Vector2(3195, 124)
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
 light_mask = 2
