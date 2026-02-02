@@ -10,7 +10,7 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @export var layer : int = 0
 
 @export_category("Boss specificity")
-@export var health_max = 5	# Vie du boss
+@export var health_max = 3	# Vie du boss
 @export var speed = 100
 # --
 # --

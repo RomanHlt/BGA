@@ -53,7 +53,6 @@ func _ready():
 	$Sprite2D/PointLight2D2.enabled = enableLight
 	$Sprite2D/PointLight2D3.enabled = enableLight
 
-
 func _process(delta: float) -> void:
 	var mat = get_parent().material
 	if mat and mat is ShaderMaterial:

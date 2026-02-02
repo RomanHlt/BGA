@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1n8fsn48t3aj"]
+[gd_scene load_steps=7 format=3 uid="uid://c1n8fsn48t3aj"]
 
 [ext_resource type="Texture2D" uid="uid://ck8p2q5qufxrn" path="res://PART - OBJECTS/ASSETS/Brick.png" id="1_4fjww"]
 [ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/dangerousrock.gd" id="1_lwy8u"]
-[ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="3_7hc4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2u67"]
 size = Vector2(24, 24)
@@ -30,8 +29,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvbgb"]
 size = Vector2(24, 3)
 
-[node name="KAYOU" type="CharacterBody2D"]
+[node name="KAYOU" type="RigidBody2D"]
 collision_mask = 0
+mass = 0.5
+gravity_scale = 0.2
 script = ExtResource("1_lwy8u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -65,9 +66,6 @@ shape = SubResource("RectangleShape2D_n2u67")
 libraries = {
 "": SubResource("AnimationLibrary_ilkwh")
 }
-
-[node name="GravityComponent" parent="." instance=ExtResource("3_7hc4l")]
-gravity = 300.0
 
 [node name="Area2D" type="Area2D" parent="."]
 
