@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="WorldData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/worldStats.gd" id="1_uliyq"]
+[ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/worldStats.gd" id="1_78l42"]
 
 [resource]
-script = ExtResource("1_uliyq")
+script = ExtResource("1_78l42")
 levels = 1
 compo = {
 1: [false, false, false],
@@ -16,8 +16,8 @@ compo = {
 }
 access = {
 1: true,
-2: false,
-3: false,
+2: true,
+3: true,
 4: false,
 5: false,
 "next": false

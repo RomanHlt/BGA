@@ -3260,6 +3260,7 @@ Force = Vector2(0, -1000)
 position = Vector2(766, -2319)
 isHub = false
 id_next_lvl = "2.0.0"
+id_unlocked_lvl = "2.2.0"
 titre = "Retour au Hub"
 sous_titre = "Monde 2 | Fin du niveau 1"
 
