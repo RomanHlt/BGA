@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://qmqbhcy1ntjv"]
+[gd_scene load_steps=42 format=4 uid="uid://qmqbhcy1ntjv"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_lw6fj"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_51l1m"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://PART - LEVELS/SCENES/M2/script M2/respawn.gd" id="9_0tl66"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="9_fsc1j"]
 [ext_resource type="PackedScene" uid="uid://digirtaqdarvr" path="res://PART - OBJECTS/SCENES/Traps/Bumper.tscn" id="12_4tqyh"]
+[ext_resource type="PackedScene" uid="uid://0xlb2up47lnn" path="res://PART - MOBS/SCENES/bat.tscn" id="13_mlxlq"]
 [ext_resource type="PackedScene" uid="uid://blknhf2vevq6i" path="res://PART - MOBS/SCENES/nuage_gourmand.tscn" id="14_f8t3s"]
 
 [sub_resource type="Shader" id="Shader_wghwi"]
@@ -3301,6 +3302,26 @@ marker = NodePath("../Marker4")
 
 [node name="Marker4" type="Marker2D" parent="TileMapLayer"]
 position = Vector2(3195, 124)
+
+[node name="bat" parent="TileMapLayer" instance=ExtResource("13_mlxlq")]
+position = Vector2(2815, -186)
+SPEED = 4500.0
+health_max = 1
+
+[node name="bat2" parent="TileMapLayer" instance=ExtResource("13_mlxlq")]
+position = Vector2(2855, -154)
+SPEED = 4500.0
+health_max = 1
+
+[node name="bat3" parent="TileMapLayer" instance=ExtResource("13_mlxlq")]
+position = Vector2(2839, -154)
+SPEED = 4500.0
+health_max = 1
+
+[node name="bat4" parent="TileMapLayer" instance=ExtResource("13_mlxlq")]
+position = Vector2(936, -2394)
+SPEED = 4500.0
+health_max = 1
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)

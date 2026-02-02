@@ -8,19 +8,25 @@ extends Path2D
 @onready var path = $PathFollow2D
 @onready var animation = $AnimationPlayer
 @onready var pos_x = $PathFollow2D.position[0]
-@onready var on_break = false
+@onready var on_break = true
 @onready var direction = 1
 
 func _ready() -> void:
 	$AnimatableBody2D.collision_layer = 2**layer
+
 	animation.play("Path")
+	animation.speed_scale = 0.0
+
 	$"Animation graphique".play("Moving platform")
-	animation.speed_scale = speed_scale
+
+	on_break = true
+	path.progress_ratio = 0.0
+	take_a_break()
 
 
 func _process(delta: float) -> void:
 	if on_break:
-		pass
+		return
 	else:
 		if $PathFollow2D.position[0] <= pos_x:
 			$"Animation graphique".play_backwards("Moving platform")
@@ -28,7 +34,7 @@ func _process(delta: float) -> void:
 			$"Animation graphique".play("Moving platform")
 		pos_x = $PathFollow2D.position[0]
 		
-		path.progress_ratio += delta * speed_scale * direction
+		#path.progress_ratio += delta * speed_scale * direction
 		
 		if loop:
 			# Mode boucle : continue de suivre le chemin normalement
@@ -53,5 +59,7 @@ func take_a_break():
 	on_break = true
 	await get_tree().create_timer(break_time).timeout
 	on_break = false
+	animation.speed_scale = speed_scale
+
 
 	

@@ -1128,7 +1128,7 @@ animations = [{
 size = Vector2(9, 4)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w7jto"]
-radius = 67.0
+radius = 143.031
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i18kr"]
 size = Vector2(11, 4)
@@ -1169,7 +1169,6 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_fxfyv")
 
 [node name="DetectionPlayer" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionPlayer"]
 shape = SubResource("CircleShape2D_w7jto")

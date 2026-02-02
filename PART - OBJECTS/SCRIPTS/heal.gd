@@ -15,4 +15,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_audio_stream_player_finished() -> void:
-	self.queue_free()
+	self.hide()
+	await get_tree().create_timer(30).timeout
+	self.show()

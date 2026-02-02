@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://djg5vhr7ibkry"]
+[gd_scene load_steps=41 format=4 uid="uid://djg5vhr7ibkry"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_rc64x"]
 [ext_resource type="Texture2D" uid="uid://cjhbhg1h1ql4u" path="res://PART - LEVELS/ASSETS/Map/2 Background/sky/BG Image.png" id="2_pb0ij"]
@@ -13,7 +13,9 @@
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="8_0sjo5"]
 [ext_resource type="PackedScene" uid="uid://ct5ytlgut187g" path="res://PART - OBJECTS/SCENES/Traps/Spear.tscn" id="8_im4un"]
 [ext_resource type="PackedScene" uid="uid://fm1aomfwwiti" path="res://PART - OBJECTS/SCENES/Traps/fallingrock.tscn" id="9_m04pm"]
+[ext_resource type="PackedScene" uid="uid://0xlb2up47lnn" path="res://PART - MOBS/SCENES/bat.tscn" id="10_b2p30"]
 [ext_resource type="Script" path="res://PART - LEVELS/SCENES/M2/script M2/respawn.gd" id="14_0lhst"]
+[ext_resource type="PackedScene" uid="uid://ddkfyhcivyb8" path="res://PART - OBJECTS/SCENES/Déco/torch.tscn" id="15_xacsh"]
 
 [sub_resource type="Shader" id="Shader_wghwi"]
 
@@ -3222,6 +3224,31 @@ position = Vector2(1177, 1061)
 [node name="Fallingrock8" parent="TileMapLayer" instance=ExtResource("9_m04pm")]
 position = Vector2(1201, 1061)
 
+[node name="bat" parent="TileMapLayer" instance=ExtResource("10_b2p30")]
+position = Vector2(343, 358)
+SPEED = 4500.0
+health_max = 1
+
+[node name="bat2" parent="TileMapLayer" instance=ExtResource("10_b2p30")]
+position = Vector2(361, 390)
+SPEED = 4500.0
+health_max = 1
+
+[node name="bat3" parent="TileMapLayer" instance=ExtResource("10_b2p30")]
+position = Vector2(263, 422)
+SPEED = 4500.0
+health_max = 1
+
+[node name="bat4" parent="TileMapLayer" instance=ExtResource("10_b2p30")]
+position = Vector2(246, 437)
+SPEED = 4500.0
+health_max = 1
+
+[node name="bat5" parent="TileMapLayer" instance=ExtResource("10_b2p30")]
+position = Vector2(230, 501)
+SPEED = 4500.0
+health_max = 1
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
 light_mask = 2
@@ -3415,6 +3442,10 @@ script = ExtResource("14_0lhst")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(760.75, 591)
 shape = SubResource("RectangleShape2D_qvt0d")
+
+[node name="Torch" parent="Area2D2" instance=ExtResource("15_xacsh")]
+position = Vector2(1912, 977)
+layer = 2
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
