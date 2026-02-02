@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://c1mehavpp4x4w"]
+[gd_scene load_steps=40 format=4 uid="uid://c1mehavpp4x4w"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_1ucby"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_5idw8"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_bufs7"]
 [ext_resource type="PackedScene" uid="uid://ddkfyhcivyb8" path="res://PART - OBJECTS/SCENES/Déco/torch.tscn" id="11_2qid5"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="11_gjoes"]
+[ext_resource type="Texture2D" uid="uid://bh2lc23g5ohug" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/4.png" id="12_se11n"]
 [ext_resource type="Script" path="res://PART - LEVELS/SCENES/M1/scripts M1/zonetuto.gd" id="12_txy00"]
+[ext_resource type="Texture2D" uid="uid://b40ynenk7xi6b" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/3.png" id="13_1s77a"]
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="13_13kxi"]
 [ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="14_4groo"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="15_eqlam"]
@@ -3329,6 +3331,14 @@ layer = 1
 [node name="Torch8" parent="." instance=ExtResource("11_2qid5")]
 position = Vector2(-1439, -558)
 layer = 1
+
+[node name="4" type="Sprite2D" parent="."]
+position = Vector2(-1499, 6)
+texture = ExtResource("12_se11n")
+
+[node name="3" type="Sprite2D" parent="."]
+position = Vector2(-2028, -314)
+texture = ExtResource("13_1s77a")
 
 [connection signal="body_entered" from="Zonetuto" to="Zonetuto" method="_on_body_entered"]
 [connection signal="body_exited" from="Zonetuto" to="Zonetuto" method="_on_body_exited"]

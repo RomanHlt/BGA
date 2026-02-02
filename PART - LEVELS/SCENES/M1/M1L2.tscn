@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://b8l2yx17cpu62"]
+[gd_scene load_steps=40 format=4 uid="uid://b8l2yx17cpu62"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_0o0kq"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_e64i4"]
@@ -7,9 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://c1r0k08xd0ibm" path="res://PART - OBJECTS/SCENES/Others/Note.tscn" id="4_8xouu"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_qna7o"]
 [ext_resource type="PackedScene" uid="uid://bog4f2sni7fny" path="res://PART - OBJECTS/SCENES/Traps/spike.tscn" id="5_oog17"]
-[ext_resource type="PackedScene" uid="uid://cjf1qy228ipvq" path="res://PART - OBJECTS/SCENES/Others/platform.tscn" id="6_vkp28"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="7_eqv1d"]
+[ext_resource type="PackedScene" uid="uid://kucp53af1eq" path="res://PART - OBJECTS/SCENES/Others/MovingPlatform.tscn" id="7_kocm8"]
+[ext_resource type="Texture2D" uid="uid://b5avw4mcm3obf" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/8.png" id="8_2nxik"]
 [ext_resource type="PackedScene" uid="uid://cydkw5arp1n4i" path="res://PART - OBJECTS/SCENES/Others/heal.tscn" id="8_sinku"]
+[ext_resource type="Texture2D" uid="uid://b40ynenk7xi6b" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/3.png" id="10_k5jdw"]
 [ext_resource type="PackedScene" uid="uid://ddkfyhcivyb8" path="res://PART - OBJECTS/SCENES/Déco/torch.tscn" id="13_83rys"]
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="13_v6nq7"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="17_71ayi"]
@@ -808,9 +810,9 @@ terrain_set_0/terrain_1/color = Color(0, 0, 1, 1)
 sources/3 = SubResource("TileSetAtlasSource_riv22")
 sources/2 = SubResource("TileSetAtlasSource_dlmjl")
 
-[sub_resource type="Curve2D" id="Curve2D_wmux6"]
+[sub_resource type="Curve2D" id="Curve2D_fgwke"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -100, 92, 0, 0, 0, 0, 180, -252, 0, 0, 0, 0, 684, -436, 0, 0, 0, 0, 952, -800, 0, 0, 0, 0, 968, -1176, 0, 0, 0, 0, 1056, -1444)
+"points": PackedVector2Array(0, 0, 0, 0, -2568, -180, 0, 0, 0, 0, -2284, -528, 0, 0, 0, 0, -1788, -712, 0, 0, 0, 0, -1516, -1076, 0, 0, 0, 0, -1500, -1452, 0, 0, 0, 0, -1412, -1720)
 }
 point_count = 6
 
@@ -3139,11 +3141,18 @@ position = Vector2(-584, 342)
 [node name="Spike8" parent="TileMapLayer" instance=ExtResource("5_oog17")]
 position = Vector2(-664, 342)
 
-[node name="Path2D" parent="TileMapLayer" instance=ExtResource("6_vkp28")]
-position = Vector2(-617, -69)
-curve = SubResource("Curve2D_wmux6")
-speed_scale = 0.25
-break_time = 2.0
+[node name="Path2D" parent="TileMapLayer" instance=ExtResource("7_kocm8")]
+curve = SubResource("Curve2D_fgwke")
+loop = false
+speed = 0.25
+
+[node name="8" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(-568, -42)
+texture = ExtResource("8_2nxik")
+
+[node name="9" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(1435, -394)
+texture = ExtResource("8_2nxik")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
@@ -3189,6 +3198,10 @@ layer = 1
 [node name="Spike8" parent="TileMapLayer2" instance=ExtResource("5_oog17")]
 position = Vector2(-664, 342)
 layer = 1
+
+[node name="3" type="Sprite2D" parent="TileMapLayer2"]
+position = Vector2(-396, 118)
+texture = ExtResource("10_k5jdw")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 modulate = Color(0.305077, 0.305077, 0.305077, 1)

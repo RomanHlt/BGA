@@ -3125,6 +3125,13 @@ id_last_lvl = "2.2.0"
 titre = "Monde 2"
 sous_titre = "Niveau 2 | Chute"
 
+[node name="door3" parent="TileMapLayer" instance=ExtResource("6_1ji8k")]
+position = Vector2(47, -31)
+id_next_lvl = "2.3.0"
+id_last_lvl = "2.3.0"
+titre = "Monde 2"
+sous_titre = "Niveau 3 | Envol"
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
 light_mask = 2

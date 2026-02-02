@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://kucp53af1eq"]
+
+[ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/MovingPlatform.gd" id="1_fgaem"]
+[ext_resource type="Texture2D" uid="uid://caa12hphfoaf5" path="res://PART - OBJECTS/SCENES/Others/MovingPlatform.png" id="2_yfp8h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jva0o"]
+size = Vector2(260, 50)
+
+[sub_resource type="Animation" id="Animation_kebkq"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_txtcb"]
+_data = {
+"action": SubResource("Animation_kebkq")
+}
+
+[sub_resource type="Animation" id="Animation_4e1gr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_23evg"]
+resource_name = "move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-1.56, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iga1h"]
+_data = {
+"RESET": SubResource("Animation_4e1gr"),
+"move": SubResource("Animation_23evg")
+}
+
+[node name="Path2D" type="Path2D"]
+texture_filter = 1
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_fgaem")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("2_yfp8h")
+hframes = 3
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimatableBody2D/AnimaionGraphique",
+"slice": "",
+"source": "res://PART - OBJECTS/ASSETS/MovingPlatform.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "24eee942ac368c718654ecb7e0ff608c"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_jva0o")
+
+[node name="AnimaionGraphique" type="AnimationPlayer" parent="AnimatableBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_txtcb")
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../AnimatableBody2D")
+update_rotation = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iga1h")
+}

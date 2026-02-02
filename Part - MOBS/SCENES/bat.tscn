@@ -1128,7 +1128,7 @@ animations = [{
 size = Vector2(9, 4)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w7jto"]
-radius = 143.031
+radius = 270.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i18kr"]
 size = Vector2(11, 4)
@@ -1172,6 +1172,7 @@ shape = SubResource("RectangleShape2D_fxfyv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionPlayer"]
 shape = SubResource("CircleShape2D_w7jto")
+debug_color = Color(0, 0.6, 0.701961, 0.0196078)
 
 [node name="AttackArea" type="Area2D" parent="."]
 modulate = Color(0.904563, 0.57404, 0.336438, 1)

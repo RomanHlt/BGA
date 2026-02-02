@@ -6,9 +6,9 @@
 script = ExtResource("1_tph8s")
 level = 0
 items = ["Apple", "Gun", "Key"]
-health = 0
-dashUnlocked = false
-is_dead = true
+health = 1
+dashUnlocked = true
+is_dead = false
 max_health = 4
 current_lvl = "2.0.0"
-last_lvl = "1.0.0"
+last_lvl = "2.3.0"

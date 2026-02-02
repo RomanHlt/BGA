@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bbwaxuvq7xate"
+path="res://.godot/imported/MovingPlatform.aseprite-ae54a2ff2dc990f161be6d1643d4e532.res"
+
+[deps]
+
+source_file="res://PART - OBJECTS/ASSETS/MovingPlatform.aseprite"
+dest_files=["res://.godot/imported/MovingPlatform.aseprite-ae54a2ff2dc990f161be6d1643d4e532.res"]
+
+[params]
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://5tcyudbnkee5"]
+[gd_scene load_steps=38 format=4 uid="uid://5tcyudbnkee5"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_q40v1"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_l7ylb"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bog4f2sni7fny" path="res://PART - OBJECTS/SCENES/Traps/spike.tscn" id="5_u2cyv"]
 [ext_resource type="PackedScene" uid="uid://fm1aomfwwiti" path="res://PART - OBJECTS/SCENES/Traps/fallingrock.tscn" id="6_jbwyu"]
 [ext_resource type="PackedScene" uid="uid://ct5ytlgut187g" path="res://PART - OBJECTS/SCENES/Traps/Spear.tscn" id="7_wqcqh"]
+[ext_resource type="Texture2D" uid="uid://b40ynenk7xi6b" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/3.png" id="9_cbvck"]
+[ext_resource type="Texture2D" uid="uid://b5avw4mcm3obf" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/8.png" id="10_ihhs8"]
 [ext_resource type="PackedScene" uid="uid://cf2hmbbroucx1" path="res://PART - OBJECTS/SCENES/Others/TraversablePlatform.tscn" id="10_jsikg"]
 [ext_resource type="PackedScene" uid="uid://ddkfyhcivyb8" path="res://PART - OBJECTS/SCENES/Déco/torch.tscn" id="12_op6xw"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="15_4eyro"]
@@ -3130,6 +3132,15 @@ position = Vector2(217, -675)
 [node name="Spear" parent="TileMapLayer" instance=ExtResource("7_wqcqh")]
 position = Vector2(961, -956)
 rotation = -1.5708
+
+[node name="3" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(705, -490)
+texture = ExtResource("9_cbvck")
+
+[node name="8" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(492, -714)
+texture = ExtResource("10_ihhs8")
+flip_h = true
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)

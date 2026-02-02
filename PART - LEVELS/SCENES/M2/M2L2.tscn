@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://djg5vhr7ibkry"]
+[gd_scene load_steps=43 format=4 uid="uid://djg5vhr7ibkry"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_rc64x"]
 [ext_resource type="Texture2D" uid="uid://cjhbhg1h1ql4u" path="res://PART - LEVELS/ASSETS/Map/2 Background/sky/BG Image.png" id="2_pb0ij"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://ct5ytlgut187g" path="res://PART - OBJECTS/SCENES/Traps/Spear.tscn" id="8_im4un"]
 [ext_resource type="PackedScene" uid="uid://fm1aomfwwiti" path="res://PART - OBJECTS/SCENES/Traps/fallingrock.tscn" id="9_m04pm"]
 [ext_resource type="PackedScene" uid="uid://0xlb2up47lnn" path="res://PART - MOBS/SCENES/bat.tscn" id="10_b2p30"]
+[ext_resource type="Texture2D" uid="uid://g5o0q6rxpwvs" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/2.png" id="11_m0pox"]
+[ext_resource type="Texture2D" uid="uid://b5avw4mcm3obf" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/8.png" id="12_o5wdb"]
 [ext_resource type="Script" path="res://PART - LEVELS/SCENES/M2/script M2/respawn.gd" id="14_0lhst"]
 [ext_resource type="PackedScene" uid="uid://ddkfyhcivyb8" path="res://PART - OBJECTS/SCENES/Déco/torch.tscn" id="15_xacsh"]
 
@@ -3248,6 +3250,19 @@ health_max = 1
 position = Vector2(230, 501)
 SPEED = 4500.0
 health_max = 1
+
+[node name="2" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(897, 326)
+texture = ExtResource("11_m0pox")
+
+[node name="8" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(248, 230)
+texture = ExtResource("12_o5wdb")
+flip_h = true
+
+[node name="9" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(851, 966)
+texture = ExtResource("12_o5wdb")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
