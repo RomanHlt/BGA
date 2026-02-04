@@ -13,7 +13,7 @@ var main = Main.get_node("Globals Options")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if $TextEdit.text == "ytreza":
+	if $TextEdit.text == "mdp":
 		$TextEdit.hide()
 		$Access.show()
 		$GodMod.show()
