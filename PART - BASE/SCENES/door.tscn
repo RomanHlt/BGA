@@ -293,7 +293,6 @@ grow_vertical = 2
 theme = SubResource("Theme_y65sj")
 
 [node name="Keyboard label" type="Label" parent="Panel"]
-visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -371,11 +370,11 @@ libraries = {
 
 [node name="Label2" type="Label" parent="Panel/Hub"]
 layout_mode = 0
-offset_left = -18.0
+offset_left = -36.0
 offset_top = -7.0
-offset_right = 22.0
+offset_right = 37.0
 offset_bottom = 16.0
-text = "LVL"
+text = "LVL : x"
 label_settings = SubResource("LabelSettings_xvi0e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
