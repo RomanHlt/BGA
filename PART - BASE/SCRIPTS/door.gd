@@ -30,10 +30,10 @@ func _ready() -> void:
 	$AnimationPlayer.get_animation("Opening").loop_mode = Animation.LOOP_NONE #rend l'animation unique
 	$AnimationPlayer.get_animation("Closing").loop_mode = Animation.LOOP_NONE #rend l'animation unique
 	# Graphique
-	if id_next_lvl[2] != "0":
-		$Panel/Hub/Label2.text = "Lvl : " + id_next_lvl[2]
+	if id_next_lvl.split(".")[1] != "0":
+		$Panel/Hub/Label2.text = "Lvl : " + id_next_lvl.split(".")[1]
 	else:
-		$Panel/Hub/Label2.text = "Monde : " + id_next_lvl[0]
+		$Panel/Hub/Label2.text = "Monde : " + id_next_lvl.split(".")[0]
 	if hideNote:
 		$Panel/Hub/Notes.hide()
 
