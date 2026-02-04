@@ -10,7 +10,7 @@ class_name Door extends Area2D
 @export var hideNote:bool = false
 var isOut:bool = false
 @export_category("Level config")
-@export var id_next_lvl: String #Monde.Niveau.Sous-Niveau
+@export var id_next_lvl: String = "0.0.0" #Monde.Niveau.Sous-Niveau
 @export var id_last_lvl: String 
 @export var id_unlocked_lvl:String
 @export_category("LoadScreen config")

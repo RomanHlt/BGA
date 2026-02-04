@@ -3264,6 +3264,7 @@ sous_titre = "Monde 2 | Fin du niveau 1"
 position = Vector2(0, -32)
 isHub = false
 isDecorative = true
+id_next_lvl = "2.0.0"
 id_last_lvl = "2.0.0"
 
 [node name="Nuage1" parent="TileMapLayer" node_paths=PackedStringArray("marker") instance=ExtResource("14_f8t3s")]

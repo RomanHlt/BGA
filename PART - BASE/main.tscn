@@ -233,18 +233,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_27q87")
 
-[node name="TEMP TESTEUR" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="TEMP TESTEUR"]
-offset_left = 10.0
-offset_top = 521.0
-offset_right = 143.0
-offset_bottom = 596.0
-scale = Vector2(0.639999, 0.639999)
-text = "VERSION DE TEST
-M1 : 3 lvl + boss
-M2 : 3 lvl"
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
 
