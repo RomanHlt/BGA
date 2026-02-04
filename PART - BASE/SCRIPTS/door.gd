@@ -39,9 +39,8 @@ func _ready() -> void:
 		
 	elif isHub:
 		#Récupérer les infos enregistrées
-		var level = int(id_next_lvl.split(".")[1]) #On récupère le num du niveau
-		print("Door problème ? Level = ", level, "\nNext level =", id_next_lvl, "\nDoor name =", self.name)
-		notes = PlayerDataSaver.WorldStats.compo[level]
+		print("Door problème ? Level = ", id_next_lvl, "\nNext level =", id_next_lvl, "\nDoor name =", self.name)
+		notes = PlayerDataSaver.WorldStats.compo[id_next_lvl]
 		var n=""
 		for i in notes:
 			if i == true: 
@@ -49,7 +48,7 @@ func _ready() -> void:
 			else:
 				n+="0"
 		$Panel/Hub/NotesPlayer.play(n)
-		canAccess = PlayerDataSaver.WorldStats.access[level]
+		canAccess = PlayerDataSaver.WorldStats.access[id_next_lvl]
 		if !canAccess: $AnimationPlayer.play("Closed")
 		else: $AnimationPlayer.play("Idle")
 	else:

@@ -7,7 +7,7 @@ func _process(delta: float) -> void:
 	if lvl.split(".")[1] !="0": # On vérifie que le joueur soit bien en jeu
 		show()
 		var n =""
-		for i in PlayerDataSaver.WorldStats.compo[int(lvl.split(".")[1])]:
+		for i in PlayerDataSaver.WorldStats.compo[lvl]:
 			if i:
 				n+="1"
 			else:

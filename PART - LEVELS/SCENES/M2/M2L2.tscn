@@ -3039,7 +3039,7 @@ size = Vector2(6058, 1036)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvt0d"]
 size = Vector2(1522.5, 60)
 
-[node name="Map2" type="Node2D" node_paths=PackedStringArray("player")]
+[node name="Map" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_rc64x")
 id = "2.2.0"
 player = NodePath("Player")
