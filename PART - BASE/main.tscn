@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bclxknnv5k8la"]
+[gd_scene load_steps=58 format=3 uid="uid://bclxknnv5k8la"]
 
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_stats.gd" id="1_mhxmp"]
 [ext_resource type="Script" path="res://PART - BASE/SCRIPTS/globals_progres.gd" id="2_vpaa8"]
@@ -33,6 +33,23 @@
 [ext_resource type="Texture2D" uid="uid://dh56ppqjehs0o" path="res://PART - BASE/ASSETS/Buttons/closerButtonDown.png" id="26_5f7ki"]
 [ext_resource type="Texture2D" uid="uid://dp6yoc3h81pq5" path="res://PART - BASE/ASSETS/Buttons/interactButton.png" id="27_ugl23"]
 [ext_resource type="Texture2D" uid="uid://b7kwr2dmygdgq" path="res://PART - BASE/ASSETS/Buttons/interactButtonDown.png" id="28_udacs"]
+[ext_resource type="Shader" path="res://PART - BASE/ASSETS/Swap.gdshader" id="33_hatbm"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6mbip"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dli6h"]
+noise = SubResource("FastNoiseLite_6mbip")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b3eih"]
+shader = ExtResource("33_hatbm")
+shader_parameter/line_color = Color(0.501407, 0.501406, 0.501406, 1)
+shader_parameter/line_count = 2.0
+shader_parameter/line_density = 0.1
+shader_parameter/line_faloff = 0.7
+shader_parameter/mask_size = 0.258
+shader_parameter/mask_edge = 0.358
+shader_parameter/animation_speed = 20.0
+shader_parameter/noise = SubResource("NoiseTexture2D_dli6h")
 
 [sub_resource type="LabelSettings" id="LabelSettings_hkfqr"]
 font = ExtResource("5_2dhvx")
@@ -235,6 +252,16 @@ script = ExtResource("4_27q87")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
+
+[node name="Swap" type="ColorRect" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_b3eih")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Clock" type="Label" parent="CanvasLayer"]
 visible = false

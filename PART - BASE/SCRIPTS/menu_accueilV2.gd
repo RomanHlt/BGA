@@ -17,7 +17,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if ! PlayerDataSaver.dataExist or Main.get_node("CanvasLayer/Menus/MenuSettings").speedRun:
+	if ! PlayerDataSaver.dataExist:
 		$Load.disabled = true
 	else:
 		$Load.disabled = false
@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 		justArrived = false
 
 func _on_load_pressed() -> void:
+	Main.get_node("CanvasLayer/Menus/MenuSettings").speedRun = false
 	if virtualController:
 		PlayerDataSaver.SettingsStats.runAsToggle = true
 	if PlayerDataSaver.dataExist:
@@ -42,7 +43,6 @@ func _on_load_pressed() -> void:
 		hide()
 		Main.get_node("Globals Options").onMenu = false
 		emit_signal("start")
-	
 
 func _on_settings_pressed() -> void:
 	hide()
