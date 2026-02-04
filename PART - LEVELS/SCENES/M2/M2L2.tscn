@@ -3396,6 +3396,10 @@ layer = 2
 position = Vector2(2426, 1214)
 layer = 2
 
+[node name="Fallingrock21" parent="TileMapLayer3" instance=ExtResource("9_m04pm")]
+position = Vector2(2402, 1214)
+layer = 2
+
 [node name="Fallingrock20" parent="TileMapLayer3" instance=ExtResource("9_m04pm")]
 position = Vector2(2509, 1166)
 layer = 2

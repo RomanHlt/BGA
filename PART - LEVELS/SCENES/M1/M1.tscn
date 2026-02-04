@@ -2334,6 +2334,7 @@ sous_titre = "Le méchant chat"
 
 [node name="door4" parent="TileMapLayer" instance=ExtResource("3_vs5vi")]
 position = Vector2(113, -31)
+hideNote = true
 id_next_lvl = "1.4.0"
 id_last_lvl = "1.4.0"
 titre = "Monde 1"
@@ -2357,6 +2358,7 @@ sous_titre = "Niveau 2 | Profondeur"
 [node name="door2" parent="TileMapLayer2" instance=ExtResource("3_vs5vi")]
 position = Vector2(372, -63)
 layer = 1
+hideNote = true
 id_next_lvl = "2.0.0"
 id_last_lvl = "2.0.0"
 id_unlocked_lvl = "2.1.0"

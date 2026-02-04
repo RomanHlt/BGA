@@ -7,6 +7,7 @@ class_name Door extends Area2D
 @export var textController:String = ""
 @export var isHub:bool = true
 @export var isDecorative:bool = false
+@export var hideNote:bool = false
 var isOut:bool = false
 @export_category("Level config")
 @export var id_next_lvl: String #Monde.Niveau.Sous-Niveau
@@ -28,6 +29,13 @@ var unique:bool = true #Une seule et unique détection pour la porte
 func _ready() -> void:
 	$AnimationPlayer.get_animation("Opening").loop_mode = Animation.LOOP_NONE #rend l'animation unique
 	$AnimationPlayer.get_animation("Closing").loop_mode = Animation.LOOP_NONE #rend l'animation unique
+	# Graphique
+	if id_next_lvl[2] != "0":
+		$Panel/Hub/Label2.text = "Lvl : " + id_next_lvl[2]
+	else:
+		$Panel/Hub/Label2.text = "Monde : " + id_next_lvl[0]
+	if hideNote:
+		$Panel/Hub/Notes.hide()
 
 	self.process_mode = Node.PROCESS_MODE_ALWAYS # Le script ne sera pas afecté par les pauses.
 	
