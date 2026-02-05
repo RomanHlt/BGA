@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://qmqbhcy1ntjv"]
+[gd_scene load_steps=44 format=4 uid="uid://qmqbhcy1ntjv"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_lw6fj"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_51l1m"]
@@ -8,14 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_k4wc5"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_g4baw"]
 [ext_resource type="PackedScene" uid="uid://fm1aomfwwiti" path="res://PART - OBJECTS/SCENES/Traps/fallingrock.tscn" id="4_nvhck"]
-[ext_resource type="PackedScene" uid="uid://cjf1qy228ipvq" path="res://PART - OBJECTS/SCENES/Others/platform.tscn" id="4_vs574"]
 [ext_resource type="PackedScene" uid="uid://c1r0k08xd0ibm" path="res://PART - OBJECTS/SCENES/Others/Note.tscn" id="5_os4gp"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="5_pwlyp"]
 [ext_resource type="PackedScene" uid="uid://cf2hmbbroucx1" path="res://PART - OBJECTS/SCENES/Others/TraversablePlatform.tscn" id="7_juyv1"]
 [ext_resource type="Script" path="res://PART - LEVELS/SCENES/M2/script M2/respawn.gd" id="9_0tl66"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="9_fsc1j"]
 [ext_resource type="PackedScene" uid="uid://digirtaqdarvr" path="res://PART - OBJECTS/SCENES/Traps/Bumper.tscn" id="12_4tqyh"]
+[ext_resource type="PackedScene" uid="uid://kucp53af1eq" path="res://PART - OBJECTS/SCENES/Others/MovingPlatform.tscn" id="13_jk5bi"]
+[ext_resource type="PackedScene" uid="uid://0xlb2up47lnn" path="res://PART - MOBS/SCENES/bat.tscn" id="13_mlxlq"]
 [ext_resource type="PackedScene" uid="uid://blknhf2vevq6i" path="res://PART - MOBS/SCENES/nuage_gourmand.tscn" id="14_f8t3s"]
+[ext_resource type="Texture2D" uid="uid://dalwmdqc2j3iv" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/1.png" id="14_q85mo"]
+[ext_resource type="Texture2D" uid="uid://b5avw4mcm3obf" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/8.png" id="19_kwgcm"]
 
 [sub_resource type="Shader" id="Shader_wghwi"]
 
@@ -805,11 +808,11 @@ terrain_set_0/terrain_1/color = Color(0, 0, 1, 1)
 sources/3 = SubResource("TileSetAtlasSource_y8ixp")
 sources/2 = SubResource("TileSetAtlasSource_wilsx")
 
-[sub_resource type="Curve2D" id="Curve2D_kieki"]
+[sub_resource type="Curve2D" id="Curve2D_d4ffy"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -32, 180, 0, 0, 0, 0, 456, 88, 0, 0, 0, 0, 1072, -180, 0, 0, 0, 0, 1412, -552, 0, 0, 0, 0, 1680, -956, 0, 0, 0, 0, 1860, -1288, 0, 0, 0, 0, 2084, -1704, 0, 0, 0, 0, 2204, -2120, 0, 0, 0, 0, 2244, -2444, 0, 0, 0, 0, -84, -2432, 0, 0, 0, 0, -32, 180)
+"points": PackedVector2Array(0, 0, 0, 0, 11068, -376, 0, 0, 0, 0, 11552, -468, 0, 0, 0, 0, 12172, -736, 0, 0, 0, 0, 12508, -1104, 0, 0, 0, 0, 13184, -2260, 0, 0, 0, 0, 13308, -2696, 0, 0, 0, 0, 13344, -3004, 0, 0, 0, 0, 11016, -2988, 0, 0, 0, 0, 11068, -376)
 }
-point_count = 11
+point_count = 9
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dywvd"]
 load_path = "res://.godot/imported/Terrain (16x16).png-965ee5e8399323c88aab03397ec562aa.ctex"
@@ -3175,13 +3178,6 @@ position = Vector2(692, -1510)
 [node name="Fallingrock16" parent="TileMapLayer" instance=ExtResource("4_nvhck")]
 position = Vector2(668, -1510)
 
-[node name="Path2D" parent="TileMapLayer" instance=ExtResource("4_vs574")]
-position = Vector2(2775, -139)
-curve = SubResource("Curve2D_kieki")
-speed_scale = 0.05
-loop = true
-break_time = 3.0
-
 [node name="Note" parent="TileMapLayer" instance=ExtResource("5_os4gp")]
 position = Vector2(2749, -830)
 
@@ -3260,6 +3256,7 @@ Force = Vector2(0, -1000)
 position = Vector2(766, -2319)
 isHub = false
 id_next_lvl = "2.0.0"
+id_unlocked_lvl = "2.2.0"
 titre = "Retour au Hub"
 sous_titre = "Monde 2 | Fin du niveau 1"
 
@@ -3276,6 +3273,57 @@ marker = NodePath("../Marker1")
 
 [node name="Marker1" type="Marker2D" parent="TileMapLayer"]
 position = Vector2(2415, -1253)
+
+[node name="Nuage2" parent="TileMapLayer" node_paths=PackedStringArray("marker") instance=ExtResource("14_f8t3s")]
+position = Vector2(3504, -986)
+power_aspiration = 100.0
+marker = NodePath("../Marker2")
+
+[node name="Marker2" type="Marker2D" parent="TileMapLayer"]
+position = Vector2(3403, -1185)
+
+[node name="Nuage3" parent="TileMapLayer" node_paths=PackedStringArray("marker") instance=ExtResource("14_f8t3s")]
+position = Vector2(2174, -1015)
+power_aspiration = 100.0
+marker = NodePath("../Marker3")
+
+[node name="Marker3" type="Marker2D" parent="TileMapLayer"]
+position = Vector2(2380, -1029)
+
+[node name="Nuage4" parent="TileMapLayer" node_paths=PackedStringArray("marker") instance=ExtResource("14_f8t3s")]
+position = Vector2(3057, -36)
+power_aspiration = 100.0
+marker = NodePath("../Marker4")
+
+[node name="Marker4" type="Marker2D" parent="TileMapLayer"]
+position = Vector2(3195, 124)
+
+[node name="bat" parent="TileMapLayer" instance=ExtResource("13_mlxlq")]
+position = Vector2(2815, -186)
+SPEED = 4500.0
+health_max = 1
+
+[node name="bat2" parent="TileMapLayer" instance=ExtResource("13_mlxlq")]
+position = Vector2(2855, -154)
+SPEED = 4500.0
+health_max = 1
+
+[node name="bat3" parent="TileMapLayer" instance=ExtResource("13_mlxlq")]
+position = Vector2(2839, -154)
+SPEED = 4500.0
+health_max = 1
+
+[node name="bat4" parent="TileMapLayer" instance=ExtResource("13_mlxlq")]
+position = Vector2(936, -2394)
+SPEED = 4500.0
+health_max = 1
+
+[node name="Path2D" parent="TileMapLayer" instance=ExtResource("13_jk5bi")]
+curve = SubResource("Curve2D_d4ffy")
+
+[node name="1" type="Sprite2D" parent="TileMapLayer"]
+position = Vector2(579, -90)
+texture = ExtResource("14_q85mo")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
@@ -3332,5 +3380,9 @@ script = ExtResource("9_0tl66")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(2274, 895)
 shape = SubResource("RectangleShape2D_efydt")
+
+[node name="8" type="Sprite2D" parent="."]
+position = Vector2(2881, -106)
+texture = ExtResource("19_kwgcm")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -10,7 +10,7 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @export var layer : int = 0
 
 @export_category("Boss specificity")
-@export var health_max = 5	# Vie du boss
+@export var health_max = 3	# Vie du boss
 @export var speed = 100
 # --
 # --
@@ -285,9 +285,9 @@ func _on_above_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body.velocity.y = -600
 		if randi() % 2 == 1:
-			body.velocity.x = 600
+			body.velocity.x = 200
 		else:
-			body.velocity.x = -600
+			body.velocity.x = -200
 
 
 func _on_below_body_entered(body: Node2D) -> void:
@@ -295,9 +295,9 @@ func _on_below_body_entered(body: Node2D) -> void:
 		self.stun(3)
 		self.velocity.y = -500
 		if randi() % 2 == 1:
-			self.velocity.x = 600
+			self.velocity.x = 200
 		else:
-			self.velocity.x = -600
+			self.velocity.x = -200
 # --
 # --
 # --

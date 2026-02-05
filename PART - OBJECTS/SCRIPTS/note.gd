@@ -17,11 +17,11 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		print(PlayerDataSaver.WorldStats.compo[int(map.id.split(".")[1])])
-		PlayerDataSaver.WorldStats.compo[int(map.id.split(".")[1])][number] = true
+		print(PlayerDataSaver.WorldStats.compo[map.id])
+		PlayerDataSaver.WorldStats.compo[map.id][number] = true
 		hide()
 		$AudioStreamPlayer.play()
-		print(PlayerDataSaver.WorldStats.compo[int(map.id.split(".")[1])])
+		print(PlayerDataSaver.WorldStats.compo[map.id])
 
 
 

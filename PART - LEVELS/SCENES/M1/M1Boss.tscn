@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://hn7aksqbcxxm"]
+[gd_scene load_steps=45 format=4 uid="uid://hn7aksqbcxxm"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_yowet"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_6gb05"]
@@ -2324,7 +2324,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [5]
+"values": [3]
 }
 
 [sub_resource type="Animation" id="Animation_mnq3e"]
@@ -2340,7 +2340,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [2]
 }
 
 [sub_resource type="Animation" id="Animation_hojvl"]
@@ -2356,42 +2356,10 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
-}
-
-[sub_resource type="Animation" id="Animation_yxk4g"]
-length = 0.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("life:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-
-[sub_resource type="Animation" id="Animation_auksc"]
-length = 0.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("life:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
 "values": [1]
 }
 
-[sub_resource type="Animation" id="Animation_i2l73"]
+[sub_resource type="Animation" id="Animation_yxk4g"]
 length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
@@ -2412,9 +2380,7 @@ _data = {
 "0": SubResource("Animation_fwkt5"),
 "1": SubResource("Animation_mnq3e"),
 "2": SubResource("Animation_hojvl"),
-"3": SubResource("Animation_yxk4g"),
-"4": SubResource("Animation_auksc"),
-"5": SubResource("Animation_i2l73")
+"3": SubResource("Animation_yxk4g")
 }
 
 [node name="Map" type="Node2D" node_paths=PackedStringArray("player")]
@@ -2463,8 +2429,8 @@ script = ExtResource("6_237lq")
 position = Vector2(2444, -975)
 layer = 1
 isHub = false
-id_next_lvl = "999.0.0"
-id_unlocked_lvl = "1.0.0"
+id_next_lvl = "1.0.0"
+id_unlocked_lvl = "2.0.0"
 titre = "Ras le CUL"
 sous_titre = "HDF 1 - CVL 0"
 
@@ -2546,9 +2512,9 @@ texture_filter = 1
 position = Vector2(100, 125)
 scale = Vector2(6.0625, 6.0625)
 texture = ExtResource("15_1fo0g")
-hframes = 3
+hframes = 2
 vframes = 2
-frame = 5
+frame = 3
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2568,7 +2534,7 @@ metadata/_aseprite_wizard_config_ = {
 "slice": "",
 "source": "res://PART - BOSS/ASSETS/CVL_life.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "21ecedf2441d4d9b05c7071b559df11e"
+metadata/_aseprite_wizard_source_file_hash_ = "3e77f7bc553b001c79d1fdf6869262b6"
 
 [node name="lifeController" type="AnimationPlayer" parent="CanvasLayer/InGame"]
 libraries = {
