@@ -1,11 +1,14 @@
 [gd_resource type="Resource" script_class="SettingsData" load_steps=160 format=3]
 
+
 [ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/SettigsStats.gd" id="1_lgsvt"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_8421a"]
+
 device = -1
 physical_keycode = 71
 unicode = 103
+
 
 [sub_resource type="InputEventKey" id="InputEventKey_w8nmp"]
 physical_keycode = 4194326
@@ -15,20 +18,25 @@ location = 1
 keycode = 83
 
 [sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_d15d7"]
+
 device = -1
 axis = 4
 axis_value = 1.0
+
 
 [sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_l1da4"]
 device = -1
 pressed = true
 
 [sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_v7l0a"]
+
 device = -1
 button_index = 1
 pressed = true
 
+
 [sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_52il3"]
+
 device = -1
 button_index = 2
 pressed = true
