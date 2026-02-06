@@ -84,6 +84,17 @@ func goToLayer(layer:int = 0):
 			player.get_node("Sprite2D").light_mask = 2**layer
 			currentPlayerLayer=layer
 			player.position.y+=1 #Eviter que les checker ne detectent plus de collisions (patch de brute)
+			
+			# En mode super vitesse
+			"""Main.get_child(4).get_child(0).show() # Comme on était déjà en mode brut dans ce script j'ai pas essayé de faire propre MY BAD
+			player.camera.shake(5)
+			player.camera.zoom.x += -0.2
+			player.camera.zoom.y += -0.2
+			await get_tree().create_timer(0.2).timeout
+			player.camera.zoom.x += 0.2
+			player.camera.zoom.y += 0.2
+			Main.get_child(4).get_child(0).hide()"""
+			
 		elif player.canGoCloser == true and currentPlayerLayer > layer:
 			player.layerJump = true
 			player.reparent(Layers[layer])
@@ -102,4 +113,12 @@ func goToLayer(layer:int = 0):
 			player.z_index = -layer
 			currentPlayerLayer=layer
 			player.position.y+=1 #Eviter que les checker ne detectent plus de collisions (patch de brute)
-	
+			
+			"""Main.get_child(4).get_child(0).show()
+			player.camera.shake(5)
+			player.camera.zoom.x += 0.1
+			player.camera.zoom.y += 0.1
+			await get_tree().create_timer(0.2).timeout
+			player.camera.zoom.x += -0.1
+			player.camera.zoom.y += -0.1
+			Main.get_child(4).get_child(0).hide()"""

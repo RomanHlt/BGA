@@ -1,26 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmwc4dgmjldxn"]
+[gd_scene load_steps=4 format=3 uid="uid://dmwc4dgmjldxn"]
 
 [ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss.gd" id="1_4dqck"]
-[ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="2_846my"]
 [ext_resource type="Texture2D" uid="uid://c7n1n6uxdmoxw" path="res://GLOBAL - APP/godot icon.svg" id="2_k7clo"]
-[ext_resource type="PackedScene" uid="uid://be2qn5hghb0f4" path="res://PART - COMPONENT/SCENES/jump_component.tscn" id="3_dcikb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fy24r"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_yoxbf"]
-radius = 406.492
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfajn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cehe"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_owica"]
-size = Vector2(24, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8ra8"]
-size = Vector2(12, 11.5)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5mdup"]
 
 [node name="Boss" type="CharacterBody2D"]
 z_as_relative = false
@@ -36,67 +19,4 @@ texture = ExtResource("2_k7clo")
 shape = SubResource("CapsuleShape2D_fy24r")
 debug_color = Color(0.081039, 0.159472, 0.471104, 0.42)
 
-[node name="Zone de détéction" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 65535
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone de détéction"]
-shape = SubResource("CircleShape2D_yoxbf")
-debug_color = Color(0.0287684, 0.101651, 0.263391, 0.42)
-
-[node name="JumpLeft" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpLeft"]
-position = Vector2(-30, 0)
-shape = SubResource("RectangleShape2D_wfajn")
-debug_color = Color(0.498039, 0.435294, 0.984314, 0.419608)
-
-[node name="JumpRight" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpRight"]
-position = Vector2(30, 0)
-shape = SubResource("RectangleShape2D_4cehe")
-debug_color = Color(0.497009, 0.437089, 0.982462, 0.42)
-
-[node name="Above" type="Area2D" parent="."]
-position = Vector2(0, -15)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Above"]
-position = Vector2(0, 5)
-shape = SubResource("RectangleShape2D_owica")
-debug_color = Color(0.833049, 0.0886156, 0.539656, 0.42)
-
-[node name="Below" type="Area2D" parent="."]
-position = Vector2(0, 15)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Below"]
-shape = SubResource("RectangleShape2D_b8ra8")
-debug_color = Color(0.833049, 0.0886156, 0.539656, 0.42)
-
-[node name="Deeper" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Deeper"]
-shape = SubResource("CapsuleShape2D_5mdup")
-debug_color = Color(0.180008, 0.630132, 0.37304, 0.42)
-
-[node name="Closer" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Closer"]
-shape = SubResource("CapsuleShape2D_5mdup")
-debug_color = Color(0.180008, 0.630132, 0.37304, 0.42)
-
-[node name="GravityComponent" parent="." instance=ExtResource("2_846my")]
-
-[node name="JumpComponent" parent="." instance=ExtResource("3_dcikb")]
-jump_velocity = -450.0
-
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="body_entered" from="Zone de détéction" to="." method="_on_zone_de_détéction_body_entered"]
-[connection signal="body_entered" from="JumpLeft" to="." method="_on_jump_left_body_entered"]
-[connection signal="body_entered" from="JumpRight" to="." method="_on_jump_right_body_entered"]
-[connection signal="body_entered" from="Above" to="." method="_on_above_body_entered"]
-[connection signal="body_entered" from="Below" to="." method="_on_below_body_entered"]
-[connection signal="body_entered" from="Deeper" to="." method="_on_deeper_body_entered"]
-[connection signal="body_exited" from="Deeper" to="." method="_on_deeper_body_exited"]
-[connection signal="body_entered" from="Closer" to="." method="_on_closer_body_entered"]
-[connection signal="body_exited" from="Closer" to="." method="_on_closer_body_exited"]

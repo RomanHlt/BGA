@@ -25,7 +25,7 @@ offset_right = 75.0
 offset_bottom = 21.5
 grow_horizontal = 2
 grow_vertical = 2
-placeholder_text = "Êtes vous un dev ?"
+placeholder_text = "Êtes vous dev ?"
 
 [node name="Access" type="Button" parent="."]
 visible = false

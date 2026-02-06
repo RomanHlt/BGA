@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://kucp53af1eq"]
+[gd_scene load_steps=10 format=3 uid="uid://kucp53af1eq"]
 
 [ext_resource type="Script" path="res://PART - OBJECTS/SCRIPTS/MovingPlatform.gd" id="1_fgaem"]
 [ext_resource type="Texture2D" uid="uid://caa12hphfoaf5" path="res://PART - OBJECTS/SCENES/Others/MovingPlatform.png" id="2_yfp8h"]
@@ -26,6 +26,9 @@ tracks/0/keys = {
 _data = {
 "action": SubResource("Animation_kebkq")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_is24v"]
+size = Vector2(344, 168)
 
 [sub_resource type="Animation" id="Animation_4e1gr"]
 length = 0.001
@@ -109,6 +112,14 @@ libraries = {
 "": SubResource("AnimationLibrary_txtcb")
 }
 
+[node name="Area2D" type="Area2D" parent="AnimatableBody2D"]
+position = Vector2(0, 29)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/Area2D"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_is24v")
+debug_color = Color(0.190825, 0.476706, 0.182991, 0.42)
+
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(0, -1)
 
@@ -120,3 +131,6 @@ update_rotation = false
 libraries = {
 "": SubResource("AnimationLibrary_iga1h")
 }
+
+[connection signal="body_entered" from="AnimatableBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="AnimatableBody2D/Area2D" to="." method="_on_area_2d_body_exited"]

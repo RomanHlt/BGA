@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="WorldData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/worldStats.gd" id="1_78l42"]
+[ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/worldStats.gd" id="1_7amw5"]
 
 [resource]
-script = ExtResource("1_78l42")
+script = ExtResource("1_7amw5")
 levels = 1
 compo = {
 "0.1.0": [true, true, true],
@@ -14,7 +14,8 @@ compo = {
 "2.0.0": [true, true, true],
 "2.1.0": [false, false, false],
 "2.2.0": [false, false, false],
-"2.3.0": [false, false, false]
+"2.3.0": [false, false, false],
+"2.4.0": [false, false, false]
 }
 access = {
 "0.1.0": true,
@@ -27,5 +28,5 @@ access = {
 "2.1.0": true,
 "2.2.0": false,
 "2.3.0": false,
-"next": false
+"2.4.0": false
 }

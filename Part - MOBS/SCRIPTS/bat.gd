@@ -10,6 +10,7 @@ var map
 var direction: Vector2
 var target : CharacterBody2D
 var dir : float
+var battement : int = 10
 
 var dead : bool = false
 var is_sleeping : bool = true
