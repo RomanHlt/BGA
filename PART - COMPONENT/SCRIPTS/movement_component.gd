@@ -26,8 +26,10 @@ func handle_horizontal_movement(body:CharacterBody2D, direction:float, isRunning
 	else:
 		body.velocity.x = move_toward(body.velocity.x,0,velocity_change_speed)
 func handle_dash(body:CharacterBody2D,flipH:bool,onDash:bool):
-	if onDash and PlayerDataSaver.PlayerStats.dashUnlocked:
+	if onDash and PlayerDataSaver.PlayerStats.dashUnlocked and $DashTimer.is_stopped():
 		dash = true
+		InGame.reloadDash()
+		$DashTimer.start()
 		if flipH:
 			body.velocity.x = -dashForce
 		else:
