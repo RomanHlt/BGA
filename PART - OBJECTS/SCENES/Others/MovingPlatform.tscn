@@ -28,7 +28,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is24v"]
-size = Vector2(344, 168)
+size = Vector2(344, 152)
 
 [sub_resource type="Animation" id="Animation_4e1gr"]
 length = 0.001
@@ -116,7 +116,7 @@ libraries = {
 position = Vector2(0, 29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/Area2D"]
-position = Vector2(0, 20)
+position = Vector2(0, 28)
 shape = SubResource("RectangleShape2D_is24v")
 debug_color = Color(0.190825, 0.476706, 0.182991, 0.42)
 
