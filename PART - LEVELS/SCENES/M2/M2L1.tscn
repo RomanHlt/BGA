@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://qmqbhcy1ntjv"]
+[gd_scene load_steps=45 format=4 uid="uid://qmqbhcy1ntjv"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_lw6fj"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_51l1m"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://blknhf2vevq6i" path="res://PART - MOBS/SCENES/nuage_gourmand.tscn" id="14_f8t3s"]
 [ext_resource type="Texture2D" uid="uid://dalwmdqc2j3iv" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/1.png" id="14_q85mo"]
 [ext_resource type="Texture2D" uid="uid://b5avw4mcm3obf" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/8.png" id="19_kwgcm"]
+[ext_resource type="PackedScene" uid="uid://lu83b1j7bvc2" path="res://PART - OBJECTS/SCENES/Others/Flag.tscn" id="20_xyr00"]
 
 [sub_resource type="Shader" id="Shader_wghwi"]
 
@@ -3325,6 +3326,9 @@ curve = SubResource("Curve2D_d4ffy")
 [node name="1" type="Sprite2D" parent="TileMapLayer"]
 position = Vector2(579, -90)
 texture = ExtResource("14_q85mo")
+
+[node name="Flag" parent="TileMapLayer" instance=ExtResource("20_xyr00")]
+position = Vector2(3549, -768)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)

@@ -53,15 +53,34 @@ func _process(delta: float) -> void:
 
 func findRightSpawn():
 	var rightDoor:Door
+	var check:Checkpoint
 	for l in Layers:
 		for d in l.get_children().filter(func (x):if x.get_script() == preload("res://PART - BASE/SCRIPTS/door.gd"):return x):
 			if d.id_last_lvl == PlayerDataSaver.PlayerStats.last_lvl:
 				rightDoor = d
+	for l in Layers:
+		for c in l.get_children().filter(func (x):if x.get_script() == preload("res://PART - OBJECTS/SCRIPTS/flag.gd"):return x):
+			print(c)
+			if c.isActivated:
+				if check != null:
+					if check.order < c.order:
+						check = c
+				else:
+					check = c
+	print(rightDoor)
+	print(check)
 	if rightDoor != null:
-		player.position = rightDoor.position
-		$Camera2D.position = rightDoor.position
-		goToLayer(rightDoor.layer)
-		rightDoor.isOut = true
+		if check != null:
+			print("Checkpoint")
+			player.position = check.position
+			$Camera2D.position = check.position
+			goToLayer(check.layer)
+		else:
+			print("Door")
+			player.position = rightDoor.position
+			$Camera2D.position = rightDoor.position
+			goToLayer(rightDoor.layer)
+			rightDoor.isOut = true
 
 func goToLayer(layer:int = 0):
 	if player.canMove:
