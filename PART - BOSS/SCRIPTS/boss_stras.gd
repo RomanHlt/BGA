@@ -8,6 +8,7 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @export_category("Global details")
 @export var sprite:Sprite2D
 @export var target : CharacterBody2D 		# Cible du boss
+@export var tilemap1 : TileMapLayer
 @export var TL : Marker2D
 @export var TR : Marker2D
 @export var BL : Marker2D
@@ -24,6 +25,7 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 var stuned = false					# Boss stuned ?
 var in_R_to_L = false
 var in_L_to_R = false
+var in_backdash = false
 # Variables d'état
 @onready var is_idle = true				# Ne fait rien
 @onready var is_attacking = false		# Attaque (Corps à corps, tir, magie)
@@ -69,6 +71,11 @@ func pick_random_action(actions: Array) -> String:
 func pic():
 	"""Choisi en fonction de sa position acctuelle vers où le boss 'pic'.
 	Pic entre le point A et B, si le joueur se trouve entre il sera ejecté et prendra des dégats"""
+	# Détruire les fallingrocks
+	for child in tilemap1.get_children():
+		if child is Fallingrock:
+			child.break_rock()
+
 	if self.global_position == TL.global_position:
 		#Lancer l'animation de pic
 		self.global_position = BR.global_position
@@ -82,7 +89,7 @@ func pic():
 			target._takeDamages()
 			target.velocity.y -= 500
 	#Lancer l'animation de remonté
-	
+
 
 func bombe():
 	if self.global_position == TL.global_position:
@@ -92,7 +99,11 @@ func bombe():
 	#Drop les bombes
 
 func backdash():
-	pass
+	$BackDash.show()
+	#Lancer l'animation de l'attaque
+	if in_backdash:
+		target._takeDamages(2)
+		target.velocity.y -= 500
 
 
 func _takeDamages(damages):
@@ -169,6 +180,16 @@ func _on_r_to_l_body_entered(body: Node2D) -> void:
 func _on_r_to_l_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		in_R_to_L = false
+
+
+# Backdash attaque
+func _on_back_dash_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		in_backdash = true
+
+func _on_back_dash_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		in_backdash = false
 
 
 # Arrivé du boos sur un point clé, quand il passe très proche on dit qu'il est sur ce point

@@ -3146,9 +3146,10 @@ position = Vector2(196, 59)
 [node name="Fallingrock8" parent="TileMapLayer" instance=ExtResource("6_4541g")]
 position = Vector2(172, 59)
 
-[node name="Boss" parent="TileMapLayer" node_paths=PackedStringArray("target", "TL", "TR", "BL", "BR") instance=ExtResource("7_ybgx1")]
+[node name="Boss" parent="TileMapLayer" node_paths=PackedStringArray("target", "tilemap1", "TL", "TR", "BL", "BR") instance=ExtResource("7_ybgx1")]
 position = Vector2(530, -394)
 target = NodePath("../../Player")
+tilemap1 = NodePath("..")
 TL = NodePath("../../TL")
 TR = NodePath("../../TR")
 BL = NodePath("../../BL")
