@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://cierfuw7plhvv"]
+[gd_scene load_steps=23 format=3 uid="uid://cierfuw7plhvv"]
 
 [ext_resource type="Texture2D" uid="uid://0tptb4ekglf0" path="res://PART - UI/ASSETS/PlayerLife.png" id="1_7npsu"]
 [ext_resource type="Script" path="res://PART - UI/SCRIPTS/in_gameUI.gd" id="1_kk3rj"]
 [ext_resource type="FontFile" uid="uid://cobvesca8xnwg" path="res://GLOBAL - Font/LittleGuy.ttf" id="3_xjblq"]
 [ext_resource type="Texture2D" uid="uid://b33dbw6ate5r3" path="res://PART - UI/SCENES/Notes.png" id="4_20fnx"]
-[ext_resource type="Texture2D" uid="uid://dyc26ak0c3gdj" path="res://PART - UI/SCENES/DashIcon.png" id="5_as2f0"]
+[ext_resource type="Texture2D" uid="uid://ct0wvm1wqwbkb" path="res://PART - UI/ASSETS/DashIcon1.png" id="6_1cc57"]
+[ext_resource type="Texture2D" uid="uid://cxugtx71r7bt1" path="res://PART - UI/ASSETS/DashIcon2.png" id="7_wre7i"]
 
 [sub_resource type="Animation" id="Animation_fwkt5"]
 length = 0.1
@@ -239,33 +240,6 @@ _data = {
 "111": SubResource("Animation_3g0ro")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1sywv"]
-atlas = ExtResource("5_as2f0")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_todps"]
-atlas = ExtResource("5_as2f0")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fl2jc"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1sywv")
-}],
-"loop": true,
-"name": &"EMPTY",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_todps")
-}],
-"loop": true,
-"name": &"FULL",
-"speed": 10.0
-}]
-
 [node name="InGame" type="CanvasLayer"]
 script = ExtResource("1_kk3rj")
 
@@ -356,24 +330,17 @@ libraries = {
 "": SubResource("AnimationLibrary_b8xhe")
 }
 
-[node name="Dash" type="AnimatedSprite2D" parent="InGame"]
-modulate = Color(1, 1, 1, 0.796078)
-texture_filter = 1
-position = Vector2(69, 118)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_fl2jc")
-animation = &"EMPTY"
-metadata/_aseprite_wizard_interface_config_ = {
-"pending_changes": {}
-}
-metadata/_aseprite_wizard_config_ = {
-"layers": [],
-"o_ex_p": "",
-"o_folder": "",
-"o_name": "",
-"only_visible": false,
-"should_round_fps": true,
-"slice": "",
-"source": "res://PART - UI/ASSETS/DashIcon.aseprite"
-}
-metadata/_aseprite_wizard_source_file_hash_ = "070e22c7ee2cf570d8bf32edb7a17d33"
+[node name="TextureDash" type="TextureProgressBar" parent="InGame"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 94.0
+offset_right = 62.0
+offset_bottom = 110.0
+scale = Vector2(4, 4)
+fill_mode = 4
+texture_under = ExtResource("6_1cc57")
+texture_progress = ExtResource("7_wre7i")
+
+[node name="Timer" type="Timer" parent="InGame/TextureDash"]
+wait_time = 1.5
+one_shot = true

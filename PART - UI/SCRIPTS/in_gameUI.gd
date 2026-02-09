@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+var refill:bool = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var lvl = PlayerDataSaver.PlayerStats.current_lvl
@@ -21,12 +22,19 @@ func _process(delta: float) -> void:
 	
 	$InGame/lifeController.play(str(PlayerDataSaver.PlayerStats.health))
 	
+	if refill:
+		$InGame/TextureDash.value = (1.5-$InGame/TextureDash/Timer.time_left)*100/1.5
+		if $InGame/TextureDash.value == 100:
+			refill = false
+	
 	if Main.get_node("Globals Options").controller:
 		$InGame/Label.text = "C"
 	else:
 		$InGame/Label.text = "K"
 	
-	if PlayerDataSaver.PlayerStats.dashUnlocked and $InGame/Dash.animation == "EMPTY":
-		$InGame/Dash.play("FULL")
-	else:
-		$InGame/Dash.play("EMPTY")
+	if PlayerDataSaver.PlayerStats.dashUnlocked and $InGame/TextureDash.value == 0:
+		$InGame/TextureDash/Timer.start()
+		refill = true
+
+func reloadDash():
+	$InGame/TextureDash.value = 0
