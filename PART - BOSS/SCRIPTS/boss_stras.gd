@@ -29,7 +29,7 @@ var dir = 1
 @onready var is_idle = true				# Ne fait rien
 @onready var is_attacking = false		# Attaque (Corps à corps, tir, magie)
 @onready var is_bombing = false 		# Attaque bombe
-@onready var lvl_evolution = 1			# Niveau d'évolution/Numéro de la phase
+@onready var lvl_evolution = 2			# Niveau d'évolution/Numéro de la phase
 @onready var is_dead = false
 # --- Variables spécifiques
 # --
@@ -44,7 +44,9 @@ func _ready() -> void:
 # --- Actions internes (Prendre dégat, évoluer, choix des actions, ...) ---
 func action():
 	"""Choisi l'action à faire en fonction de certains paramètres et de l'état (idle, attacking, ...) du boss."""
-	var actions = ["pic","pic","backdash","bombe","bombe"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
+	#var actions = ["pic","pic","backdash","bombe","bombe"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
+	var actions = ["backdash"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
+	
 	if not target:
 		while "pic" in actions:
 			actions.erase("pic")
@@ -131,7 +133,7 @@ func bombe():
 	is_idle = false
 	#Drop les bombes
 	while is_bombing:
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(0.15).timeout
 		if not is_bombing:
 			break
 		var scene = preload("res://PART - BOSS/SCENES/boss_stras_bombe.tscn")
@@ -143,12 +145,33 @@ func backdash():
 	is_attacking = true
 	is_idle = false
 	$BackDash.show()
-	#Lancer l'animation de l'attaque
+	#Lancer l'animation de l'attaque (envole vers le haut rapide)
 	await get_tree().create_timer(2).timeout
+	self.scale.x = 0.25
+	self.scale.y = 0.25
+	self.global_position = target.global_position
+
+	while self.scale.x < 1:
+		await get_tree().process_frame
+		self.scale.x += 1 * get_process_delta_time()
+		self.scale.y += 1 * get_process_delta_time()
+	
 	if in_backdash:
 		target._takeDamages(2)
-		target.velocity.y -= 500
-
+		target.velocity.y -= 800
+	
+	while self.scale.x < 2:
+		await get_tree().process_frame
+		self.scale.x += 1 * get_process_delta_time()
+		self.scale.y += 1 * get_process_delta_time()
+	
+	# Animation d'envole de face
+	self.scale.x = 1
+	self.scale.y = 1
+	# Animation d'envole vers le haut mais inversé (descente)
+	self.global_position = TR.global_position
+	is_idle = true
+	is_attacking = false
 
 func _takeDamages(damages):
 	if damages <= health:
