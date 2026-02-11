@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk0nhn3cyaqun"]
+
+[ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss_stras_bombe.gd" id="1_qugl2"]
+[ext_resource type="Texture2D" uid="uid://c7n1n6uxdmoxw" path="res://GLOBAL - APP/godot icon.svg" id="2_mij5o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hbv6n"]
+radius = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s65eq"]
+size = Vector2(2, 2)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ji6p2"]
+radius = 17.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 15
+script = ExtResource("1_qugl2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hbv6n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(0.0351563, 0.0351563)
+texture = ExtResource("2_mij5o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="ActivationZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationZone"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_s65eq")
+debug_color = Color(0.460535, 0.359441, 0.081456, 0.42)
+
+[node name="ExplosionZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionZone"]
+shape = SubResource("CircleShape2D_ji6p2")
+debug_color = Color(0.892563, 0.262757, 0.482814, 0.42)
+
+[connection signal="body_entered" from="ActivationZone" to="." method="_on_activation_zone_body_entered"]
+[connection signal="body_entered" from="ExplosionZone" to="." method="_on_explosion_zone_body_entered"]
+[connection signal="body_exited" from="ExplosionZone" to="." method="_on_explosion_zone_body_exited"]

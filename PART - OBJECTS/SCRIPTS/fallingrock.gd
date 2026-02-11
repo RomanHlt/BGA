@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Fallingrock
+
 @export_category("Self settings")
 @export var layer : int
 @onready var inrock = false
@@ -16,10 +18,7 @@ func _ready() -> void:
 
 func _on_above_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		$Fondu/AnimationPlayer.play("Break broke broken")
-		await get_tree().create_timer(0.6).timeout
-		$Fondu/AnimatableBody2D.collision_layer = 0
-		$Fondu/AnimatableBody2D/above.collision_mask = 0
+		break_rock()
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -33,6 +32,12 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		$Fondu/AnimatableBody2D.collision_layer = 2**layer
 		$Fondu/FonduPlayer.play("fondu")
 		$Fondu/AnimatableBody2D/above.collision_mask = 2**layer
+
+func break_rock():
+	$Fondu/AnimationPlayer.play("Break broke broken")
+	await get_tree().create_timer(0.6).timeout
+	$Fondu/AnimatableBody2D.collision_layer = 0
+	$Fondu/AnimatableBody2D/above.collision_mask = 0
 
 
 func _on_inrock_body_entered(body: Node2D) -> void:
