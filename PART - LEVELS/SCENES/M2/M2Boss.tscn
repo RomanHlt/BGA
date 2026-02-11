@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://b4ap31ye2nmec"]
+[gd_scene load_steps=42 format=4 uid="uid://b4ap31ye2nmec"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_2am8l"]
 [ext_resource type="Texture2D" uid="uid://cjhbhg1h1ql4u" path="res://PART - LEVELS/ASSETS/Map/2 Background/sky/BG Image.png" id="2_4rqt1"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dmwc4dgmjldxn" path="res://PART - BOSS/SCENES/boss_stras.tscn" id="7_ybgx1"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="8_2yyw2"]
 [ext_resource type="PackedScene" uid="uid://ct5ytlgut187g" path="res://PART - OBJECTS/SCENES/Traps/Spear.tscn" id="8_y82j0"]
+[ext_resource type="Script" path="res://PART - LEVELS/SCENES/M2/script M2/death_zone_boss.gd" id="12_le7q5"]
 
 [sub_resource type="Shader" id="Shader_wghwi"]
 
@@ -799,6 +800,30 @@ terrain_set_0/terrain_1/name = "Glass"
 terrain_set_0/terrain_1/color = Color(0, 0, 1, 1)
 sources/3 = SubResource("TileSetAtlasSource_qjwxx")
 sources/2 = SubResource("TileSetAtlasSource_o35yw")
+
+[sub_resource type="Curve2D" id="Curve2D_cxbri"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -506, -378, 0, 0, 0, 0, 507, -380)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_4smi0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 507, -380, 0, 0, 0, 0, -506, -378)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_drkkl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -510, 206, 0, 0, 0, 0, -506, -378)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_i4u5r"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 509, 210, 0, 0, 0, 0, 507, -380)
+}
+point_count = 2
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dywvd"]
 load_path = "res://.godot/imported/Terrain (16x16).png-965ee5e8399323c88aab03397ec562aa.ctex"
@@ -3032,7 +3057,8 @@ size = Vector2(1173.58, 121.603)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qspfe"]
 size = Vector2(1173.58, 121.603)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hyf6r"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2vji"]
+size = Vector2(2069, 236)
 
 [node name="Map" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_2am8l")
@@ -3146,14 +3172,21 @@ position = Vector2(196, 59)
 [node name="Fallingrock8" parent="TileMapLayer" instance=ExtResource("6_4541g")]
 position = Vector2(172, 59)
 
-[node name="Boss" parent="TileMapLayer" node_paths=PackedStringArray("target", "tilemap1", "TL", "TR", "BL", "BR") instance=ExtResource("7_ybgx1")]
-position = Vector2(530, -394)
+[node name="Boss" parent="TileMapLayer" node_paths=PackedStringArray("target", "tilemap1", "TL", "TR", "BL", "BR", "LeftUpPath", "RightUpPath", "LeftBombePath", "RightBombePath") instance=ExtResource("7_ybgx1")]
+position = Vector2(-506, -378)
+rotation = 3.13962
+scale = Vector2(1, 1)
 target = NodePath("../../Player")
 tilemap1 = NodePath("..")
 TL = NodePath("../../TL")
 TR = NodePath("../../TR")
 BL = NodePath("../../BL")
 BR = NodePath("../../BR")
+LeftUpPath = NodePath("../LeftUpPath/PathFollow2D")
+RightUpPath = NodePath("../RightUpPath/PathFollow2D")
+LeftBombePath = NodePath("../LeftBombePath/PathFollow2D")
+RightBombePath = NodePath("../RightBombePath/PathFollow2D")
+health_max = 6
 
 [node name="Spear" parent="TileMapLayer" instance=ExtResource("8_y82j0")]
 position = Vector2(-624, -321)
@@ -3162,6 +3195,54 @@ rotation = 1.5708
 [node name="Spear2" parent="TileMapLayer" instance=ExtResource("8_y82j0")]
 position = Vector2(624, -318)
 rotation = -1.5708
+
+[node name="LeftBombePath" type="Path2D" parent="TileMapLayer"]
+curve = SubResource("Curve2D_cxbri")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TileMapLayer/LeftBombePath"]
+position = Vector2(-506, -378)
+rotation = -0.00197433
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="TileMapLayer/LeftBombePath/PathFollow2D"]
+remote_path = NodePath("../../../Boss")
+update_rotation = false
+update_scale = false
+
+[node name="RightBombePath" type="Path2D" parent="TileMapLayer"]
+curve = SubResource("Curve2D_4smi0")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TileMapLayer/RightBombePath"]
+position = Vector2(507, -380)
+rotation = 3.13962
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="TileMapLayer/RightBombePath/PathFollow2D"]
+remote_path = NodePath("../../../Boss")
+
+[node name="LeftUpPath" type="Path2D" parent="TileMapLayer"]
+curve = SubResource("Curve2D_drkkl")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TileMapLayer/LeftUpPath"]
+position = Vector2(-506.578, -293.676)
+rotation = -1.56395
+progress = 499.857
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="TileMapLayer/LeftUpPath/PathFollow2D"]
+remote_path = NodePath("../../../Boss")
+update_rotation = false
+update_scale = false
+
+[node name="RightUpPath" type="Path2D" parent="TileMapLayer"]
+curve = SubResource("Curve2D_i4u5r")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TileMapLayer/RightUpPath"]
+position = Vector2(509, 210)
+rotation = -1.57419
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="TileMapLayer/RightUpPath/PathFollow2D"]
+remote_path = NodePath("../../../Boss")
+update_rotation = false
+update_scale = false
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
@@ -3191,7 +3272,6 @@ enableLight = false
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("PLAYER")]
 z_index = 1
 texture_filter = 1
-zoom = Vector2(1.25, 1.25)
 process_callback = 0
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -3221,18 +3301,8 @@ shape = SubResource("RectangleShape2D_qspfe")
 [node name="TL" type="Marker2D" parent="."]
 position = Vector2(-506, -378)
 
-[node name="TL" type="Area2D" parent="TL"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TL/TL"]
-shape = SubResource("CircleShape2D_hyf6r")
-
 [node name="TR" type="Marker2D" parent="."]
 position = Vector2(507, -380)
-
-[node name="TR" type="Area2D" parent="TR"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TR/TR"]
-shape = SubResource("CircleShape2D_hyf6r")
 
 [node name="BL" type="Marker2D" parent="."]
 position = Vector2(-510, 206)
@@ -3240,9 +3310,18 @@ position = Vector2(-510, 206)
 [node name="BR" type="Marker2D" parent="."]
 position = Vector2(509, 210)
 
+[node name="DeathZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 255
+script = ExtResource("12_le7q5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+position = Vector2(2, 663)
+shape = SubResource("RectangleShape2D_c2vji")
+debug_color = Color(0.809273, 0.104741, 0.955136, 0.42)
+
 [connection signal="body_entered" from="L_to_R" to="TileMapLayer/Boss" method="_on_l_to_r_body_entered"]
 [connection signal="body_exited" from="L_to_R" to="TileMapLayer/Boss" method="_on_l_to_r_body_exited"]
 [connection signal="body_entered" from="R_to_L" to="TileMapLayer/Boss" method="_on_r_to_l_body_entered"]
 [connection signal="body_exited" from="R_to_L" to="TileMapLayer/Boss" method="_on_r_to_l_body_exited"]
-[connection signal="body_entered" from="TL/TL" to="TileMapLayer/Boss" method="_on_tl_body_entered"]
-[connection signal="body_entered" from="TR/TR" to="TileMapLayer/Boss" method="_on_tr_body_entered"]
+[connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]

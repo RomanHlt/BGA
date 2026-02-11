@@ -1,10 +1,5 @@
 extends CharacterBody2D
 
-"""
-FONCTIONNEMENT PAR DEFAUT
-POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
-"""
-
 @export_category("Global details")
 @export var sprite:Sprite2D
 @export var target : CharacterBody2D 		# Cible du boss
@@ -13,23 +8,27 @@ POUR EN FAIRE UN BOSS : DUPLIQUER PUIS ADAPTER LE SCRIPT
 @export var TR : Marker2D
 @export var BL : Marker2D
 @export var BR : Marker2D
+@export var LeftUpPath : PathFollow2D
+@export var RightUpPath : PathFollow2D
+@export var LeftBombePath : PathFollow2D
+@export var RightBombePath : PathFollow2D
 
 @export_category("Boss specificity")
 @export var health_max = 10 			# Vie du boss
-@export var speed = 100
+@export var speed = 0.2
 # --
 # --
 # --
 # --- Variables internes  ---
 @onready var health = health_max			# Vie max
-var stuned = false					# Boss stuned ?
 var in_R_to_L = false
 var in_L_to_R = false
 var in_backdash = false
+var dir = 1
 # Variables d'état
 @onready var is_idle = true				# Ne fait rien
 @onready var is_attacking = false		# Attaque (Corps à corps, tir, magie)
-@onready var is_using_capacity = false	# Utilise une capacité (Hors attaque : heal, tp, bouclier)
+@onready var is_bombing = false 		# Attaque bombe
 @onready var lvl_evolution = 1			# Niveau d'évolution/Numéro de la phase
 @onready var is_dead = false
 # --- Variables spécifiques
@@ -48,14 +47,16 @@ func action():
 	var actions = ["pic","pic","backdash","bombe","bombe"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
 	if not target:
 		while "pic" in actions:
-			actions.erase("attack")
+			actions.erase("pic")
 		while "bombe" in actions:
-			actions.erase("follow")
+			actions.erase("bombe")
 	if lvl_evolution == 1:
 		while "backdash" in actions:
 			actions.erase("backdash")
 	
 	var action = pick_random_action(actions)
+	print(action)
+	await get_tree().create_timer(1.5).timeout
 	if action == "pic":
 		pic()
 	if action == "bombe":
@@ -71,36 +72,79 @@ func pick_random_action(actions: Array) -> String:
 func pic():
 	"""Choisi en fonction de sa position acctuelle vers où le boss 'pic'.
 	Pic entre le point A et B, si le joueur se trouve entre il sera ejecté et prendra des dégats"""
+	is_idle = false
+	is_attacking = true
+	
 	# Détruire les fallingrocks
 	for child in tilemap1.get_children():
 		if child is Fallingrock:
 			child.break_rock()
-
-	if self.global_position == TL.global_position:
+	
+	await get_tree().create_timer(2).timeout
+	
+	if self.global_position.distance_to(TL.global_position) < 5.0:
 		#Lancer l'animation de pic
 		self.global_position = BR.global_position
 		if in_L_to_R:
-			target._takeDamages()
-			target.velocity.y -= 500
-	if self.global_position == TR.global_position:
+			target._takeDamages(1) 
+			target.velocity.y = -800
+		#Lancer l'animation de remonté
+		RightUpPath.progress_ratio = 0
+		while RightUpPath.progress_ratio < 0.99:
+			RightUpPath.progress_ratio += speed * get_process_delta_time()
+			await get_tree().process_frame
+		self.global_position = TR.global_position
+		is_idle = true
+		is_attacking = false
+	
+	elif self.global_position.distance_to(TR.global_position) < 5.0:
 		#Lancer l'animation de pic
 		self.global_position = BL.global_position
 		if in_R_to_L:
-			target._takeDamages()
-			target.velocity.y -= 500
-	#Lancer l'animation de remonté
+			target._takeDamages(1)
+			target.velocity.y = -800
+		#Lancer l'animation de remonté
+		LeftUpPath.progress_ratio = 0
+		while LeftUpPath.progress_ratio < 0.99:
+			LeftUpPath.progress_ratio += speed * get_process_delta_time()
+			await get_tree().process_frame
+		self.global_position = TL.global_position
+		is_idle = true
+		is_attacking = false
 
 
 func bombe():
-	if self.global_position == TL.global_position:
-		self.velocity.x = speed
-	if self.global_position == TR.global_position:
-		self.velocity.x = -speed
+	if is_bombing:
+		return
+	var vect : Vector2
+	if self.global_position.distance_to(TR.global_position) < 5.0:
+		RightBombePath.progress_ratio = 0
+		dir = -1
+		vect = Vector2(-30, -10)
+	elif self.global_position.distance_to(TL.global_position) < 5.0:
+		LeftBombePath.progress_ratio = 0
+		dir = 1
+		vect = Vector2(30, -10)
+	await get_tree().process_frame
+	is_attacking = true
+	is_bombing = true
+	is_idle = false
 	#Drop les bombes
+	while is_bombing:
+		await get_tree().create_timer(0.3).timeout
+		if not is_bombing:
+			break
+		var scene = preload("res://PART - BOSS/SCENES/boss_stras_bombe.tscn")
+		var child = scene.instantiate()
+		child.position = self.position - vect
+		tilemap1.add_child(child)
 
 func backdash():
+	is_attacking = true
+	is_idle = false
 	$BackDash.show()
 	#Lancer l'animation de l'attaque
+	await get_tree().create_timer(2).timeout
 	if in_backdash:
 		target._takeDamages(2)
 		target.velocity.y -= 500
@@ -135,7 +179,6 @@ func evolve():
 
 func dead():
 	is_idle = false
-	is_using_capacity = false
 	is_attacking = false
 	self.velocity = Vector2.ZERO
 	# attendre que l'animation de mort se joue dans handle_animation() puis queue free la bas
@@ -146,11 +189,27 @@ func dead():
 func _process(delta: float) -> void:
 	handle_animation()
 	if is_idle:
+		is_idle = false
 		action()
+	if is_bombing:
+		if dir == 1:
+			LeftBombePath.progress_ratio += speed * delta
+		elif dir == -1:
+			RightBombePath.progress_ratio += speed * delta
+		
+		if LeftBombePath.progress_ratio > 0.99 and dir == 1:
+			LeftBombePath.progress_ratio = 1.0
+			self.global_position = TR.global_position
+			is_bombing = false
+			is_attacking = false
+			is_idle = true
+		if RightBombePath.progress_ratio > 0.99 and dir == -1:
+			RightBombePath.progress_ratio = 1.0
+			self.global_position = TL.global_position
+			is_bombing = false
+			is_attacking = false
+			is_idle = true
 
-
-func _physics_process(delta):
-	move_and_slide()
 
 # --- Animation ---
 func handle_animation():
@@ -190,13 +249,3 @@ func _on_back_dash_body_entered(body: Node2D) -> void:
 func _on_back_dash_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		in_backdash = false
-
-
-# Arrivé du boos sur un point clé, quand il passe très proche on dit qu'il est sur ce point
-func _on_tl_body_entered(body: Node2D) -> void:
-	if body.name == self.name:
-		self.global_position = TL.global_position
-
-func _on_tr_body_entered(body: Node2D) -> void:
-	if body.name == self.name:
-		self.global_position = TR.global_position
