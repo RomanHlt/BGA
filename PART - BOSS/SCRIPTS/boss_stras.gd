@@ -37,15 +37,15 @@ var dir = 1
 # --
 # --- ready ---
 func _ready() -> void:
-	pass
+	$Sprite2D.flip_h = true
 # --
 # --
 # --
 # --- Actions internes (Prendre dégat, évoluer, choix des actions, ...) ---
 func action():
 	"""Choisi l'action à faire en fonction de certains paramètres et de l'état (idle, attacking, ...) du boss."""
-	#var actions = ["pic","pic","backdash","bombe","bombe"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
-	var actions = ["backdash"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
+	var actions = ["pic","pic","backdash","bombe","bombe"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
+	#var actions = ["backdash"] # Test
 	
 	if not target:
 		while "pic" in actions:
@@ -85,32 +85,42 @@ func pic():
 	await get_tree().create_timer(2).timeout
 	
 	if self.global_position.distance_to(TL.global_position) < 5.0:
-		#Lancer l'animation de pic
+		$AnimationPlayer.play("début piquet")
+		await $AnimationPlayer.animation_finished
 		self.global_position = BR.global_position
 		if in_L_to_R:
 			target._takeDamages(1) 
 			target.velocity.y = -800
-		#Lancer l'animation de remonté
+		$AnimationPlayer.play("redressage")
 		RightUpPath.progress_ratio = 0
+		await $AnimationPlayer.animation_finished
+		$AnimationPlayer.play("vol montant")
 		while RightUpPath.progress_ratio < 0.99:
 			RightUpPath.progress_ratio += speed * get_process_delta_time()
 			await get_tree().process_frame
 		self.global_position = TR.global_position
+		$AnimationPlayer.play("vol stationnaire")
+		$Sprite2D.flip_h = false
 		is_idle = true
 		is_attacking = false
 	
 	elif self.global_position.distance_to(TR.global_position) < 5.0:
-		#Lancer l'animation de pic
+		$AnimationPlayer.play("début piquet")
+		await $AnimationPlayer.animation_finished
 		self.global_position = BL.global_position
 		if in_R_to_L:
 			target._takeDamages(1)
 			target.velocity.y = -800
-		#Lancer l'animation de remonté
+		$AnimationPlayer.play("redressage")
 		LeftUpPath.progress_ratio = 0
+		await $AnimationPlayer.animation_finished
+		$AnimationPlayer.play("vol montant")
 		while LeftUpPath.progress_ratio < 0.99:
 			LeftUpPath.progress_ratio += speed * get_process_delta_time()
 			await get_tree().process_frame
 		self.global_position = TL.global_position
+		$AnimationPlayer.play("vol stationnaire")
+		$Sprite2D.flip_h = true
 		is_idle = true
 		is_attacking = false
 
@@ -131,7 +141,7 @@ func bombe():
 	is_attacking = true
 	is_bombing = true
 	is_idle = false
-	#Drop les bombes
+	$AnimationPlayer.play("Largage")
 	while is_bombing:
 		await get_tree().create_timer(0.15).timeout
 		if not is_bombing:
@@ -140,38 +150,63 @@ func bombe():
 		var child = scene.instantiate()
 		child.position = self.position - vect
 		tilemap1.add_child(child)
+	$AnimationPlayer.play("vol stationnaire")
 
 func backdash():
+	set_physics_process(true) #opti
 	is_attacking = true
 	is_idle = false
+	self.velocity.y = -200
+	$AnimationPlayer.play("vol montant")
+	await get_tree().create_timer(2).timeout
+	self.velocity.y = 0
 	$BackDash.show()
-	#Lancer l'animation de l'attaque (envole vers le haut rapide)
+	$AnimationPlayer.stop()
+	$AnimationPlayer.play("Backdash")
 	await get_tree().create_timer(2).timeout
 	self.scale.x = 0.25
 	self.scale.y = 0.25
-	self.global_position = target.global_position
-
-	while self.scale.x < 1:
-		await get_tree().process_frame
-		self.scale.x += 1 * get_process_delta_time()
-		self.scale.y += 1 * get_process_delta_time()
+	self.global_position = target.global_position + Vector2(0, -100)
 	
+
+	while self.scale.x < 1.5:
+		await get_tree().process_frame
+		self.scale.x += 1.1 * get_process_delta_time()
+		self.scale.y += 1.1 * get_process_delta_time()
+	
+	self.z_index = 10
 	if in_backdash:
 		target._takeDamages(2)
-		target.velocity.y -= 800
+		target.velocity = Vector2(0, -500)
+	$BackDash.hide()
 	
-	while self.scale.x < 2:
+	while self.scale.x < 4:
 		await get_tree().process_frame
-		self.scale.x += 1 * get_process_delta_time()
-		self.scale.y += 1 * get_process_delta_time()
+		self.scale.x += 1.1 * get_process_delta_time()
+		self.scale.y += 1.1 * get_process_delta_time()
 	
-	# Animation d'envole de face
-	self.scale.x = 1
-	self.scale.y = 1
-	# Animation d'envole vers le haut mais inversé (descente)
+	$AnimationPlayer.play("Avant")
+	self.velocity.y = -600
+	while self.scale.x < 5.5:
+		await get_tree().process_frame
+		self.scale.x += 1.1 * get_process_delta_time()
+		self.scale.y += 1.1 * get_process_delta_time()
+	
+	self.global_position = TR.global_position + Vector2(0, -500)
+	self.scale.x = 1.5
+	self.scale.y = 1.5
+	$AnimationPlayer.play("vol stationnaire")
+	self.z_index = 0
+	$Sprite2D.flip_h = false
+	self.velocity.y = 200
+	while self.global_position.distance_to(TR.global_position) > 5.0:
+		await get_tree().process_frame
+	self.velocity.y = 0
+	set_physics_process(false) #opti
 	self.global_position = TR.global_position
 	is_idle = true
 	is_attacking = false
+	
 
 func _takeDamages(damages):
 	if damages <= health:
@@ -223,16 +258,20 @@ func _process(delta: float) -> void:
 		if LeftBombePath.progress_ratio > 0.99 and dir == 1:
 			LeftBombePath.progress_ratio = 1.0
 			self.global_position = TR.global_position
+			$Sprite2D.flip_h = false
 			is_bombing = false
 			is_attacking = false
 			is_idle = true
 		if RightBombePath.progress_ratio > 0.99 and dir == -1:
 			RightBombePath.progress_ratio = 1.0
 			self.global_position = TL.global_position
+			$Sprite2D.flip_h = true
 			is_bombing = false
 			is_attacking = false
 			is_idle = true
 
+func _physics_process(delta: float) -> void:
+	move_and_slide()
 
 # --- Animation ---
 func handle_animation():
