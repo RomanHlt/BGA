@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://qmqbhcy1ntjv"]
+[gd_scene load_steps=47 format=4 uid="uid://qmqbhcy1ntjv"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_lw6fj"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_51l1m"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dalwmdqc2j3iv" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/1.png" id="14_q85mo"]
 [ext_resource type="Texture2D" uid="uid://b5avw4mcm3obf" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/8.png" id="19_kwgcm"]
 [ext_resource type="PackedScene" uid="uid://lu83b1j7bvc2" path="res://PART - OBJECTS/SCENES/Others/Flag.tscn" id="20_xyr00"]
+[ext_resource type="Script" path="res://PART - LEVELS/SCENES/M2/script M2/m2l2respawnplatformgd.gd" id="21_4bfbu"]
 
 [sub_resource type="Shader" id="Shader_wghwi"]
 
@@ -3044,6 +3045,9 @@ sources/3 = SubResource("TileSetAtlasSource_a0c6o")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efydt"]
 size = Vector2(6058, 1036)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icdtu"]
+size = Vector2(46.5, 721)
+
 [node name="Map" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_lw6fj")
 id = "2.1.0"
@@ -3322,6 +3326,7 @@ health_max = 1
 
 [node name="Path2D" parent="TileMapLayer" instance=ExtResource("13_jk5bi")]
 curve = SubResource("Curve2D_d4ffy")
+speed = 1.5
 
 [node name="1" type="Sprite2D" parent="TileMapLayer"]
 position = Vector2(579, -90)
@@ -3398,4 +3403,15 @@ shape = SubResource("RectangleShape2D_efydt")
 position = Vector2(2881, -106)
 texture = ExtResource("19_kwgcm")
 
+[node name="Area2D2" type="Area2D" parent="." node_paths=PackedStringArray("moving")]
+collision_layer = 0
+collision_mask = 15
+script = ExtResource("21_4bfbu")
+moving = NodePath("../TileMapLayer/Path2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(2342.75, -171)
+shape = SubResource("RectangleShape2D_icdtu")
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
