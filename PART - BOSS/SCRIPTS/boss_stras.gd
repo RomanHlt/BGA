@@ -44,8 +44,8 @@ func _ready() -> void:
 # --- Actions internes (Prendre dégat, évoluer, choix des actions, ...) ---
 func action():
 	"""Choisi l'action à faire en fonction de certains paramètres et de l'état (idle, attacking, ...) du boss."""
-	var actions = ["pic","pic","backdash","bombe","bombe"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
-	#var actions = ["backdash"] # Test
+	#var actions = ["pic","pic","backdash","bombe","bombe"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
+	var actions = ["backdash"] # Test
 	
 	if not target:
 		while "pic" in actions:
@@ -156,7 +156,7 @@ func backdash():
 	set_physics_process(true) #opti
 	is_attacking = true
 	is_idle = false
-	self.velocity.y = -200
+	self.velocity.y = -350
 	$AnimationPlayer.play("vol montant")
 	await get_tree().create_timer(2).timeout
 	self.velocity.y = 0
@@ -171,8 +171,8 @@ func backdash():
 
 	while self.scale.x < 1.5:
 		await get_tree().process_frame
-		self.scale.x += 1.1 * get_process_delta_time()
-		self.scale.y += 1.1 * get_process_delta_time()
+		self.scale.x += 1.3 * get_process_delta_time()
+		self.scale.y += 1.3 * get_process_delta_time()
 	
 	self.z_index = 10
 	if in_backdash:
@@ -180,17 +180,17 @@ func backdash():
 		target.velocity = Vector2(0, -500)
 	$BackDash.hide()
 	
-	while self.scale.x < 4:
+	while self.scale.x < 2.5:
 		await get_tree().process_frame
-		self.scale.x += 1.1 * get_process_delta_time()
-		self.scale.y += 1.1 * get_process_delta_time()
+		self.scale.x += 2 * get_process_delta_time()
+		self.scale.y += 2 * get_process_delta_time()
 	
 	$AnimationPlayer.play("Avant")
-	self.velocity.y = -600
-	while self.scale.x < 5.5:
+	self.velocity.y = -750
+	while self.scale.x < 3.5:
 		await get_tree().process_frame
-		self.scale.x += 1.1 * get_process_delta_time()
-		self.scale.y += 1.1 * get_process_delta_time()
+		self.scale.x += 2.8 * get_process_delta_time()
+		self.scale.y += 2.8 * get_process_delta_time()
 	
 	self.global_position = TR.global_position + Vector2(0, -500)
 	self.scale.x = 1.5
