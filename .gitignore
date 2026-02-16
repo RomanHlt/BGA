@@ -16,7 +16,4 @@ data_*/
 mono_crash.*.json
 
 #Saves
-/SAVES
-."GLOBAL - DATA"/SAVES/PlayerData.tres
-."GLOBAL - DATA"/SAVES/WorldData.tres
-."GLOBAL - DATA"/SAVES/SettingsData.tres
+*.tres
