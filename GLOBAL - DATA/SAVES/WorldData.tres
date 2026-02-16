@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="WorldData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/worldStats.gd" id="1_oqm74"]
+[ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/worldStats.gd" id="1_tbyxe"]
 
 [resource]
-script = ExtResource("1_oqm74")
+script = ExtResource("1_tbyxe")
 levels = 1
 compo = {
 "0.1.0": [true, true, true],
