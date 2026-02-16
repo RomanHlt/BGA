@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://d4cl5kxk8282o"]
+[gd_scene load_steps=33 format=4 uid="uid://d4cl5kxk8282o"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_kn1tx"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_aotfh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="3_vs5vi"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_xu4oq"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_qipye"]
+[ext_resource type="PackedScene" uid="uid://cydkw5arp1n4i" path="res://PART - OBJECTS/SCENES/Others/heal.tscn" id="5_3xvek"]
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="11_wwe4o"]
 [ext_resource type="Script" path="res://PART - LEVELS/SCENES/M1/scripts M1/spawn déplacement.gd" id="11_y8xlq"]
 [ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="12_41ggo"]
@@ -2339,6 +2340,9 @@ id_next_lvl = "1.4.0"
 id_last_lvl = "1.4.0"
 titre = "Monde 1"
 sous_titre = "Repère du sanglier"
+
+[node name="Sprite2D" parent="TileMapLayer" instance=ExtResource("5_3xvek")]
+position = Vector2(-210, -19)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.517647, 0.517647, 0.517647, 1)

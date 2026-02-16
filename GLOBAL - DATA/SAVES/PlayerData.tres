@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://fmpcxabijx5h"]
 
 [ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/playerStats.gd" id="1_13h26"]
 
@@ -10,5 +10,5 @@ health = 4
 dashUnlocked = false
 is_dead = false
 max_health = 4
-current_lvl = "2.0.0"
-last_lvl = "2.0.0"
+current_lvl = "1.0.0"
+last_lvl = "0.0.0"
