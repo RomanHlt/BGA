@@ -76,6 +76,11 @@ func findRightSpawn():
 			$Camera2D.position = rightDoor.position
 			goToLayer(rightDoor.layer)
 			rightDoor.isOut = true
+	# Non mais en vrai...
+	for l in Layers:
+		for c in l.get_children():
+			if c is MovingPlatform:
+				c.reset()
 
 func goToLayer(layer:int = 0):
 	if player.canMove:

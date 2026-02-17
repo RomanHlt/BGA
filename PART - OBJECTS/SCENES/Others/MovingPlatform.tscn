@@ -68,7 +68,7 @@ _data = {
 "move": SubResource("Animation_23evg")
 }
 
-[node name="Path2D" type="Path2D"]
+[node name="Path2D" type="Path2D" groups=["MovingPlatform"]]
 texture_filter = 1
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_fgaem")
