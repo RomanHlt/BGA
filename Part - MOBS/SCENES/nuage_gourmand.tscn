@@ -23,7 +23,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_tiovl"]
 length = 1.8
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -39,7 +38,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_j57ua"]
 length = 0.8
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -97,6 +95,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_l5uij")
 hframes = 4
 vframes = 3
+frame = 8
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }

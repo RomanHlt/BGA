@@ -3135,7 +3135,6 @@ id_last_lvl = "2.0.0"
 [node name="NuageGourmand" parent="TileMapLayer" node_paths=PackedStringArray("marker") instance=ExtResource("7_n8q1v")]
 position = Vector2(556, -199)
 marker = NodePath("../Marker2D")
-layer_dir = 1
 
 [node name="Marker2D" type="Marker2D" parent="TileMapLayer"]
 position = Vector2(683, -372)

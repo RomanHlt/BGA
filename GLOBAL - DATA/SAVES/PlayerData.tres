@@ -10,5 +10,5 @@ health = 4
 dashUnlocked = false
 is_dead = false
 max_health = 4
-current_lvl = "2.0.0"
+current_lvl = "2.2.0"
 last_lvl = "2.0.0"

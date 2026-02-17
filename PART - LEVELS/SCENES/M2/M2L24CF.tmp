@@ -3134,29 +3134,40 @@ id_last_lvl = "2.0.0"
 
 [node name="NuageGourmand" parent="TileMapLayer" node_paths=PackedStringArray("marker") instance=ExtResource("7_n8q1v")]
 position = Vector2(556, -199)
+power = null
+power_aspiration = null
 marker = NodePath("../Marker2D")
-layer_dir = 1
+dir_layer = null
 
 [node name="Marker2D" type="Marker2D" parent="TileMapLayer"]
 position = Vector2(683, -372)
 
 [node name="NuageGourmand2" parent="TileMapLayer" node_paths=PackedStringArray("marker") instance=ExtResource("7_n8q1v")]
 position = Vector2(846, -345)
+power = null
+power_aspiration = null
 marker = NodePath("../Marker2D2")
+dir_layer = null
 
 [node name="Marker2D2" type="Marker2D" parent="TileMapLayer"]
 position = Vector2(1134, -240)
 
 [node name="NuageGourmand3" parent="TileMapLayer" node_paths=PackedStringArray("marker") instance=ExtResource("7_n8q1v")]
 position = Vector2(1434, 270)
+power = null
+power_aspiration = null
 marker = NodePath("../Marker2D3")
+dir_layer = null
 
 [node name="Marker2D3" type="Marker2D" parent="TileMapLayer"]
 position = Vector2(1217, 167)
 
 [node name="NuageGourmand4" parent="TileMapLayer" node_paths=PackedStringArray("marker") instance=ExtResource("7_n8q1v")]
 position = Vector2(273, 931)
+power = null
+power_aspiration = null
 marker = NodePath("../Marker2D4")
+dir_layer = null
 
 [node name="Marker2D4" type="Marker2D" parent="TileMapLayer"]
 position = Vector2(518, 920)
