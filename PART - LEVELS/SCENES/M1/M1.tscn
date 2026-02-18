@@ -2326,6 +2326,7 @@ titre = "Monde 1"
 sous_titre = "Niveau 3 | Sortie"
 
 [node name="door3" parent="TileMapLayer" instance=ExtResource("3_vs5vi")]
+modulate = Color(0.491309, 0.595285, 0.814999, 1)
 position = Vector2(629, 577)
 id_next_lvl = "0.1.0"
 id_last_lvl = "0.1.0"
@@ -2333,6 +2334,7 @@ titre = "Niveau caché"
 sous_titre = "Le méchant chat"
 
 [node name="door4" parent="TileMapLayer" instance=ExtResource("3_vs5vi")]
+modulate = Color(0.878408, 0.283812, 0.4629, 1)
 position = Vector2(113, -31)
 hideNote = true
 id_next_lvl = "1.4.0"
@@ -2356,6 +2358,7 @@ titre = "Monde 1"
 sous_titre = "Niveau 2 | Profondeur"
 
 [node name="door2" parent="TileMapLayer2" instance=ExtResource("3_vs5vi")]
+modulate = Color(0.862331, 0.850805, 0.610944, 1)
 position = Vector2(372, -63)
 layer = 1
 hideNote = true

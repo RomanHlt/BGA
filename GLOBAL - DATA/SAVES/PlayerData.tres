@@ -6,9 +6,9 @@
 script = ExtResource("1_13h26")
 level = 0
 items = ["Apple", "Gun", "Key"]
-health = 0
+health = 4
 dashUnlocked = false
-is_dead = true
+is_dead = false
 max_health = 4
 current_lvl = "1.0.0"
-last_lvl = "1.0.0"
+last_lvl = "0.0.0"
