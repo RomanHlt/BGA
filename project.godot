@@ -30,6 +30,10 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/parallax2d_preview/plugin.cfg", "res://addons/virtual_joystick/plugin.cfg")
 
+[global_group]
+
+MovingPlatform=""
+
 [input]
 
 move_right={

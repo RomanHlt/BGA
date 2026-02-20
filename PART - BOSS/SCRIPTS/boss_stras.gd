@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export_category("Global details")
 @export var sprite:Sprite2D
 @export var target : CharacterBody2D 		# Cible du boss
+@export var camera : Camera2D
 @export var tilemap1 : TileMapLayer
 @export var TL : Marker2D
 @export var TR : Marker2D
@@ -38,14 +39,15 @@ var dir = 1
 # --- ready ---
 func _ready() -> void:
 	$Sprite2D.flip_h = true
+	$AnimationPlayer.play("vol stationnaire")
 # --
 # --
 # --
 # --- Actions internes (Prendre dégat, évoluer, choix des actions, ...) ---
 func action():
 	"""Choisi l'action à faire en fonction de certains paramètres et de l'état (idle, attacking, ...) du boss."""
-	#var actions = ["pic","pic","backdash","bombe","bombe"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
-	var actions = ["backdash"] # Test
+	var actions = ["pic","pic","backdash","bombe","bombe"] # Actions possible, à modifier selon les boss et selon les conditions en temps réel
+	#var actions = ["backdash"] # Test
 	
 	if not target:
 		while "pic" in actions:
@@ -81,6 +83,9 @@ func pic():
 	for child in tilemap1.get_children():
 		if child is Fallingrock:
 			child.break_rock()
+	camera.shake(20)
+	await get_tree().create_timer(0.2).timeout
+	camera.shake(20)
 	
 	await get_tree().create_timer(2).timeout
 	

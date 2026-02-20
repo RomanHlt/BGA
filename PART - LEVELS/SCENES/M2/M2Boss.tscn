@@ -3072,6 +3072,7 @@ scroll_offset = Vector2(-1735, -727)
 repeat_size = Vector2(1401.28, 0)
 limit_begin = Vector2(-1401.28, -1e+07)
 limit_end = Vector2(1401.28, 1e+07)
+screen_offset = Vector2(-52.5062, -421.443)
 
 [node name="BG" type="Sprite2D" parent="ParallaxBG"]
 position = Vector2(1401.28, 852.851)
@@ -3084,6 +3085,7 @@ scroll_scale = Vector2(0.4, 0.001)
 scroll_offset = Vector2(3210, -128)
 repeat_size = Vector2(1401.28, 0)
 autoscroll = Vector2(-4, 0)
+screen_offset = Vector2(-52.5062, -421.443)
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxCloud1"]
 position = Vector2(1035, 45)
@@ -3099,6 +3101,7 @@ scroll_scale = Vector2(0.6, 0.01)
 scroll_offset = Vector2(3871.28, -283)
 repeat_size = Vector2(1401.28, 0)
 autoscroll = Vector2(-6, 0)
+screen_offset = Vector2(-52.5062, -421.443)
 
 [node name="Sprite2D3" type="Sprite2D" parent="ParallaxCloud2"]
 position = Vector2(700.74, 115.62)
@@ -3116,6 +3119,7 @@ scroll_scale = Vector2(0.8, 0.1)
 scroll_offset = Vector2(4164, -400)
 repeat_size = Vector2(1401.28, 0)
 autoscroll = Vector2(-8, 0)
+screen_offset = Vector2(-52.5062, -421.443)
 
 [node name="Sprite2D3" type="Sprite2D" parent="ParallaxCloud3"]
 position = Vector2(492, 317)
@@ -3133,6 +3137,7 @@ scroll_scale = Vector2(0.4, 0.01)
 scroll_offset = Vector2(4164, -400)
 repeat_size = Vector2(1401.28, 0)
 autoscroll = Vector2(-4, 0)
+screen_offset = Vector2(-52.5062, -421.443)
 
 [node name="Sprite2D3" type="Sprite2D" parent="ParallaxCloud4"]
 position = Vector2(542.689, 346.117)
@@ -3185,10 +3190,11 @@ position = Vector2(108, 59)
 [node name="Fallingrock12" parent="TileMapLayer" instance=ExtResource("6_4541g")]
 position = Vector2(228, 59)
 
-[node name="Boss" parent="TileMapLayer" node_paths=PackedStringArray("target", "tilemap1", "TL", "TR", "BL", "BR", "LeftUpPath", "RightUpPath", "LeftBombePath", "RightBombePath") instance=ExtResource("7_ybgx1")]
-position = Vector2(309, 110)
+[node name="Boss" parent="TileMapLayer" node_paths=PackedStringArray("target", "camera", "tilemap1", "TL", "TR", "BL", "BR", "LeftUpPath", "RightUpPath", "LeftBombePath", "RightBombePath") instance=ExtResource("7_ybgx1")]
+position = Vector2(-306, -278)
 scale = Vector2(1.5, 1.5)
 target = NodePath("../../Player")
+camera = NodePath("../../Camera2D")
 tilemap1 = NodePath("..")
 TL = NodePath("../../TL")
 TR = NodePath("../../TR")

@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://caa12hphfoaf5" path="res://PART - OBJECTS/SCENES/Others/MovingPlatform.png" id="2_yfp8h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jva0o"]
-size = Vector2(260, 50)
+size = Vector2(272, 41)
 
 [sub_resource type="Animation" id="Animation_kebkq"]
-length = 0.5
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -16,10 +16,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4]
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_txtcb"]
@@ -68,7 +68,7 @@ _data = {
 "move": SubResource("Animation_23evg")
 }
 
-[node name="Path2D" type="Path2D"]
+[node name="Path2D" type="Path2D" groups=["MovingPlatform"]]
 texture_filter = 1
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_fgaem")
@@ -78,9 +78,10 @@ position = Vector2(0, -1)
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
 texture_filter = 1
-scale = Vector2(10, 10)
+position = Vector2(-4, -19)
+scale = Vector2(5, 5)
 texture = ExtResource("2_yfp8h")
-hframes = 3
+hframes = 2
 vframes = 2
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
@@ -101,10 +102,10 @@ metadata/_aseprite_wizard_config_ = {
 "slice": "",
 "source": "res://PART - OBJECTS/ASSETS/MovingPlatform.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "24eee942ac368c718654ecb7e0ff608c"
+metadata/_aseprite_wizard_source_file_hash_ = "b6883dffc44aaa57cdb1535ccde014ee"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
-position = Vector2(0, -15)
+position = Vector2(0, -19.5)
 shape = SubResource("RectangleShape2D_jva0o")
 
 [node name="AnimaionGraphique" type="AnimationPlayer" parent="AnimatableBody2D"]
