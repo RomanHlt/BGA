@@ -2430,7 +2430,6 @@ position = Vector2(2444, -975)
 layer = 1
 isHub = false
 id_next_lvl = "1.0.0"
-id_unlocked_lvl = "2.0.0"
 titre = "Ras le CUL"
 sous_titre = "HDF 1 - CVL 0"
 

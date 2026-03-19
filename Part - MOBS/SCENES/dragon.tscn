@@ -147,7 +147,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c68a7"]
-radius = 240.821
+radius = 428.801
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_harfe"]
 size = Vector2(24.4, 17.6)
@@ -260,7 +260,6 @@ wall_jump_max = 999999
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="below"]
 position = Vector2(0.4, 8.8)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5t5gq")
 
 [connection signal="animation_finished" from="DragonAnimator" to="." method="_on_dragon_animator_animation_finished"]
