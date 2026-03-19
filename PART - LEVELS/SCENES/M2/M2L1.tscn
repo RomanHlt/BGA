@@ -3328,7 +3328,6 @@ health_max = 1
 
 [node name="Path2D" parent="TileMapLayer" instance=ExtResource("13_jk5bi")]
 curve = SubResource("Curve2D_d4ffy")
-speed = 1.5
 
 [node name="1" type="Sprite2D" parent="TileMapLayer"]
 position = Vector2(579, -90)
@@ -3422,7 +3421,7 @@ offset_right = 657.0
 offset_bottom = -36.0
 text = "Dash :"
 text_keyboard = "Dash : A"
-text_controller = "Dash : ??"
+text_controller = "Dash : "
 
 [node name="Label2b" parent="Label2" instance=ExtResource("22_88br3")]
 layout_mode = 0

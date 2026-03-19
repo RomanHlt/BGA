@@ -3216,8 +3216,8 @@ rotation = 3.14159
 [node name="Path2D" parent="TileMapLayer" instance=ExtResource("18_d74bu")]
 position = Vector2(771, -133)
 curve = SubResource("Curve2D_8l8og")
+speed = 0.01
 loop = false
-speed = 0.025
 
 [node name="8" type="Sprite2D" parent="TileMapLayer"]
 position = Vector2(724, -154)

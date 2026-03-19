@@ -3241,6 +3241,14 @@ isHub = false
 isDecorative = true
 id_last_lvl = "1.0.0"
 
+[node name="door2" parent="TileMapLayer" instance=ExtResource("5_jcd8c")]
+position = Vector2(0, -31)
+isHub = false
+hideNote = true
+id_next_lvl = "1.0.0"
+titre = "Monde 1"
+sous_titre = "Retour au Hub"
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
 light_mask = 2
@@ -3261,6 +3269,7 @@ z_index = -3
 tile_set = SubResource("TileSet_h437q")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("6_4x1jd")]
+position = Vector2(2, 0)
 scale = Vector2(1.5, 1.5)
 collision_layer = 0
 camera = NodePath("../Camera2D")

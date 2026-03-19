@@ -108,7 +108,7 @@ metadata/_aseprite_wizard_source_file_hash_ = "b6883dffc44aaa57cdb1535ccde014ee"
 position = Vector2(0, -19.5)
 shape = SubResource("RectangleShape2D_jva0o")
 
-[node name="AnimaionGraphique" type="AnimationPlayer" parent="AnimatableBody2D"]
+[node name="AnimationGraphique" type="AnimationPlayer" parent="AnimatableBody2D"]
 libraries = {
 "": SubResource("AnimationLibrary_txtcb")
 }

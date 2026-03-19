@@ -39,6 +39,8 @@ func _process(delta: float) -> void:
 		
 	if lvl.split(".")[1] == "4":
 		$InGame/NotesCount.hide()
+	else:
+		$InGame/NotesCount.show()
 
 func reloadDash():
 	$InGame/TextureDash.value = 0

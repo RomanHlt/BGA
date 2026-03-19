@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://d4cl5kxk8282o"]
+[gd_scene load_steps=32 format=4 uid="uid://d4cl5kxk8282o"]
 
 [ext_resource type="Script" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_kn1tx"]
 [ext_resource type="Texture2D" uid="uid://dhm1yo28jjap0" path="res://PART - LEVELS/ASSETS/Terrain (16x16).png" id="2_aotfh"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="3_vs5vi"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_xu4oq"]
 [ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_qipye"]
-[ext_resource type="PackedScene" uid="uid://cydkw5arp1n4i" path="res://PART - OBJECTS/SCENES/Others/heal.tscn" id="5_3xvek"]
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="11_wwe4o"]
 [ext_resource type="Script" path="res://PART - LEVELS/SCENES/M1/scripts M1/spawn déplacement.gd" id="11_y8xlq"]
 [ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="12_41ggo"]
@@ -2310,7 +2309,15 @@ tile_map_data = PackedByteArray("AAAQAAgAAwADAAQAAAAQAAcAAwAEAAIAAAAQAAYAAwABAAE
 tile_set = SubResource("TileSet_k3r57")
 
 [node name="Torch" parent="TileMapLayer" instance=ExtResource("3_tt8ig")]
-position = Vector2(-75, -21)
+position = Vector2(-153, -22)
+
+[node name="Torch2" parent="TileMapLayer" node_paths=PackedStringArray("door") instance=ExtResource("3_tt8ig")]
+position = Vector2(80, -31)
+door = NodePath("../door4")
+
+[node name="Torch3" parent="TileMapLayer" node_paths=PackedStringArray("door") instance=ExtResource("3_tt8ig")]
+position = Vector2(195, -10)
+door = NodePath("../door2")
 
 [node name="door" parent="TileMapLayer" instance=ExtResource("3_vs5vi")]
 position = Vector2(-119, -15)
@@ -2329,8 +2336,8 @@ sous_titre = "Niveau 3 | Sortie"
 [node name="door3" parent="TileMapLayer" instance=ExtResource("3_vs5vi")]
 modulate = Color(0.491309, 0.595285, 0.814999, 1)
 position = Vector2(629, 577)
+hideNote = true
 id_next_lvl = "0.1.0"
-id_last_lvl = "0.1.0"
 titre = "Niveau caché"
 sous_titre = "Le méchant chat"
 
@@ -2343,8 +2350,8 @@ id_last_lvl = "1.4.0"
 titre = "Monde 1"
 sous_titre = "Repère du sanglier"
 
-[node name="Sprite2D" parent="TileMapLayer" instance=ExtResource("5_3xvek")]
-position = Vector2(-210, -19)
+[node name="Torch5" parent="TileMapLayer" instance=ExtResource("3_tt8ig")]
+position = Vector2(785, 572)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.517647, 0.517647, 0.517647, 1)
@@ -2370,6 +2377,20 @@ id_next_lvl = "2.0.0"
 id_last_lvl = "2.0.0"
 id_unlocked_lvl = "2.1.0"
 titre = "Direction Monde 2"
+
+[node name="Torch2" parent="TileMapLayer2" node_paths=PackedStringArray("door") instance=ExtResource("3_tt8ig")]
+position = Vector2(337, -63)
+door = NodePath("../door2")
+layer = 1
+
+[node name="Torch3" parent="TileMapLayer2" node_paths=PackedStringArray("door") instance=ExtResource("3_tt8ig")]
+position = Vector2(-96, -77)
+door = NodePath("../door")
+layer = 1
+
+[node name="Torch4" parent="TileMapLayer2" instance=ExtResource("3_tt8ig")]
+position = Vector2(582, 523)
+layer = 1
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 modulate = Color(0.305882, 0.305882, 0.305882, 1)
@@ -2434,16 +2455,5 @@ playerOffset = Vector2(0, -80)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_e4u6r")
-
-[node name="Torch2" parent="." instance=ExtResource("3_tt8ig")]
-position = Vector2(317, -80)
-layer = 1
-
-[node name="Torch4" parent="." instance=ExtResource("3_tt8ig")]
-position = Vector2(582, 523)
-layer = 1
-
-[node name="Torch5" parent="." instance=ExtResource("3_tt8ig")]
-position = Vector2(785, 572)
 
 [connection signal="body_exited" from="Control/Area2D" to="Control" method="_on_area_2d_body_exited"]
