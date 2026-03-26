@@ -3,12 +3,12 @@
 importer="aseprite_wizard.plugin.noop"
 type="PackedDataContainer"
 uid="uid://n0hlid1txmvf"
-path="res://.godot/imported/heads.aseprite-e45c7c6038b7f366f9fc7cd0220ae9e5.res"
+path="res://.godot/imported/heads.aseprite-ba18c4d4c11197d6198b705f6d60d03a.res"
 
 [deps]
 
-source_file="res://PART - MOBS/ASSETS/Totem/heads.aseprite"
-dest_files=["res://.godot/imported/heads.aseprite-e45c7c6038b7f366f9fc7cd0220ae9e5.res"]
+source_file="res://Part - MOBS/ASSETS/Totem/heads.aseprite"
+dest_files=["res://.godot/imported/heads.aseprite-ba18c4d4c11197d6198b705f6d60d03a.res"]
 
 [params]
 
