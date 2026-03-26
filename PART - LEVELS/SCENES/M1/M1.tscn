@@ -2309,7 +2309,15 @@ tile_map_data = PackedByteArray("AAAQAAgAAwADAAQAAAAQAAcAAwAEAAIAAAAQAAYAAwABAAE
 tile_set = SubResource("TileSet_k3r57")
 
 [node name="Torch" parent="TileMapLayer" instance=ExtResource("3_tt8ig")]
-position = Vector2(-75, -21)
+position = Vector2(-153, -22)
+
+[node name="Torch2" parent="TileMapLayer" node_paths=PackedStringArray("door") instance=ExtResource("3_tt8ig")]
+position = Vector2(80, -31)
+door = NodePath("../door4")
+
+[node name="Torch3" parent="TileMapLayer" node_paths=PackedStringArray("door") instance=ExtResource("3_tt8ig")]
+position = Vector2(195, -10)
+door = NodePath("../door2")
 
 [node name="door" parent="TileMapLayer" instance=ExtResource("3_vs5vi")]
 position = Vector2(-119, -15)
@@ -2326,19 +2334,24 @@ titre = "Monde 1"
 sous_titre = "Niveau 3 | Sortie"
 
 [node name="door3" parent="TileMapLayer" instance=ExtResource("3_vs5vi")]
+modulate = Color(0.491309, 0.595285, 0.814999, 1)
 position = Vector2(629, 577)
+hideNote = true
 id_next_lvl = "0.1.0"
-id_last_lvl = "0.1.0"
 titre = "Niveau caché"
 sous_titre = "Le méchant chat"
 
 [node name="door4" parent="TileMapLayer" instance=ExtResource("3_vs5vi")]
+modulate = Color(0.878408, 0.283812, 0.4629, 1)
 position = Vector2(113, -31)
 hideNote = true
 id_next_lvl = "1.4.0"
 id_last_lvl = "1.4.0"
 titre = "Monde 1"
 sous_titre = "Repère du sanglier"
+
+[node name="Torch5" parent="TileMapLayer" instance=ExtResource("3_tt8ig")]
+position = Vector2(785, 572)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 modulate = Color(0.517647, 0.517647, 0.517647, 1)
@@ -2356,6 +2369,7 @@ titre = "Monde 1"
 sous_titre = "Niveau 2 | Profondeur"
 
 [node name="door2" parent="TileMapLayer2" instance=ExtResource("3_vs5vi")]
+modulate = Color(0.862331, 0.850805, 0.610944, 1)
 position = Vector2(372, -63)
 layer = 1
 hideNote = true
@@ -2363,6 +2377,20 @@ id_next_lvl = "2.0.0"
 id_last_lvl = "2.0.0"
 id_unlocked_lvl = "2.1.0"
 titre = "Direction Monde 2"
+
+[node name="Torch2" parent="TileMapLayer2" node_paths=PackedStringArray("door") instance=ExtResource("3_tt8ig")]
+position = Vector2(337, -63)
+door = NodePath("../door2")
+layer = 1
+
+[node name="Torch3" parent="TileMapLayer2" node_paths=PackedStringArray("door") instance=ExtResource("3_tt8ig")]
+position = Vector2(-96, -77)
+door = NodePath("../door")
+layer = 1
+
+[node name="Torch4" parent="TileMapLayer2" instance=ExtResource("3_tt8ig")]
+position = Vector2(582, 523)
+layer = 1
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 modulate = Color(0.305882, 0.305882, 0.305882, 1)
@@ -2427,16 +2455,5 @@ playerOffset = Vector2(0, -80)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_e4u6r")
-
-[node name="Torch2" parent="." instance=ExtResource("3_tt8ig")]
-position = Vector2(317, -80)
-layer = 1
-
-[node name="Torch4" parent="." instance=ExtResource("3_tt8ig")]
-position = Vector2(582, 523)
-layer = 1
-
-[node name="Torch5" parent="." instance=ExtResource("3_tt8ig")]
-position = Vector2(785, 572)
 
 [connection signal="body_exited" from="Control/Area2D" to="Control" method="_on_area_2d_body_exited"]

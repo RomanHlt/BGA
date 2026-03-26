@@ -1,20 +1,19 @@
-extends AnimatableBody2D
+extends Sprite2D
 
 @export var heal : int = 1
 @export var layer : int = 0
 
 func _ready() -> void:
-	$AnimationPlayer.play("heal")
 	$Area2D.collision_layer = 2**layer
 	$Area2D.collision_mask = 2**layer
 
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if body is Player:
 		body._heal(heal)
-		$AudioStreamPlayer.play()
+		$AnimationPlayer.play("PICK")
 
 
-func _on_audio_stream_player_finished() -> void:
-	self.hide()
-	await get_tree().create_timer(30).timeout
-	self.show()
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "PICK":
+		queue_free()

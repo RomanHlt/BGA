@@ -1,36 +1,98 @@
-[gd_scene load_steps=6 format=3 uid="uid://bk0nhn3cyaqun"]
+[gd_scene load_steps=9 format=3 uid="uid://bk0nhn3cyaqun"]
 
 [ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss_stras_bombe.gd" id="1_qugl2"]
-[ext_resource type="Texture2D" uid="uid://c7n1n6uxdmoxw" path="res://GLOBAL - APP/godot icon.svg" id="2_mij5o"]
+[ext_resource type="Texture2D" uid="uid://dn80c1pp7sblg" path="res://PART - BOSS/SCENES/oeuf_strasbourg.png" id="2_jlp1v"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hbv6n"]
-radius = 3.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akelj"]
+size = Vector2(19.7181, 20)
+
+[sub_resource type="Animation" id="Animation_xhcom"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7cr1o"]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mn7le"]
+_data = {
+"Explosion": SubResource("Animation_7cr1o"),
+"idle": SubResource("Animation_xhcom")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s65eq"]
-size = Vector2(2, 2)
+size = Vector2(20.8762, 4.11123)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ji6p2"]
-radius = 17.0
+radius = 21.6071
 
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 16
 collision_mask = 15
+lock_rotation = true
 script = ExtResource("1_qugl2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_hbv6n")
+position = Vector2(-0.140934, 0)
+shape = SubResource("RectangleShape2D_akelj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -4.76837e-07)
-scale = Vector2(0.0351563, 0.0351563)
-texture = ExtResource("2_mij5o")
+texture_filter = 1
+position = Vector2(1.73952, -4.83306)
+scale = Vector2(2, 2)
+texture = ExtResource("2_jlp1v")
+hframes = 3
+vframes = 3
+frame = 1
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://PART - BOSS/ASSETS/oeuf_strasbourg.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "620a03f4584273d8cefa0e9fcc57daf6"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mn7le")
+}
 
 [node name="ActivationZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationZone"]
-position = Vector2(0, 3)
+position = Vector2(-0.0900307, 10.5915)
 shape = SubResource("RectangleShape2D_s65eq")
 debug_color = Color(0.460535, 0.359441, 0.081456, 0.42)
 
@@ -39,9 +101,11 @@ collision_layer = 0
 collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionZone"]
+rotation = 0.395856
 shape = SubResource("CircleShape2D_ji6p2")
 debug_color = Color(0.892563, 0.262757, 0.482814, 0.42)
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="ActivationZone" to="." method="_on_activation_zone_body_entered"]
 [connection signal="body_entered" from="ExplosionZone" to="." method="_on_explosion_zone_body_entered"]
 [connection signal="body_exited" from="ExplosionZone" to="." method="_on_explosion_zone_body_exited"]

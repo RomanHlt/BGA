@@ -43,7 +43,6 @@ fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="Animation" id="Animation_f3f3u"]
 length = 0.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -59,7 +58,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_u7f4o"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -74,7 +72,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_lmhub"]
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -90,7 +87,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_phfcy"]
 length = 0.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -202,7 +198,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_i5im3"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -218,7 +213,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_6kfk2"]
 length = 0.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -234,7 +228,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_l8y04"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -312,7 +305,7 @@ position = Vector2(-2, -11)
 texture = ExtResource("2_3iiil")
 hframes = 8
 vframes = 8
-frame = 43
+frame = 53
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -332,7 +325,7 @@ metadata/_aseprite_wizard_config_ = {
 "slice": "",
 "source": "res://PART - PLAYER/ASSETS/Bari_animated.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "977cf3e2117f52c0e51a211c2b59d8fe"
+metadata/_aseprite_wizard_source_file_hash_ = "5e4177981c13112fc96308c89657deca"
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
 modulate = Color(0.776471, 0.721569, 0.529412, 1)

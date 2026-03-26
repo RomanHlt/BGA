@@ -60,27 +60,27 @@ func findRightSpawn():
 				rightDoor = d
 	for l in Layers:
 		for c in l.get_children().filter(func (x):if x.get_script() == preload("res://PART - OBJECTS/SCRIPTS/flag.gd"):return x):
-			print(c)
 			if c.isActivated:
 				if check != null:
 					if check.order < c.order:
 						check = c
 				else:
 					check = c
-	print(rightDoor)
-	print(check)
 	if rightDoor != null:
 		if check != null:
-			print("Checkpoint")
 			player.position = check.position
 			$Camera2D.position = check.position
 			goToLayer(check.layer)
 		else:
-			print("Door")
 			player.position = rightDoor.position
 			$Camera2D.position = rightDoor.position
 			goToLayer(rightDoor.layer)
 			rightDoor.isOut = true
+	# Non mais en vrai...
+	for l in Layers:
+		for c in l.get_children():
+			if c is MovingPlatform:
+				c.reset()
 
 func goToLayer(layer:int = 0):
 	if player.canMove:

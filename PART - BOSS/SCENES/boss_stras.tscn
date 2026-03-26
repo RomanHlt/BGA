@@ -171,6 +171,7 @@ script = ExtResource("1_w4kxn")
 texture_filter = 1
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_1vrh0")
+flip_h = true
 hframes = 7
 vframes = 6
 frame = 37
