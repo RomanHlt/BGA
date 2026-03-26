@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btd7ibtwj626u"
-path="res://.godot/imported/BatAlbino_Sleeping.png-aa9671a520a567b1962c45c32126162f.ctex"
+path="res://.godot/imported/BatAlbino_Sleeping.png-b2a2b81dde47cc94fef0f7f4c56e597c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - MOBS/ASSETS/Bat/Albino/BatAlbino_Sleeping.png"
-dest_files=["res://.godot/imported/BatAlbino_Sleeping.png-aa9671a520a567b1962c45c32126162f.ctex"]
+source_file="res://Part - MOBS/ASSETS/Bat/Albino/BatAlbino_Sleeping.png"
+dest_files=["res://.godot/imported/BatAlbino_Sleeping.png-b2a2b81dde47cc94fef0f7f4c56e597c.ctex"]
 
 [params]
 

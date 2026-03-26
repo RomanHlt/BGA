@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cghfcgh2v0roa"
-path="res://.godot/imported/BatAlbino_Flying.png-a2b5165dad2453e371151a3170e9bc1f.ctex"
+path="res://.godot/imported/BatAlbino_Flying.png-ca480cf310f5729371f1c07d3b0f8f30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - MOBS/ASSETS/Bat/Albino/BatAlbino_Flying.png"
-dest_files=["res://.godot/imported/BatAlbino_Flying.png-a2b5165dad2453e371151a3170e9bc1f.ctex"]
+source_file="res://Part - MOBS/ASSETS/Bat/Albino/BatAlbino_Flying.png"
+dest_files=["res://.godot/imported/BatAlbino_Flying.png-ca480cf310f5729371f1c07d3b0f8f30.ctex"]
 
 [params]
 
