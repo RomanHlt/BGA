@@ -1,6 +1,0 @@
-[gd_resource type="Resource" script_class="WorldData" format=3]
-
-[ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/worldStats.gd" id="1_u1fft"]
-
-[resource]
-script = ExtResource("1_u1fft")
