@@ -268,6 +268,24 @@ unicode = 32
 [sub_resource type="InputEventKey" id="InputEventKey_1ndal"]
 keycode = 4194305
 
+[sub_resource type="InputEventKey" id="InputEventKey_oj5fb"]
+keycode = 4194305
+
+[sub_resource type="InputEventKey" id="InputEventKey_lc6pr"]
+meta_pressed = true
+keycode = 87
+unicode = 87
+
+[sub_resource type="InputEventKey" id="InputEventKey_c1sil"]
+keycode = 4194305
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_k3lpv"]
+device = -1
+button_index = 2
+
+[sub_resource type="InputEventKey" id="InputEventKey_oak10"]
+keycode = 4194312
+
 [sub_resource type="InputEventKey" id="InputEventKey_fqquc"]
 command_or_control_autoremap = true
 keycode = 67
@@ -299,6 +317,29 @@ axis_value = 1.0
 [sub_resource type="InputEventKey" id="InputEventKey_r172j"]
 keycode = 4194318
 
+[sub_resource type="InputEventKey" id="InputEventKey_d5u0i"]
+keycode = 4194312
+
+[sub_resource type="InputEventKey" id="InputEventKey_qcoty"]
+command_or_control_autoremap = true
+keycode = 70
+unicode = 70
+
+[sub_resource type="InputEventKey" id="InputEventKey_joir1"]
+command_or_control_autoremap = true
+keycode = 76
+unicode = 76
+
+[sub_resource type="InputEventKey" id="InputEventKey_u2eqx"]
+command_or_control_autoremap = true
+keycode = 71
+unicode = 71
+
+[sub_resource type="InputEventKey" id="InputEventKey_ra3y8"]
+command_or_control_autoremap = true
+keycode = 76
+unicode = 76
+
 [sub_resource type="InputEventKey" id="InputEventKey_kdl3v"]
 keycode = 4194336
 
@@ -308,6 +349,11 @@ unicode = 72
 
 [sub_resource type="InputEventKey" id="InputEventKey_ou205"]
 keycode = 4194308
+
+[sub_resource type="InputEventKey" id="InputEventKey_w2iod"]
+ctrl_pressed = true
+keycode = 77
+unicode = 77
 
 [sub_resource type="InputEventKey" id="InputEventKey_qf4st"]
 keycode = 4194306
@@ -323,6 +369,22 @@ keycode = 4194312
 command_or_control_autoremap = true
 keycode = 68
 unicode = 68
+
+[sub_resource type="InputEventKey" id="InputEventKey_8mo7e"]
+command_or_control_autoremap = true
+keycode = 4194319
+
+[sub_resource type="InputEventKey" id="InputEventKey_8vqax"]
+alt_pressed = true
+keycode = 4194319
+
+[sub_resource type="InputEventKey" id="InputEventKey_r3ekh"]
+command_or_control_autoremap = true
+keycode = 4194321
+
+[sub_resource type="InputEventKey" id="InputEventKey_lvs30"]
+alt_pressed = true
+keycode = 4194321
 
 [sub_resource type="InputEventKey" id="InputEventKey_gbduc"]
 keycode = 4194317
@@ -637,6 +699,12 @@ command_or_control_autoremap = true
 keycode = 90
 unicode = 90
 
+[sub_resource type="InputEventKey" id="InputEventKey_s1pbm"]
+shift_pressed = true
+ctrl_pressed = true
+keycode = 85
+unicode = 85
+
 [sub_resource type="InputEventKey" id="InputEventKey_j72qe"]
 keycode = 4194320
 
@@ -646,74 +714,6 @@ button_index = 11
 [sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_1xr75"]
 axis = 1
 axis_value = -1.0
-
-[sub_resource type="InputEventKey" id="InputEventKey_oj5fb"]
-keycode = 4194305
-
-[sub_resource type="InputEventKey" id="InputEventKey_lc6pr"]
-meta_pressed = true
-keycode = 87
-unicode = 87
-
-[sub_resource type="InputEventKey" id="InputEventKey_c1sil"]
-keycode = 4194305
-
-[sub_resource type="InputEventKey" id="InputEventKey_w2iod"]
-ctrl_pressed = true
-keycode = 77
-unicode = 77
-
-[sub_resource type="InputEventKey" id="InputEventKey_s1pbm"]
-shift_pressed = true
-ctrl_pressed = true
-keycode = 85
-unicode = 85
-
-[sub_resource type="InputEventKey" id="InputEventKey_8mo7e"]
-command_or_control_autoremap = true
-keycode = 4194319
-
-[sub_resource type="InputEventKey" id="InputEventKey_8vqax"]
-alt_pressed = true
-keycode = 4194319
-
-[sub_resource type="InputEventKey" id="InputEventKey_r3ekh"]
-command_or_control_autoremap = true
-keycode = 4194321
-
-[sub_resource type="InputEventKey" id="InputEventKey_lvs30"]
-alt_pressed = true
-keycode = 4194321
-
-[sub_resource type="InputEventKey" id="InputEventKey_d5u0i"]
-keycode = 4194312
-
-[sub_resource type="InputEventKey" id="InputEventKey_qcoty"]
-command_or_control_autoremap = true
-keycode = 70
-unicode = 70
-
-[sub_resource type="InputEventKey" id="InputEventKey_joir1"]
-command_or_control_autoremap = true
-keycode = 76
-unicode = 76
-
-[sub_resource type="InputEventKey" id="InputEventKey_u2eqx"]
-command_or_control_autoremap = true
-keycode = 71
-unicode = 71
-
-[sub_resource type="InputEventKey" id="InputEventKey_ra3y8"]
-command_or_control_autoremap = true
-keycode = 76
-unicode = 76
-
-[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_k3lpv"]
-device = -1
-button_index = 2
-
-[sub_resource type="InputEventKey" id="InputEventKey_oak10"]
-keycode = 4194312
 
 [resource]
 script = ExtResource("1_ugo14")

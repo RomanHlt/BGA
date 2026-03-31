@@ -4,5 +4,3 @@
 
 [resource]
 script = ExtResource("1_2y58x")
-dashUnlocked = true
-last_lvl = "1.0.0"

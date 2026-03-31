@@ -4,17 +4,3 @@
 
 [resource]
 script = ExtResource("1_u1fft")
-access = {
-"": true,
-"0.1.0": true,
-"1.0.0": true,
-"1.1.0": true,
-"1.2.0": false,
-"1.3.0": false,
-"1.4.0": false,
-"2.0.0": false,
-"2.1.0": true,
-"2.2.0": false,
-"2.3.0": false,
-"2.4.0": false
-}
