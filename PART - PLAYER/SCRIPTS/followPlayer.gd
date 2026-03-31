@@ -13,7 +13,7 @@ var targetPosition:Vector2
 var shake_strength = 0.0
 
 var PLAYER_POSITION = 0
-var SLOW_DOWN_RADIUS = 20.0
+var SLOW_DOWN_RADIUS = 400.0
 const MAX_SPEED = 2000.0
 
 var _velocity = Vector2.ZERO

@@ -30,6 +30,10 @@ InGame="*res://PART - UI/SCENES/inGame.tscn"
 
 window/stretch/mode="canvas_items"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/roman/Documents/VideosBGA/output"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/parallax2d_preview/plugin.cfg", "res://addons/virtual_joystick/plugin.cfg")
