@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SettingsData" load_steps=160 format=3]
+[gd_resource type="Resource" script_class="SettingsData" format=3]
 
 [ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/SettigsStats.gd" id="1_ugo14"]
 
@@ -647,12 +647,76 @@ button_index = 11
 axis = 1
 axis_value = -1.0
 
+[sub_resource type="InputEventKey" id="InputEventKey_oj5fb"]
+keycode = 4194305
+
+[sub_resource type="InputEventKey" id="InputEventKey_lc6pr"]
+meta_pressed = true
+keycode = 87
+unicode = 87
+
+[sub_resource type="InputEventKey" id="InputEventKey_c1sil"]
+keycode = 4194305
+
+[sub_resource type="InputEventKey" id="InputEventKey_w2iod"]
+ctrl_pressed = true
+keycode = 77
+unicode = 77
+
+[sub_resource type="InputEventKey" id="InputEventKey_s1pbm"]
+shift_pressed = true
+ctrl_pressed = true
+keycode = 85
+unicode = 85
+
+[sub_resource type="InputEventKey" id="InputEventKey_8mo7e"]
+command_or_control_autoremap = true
+keycode = 4194319
+
+[sub_resource type="InputEventKey" id="InputEventKey_8vqax"]
+alt_pressed = true
+keycode = 4194319
+
+[sub_resource type="InputEventKey" id="InputEventKey_r3ekh"]
+command_or_control_autoremap = true
+keycode = 4194321
+
+[sub_resource type="InputEventKey" id="InputEventKey_lvs30"]
+alt_pressed = true
+keycode = 4194321
+
+[sub_resource type="InputEventKey" id="InputEventKey_d5u0i"]
+keycode = 4194312
+
+[sub_resource type="InputEventKey" id="InputEventKey_qcoty"]
+command_or_control_autoremap = true
+keycode = 70
+unicode = 70
+
+[sub_resource type="InputEventKey" id="InputEventKey_joir1"]
+command_or_control_autoremap = true
+keycode = 76
+unicode = 76
+
+[sub_resource type="InputEventKey" id="InputEventKey_u2eqx"]
+command_or_control_autoremap = true
+keycode = 71
+unicode = 71
+
+[sub_resource type="InputEventKey" id="InputEventKey_ra3y8"]
+command_or_control_autoremap = true
+keycode = 76
+unicode = 76
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_k3lpv"]
+device = -1
+button_index = 2
+
+[sub_resource type="InputEventKey" id="InputEventKey_oak10"]
+keycode = 4194312
+
 [resource]
 script = ExtResource("1_ugo14")
-son = true
-music = true
-sonVolume = 100
-musicVolume = 100
 events = Array[StringName]([&"ui_accept", &"ui_select", &"ui_cancel", &"ui_focus_next", &"ui_focus_prev", &"ui_left", &"ui_right", &"ui_up", &"ui_down", &"ui_page_up", &"ui_page_down", &"ui_home", &"ui_end", &"ui_cut", &"ui_copy", &"ui_paste", &"ui_undo", &"ui_redo", &"ui_text_completion_query", &"ui_text_completion_accept", &"ui_text_completion_replace", &"ui_text_newline", &"ui_text_newline_blank", &"ui_text_newline_above", &"ui_text_indent", &"ui_text_dedent", &"ui_text_backspace", &"ui_text_backspace_word", &"ui_text_backspace_word.macos", &"ui_text_backspace_all_to_left", &"ui_text_backspace_all_to_left.macos", &"ui_text_delete", &"ui_text_delete_word", &"ui_text_delete_word.macos", &"ui_text_delete_all_to_right", &"ui_text_delete_all_to_right.macos", &"ui_text_caret_left", &"ui_text_caret_word_left", &"ui_text_caret_word_left.macos", &"ui_text_caret_right", &"ui_text_caret_word_right", &"ui_text_caret_word_right.macos", &"ui_text_caret_up", &"ui_text_caret_down", &"ui_text_caret_line_start", &"ui_text_caret_line_start.macos", &"ui_text_caret_line_end", &"ui_text_caret_line_end.macos", &"ui_text_caret_page_up", &"ui_text_caret_page_down", &"ui_text_caret_document_start", &"ui_text_caret_document_start.macos", &"ui_text_caret_document_end", &"ui_text_caret_document_end.macos", &"ui_text_caret_add_below", &"ui_text_caret_add_below.macos", &"ui_text_caret_add_above", &"ui_text_caret_add_above.macos", &"ui_text_scroll_up", &"ui_text_scroll_up.macos", &"ui_text_scroll_down", &"ui_text_scroll_down.macos", &"ui_text_select_all", &"ui_text_select_word_under_caret", &"ui_text_select_word_under_caret.macos", &"ui_text_add_selection_for_next_occurrence", &"ui_text_skip_selection_for_next_occurrence", &"ui_text_clear_carets_and_selection", &"ui_text_toggle_insert_mode", &"ui_menu", &"ui_text_submit", &"ui_graph_duplicate", &"ui_graph_delete", &"ui_filedialog_up_one_level", &"ui_filedialog_refresh", &"ui_filedialog_show_hidden", &"ui_swap_input_direction", &"move_right", &"move_left", &"jump", &"tp", &"run", &"c", &"deeperLayer", &"closerLayer", &"menu", &"stats", &"interagir", &"fire", &"fastSave", &"controllerUsed", &"keyboardUsed", &"ok", &"GodMod", &"dash", &"fast_fall"])
 inputs_events = {
 "GodMod": [SubResource("InputEventKey_1seqi")],
@@ -675,18 +739,31 @@ inputs_events = {
 "stats": [SubResource("InputEventKey_t012r"), SubResource("InputEventJoypadButton_ksu22")],
 "tp": [SubResource("InputEventKey_ykx7w")],
 "ui_accept": [SubResource("InputEventKey_m01h8"), SubResource("InputEventKey_ljr7t"), SubResource("InputEventKey_l2rvm")],
+&"ui_accessibility_drag_and_drop": [],
 "ui_cancel": [SubResource("InputEventKey_1ndal")],
+&"ui_close_dialog": [SubResource("InputEventKey_oj5fb")],
+&"ui_close_dialog.macos": [SubResource("InputEventKey_lc6pr"), SubResource("InputEventKey_c1sil")],
+&"ui_colorpicker_delete_preset": [SubResource("InputEventJoypadButton_k3lpv"), SubResource("InputEventKey_oak10")],
 "ui_copy": [SubResource("InputEventKey_fqquc"), SubResource("InputEventKey_qmkf6")],
 "ui_cut": [SubResource("InputEventKey_t1cpl"), SubResource("InputEventKey_euc1q")],
 "ui_down": [SubResource("InputEventKey_jegqb"), SubResource("InputEventJoypadButton_m0box"), SubResource("InputEventJoypadMotion_ypj2f")],
 "ui_end": [SubResource("InputEventKey_r172j")],
+&"ui_filedialog_delete": [SubResource("InputEventKey_d5u0i")],
+&"ui_filedialog_find": [SubResource("InputEventKey_qcoty")],
+&"ui_filedialog_focus_path": [SubResource("InputEventKey_joir1")],
+&"ui_filedialog_focus_path.macos": [SubResource("InputEventKey_u2eqx"), SubResource("InputEventKey_ra3y8")],
 "ui_filedialog_refresh": [SubResource("InputEventKey_kdl3v")],
 "ui_filedialog_show_hidden": [SubResource("InputEventKey_rmxln")],
 "ui_filedialog_up_one_level": [SubResource("InputEventKey_ou205")],
+&"ui_focus_mode": [SubResource("InputEventKey_w2iod")],
 "ui_focus_next": [SubResource("InputEventKey_qf4st")],
 "ui_focus_prev": [SubResource("InputEventKey_xuy03")],
 "ui_graph_delete": [SubResource("InputEventKey_537of")],
 "ui_graph_duplicate": [SubResource("InputEventKey_jl725")],
+&"ui_graph_follow_left": [SubResource("InputEventKey_8mo7e")],
+&"ui_graph_follow_left.macos": [SubResource("InputEventKey_8vqax")],
+&"ui_graph_follow_right": [SubResource("InputEventKey_r3ekh")],
+&"ui_graph_follow_right.macos": [SubResource("InputEventKey_lvs30")],
 "ui_home": [SubResource("InputEventKey_gbduc")],
 "ui_left": [SubResource("InputEventKey_ytccf"), SubResource("InputEventJoypadButton_xjwoj"), SubResource("InputEventJoypadMotion_2jekx")],
 "ui_menu": [SubResource("InputEventKey_gerju")],
@@ -750,6 +827,6 @@ inputs_events = {
 "ui_text_submit": [SubResource("InputEventKey_hextr"), SubResource("InputEventKey_rt61c")],
 "ui_text_toggle_insert_mode": [SubResource("InputEventKey_u5cfn")],
 "ui_undo": [SubResource("InputEventKey_x6xdq")],
+&"ui_unicode_start": [SubResource("InputEventKey_s1pbm")],
 "ui_up": [SubResource("InputEventKey_j72qe"), SubResource("InputEventJoypadButton_uxrr6"), SubResource("InputEventJoypadMotion_1xr75")]
 }
-runAsToggle = false
