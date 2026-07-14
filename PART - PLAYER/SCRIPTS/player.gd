@@ -39,6 +39,13 @@ var dashing = false
 
 func _ready():
 	show()
+	#Fog du monde 1 :
+	var current_lvl = get_parent().id #map.id
+	print("lvl :",current_lvl)
+	if current_lvl[0] == "1" or current_lvl == "0.1.0": # 0.1.0 = easteregg chat
+		$Fog.show()
+	else:
+		$Fog.hide()
 	#setup playerdata
 	data = PlayerDataSaver.PlayerStats
 	print(data.health)

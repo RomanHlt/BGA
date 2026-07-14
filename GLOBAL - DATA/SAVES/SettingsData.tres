@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SettingsData" load_steps=160 format=3]
+[gd_resource type="Resource" script_class="SettingsData" format=3]
 
 [ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/SettigsStats.gd" id="1_fxiyj"]
 
@@ -268,6 +268,24 @@ unicode = 32
 [sub_resource type="InputEventKey" id="InputEventKey_bggak"]
 keycode = 4194305
 
+[sub_resource type="InputEventKey" id="InputEventKey_oj5fb"]
+keycode = 4194305
+
+[sub_resource type="InputEventKey" id="InputEventKey_lc6pr"]
+meta_pressed = true
+keycode = 87
+unicode = 87
+
+[sub_resource type="InputEventKey" id="InputEventKey_c1sil"]
+keycode = 4194305
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_k3lpv"]
+device = -1
+button_index = 2
+
+[sub_resource type="InputEventKey" id="InputEventKey_oak10"]
+keycode = 4194312
+
 [sub_resource type="InputEventKey" id="InputEventKey_5kiuw"]
 command_or_control_autoremap = true
 keycode = 67
@@ -299,6 +317,29 @@ axis_value = 1.0
 [sub_resource type="InputEventKey" id="InputEventKey_6qyfl"]
 keycode = 4194318
 
+[sub_resource type="InputEventKey" id="InputEventKey_d5u0i"]
+keycode = 4194312
+
+[sub_resource type="InputEventKey" id="InputEventKey_qcoty"]
+command_or_control_autoremap = true
+keycode = 70
+unicode = 70
+
+[sub_resource type="InputEventKey" id="InputEventKey_joir1"]
+command_or_control_autoremap = true
+keycode = 76
+unicode = 76
+
+[sub_resource type="InputEventKey" id="InputEventKey_u2eqx"]
+command_or_control_autoremap = true
+keycode = 71
+unicode = 71
+
+[sub_resource type="InputEventKey" id="InputEventKey_ra3y8"]
+command_or_control_autoremap = true
+keycode = 76
+unicode = 76
+
 [sub_resource type="InputEventKey" id="InputEventKey_uj7y4"]
 keycode = 4194336
 
@@ -308,6 +349,11 @@ unicode = 72
 
 [sub_resource type="InputEventKey" id="InputEventKey_1r37h"]
 keycode = 4194308
+
+[sub_resource type="InputEventKey" id="InputEventKey_w2iod"]
+ctrl_pressed = true
+keycode = 77
+unicode = 77
 
 [sub_resource type="InputEventKey" id="InputEventKey_8qpyi"]
 keycode = 4194306
@@ -323,6 +369,22 @@ keycode = 4194312
 command_or_control_autoremap = true
 keycode = 68
 unicode = 68
+
+[sub_resource type="InputEventKey" id="InputEventKey_8mo7e"]
+command_or_control_autoremap = true
+keycode = 4194319
+
+[sub_resource type="InputEventKey" id="InputEventKey_8vqax"]
+alt_pressed = true
+keycode = 4194319
+
+[sub_resource type="InputEventKey" id="InputEventKey_r3ekh"]
+command_or_control_autoremap = true
+keycode = 4194321
+
+[sub_resource type="InputEventKey" id="InputEventKey_lvs30"]
+alt_pressed = true
+keycode = 4194321
 
 [sub_resource type="InputEventKey" id="InputEventKey_87wfh"]
 keycode = 4194317
@@ -637,6 +699,12 @@ command_or_control_autoremap = true
 keycode = 90
 unicode = 90
 
+[sub_resource type="InputEventKey" id="InputEventKey_s1pbm"]
+shift_pressed = true
+ctrl_pressed = true
+keycode = 85
+unicode = 85
+
 [sub_resource type="InputEventKey" id="InputEventKey_vyybp"]
 keycode = 4194320
 
@@ -649,10 +717,6 @@ axis_value = -1.0
 
 [resource]
 script = ExtResource("1_fxiyj")
-son = true
-music = true
-sonVolume = 100
-musicVolume = 100
 events = Array[StringName]([&"ui_accept", &"ui_select", &"ui_cancel", &"ui_focus_next", &"ui_focus_prev", &"ui_left", &"ui_right", &"ui_up", &"ui_down", &"ui_page_up", &"ui_page_down", &"ui_home", &"ui_end", &"ui_cut", &"ui_copy", &"ui_paste", &"ui_undo", &"ui_redo", &"ui_text_completion_query", &"ui_text_completion_accept", &"ui_text_completion_replace", &"ui_text_newline", &"ui_text_newline_blank", &"ui_text_newline_above", &"ui_text_indent", &"ui_text_dedent", &"ui_text_backspace", &"ui_text_backspace_word", &"ui_text_backspace_word.macos", &"ui_text_backspace_all_to_left", &"ui_text_backspace_all_to_left.macos", &"ui_text_delete", &"ui_text_delete_word", &"ui_text_delete_word.macos", &"ui_text_delete_all_to_right", &"ui_text_delete_all_to_right.macos", &"ui_text_caret_left", &"ui_text_caret_word_left", &"ui_text_caret_word_left.macos", &"ui_text_caret_right", &"ui_text_caret_word_right", &"ui_text_caret_word_right.macos", &"ui_text_caret_up", &"ui_text_caret_down", &"ui_text_caret_line_start", &"ui_text_caret_line_start.macos", &"ui_text_caret_line_end", &"ui_text_caret_line_end.macos", &"ui_text_caret_page_up", &"ui_text_caret_page_down", &"ui_text_caret_document_start", &"ui_text_caret_document_start.macos", &"ui_text_caret_document_end", &"ui_text_caret_document_end.macos", &"ui_text_caret_add_below", &"ui_text_caret_add_below.macos", &"ui_text_caret_add_above", &"ui_text_caret_add_above.macos", &"ui_text_scroll_up", &"ui_text_scroll_up.macos", &"ui_text_scroll_down", &"ui_text_scroll_down.macos", &"ui_text_select_all", &"ui_text_select_word_under_caret", &"ui_text_select_word_under_caret.macos", &"ui_text_add_selection_for_next_occurrence", &"ui_text_skip_selection_for_next_occurrence", &"ui_text_clear_carets_and_selection", &"ui_text_toggle_insert_mode", &"ui_menu", &"ui_text_submit", &"ui_graph_duplicate", &"ui_graph_delete", &"ui_filedialog_up_one_level", &"ui_filedialog_refresh", &"ui_filedialog_show_hidden", &"ui_swap_input_direction", &"move_right", &"move_left", &"jump", &"tp", &"run", &"c", &"deeperLayer", &"closerLayer", &"menu", &"stats", &"interagir", &"fire", &"fastSave", &"controllerUsed", &"keyboardUsed", &"ok", &"GodMod", &"dash", &"fast_fall"])
 inputs_events = {
 "GodMod": [SubResource("InputEventKey_50xi3")],
@@ -675,18 +739,31 @@ inputs_events = {
 "stats": [SubResource("InputEventKey_fq8h3"), SubResource("InputEventJoypadButton_geqgk")],
 "tp": [SubResource("InputEventKey_w0g8g")],
 "ui_accept": [SubResource("InputEventKey_sr1c1"), SubResource("InputEventKey_xxx8x"), SubResource("InputEventKey_a26pd")],
+&"ui_accessibility_drag_and_drop": [],
 "ui_cancel": [SubResource("InputEventKey_bggak")],
+&"ui_close_dialog": [SubResource("InputEventKey_oj5fb")],
+&"ui_close_dialog.macos": [SubResource("InputEventKey_lc6pr"), SubResource("InputEventKey_c1sil")],
+&"ui_colorpicker_delete_preset": [SubResource("InputEventJoypadButton_k3lpv"), SubResource("InputEventKey_oak10")],
 "ui_copy": [SubResource("InputEventKey_5kiuw"), SubResource("InputEventKey_c7udj")],
 "ui_cut": [SubResource("InputEventKey_yx1lv"), SubResource("InputEventKey_1oswv")],
 "ui_down": [SubResource("InputEventKey_41huv"), SubResource("InputEventJoypadButton_qn2r5"), SubResource("InputEventJoypadMotion_rcugg")],
 "ui_end": [SubResource("InputEventKey_6qyfl")],
+&"ui_filedialog_delete": [SubResource("InputEventKey_d5u0i")],
+&"ui_filedialog_find": [SubResource("InputEventKey_qcoty")],
+&"ui_filedialog_focus_path": [SubResource("InputEventKey_joir1")],
+&"ui_filedialog_focus_path.macos": [SubResource("InputEventKey_u2eqx"), SubResource("InputEventKey_ra3y8")],
 "ui_filedialog_refresh": [SubResource("InputEventKey_uj7y4")],
 "ui_filedialog_show_hidden": [SubResource("InputEventKey_4sgto")],
 "ui_filedialog_up_one_level": [SubResource("InputEventKey_1r37h")],
+&"ui_focus_mode": [SubResource("InputEventKey_w2iod")],
 "ui_focus_next": [SubResource("InputEventKey_8qpyi")],
 "ui_focus_prev": [SubResource("InputEventKey_sishv")],
 "ui_graph_delete": [SubResource("InputEventKey_doehf")],
 "ui_graph_duplicate": [SubResource("InputEventKey_f32g7")],
+&"ui_graph_follow_left": [SubResource("InputEventKey_8mo7e")],
+&"ui_graph_follow_left.macos": [SubResource("InputEventKey_8vqax")],
+&"ui_graph_follow_right": [SubResource("InputEventKey_r3ekh")],
+&"ui_graph_follow_right.macos": [SubResource("InputEventKey_lvs30")],
 "ui_home": [SubResource("InputEventKey_87wfh")],
 "ui_left": [SubResource("InputEventKey_o4w2k"), SubResource("InputEventJoypadButton_dgorm"), SubResource("InputEventJoypadMotion_nii35")],
 "ui_menu": [SubResource("InputEventKey_idbp3")],
@@ -750,6 +827,6 @@ inputs_events = {
 "ui_text_submit": [SubResource("InputEventKey_6nubw"), SubResource("InputEventKey_xh3ks")],
 "ui_text_toggle_insert_mode": [SubResource("InputEventKey_3jtvp")],
 "ui_undo": [SubResource("InputEventKey_lcn56")],
+&"ui_unicode_start": [SubResource("InputEventKey_s1pbm")],
 "ui_up": [SubResource("InputEventKey_vyybp"), SubResource("InputEventJoypadButton_6prrn"), SubResource("InputEventJoypadMotion_okoc6")]
 }
-runAsToggle = false

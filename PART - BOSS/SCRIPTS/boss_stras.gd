@@ -148,7 +148,7 @@ func bombe():
 	is_idle = false
 	$AnimationPlayer.play("Largage")
 	while is_bombing:
-		await get_tree().create_timer(0.15).timeout
+		await get_tree().create_timer(0.22).timeout
 		if not is_bombing:
 			break
 		var scene = preload("res://PART - BOSS/SCENES/boss_stras_bombe.tscn")
