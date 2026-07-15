@@ -20,6 +20,7 @@ var closerChecker
 var dealingDamages
 var closerRight
 var closerLeft
+var was_on_floor:bool = false
 var canGoDeeper:bool = true
 var canGoCloser:bool = true
 var behindLeft:bool = false
@@ -90,6 +91,7 @@ func _physics_process(delta: float) -> void:
 		#weapon_component._handle_fire(self, input_component.get_fire())
 	animation_component.handle_move_animation(self, direction)
 	move_and_slide()
+	check_ground_state()
 
 
 func _takeDamages(damages:int):
@@ -181,3 +183,25 @@ func destroy_area(body, center: Vector2i, radius: int = 1) -> void:
 		for y in range(-radius, radius + 1):
 			var cell = center + Vector2i(x, y)
 			body.set_cell(cell, -1, Vector2i(-1, -1), 0)
+
+# Squish and stretch
+func check_ground_state(): 
+	# On vient d'atterrir
+	if is_on_floor() and not was_on_floor:
+		_on_land()
+	# On vient de décoller
+	if not is_on_floor() and was_on_floor:
+		_on_air()
+	was_on_floor = is_on_floor()
+
+func _on_land():
+	# squish
+	$Sprite2D.scale = Vector2(1.3, 0.7)
+	var t = create_tween() # tween permet de faire varier un element d'un etat A à B en un temps t. Ici on fait varier la scale du sprite2D de (1.3, 0.7) à (1,1) en 0.2 s
+	t.tween_property($Sprite2D, "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_ELASTIC)
+
+func _on_air():
+	# stretch
+	$Sprite2D.scale = Vector2(0.7, 1.3)
+	var t = create_tween()
+	t.tween_property($Sprite2D, "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_ELASTIC)
