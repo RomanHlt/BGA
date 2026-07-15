@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://btmr15exnhl3q" path="res://PART - LEVELS/SCRIPTS/PlayerLayerManagerV2.gd" id="1_yowet"]
 [ext_resource type="TileSet" uid="uid://bdi1d32tgjs11" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_3x3_1.tres" id="2_kvvg8"]
+[ext_resource type="Material" uid="uid://cyqc75ssmodjc" path="res://PART - LEVELS/ASSETS/Shaders/shockwave.tres" id="2_qyotb"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_1w7ef"]
 [ext_resource type="PackedScene" uid="uid://ddkfyhcivyb8" path="res://PART - OBJECTS/SCENES/Déco/torch.tscn" id="3_5pbph"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="3_tg7be"]
@@ -309,3 +310,17 @@ horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1239157418]
 stream = ExtResource("10_1yd7c")
+
+[node name="shockwaveshader" type="CanvasLayer" parent="." unique_id=157690223]
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="shockwaveshader" unique_id=1628060639]
+copy_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="shockwaveshader" unique_id=1606703394]
+material = ExtResource("2_qyotb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

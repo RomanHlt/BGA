@@ -190,7 +190,7 @@ position = Vector2(-1.5, -17)
 texture = ExtResource("2_dska8")
 hframes = 7
 vframes = 7
-frame = 15
+frame = 7
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }

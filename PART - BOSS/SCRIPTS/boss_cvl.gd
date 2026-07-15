@@ -199,6 +199,8 @@ func dash():
 
 
 func long():
+	shockwave()
+	await get_tree().create_timer(0.2).timeout
 	$AnimationPlayer.play("Eboulement")
 	await get_tree().create_timer(0.5).timeout
 	target.camera.shake(20)
@@ -392,3 +394,14 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Death":
 		print("ok")
 		self.queue_free()
+	
+	
+func shockwave():
+	var viewport_size = get_viewport_rect().size
+	# Convertit la position monde en position écran
+	var screen_pos = get_viewport().get_canvas_transform() * global_position
+	# Passage en UV (0-1)
+	var uv_pos = screen_pos / viewport_size
+	var mat = get_node("/root/Map/shockwaveshader/ColorRect").material
+	mat.set_shader_parameter("center", uv_pos)
+	mat.set_shader_parameter("start_time", Time.get_ticks_msec() / 1000.0)
