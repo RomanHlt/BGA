@@ -288,14 +288,14 @@ height = 12.0
 size = Vector2(5, 9)
 
 [sub_resource type="Gradient" id="Gradient_2ra1y"]
-offsets = PackedFloat32Array(0.30842912, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0.42054263, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.09009846, 0.09009849, 0.09009848, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_j04sm"]
 gradient = SubResource("Gradient_2ra1y")
 fill = 1
 fill_from = Vector2(0.50085473, 0.64102566)
-fill_to = Vector2(0.8188034, 0.26495728)
+fill_to = Vector2(0.9111111, 0.1897436)
 
 [node name="Player" type="CharacterBody2D" unique_id=1995235914 node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "advanced_jump_component", "animation_component", "weapon_component")]
 z_as_relative = false

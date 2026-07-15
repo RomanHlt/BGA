@@ -42,7 +42,7 @@ func _ready():
 	#Fog du monde 1 :
 	var current_lvl = get_parent().id #map.id
 	print("lvl :",current_lvl)
-	if current_lvl[0] == "1" or current_lvl == "0.1.0": # 0.1.0 = easteregg chat
+	if (current_lvl[0] == "1" or current_lvl == "0.1.0") and not current_lvl == "1.4.0": # 0.1.0 = easteregg chat, 1.4.0 = boss cvl
 		$Fog.show()
 	else:
 		$Fog.hide()
