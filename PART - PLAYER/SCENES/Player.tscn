@@ -470,6 +470,7 @@ debug_color = Color(0.75063, 0.458229, 0.0686009, 0.42)
 
 [node name="Fog" type="CanvasLayer" parent="." unique_id=1903877650]
 layer = 0
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="Fog" unique_id=645147531]
 anchors_preset = 15

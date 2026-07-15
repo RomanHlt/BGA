@@ -4,5 +4,4 @@
 
 [resource]
 script = ExtResource("1_ncy5k")
-current_lvl = "2.0.0"
 last_lvl = "1.0.0"
