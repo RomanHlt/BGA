@@ -287,6 +287,14 @@ height = 12.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_stdyd"]
 size = Vector2(5, 9)
 
+[sub_resource type="Curve" id="Curve_2ra1y"]
+_data = [Vector2(0.0069930106, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.48894346), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_j04sm"]
+offsets = PackedFloat32Array(0.1403162, 1)
+colors = PackedColorArray(0.6422177, 0, 0.03367742, 1, 0.6431373, 0, 0.03529412, 0.4509804)
+
 [sub_resource type="Gradient" id="Gradient_2ra1y"]
 offsets = PackedFloat32Array(0.42054263, 1)
 colors = PackedColorArray(0, 0, 0, 0, 0.09009846, 0.09009849, 0.09009848, 1)
@@ -467,6 +475,26 @@ visible = false
 position = Vector2(6.5, -6.5)
 shape = SubResource("RectangleShape2D_stdyd")
 debug_color = Color(0.75063, 0.458229, 0.0686009, 0.42)
+
+[node name="Blood" type="CPUParticles2D" parent="." unique_id=1881502750]
+position = Vector2(0, -7)
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.2
+lifetime_randomness = 0.2
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -125.0
+angular_velocity_max = 125.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_2ra1y")
+color_ramp = SubResource("Gradient_j04sm")
 
 [node name="Fog" type="CanvasLayer" parent="." unique_id=1903877650]
 layer = 0

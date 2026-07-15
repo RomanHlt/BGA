@@ -235,6 +235,8 @@ func _on_melee_left_body_entered(body: Node2D) -> void:
 		elif body.name =="TileMapLayer":
 			if not target_hit:
 				target.camera.shake(20)
+				$Leftblood.emitting = true
+				$Leftparticles.emitting = true
 				self._takeDamages(1)
 				if not is_dead:
 					stun(3.5)
@@ -263,6 +265,8 @@ func _on_melee_right_body_entered(body: Node2D) -> void:
 		elif body.name =="TileMapLayer":
 			if not target_hit:
 				target.camera.shake(20)
+				$Rightblood.emitting = true
+				$Rightparticles.emitting = true
 				self._takeDamages(1)
 				if not is_dead:
 					stun(3.5)

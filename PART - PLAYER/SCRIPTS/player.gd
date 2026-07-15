@@ -98,6 +98,7 @@ func _takeDamages(damages:int):
 			damages = PlayerDataSaver.PlayerStats.health
 		PlayerDataSaver.PlayerStats.health -= damages
 		camera.shake()
+		$Blood.emitting = true
 		if PlayerDataSaver.PlayerStats.health == 0:
 			_dead()
 
