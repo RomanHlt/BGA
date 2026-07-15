@@ -171,6 +171,14 @@ colors = PackedColorArray(0.9764706, 0, 0.078431375, 1, 0.9764706, 0, 0.07843137
 offsets = PackedFloat32Array(0.100790516, 1)
 colors = PackedColorArray(0.68235296, 0.36078432, 0.2627451, 1, 0.68235296, 0.36078432, 0.2627451, 0.4509804)
 
+[sub_resource type="Curve" id="Curve_vnw3g"]
+_data = [Vector2(0.0034965053, 0.98580396), 0.0, 0.0, 0, 0, Vector2(1, 0.25470924), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_qiqxb"]
+offsets = PackedFloat32Array(0.096837945, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0.4509804)
+
 [node name="Boss_CVL" type="CharacterBody2D" unique_id=213235354]
 z_as_relative = false
 scale = Vector2(2, 2)
@@ -182,7 +190,7 @@ position = Vector2(-1.5, -17)
 texture = ExtResource("2_dska8")
 hframes = 7
 vframes = 7
-frame = 3
+frame = 15
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -351,6 +359,32 @@ scale_amount_min = 3.0
 scale_amount_max = 5.0
 scale_amount_curve = SubResource("Curve_3bni5")
 color_ramp = SubResource("Gradient_vnw3g")
+
+[node name="Blood1" type="CPUParticles2D" parent="." unique_id=593243799]
+position = Vector2(-16, -6)
+emitting = false
+amount = 3
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(0, 1)
+spread = 90.0
+gravity = Vector2(0, 200)
+scale_amount_max = 2.5
+scale_amount_curve = SubResource("Curve_vnw3g")
+color_ramp = SubResource("Gradient_qiqxb")
+
+[node name="Blood2" type="CPUParticles2D" parent="." unique_id=1265918192]
+position = Vector2(14.5, -6)
+emitting = false
+amount = 3
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(0, 1)
+spread = 90.0
+gravity = Vector2(0, 200)
+scale_amount_max = 2.5
+scale_amount_curve = SubResource("Curve_vnw3g")
+color_ramp = SubResource("Gradient_qiqxb")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Zone de détéction" to="." method="_on_zone_de_détéction_body_entered"]

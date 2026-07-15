@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_ncy5k")
-health = 2
-dashUnlocked = true
-last_lvl = "1.4.0"
+health = 0
+is_dead = true
+last_lvl = "1.0.0"
