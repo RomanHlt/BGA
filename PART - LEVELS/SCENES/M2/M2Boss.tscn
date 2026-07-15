@@ -2277,6 +2277,14 @@ size = Vector2(738.417, 121.603)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2vji"]
 size = Vector2(2069, 236)
 
+[sub_resource type="Environment" id="Environment_dtnfm"]
+background_mode = 3
+tonemap_mode = 1
+tonemap_exposure = 2.0
+glow_enabled = true
+glow_intensity = 1.1
+glow_bloom = 0.2
+
 [node name="Map" type="Node2D" unique_id=300923248 node_paths=PackedStringArray("player")]
 script = ExtResource("1_2am8l")
 id = "2.4.0"
@@ -2552,6 +2560,9 @@ script = ExtResource("12_le7q5")
 position = Vector2(2, 663)
 shape = SubResource("RectangleShape2D_c2vji")
 debug_color = Color(0.809273, 0.104741, 0.955136, 0.42)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=115063021]
+environment = SubResource("Environment_dtnfm")
 
 [connection signal="body_entered" from="L_to_R" to="TileMapLayer/Boss" method="_on_l_to_r_body_entered"]
 [connection signal="body_exited" from="L_to_R" to="TileMapLayer/Boss" method="_on_l_to_r_body_exited"]

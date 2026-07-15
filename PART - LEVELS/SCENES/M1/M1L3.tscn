@@ -18,6 +18,14 @@
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="15_4eyro"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="16_qkdw6"]
 
+[sub_resource type="Environment" id="Environment_k5hpp"]
+background_mode = 3
+tonemap_mode = 1
+tonemap_exposure = 2.0
+glow_enabled = true
+glow_intensity = 1.1
+glow_bloom = 0.2
+
 [node name="Map" type="Node2D" unique_id=1000282836 node_paths=PackedStringArray("player")]
 modulate = Color(0.52549, 0.596078, 0.815686, 1)
 script = ExtResource("1_q40v1")
@@ -188,3 +196,6 @@ layer = 1
 
 [node name="Torch4" parent="." unique_id=395024204 instance=ExtResource("12_op6xw")]
 position = Vector2(19, -1002)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=377272464]
+environment = SubResource("Environment_k5hpp")

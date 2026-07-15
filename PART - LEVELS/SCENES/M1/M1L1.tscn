@@ -763,8 +763,16 @@ sources/3 = SubResource("TileSetAtlasSource_5aocy")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdexf"]
 size = Vector2(42, 433)
 
+[sub_resource type="Environment" id="Environment_mogcd"]
+background_mode = 3
+tonemap_mode = 1
+tonemap_exposure = 2.0
+glow_enabled = true
+glow_intensity = 1.1
+glow_bloom = 0.2
+
 [node name="Map" type="Node2D" unique_id=1954039501 node_paths=PackedStringArray("player")]
-modulate = Color(0.5258, 0.596483, 0.816154, 1)
+modulate = Color(0.5254902, 0.59607846, 0.8156863, 1)
 script = ExtResource("1_1ucby")
 id = "1.1.0"
 player = NodePath("Player")
@@ -1048,6 +1056,9 @@ texture = ExtResource("12_se11n")
 [node name="3" type="Sprite2D" parent="." unique_id=893194209]
 position = Vector2(-2028, -314)
 texture = ExtResource("13_1s77a")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=574602515]
+environment = SubResource("Environment_mogcd")
 
 [connection signal="body_entered" from="Zonetuto" to="Zonetuto" method="_on_body_entered"]
 [connection signal="body_exited" from="Zonetuto" to="Zonetuto" method="_on_body_exited"]

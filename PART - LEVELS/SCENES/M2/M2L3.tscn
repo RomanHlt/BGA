@@ -43,6 +43,14 @@ point_count = 39
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0vsr"]
 size = Vector2(15594, 1036)
 
+[sub_resource type="Environment" id="Environment_gkebj"]
+background_mode = 3
+tonemap_mode = 1
+tonemap_exposure = 2.0
+glow_enabled = true
+glow_intensity = 1.1
+glow_bloom = 0.2
+
 [node name="Map" type="Node2D" unique_id=797941005 node_paths=PackedStringArray("player")]
 script = ExtResource("1_k1iyl")
 id = "2.3.0"
@@ -385,5 +393,8 @@ texture = ExtResource("25_f6d0n")
 [node name="Note" parent="." unique_id=1502152574 instance=ExtResource("10_0t5on")]
 position = Vector2(4559, -2353)
 number = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1798119207]
+environment = SubResource("Environment_gkebj")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

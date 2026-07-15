@@ -196,12 +196,12 @@ func check_ground_state():
 
 func _on_land():
 	# squish
-	$Sprite2D.scale = Vector2(1.3, 0.7)
+	$Sprite2D.scale = Vector2(1.2, 0.8)
 	var t = create_tween() # tween permet de faire varier un element d'un etat A à B en un temps t. Ici on fait varier la scale du sprite2D de (1.3, 0.7) à (1,1) en 0.2 s
 	t.tween_property($Sprite2D, "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_ELASTIC)
 
 func _on_air():
 	# stretch
-	$Sprite2D.scale = Vector2(0.7, 1.3)
+	$Sprite2D.scale = Vector2(0.8, 1.2)
 	var t = create_tween()
 	t.tween_property($Sprite2D, "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_ELASTIC)

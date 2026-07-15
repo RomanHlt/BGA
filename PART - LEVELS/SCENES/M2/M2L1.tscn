@@ -785,6 +785,14 @@ size = Vector2(6058, 1036)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icdtu"]
 size = Vector2(46.5, 721)
 
+[sub_resource type="Environment" id="Environment_tt8ck"]
+background_mode = 3
+tonemap_mode = 1
+tonemap_exposure = 2.0
+glow_enabled = true
+glow_intensity = 1.1
+glow_bloom = 0.2
+
 [node name="Map" type="Node2D" unique_id=864343548 node_paths=PackedStringArray("player")]
 script = ExtResource("1_lw6fj")
 id = "2.1.0"
@@ -1171,6 +1179,9 @@ text = ","
 label_settings = null
 text_keyboard = ""
 text_controller = ","
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=147779504]
+environment = SubResource("Environment_tt8ck")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

@@ -1496,6 +1496,14 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_phceq")
 sources/3 = SubResource("TileSetAtlasSource_fipg5")
 
+[sub_resource type="Environment" id="Environment_60d7i"]
+background_mode = 3
+tonemap_mode = 1
+tonemap_exposure = 2.0
+glow_enabled = true
+glow_intensity = 1.1
+glow_bloom = 0.2
+
 [node name="Map" type="Node2D" unique_id=929465540 node_paths=PackedStringArray("player")]
 script = ExtResource("1_3agvg")
 id = "2.0.0"
@@ -1644,3 +1652,6 @@ playerOffset = Vector2(0, -80)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1656305895]
 stream = ExtResource("6_kj86a")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1744122180]
+environment = SubResource("Environment_60d7i")

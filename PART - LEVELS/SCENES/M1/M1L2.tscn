@@ -768,6 +768,14 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_77cgq")
 sources/3 = SubResource("TileSetAtlasSource_py53a")
 
+[sub_resource type="Environment" id="Environment_y86lb"]
+background_mode = 3
+tonemap_mode = 1
+tonemap_exposure = 2.0
+glow_enabled = true
+glow_intensity = 1.1
+glow_bloom = 0.2
+
 [node name="Map" type="Node2D" unique_id=1713896544 node_paths=PackedStringArray("player")]
 modulate = Color(0.52549, 0.596078, 0.815686, 1)
 script = ExtResource("1_0o0kq")
@@ -928,3 +936,6 @@ layer = 1
 
 [node name="Torch2" parent="." unique_id=330876050 instance=ExtResource("13_83rys")]
 position = Vector2(-52, -36)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1578687886]
+environment = SubResource("Environment_y86lb")

@@ -1688,6 +1688,14 @@ _data = {
 &"9": SubResource("Animation_bjeiu")
 }
 
+[sub_resource type="Environment" id="Environment_pcd48"]
+background_mode = 3
+tonemap_mode = 1
+tonemap_exposure = 2.0
+glow_enabled = true
+glow_intensity = 1.1
+glow_bloom = 0.2
+
 [node name="Map" type="Node2D" unique_id=636493144 node_paths=PackedStringArray("player")]
 modulate = Color(0.52549, 0.596078, 0.815686, 1)
 script = ExtResource("1_qvps0")
@@ -1836,3 +1844,6 @@ horizontal_alignment = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=435641858]
 stream = ExtResource("16_fkqh5")
 volume_db = 20.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=698903265]
+environment = SubResource("Environment_pcd48")

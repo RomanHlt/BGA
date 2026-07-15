@@ -157,7 +157,7 @@ point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_misxp"]
 offsets = PackedFloat32Array(0.11660079, 0.9980237)
-colors = PackedColorArray(0.68366987, 0.35925093, 0.2621594, 1, 0.68235296, 0.36078432, 0.2627451, 0.4509804)
+colors = PackedColorArray(0.26979607, 0.12053888, 0.07580175, 1, 0.27058825, 0.12156863, 0.07450981, 0.4509804)
 
 [sub_resource type="Gradient" id="Gradient_421tl"]
 offsets = PackedFloat32Array(0.07312253, 0.9940711)
@@ -169,7 +169,7 @@ colors = PackedColorArray(0.9764706, 0, 0.078431375, 1, 0.9764706, 0, 0.07843137
 
 [sub_resource type="Gradient" id="Gradient_vnw3g"]
 offsets = PackedFloat32Array(0.100790516, 1)
-colors = PackedColorArray(0.68235296, 0.36078432, 0.2627451, 1, 0.68235296, 0.36078432, 0.2627451, 0.4509804)
+colors = PackedColorArray(0.27058825, 0.12156863, 0.07450981, 1, 0.27058825, 0.12156863, 0.07450981, 0.4509804)
 
 [sub_resource type="Curve" id="Curve_vnw3g"]
 _data = [Vector2(0.0034965053, 0.98580396), 0.0, 0.0, 0, 0, Vector2(1, 0.25470924), 0.0, 0.0, 0, 0]
@@ -190,7 +190,7 @@ position = Vector2(-1.5, -17)
 texture = ExtResource("2_dska8")
 hframes = 7
 vframes = 7
-frame = 7
+frame = 3
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }

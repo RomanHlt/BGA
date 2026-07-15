@@ -34,6 +34,14 @@ size = Vector2(6058, 1036)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvt0d"]
 size = Vector2(1955, 128)
 
+[sub_resource type="Environment" id="Environment_dedjh"]
+background_mode = 3
+tonemap_mode = 1
+tonemap_exposure = 2.0
+glow_enabled = true
+glow_intensity = 1.1
+glow_bloom = 0.2
+
 [node name="Map" type="Node2D" unique_id=1366566737 node_paths=PackedStringArray("player")]
 script = ExtResource("1_rc64x")
 id = "2.2.0"
@@ -432,6 +440,9 @@ shape = SubResource("RectangleShape2D_qvt0d")
 position = Vector2(1702, 1002)
 rotation = 3.14159
 texture = ExtResource("19_pwepc")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=930651584]
+environment = SubResource("Environment_dedjh")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

@@ -16,6 +16,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tx87n"]
 size = Vector2(21, 79)
 
+[sub_resource type="Environment" id="Environment_vhrha"]
+background_mode = 3
+tonemap_mode = 1
+tonemap_exposure = 2.0
+glow_enabled = true
+glow_intensity = 1.1
+glow_bloom = 0.2
+
 [node name="Map" type="Node2D" unique_id=1094544581 node_paths=PackedStringArray("player")]
 modulate = Color(0.52549, 0.596078, 0.815686, 1)
 script = ExtResource("1_kn1tx")
@@ -159,5 +167,8 @@ layer = 1
 
 [node name="Torch5" parent="." unique_id=2103107593 instance=ExtResource("3_tt8ig")]
 position = Vector2(785, 572)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=3704754]
+environment = SubResource("Environment_vhrha")
 
 [connection signal="body_exited" from="Control/Area2D" to="Control" method="_on_area_2d_body_exited"]
