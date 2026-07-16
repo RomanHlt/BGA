@@ -4,5 +4,4 @@
 
 [resource]
 script = ExtResource("1_ncy5k")
-health = 0
-is_dead = true
+last_lvl = "1.0.0"

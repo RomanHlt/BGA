@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="3_tt8wm"]
 [ext_resource type="Texture2D" uid="uid://bseeoey2b8kg0" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tileset2.png" id="3_v4x0t"]
 [ext_resource type="Script" uid="uid://w4tmeg75ecxq" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_wp0o8"]
+[ext_resource type="PackedScene" uid="uid://yeht3bsffd6h" path="res://PART - PLAYER/SCENES/trail.tscn" id="7_2a360"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="10_qsfg0"]
 
 [sub_resource type="Shader" id="Shader_wghwi"]
@@ -2247,10 +2248,11 @@ glow_enabled = true
 glow_intensity = 1.1
 glow_bloom = 0.2
 
-[node name="Map" type="Node2D" unique_id=144194369 node_paths=PackedStringArray("player")]
+[node name="Map" type="Node2D" unique_id=144194369 node_paths=PackedStringArray("player", "trail")]
 modulate = Color(0.52549, 0.596078, 0.815686, 1)
 script = ExtResource("1_hk1ph")
 player = NodePath("Player")
+trail = NodePath("Trail")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=57076329]
 material = SubResource("ShaderMaterial_dq4jg")
@@ -2297,3 +2299,5 @@ stream = ExtResource("10_qsfg0")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=963359690]
 environment = SubResource("Environment_ewrtu")
+
+[node name="Trail" parent="." unique_id=568906839 instance=ExtResource("7_2a360")]

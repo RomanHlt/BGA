@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="6_1ji8k"]
 [ext_resource type="TileSet" uid="uid://chtidkvt2atpj" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_M2_3x3_2.tres" id="6_60d7i"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="6_kj86a"]
+[ext_resource type="PackedScene" uid="uid://yeht3bsffd6h" path="res://PART - PLAYER/SCENES/trail.tscn" id="11_d05h2"]
 
 [sub_resource type="Shader" id="Shader_wghwi"]
 
@@ -1504,10 +1505,11 @@ glow_enabled = true
 glow_intensity = 1.1
 glow_bloom = 0.2
 
-[node name="Map" type="Node2D" unique_id=929465540 node_paths=PackedStringArray("player")]
+[node name="Map" type="Node2D" unique_id=929465540 node_paths=PackedStringArray("player", "trail")]
 script = ExtResource("1_3agvg")
 id = "2.0.0"
 player = NodePath("Player")
+trail = NodePath("Trail")
 
 [node name="ParallaxBG" type="Parallax2D" parent="." unique_id=459547107]
 z_index = -100
@@ -1655,3 +1657,5 @@ stream = ExtResource("6_kj86a")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1744122180]
 environment = SubResource("Environment_60d7i")
+
+[node name="Trail" parent="." unique_id=568906839 instance=ExtResource("11_d05h2")]

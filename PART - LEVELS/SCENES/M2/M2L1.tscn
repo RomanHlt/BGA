@@ -25,6 +25,7 @@
 [ext_resource type="Script" uid="uid://bbmes6prtd6kx" path="res://PART - LEVELS/SCENES/M2/script M2/m2l1respawnplatformgd.gd" id="21_4bfbu"]
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="22_88br3"]
 [ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="23_uexqe"]
+[ext_resource type="PackedScene" uid="uid://yeht3bsffd6h" path="res://PART - PLAYER/SCENES/trail.tscn" id="26_ybn00"]
 
 [sub_resource type="Shader" id="Shader_wghwi"]
 
@@ -793,10 +794,11 @@ glow_enabled = true
 glow_intensity = 1.1
 glow_bloom = 0.2
 
-[node name="Map" type="Node2D" unique_id=864343548 node_paths=PackedStringArray("player")]
+[node name="Map" type="Node2D" unique_id=864343548 node_paths=PackedStringArray("player", "trail")]
 script = ExtResource("1_lw6fj")
 id = "2.1.0"
 player = NodePath("Player")
+trail = NodePath("Trail")
 
 [node name="ParallaxBG" type="Parallax2D" parent="." unique_id=1465487357]
 z_index = -100
@@ -1182,6 +1184,8 @@ text_controller = ","
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=147779504]
 environment = SubResource("Environment_tt8ck")
+
+[node name="Trail" parent="." unique_id=568906839 instance=ExtResource("26_ybn00")]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

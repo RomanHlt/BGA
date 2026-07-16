@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://w4tmeg75ecxq" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="7_qb7iy"]
 [ext_resource type="PackedScene" uid="uid://dmwc4dgmjldxn" path="res://PART - BOSS/SCENES/boss_stras.tscn" id="7_ybgx1"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="8_2yyw2"]
+[ext_resource type="PackedScene" uid="uid://yeht3bsffd6h" path="res://PART - PLAYER/SCENES/trail.tscn" id="12_f1m0t"]
 [ext_resource type="Script" uid="uid://c2ldayng1fvt3" path="res://PART - LEVELS/SCENES/M2/script M2/death_zone_boss.gd" id="12_le7q5"]
 
 [sub_resource type="Shader" id="Shader_wghwi"]
@@ -2285,11 +2286,12 @@ glow_enabled = true
 glow_intensity = 1.1
 glow_bloom = 0.2
 
-[node name="Map" type="Node2D" unique_id=300923248 node_paths=PackedStringArray("player")]
+[node name="Map" type="Node2D" unique_id=300923248 node_paths=PackedStringArray("player", "trail")]
 script = ExtResource("1_2am8l")
 id = "2.4.0"
 isBoss = true
 player = NodePath("Player")
+trail = NodePath("Trail")
 
 [node name="ParallaxBG" type="Parallax2D" parent="." unique_id=118046200]
 z_index = -100
@@ -2563,6 +2565,8 @@ debug_color = Color(0.809273, 0.104741, 0.955136, 0.42)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=115063021]
 environment = SubResource("Environment_dtnfm")
+
+[node name="Trail" parent="." unique_id=568906839 instance=ExtResource("12_f1m0t")]
 
 [connection signal="body_entered" from="L_to_R" to="TileMapLayer/Boss" method="_on_l_to_r_body_entered"]
 [connection signal="body_exited" from="L_to_R" to="TileMapLayer/Boss" method="_on_l_to_r_body_exited"]

@@ -21,6 +21,7 @@
 [ext_resource type="TileSet" uid="uid://dbq3qitb3lkwg" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_M2_3x3_4.tres" id="16_t5mvr"]
 [ext_resource type="PackedScene" uid="uid://lu83b1j7bvc2" path="res://PART - OBJECTS/SCENES/Others/Flag.tscn" id="18_anqqa"]
 [ext_resource type="Texture2D" uid="uid://b40ynenk7xi6b" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/3.png" id="19_pwepc"]
+[ext_resource type="PackedScene" uid="uid://yeht3bsffd6h" path="res://PART - PLAYER/SCENES/trail.tscn" id="22_3rcx0"]
 
 [sub_resource type="Shader" id="Shader_wghwi"]
 
@@ -42,10 +43,11 @@ glow_enabled = true
 glow_intensity = 1.1
 glow_bloom = 0.2
 
-[node name="Map" type="Node2D" unique_id=1366566737 node_paths=PackedStringArray("player")]
+[node name="Map" type="Node2D" unique_id=1366566737 node_paths=PackedStringArray("player", "trail")]
 script = ExtResource("1_rc64x")
 id = "2.2.0"
 player = NodePath("Player")
+trail = NodePath("Trail")
 
 [node name="ParallaxBG" type="Parallax2D" parent="." unique_id=719279537]
 z_index = -100
@@ -443,6 +445,8 @@ texture = ExtResource("19_pwepc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=930651584]
 environment = SubResource("Environment_dedjh")
+
+[node name="Trail" parent="." unique_id=568906839 instance=ExtResource("22_3rcx0")]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

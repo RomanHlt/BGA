@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="13_13kxi"]
 [ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="14_4groo"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="15_eqlam"]
+[ext_resource type="PackedScene" uid="uid://yeht3bsffd6h" path="res://PART - PLAYER/SCENES/trail.tscn" id="16_itxj5"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_17lxt"]
 load_path = "res://.godot/imported/Terrain (16x16).png-965ee5e8399323c88aab03397ec562aa.ctex"
@@ -45,7 +46,6 @@ texture = SubResource("CompressedTexture2D_17lxt")
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2qheu"]
-load_path = "res://.godot/imported/Tileset.png-d445de6cb65ca66204becc50c7666184.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5aocy"]
 texture = SubResource("CompressedTexture2D_2qheu")
@@ -771,11 +771,12 @@ glow_enabled = true
 glow_intensity = 1.1
 glow_bloom = 0.2
 
-[node name="Map" type="Node2D" unique_id=1954039501 node_paths=PackedStringArray("player")]
+[node name="Map" type="Node2D" unique_id=1954039501 node_paths=PackedStringArray("player", "trail")]
 modulate = Color(0.5254902, 0.59607846, 0.8156863, 1)
 script = ExtResource("1_1ucby")
 id = "1.1.0"
 player = NodePath("Player")
+trail = NodePath("Trail")
 metadata/_edit_lock_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1879017253]
@@ -1059,6 +1060,8 @@ texture = ExtResource("13_1s77a")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=574602515]
 environment = SubResource("Environment_mogcd")
+
+[node name="Trail" parent="." unique_id=568906839 instance=ExtResource("16_itxj5")]
 
 [connection signal="body_entered" from="Zonetuto" to="Zonetuto" method="_on_body_entered"]
 [connection signal="body_exited" from="Zonetuto" to="Zonetuto" method="_on_body_exited"]
