@@ -34,7 +34,7 @@ var virtualJumpPressed:bool = false
 var virtualJumpReleased:bool = false
 var wantToGoDeeper:bool = false
 var wantToGoCloser:bool = false
-var dashing = false
+#var dashing = false #Ancienne variable
 @export var canMove:bool = true
 
 
@@ -61,7 +61,7 @@ func _ready():
 	$Sprite2D/PointLight2D2.enabled = enableLight
 	$Sprite2D/PointLight2D3.enabled = enableLight
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var mat = get_parent().material
 	if mat and mat is ShaderMaterial:
 		mat.set_shader_parameter("player_pos", global_position)
@@ -75,6 +75,8 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if movement_component.dash:
+		$"Sprite2D".scale = Vector2(1.3, 0.7)
 	gravity_component.handle_gravity(self,delta)
 	if ! Main.get_node("CanvasLayer/Menus/MenuAccueil").virtualController:
 		direction = input_component.input_horizontal
@@ -145,22 +147,22 @@ func _respawn():
 	PlayerDataSaver.PlayerStats.is_dead = false
 
 # Layer Checkers
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	canGoDeeper = false
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(_body: Node2D) -> void:
 	canGoDeeper = true
-func _on_closer_checker_body_entered(body: Node2D) -> void:
+func _on_closer_checker_body_entered(_body: Node2D) -> void:
 	canGoCloser = false
-func _on_closer_checker_body_exited(body: Node2D) -> void:
+func _on_closer_checker_body_exited(_body: Node2D) -> void:
 	canGoCloser = true
 
-func _on_closer_left_body_entered(body: Node2D) -> void:
+func _on_closer_left_body_entered(_body: Node2D) -> void:
 	behindLeft = true
-func _on_closer_left_body_exited(body: Node2D) -> void:
+func _on_closer_left_body_exited(_body: Node2D) -> void:
 	behindLeft = false
-func _on_closer_right_body_entered(body: Node2D) -> void:
+func _on_closer_right_body_entered(_body: Node2D) -> void:
 	behindRight = true
-func _on_closer_right_body_exited(body: Node2D) -> void:
+func _on_closer_right_body_exited(_body: Node2D) -> void:
 	behindRight = false
 
 
@@ -169,14 +171,15 @@ func _on_animation_component_awaken() -> void:
 
 
 
-
+"""
+# Ancienne fonction
 func _on_destroy_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer and dashing:
 		var pos_in_tilemap: Vector2 = body.to_local(global_position)  # position locale du joueur dans le TileMap
 		var cell: Vector2i = body.local_to_map(pos_in_tilemap)
 		print(cell)
 		destroy_area(body,cell,1)
-
+"""
 
 func destroy_area(body, center: Vector2i, radius: int = 1) -> void:
 	for x in range(-radius, radius + 1):
@@ -195,13 +198,21 @@ func check_ground_state():
 	was_on_floor = is_on_floor()
 
 func _on_land():
+	if movement_component.dash: return
 	# squish
-	$Sprite2D.scale = Vector2(1.2, 0.8)
+	$Sprite2D.scale = Vector2(1.3, 0.7)
 	var t = create_tween() # tween permet de faire varier un element d'un etat A à B en un temps t. Ici on fait varier la scale du sprite2D de (1.3, 0.7) à (1,1) en 0.2 s
-	t.tween_property($Sprite2D, "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_ELASTIC)
+	t.tween_property($Sprite2D, "scale", Vector2.ONE, 0.25).set_trans(Tween.TRANS_ELASTIC)
+	while $Sprite2D.scale != Vector2.ONE:
+		await get_tree().process_frame
+		if movement_component.dash: t.stop()
 
 func _on_air():
+	if movement_component.dash: return
 	# stretch
-	$Sprite2D.scale = Vector2(0.8, 1.2)
+	$Sprite2D.scale = Vector2(0.7, 1.3)
 	var t = create_tween()
-	t.tween_property($Sprite2D, "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_ELASTIC)
+	t.tween_property($Sprite2D, "scale", Vector2.ONE, 0.25).set_trans(Tween.TRANS_ELASTIC)
+	while $Sprite2D.scale != Vector2.ONE:
+		await get_tree().process_frame
+		if movement_component.dash: t.stop()

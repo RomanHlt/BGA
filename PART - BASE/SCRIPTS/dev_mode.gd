@@ -12,7 +12,7 @@ func _ready() -> void:
 var main = Main.get_node("Globals Options")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if $TextEdit.text == "ytreza":
 		$TextEdit.hide()
 		$Access.show()

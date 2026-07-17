@@ -41,7 +41,7 @@ func _ready() -> void:
 	findRightSpawn()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player.canGoDeeper and Input.is_action_just_pressed("deeperLayer") and currentPlayerLayer < len(Layers)-1:
 		goToLayer(currentPlayerLayer+1)
 	elif player.canGoCloser and Input.is_action_just_pressed("closerLayer") and currentPlayerLayer > 0:
@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 
 func findRightSpawn():
 	var rightDoor:Door
-	var check:Checkpoint
+	var check:Checkpoint = null
 	for l in Layers:
 		for d in l.get_children().filter(func (x):if x.get_script() == preload("res://PART - BASE/SCRIPTS/door.gd"):return x):
 			if d.id_last_lvl == PlayerDataSaver.PlayerStats.last_lvl:

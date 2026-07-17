@@ -8,7 +8,7 @@ func _ready() -> void:
 	self.add_theme_color_override("font_color", color_hex)
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Main.get_node("Globals Options").controller:
 		text = text_controller
 	else:

@@ -37,6 +37,7 @@ func handle_dash(body:CharacterBody2D,flipH:bool,onDash:bool):
 		body.velocity.y = 0
 		await get_tree().create_timer(0.3).timeout
 		dash = false
+		animate_dash()
 		body.velocity.x = 0
 
 func choose_right_speed(isRunning:bool):
@@ -46,3 +47,8 @@ func choose_right_speed(isRunning:bool):
 		return runningSpeed
 	else:
 		return speed
+
+func animate_dash():
+	# stretch
+	var t = create_tween()
+	t.tween_property($"../Sprite2D", "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_ELASTIC)

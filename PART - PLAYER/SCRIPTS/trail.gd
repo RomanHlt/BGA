@@ -12,6 +12,6 @@ func _process(_delta: float) -> void:
 	z_index = target.z_index
 	var pos = target.global_position + offset
 	add_point(pos)
-	if points.size() > 250:
+	if points.size() > 50:
 		remove_point(0)
 	last_pos = pos

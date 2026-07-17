@@ -92,7 +92,7 @@ func _on_body_exited(body: Node2D) -> void:
 			$Panel.visible = false
 			can_interact = false
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	"""Déclenche le changement de niveau"""
 	if act and can_interact and canAccess and !isDecorative and unique:
 		$AnimationPlayer.play("Opening")
@@ -106,7 +106,7 @@ func _input(event: InputEvent) -> void:
 		unique = false
 		Main.get_node("Globals Levels").change_lvl(id_next_lvl, titre, sous_titre)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interagir"):
 		act = true
 	elif Input.is_action_just_released("interagir"):
