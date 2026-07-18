@@ -8,7 +8,7 @@ point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_iv4of"]
 offsets = PackedFloat32Array(0.104743086, 0.8833992)
-colors = PackedColorArray(0.93333334, 0.60784316, 0.8901961, 0, 0.93333334, 0.60784316, 0.8901961, 0.15686275)
+colors = PackedColorArray(0.93333334, 0.60784316, 0.8901961, 0, 0.93333334, 0.60784316, 0.8901961, 0.47843137)
 
 [node name="Trail" type="Line2D" unique_id=568906839]
 z_as_relative = false
