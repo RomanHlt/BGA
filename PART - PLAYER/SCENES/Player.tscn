@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cb7q6dn473hkj" path="res://PART - COMPONENT/SCENES/weapon_component.tscn" id="9_3rr8y"]
 [ext_resource type="AudioStream" uid="uid://c73cu17y24yp3" path="res://PART - OBJECTS/ASSETS/Sounds/PlayerDeath.mp3" id="9_jnhds"]
 [ext_resource type="AudioStream" uid="uid://bfkrarq3wl6ii" path="res://PART - OBJECTS/ASSETS/Sounds/Jump.mp3" id="10_su3rv"]
+[ext_resource type="PackedScene" uid="uid://d1ktw5a5g7jwo" path="res://PART - PLAYER/SCENES/ambient_particles.tscn" id="11_j04sm"]
 
 [sub_resource type="Resource" id="Resource_ft5p8"]
 metadata/__load_path__ = "res://GLOBAL - DATA/SAVES/Data00.tres"
@@ -510,6 +511,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_j04sm")
+
+[node name="AmbientParticles" parent="." unique_id=778597950 instance=ExtResource("11_j04sm")]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationComponent" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="deeperChecker" to="." method="_on_area_2d_body_entered"]
