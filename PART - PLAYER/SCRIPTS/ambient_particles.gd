@@ -23,9 +23,9 @@ func randomiser():
 	await get_tree().create_timer(time).timeout
 	
 	# Initial Velocity
-	const MAX_VELOCITY_MAX = 100
-	const MIN_VELOCITY_MAX = 60
-	const MAX_VELOCITY_MIN = 40
+	const MAX_VELOCITY_MAX = 50
+	const MIN_VELOCITY_MAX = 25
+	const MAX_VELOCITY_MIN = 15
 	const MIN_VELOCITY_MIN = 5
 	random = randi_range(-1, 1)
 	match random:
