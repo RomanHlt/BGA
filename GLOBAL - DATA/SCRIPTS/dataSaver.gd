@@ -10,7 +10,7 @@ extends Node2D
 func _ready() -> void:
 	_handle_load()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _handle_save():

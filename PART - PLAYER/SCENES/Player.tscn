@@ -1,6 +1,6 @@
-[gd_scene load_steps=40 format=3 uid="uid://dmnpm6nnnf4kg"]
+[gd_scene format=3 uid="uid://dmnpm6nnnf4kg"]
 
-[ext_resource type="Script" path="res://PART - PLAYER/SCRIPTS/player.gd" id="1_1sa3q"]
+[ext_resource type="Script" uid="uid://bmrdmthihg50c" path="res://PART - PLAYER/SCRIPTS/player.gd" id="1_1sa3q"]
 [ext_resource type="Texture2D" uid="uid://ct1xirtcxkdkn" path="res://PART - PLAYER/SCENES/Bari_animated.png" id="2_3iiil"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="3_l1u33"]
 [ext_resource type="PackedScene" uid="uid://ks173cmm3lsc" path="res://PART - COMPONENT/SCENES/input_component.tscn" id="4_03rw7"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cb7q6dn473hkj" path="res://PART - COMPONENT/SCENES/weapon_component.tscn" id="9_3rr8y"]
 [ext_resource type="AudioStream" uid="uid://c73cu17y24yp3" path="res://PART - OBJECTS/ASSETS/Sounds/PlayerDeath.mp3" id="9_jnhds"]
 [ext_resource type="AudioStream" uid="uid://bfkrarq3wl6ii" path="res://PART - OBJECTS/ASSETS/Sounds/Jump.mp3" id="10_su3rv"]
+[ext_resource type="PackedScene" uid="uid://d1ktw5a5g7jwo" path="res://PART - PLAYER/SCENES/ambient_particles.tscn" id="11_j04sm"]
 
 [sub_resource type="Resource" id="Resource_ft5p8"]
 metadata/__load_path__ = "res://GLOBAL - DATA/SAVES/Data00.tres"
@@ -243,19 +244,19 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qtt1a"]
 _data = {
-"Blow": SubResource("Animation_f3f3u"),
-"DASH": SubResource("Animation_u7f4o"),
-"DEATH": SubResource("Animation_lmhub"),
-"DRIFT": SubResource("Animation_phfcy"),
-"FALL": SubResource("Animation_w670i"),
-"IDK": SubResource("Animation_j0qas"),
-"IDLE": SubResource("Animation_6l3wq"),
-"JUMP": SubResource("Animation_228jr"),
-"RUN": SubResource("Animation_ascgy"),
-"StunIdle": SubResource("Animation_l06ck"),
-"Stuned": SubResource("Animation_i5im3"),
-"Trumpet": SubResource("Animation_6kfk2"),
-"WakeUp": SubResource("Animation_l8y04")
+&"Blow": SubResource("Animation_f3f3u"),
+&"DASH": SubResource("Animation_u7f4o"),
+&"DEATH": SubResource("Animation_lmhub"),
+&"DRIFT": SubResource("Animation_phfcy"),
+&"FALL": SubResource("Animation_w670i"),
+&"IDK": SubResource("Animation_j0qas"),
+&"IDLE": SubResource("Animation_6l3wq"),
+&"JUMP": SubResource("Animation_228jr"),
+&"RUN": SubResource("Animation_ascgy"),
+&"StunIdle": SubResource("Animation_l06ck"),
+&"Stuned": SubResource("Animation_i5im3"),
+&"Trumpet": SubResource("Animation_6kfk2"),
+&"WakeUp": SubResource("Animation_l8y04")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6vah"]
@@ -287,7 +288,25 @@ height = 12.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_stdyd"]
 size = Vector2(5, 9)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "advanced_jump_component", "animation_component", "weapon_component")]
+[sub_resource type="Curve" id="Curve_2ra1y"]
+_data = [Vector2(0.0069930106, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.48894346), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_j04sm"]
+offsets = PackedFloat32Array(0.1403162, 1)
+colors = PackedColorArray(0.6422177, 0, 0.03367742, 1, 0.6431373, 0, 0.03529412, 0.4509804)
+
+[sub_resource type="Gradient" id="Gradient_2ra1y"]
+offsets = PackedFloat32Array(0.42054263, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.09009846, 0.09009849, 0.09009848, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j04sm"]
+gradient = SubResource("Gradient_2ra1y")
+fill = 1
+fill_from = Vector2(0.50085473, 0.64102566)
+fill_to = Vector2(0.9111111, 0.1897436)
+
+[node name="Player" type="CharacterBody2D" unique_id=1995235914 node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "advanced_jump_component", "animation_component", "weapon_component")]
 z_as_relative = false
 slide_on_ceiling = false
 script = ExtResource("1_1sa3q")
@@ -299,13 +318,13 @@ animation_component = NodePath("AnimationComponent")
 weapon_component = NodePath("WeaponComponent")
 data = SubResource("Resource_ft5p8")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1976146763]
 texture_filter = 1
 position = Vector2(-2, -11)
 texture = ExtResource("2_3iiil")
 hframes = 8
 vframes = 8
-frame = 53
+frame = 43
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -327,7 +346,7 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "5e4177981c13112fc96308c89657deca"
 
-[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=1889349528]
 modulate = Color(0.776471, 0.721569, 0.529412, 1)
 position = Vector2(2, 2)
 enabled = false
@@ -339,7 +358,7 @@ shadow_filter_smooth = 1.0
 texture = SubResource("GradientTexture2D_iyuui")
 texture_scale = 4.0
 
-[node name="PointLight2D2" type="PointLight2D" parent="Sprite2D"]
+[node name="PointLight2D2" type="PointLight2D" parent="Sprite2D" unique_id=1444381540]
 position = Vector2(2, 2)
 enabled = false
 color = Color(0.47451, 0.403922, 0.184314, 1)
@@ -350,7 +369,7 @@ shadow_filter_smooth = 1.0
 texture = SubResource("GradientTexture2D_f8eck")
 texture_scale = 4.0
 
-[node name="PointLight2D3" type="PointLight2D" parent="Sprite2D"]
+[node name="PointLight2D3" type="PointLight2D" parent="Sprite2D" unique_id=140216683]
 position = Vector2(2, 2)
 enabled = false
 color = Color(0.627451, 0.537255, 0.266667, 1)
@@ -361,104 +380,139 @@ shadow_filter_smooth = 1.0
 texture = SubResource("GradientTexture2D_t6c1q")
 texture_scale = 4.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_qtt1a")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1147976556]
+libraries/ = SubResource("AnimationLibrary_qtt1a")
 
-[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+[node name="PlayerCollision" type="CollisionShape2D" parent="." unique_id=624088926]
 position = Vector2(0, -6.5)
 shape = SubResource("CapsuleShape2D_k6vah")
 
-[node name="deeperChecker" type="Area2D" parent="."]
+[node name="deeperChecker" type="Area2D" parent="." unique_id=1249746761]
 collision_layer = 0
 collision_mask = 2
 
-[node name="PathChecker" type="CollisionShape2D" parent="deeperChecker"]
+[node name="PathChecker" type="CollisionShape2D" parent="deeperChecker" unique_id=55983133]
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_hvfyw")
+debug_color = Color(0, 0.6, 0.69803923, 0.16862746)
 
-[node name="closerChecker" type="Area2D" parent="."]
+[node name="closerChecker" type="Area2D" parent="." unique_id=960082362]
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="closerChecker"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="closerChecker" unique_id=1142070726]
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_504fc")
+debug_color = Color(0, 0.6, 0.69803923, 0.19215687)
 
-[node name="CloserLeft" type="Area2D" parent="."]
+[node name="CloserLeft" type="Area2D" parent="." unique_id=1176909531]
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CloserLeft"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CloserLeft" unique_id=1683646897]
 position = Vector2(-6.25, -8)
 shape = SubResource("RectangleShape2D_3y8vv")
-debug_color = Color(0, 0, 0, 0.42)
+debug_color = Color(0, 0, 0, 0.1882353)
 
-[node name="CloserRight" type="Area2D" parent="."]
+[node name="CloserRight" type="Area2D" parent="." unique_id=1048937552]
 position = Vector2(13, 0)
 collision_layer = 0
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CloserRight"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CloserRight" unique_id=616209293]
 position = Vector2(-5.75, -8)
 shape = SubResource("RectangleShape2D_llr4i")
-debug_color = Color(0, 0, 0, 0.42)
+debug_color = Color(0, 0, 0, 0.19215687)
 
-[node name="GravityComponent" parent="." instance=ExtResource("3_l1u33")]
+[node name="GravityComponent" parent="." unique_id=1771457404 instance=ExtResource("3_l1u33")]
 gravity = 1200.0
 
-[node name="InputComponent" parent="." instance=ExtResource("4_03rw7")]
+[node name="InputComponent" parent="." unique_id=783921605 instance=ExtResource("4_03rw7")]
 
-[node name="MovementComponent" parent="." instance=ExtResource("5_3jvcs")]
+[node name="MovementComponent" parent="." unique_id=388737872 instance=ExtResource("5_3jvcs")]
 speed = 150.0
 ground_accel_speed = 150.0
 ground_decel_speed = 150.0
 air_accel_speed = 12.0
 air_decel_speed = 10.0
 
-[node name="AnimationComponent" parent="." node_paths=PackedStringArray("animator", "sprite") instance=ExtResource("7_blyk2")]
+[node name="AnimationComponent" parent="." unique_id=1319527076 node_paths=PackedStringArray("animator", "sprite") instance=ExtResource("7_blyk2")]
 animator = NodePath("../AnimationPlayer")
 sprite = NodePath("../Sprite2D")
 
-[node name="AdvancedJumpComponent" parent="." node_paths=PackedStringArray("music", "sprite2D") instance=ExtResource("7_eboik")]
+[node name="AdvancedJumpComponent" parent="." unique_id=353691348 node_paths=PackedStringArray("music", "sprite2D") instance=ExtResource("7_eboik")]
 music = NodePath("../AudioStreamPlayer2")
 sprite2D = NodePath("../Sprite2D")
 jump_velocity = -400.0
 wall_jump_max = 1
 
-[node name="WeaponComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("9_3rr8y")]
+[node name="WeaponComponent" parent="." unique_id=787723489 node_paths=PackedStringArray("sprite") instance=ExtResource("9_3rr8y")]
 sprite = NodePath("../Sprite2D")
 
-[node name="BulletSource" type="Marker2D" parent="WeaponComponent"]
+[node name="BulletSource" type="Marker2D" parent="WeaponComponent" unique_id=1844641487]
 position = Vector2(14, -12)
 
-[node name="PlayerDealingDamageZone" type="Area2D" parent="."]
+[node name="PlayerDealingDamageZone" type="Area2D" parent="." unique_id=201415565]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDealingDamageZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDealingDamageZone" unique_id=1270452298]
 position = Vector2(0, 1)
 shape = SubResource("SegmentShape2D_8cjfj")
+debug_color = Color(0, 0.6, 0.69803923, 0.1882353)
 
-[node name="PlayerTakingDamageZone" type="Area2D" parent="."]
+[node name="PlayerTakingDamageZone" type="Area2D" parent="." unique_id=854527051]
 
-[node name="PlayertakingDamageShape" type="CollisionShape2D" parent="PlayerTakingDamageZone"]
+[node name="PlayertakingDamageShape" type="CollisionShape2D" parent="PlayerTakingDamageZone" unique_id=599308739]
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_7rip5")
-debug_color = Color(0.803922, 0, 0.176471, 0.529412)
+debug_color = Color(0.8039216, 0, 0.1764706, 0.17254902)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=46674718]
 stream = ExtResource("9_jnhds")
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1637971968]
 stream = ExtResource("10_su3rv")
 
-[node name="Destroy" type="Area2D" parent="."]
+[node name="Destroy" type="Area2D" parent="." unique_id=120346316]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Destroy"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Destroy" unique_id=436594916]
 position = Vector2(6.5, -6.5)
 shape = SubResource("RectangleShape2D_stdyd")
 debug_color = Color(0.75063, 0.458229, 0.0686009, 0.42)
+
+[node name="Blood" type="CPUParticles2D" parent="." unique_id=1881502750]
+position = Vector2(0, -7)
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.2
+lifetime_randomness = 0.2
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -125.0
+angular_velocity_max = 125.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_2ra1y")
+color_ramp = SubResource("Gradient_j04sm")
+
+[node name="Fog" type="CanvasLayer" parent="." unique_id=1903877650]
+layer = 0
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Fog" unique_id=645147531]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_j04sm")
+
+[node name="AmbientParticles" parent="." unique_id=778597950 instance=ExtResource("11_j04sm")]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationComponent" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="deeperChecker" to="." method="_on_area_2d_body_entered"]

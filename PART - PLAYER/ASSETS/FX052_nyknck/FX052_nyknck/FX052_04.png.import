@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://quhpxpgfe5ha"
-path="res://.godot/imported/Tileset.png-d445de6cb65ca66204becc50c7666184.ctex"
+uid="uid://cm8bbe8dxbaog"
+path="res://.godot/imported/FX052_04.png-3528e35dcecdc37883b0de9b30d83055.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tileset.png"
-dest_files=["res://.godot/imported/Tileset.png-d445de6cb65ca66204becc50c7666184.ctex"]
+source_file="res://PART - PLAYER/ASSETS/FX052_nyknck/FX052_nyknck/FX052_04.png"
+dest_files=["res://.godot/imported/FX052_04.png-3528e35dcecdc37883b0de9b30d83055.ctex"]
 
 [params]
 

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://d1ktw5a5g7jwo"]
+
+[ext_resource type="Texture2D" uid="uid://bhmb4ai5pyumn" path="res://PART - LEVELS/ASSETS/Map/4 Animated objects/Ambientparticle.png" id="1_h3mld"]
+[ext_resource type="Script" uid="uid://boolsmkw1yqbd" path="res://PART - PLAYER/SCRIPTS/ambient_particles.gd" id="2_orndd"]
+
+[sub_resource type="Curve" id="Curve_j04sm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5020746, 0.4953146), 0.0, 0.0, 0, 0, Vector2(0.7551867, 0.59103084), 0.0, 0.0, 0, 0, Vector2(0.9999999, 0.2429719), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_iv4of"]
+offsets = PackedFloat32Array(0, 0.48317307, 1)
+colors = PackedColorArray(0.12156863, 0.5058824, 0.28235295, 0, 0.12156863, 0.5058824, 0.28235295, 1, 0.12156863, 0.5058824, 0.28235295, 0)
+
+[sub_resource type="Gradient" id="Gradient_edn3k"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r0fca"]
+gradient = SubResource("Gradient_edn3k")
+fill_from = Vector2(0, 1)
+
+[node name="AmbientParticles" type="CPUParticles2D" unique_id=778597950]
+top_level = true
+light_mask = 512
+visibility_layer = 512
+z_as_relative = false
+texture_filter = 1
+amount = 30
+texture = ExtResource("1_h3mld")
+lifetime = 4.0
+randomness = 0.5
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(500, 300)
+spread = 20.0
+gravity = Vector2(0, 10)
+initial_velocity_min = 20.0
+initial_velocity_max = 80.0
+scale_amount_min = 0.1
+scale_amount_max = 0.35
+scale_amount_curve = SubResource("Curve_j04sm")
+color_ramp = SubResource("Gradient_iv4of")
+script = ExtResource("2_orndd")
+
+[node name="Glow" type="PointLight2D" parent="." unique_id=2120759442]
+light_mask = 512
+visibility_layer = 512
+z_as_relative = false
+energy = 6.0
+range_item_cull_mask = 512
+texture = SubResource("GradientTexture2D_r0fca")
+texture_scale = 15.0

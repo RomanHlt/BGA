@@ -1,6 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://b7xo8lj0knoj2"]
+[gd_scene format=3 uid="uid://b7xo8lj0knoj2"]
 
-[ext_resource type="Script" path="res://PART - BOSS/SCRIPTS/boss_cvl.gd" id="1_7si3l"]
+[ext_resource type="Script" uid="uid://cmye73hbsd4ea" path="res://PART - BOSS/SCRIPTS/boss_cvl.gd" id="1_7si3l"]
 [ext_resource type="Texture2D" uid="uid://bumdo3gaxsnuv" path="res://PART - BOSS/SCENES/new_boss_CVL.png" id="2_dska8"]
 [ext_resource type="PackedScene" uid="uid://wqlcrjmdxwdb" path="res://PART - COMPONENT/SCENES/gravity_component.tscn" id="3_3s4ka"]
 [ext_resource type="PackedScene" uid="uid://be2qn5hghb0f4" path="res://PART - COMPONENT/SCENES/jump_component.tscn" id="4_wamul"]
@@ -124,17 +124,17 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_75os3"]
 _data = {
-"Dash": SubResource("Animation_xqsk3"),
-"Death": SubResource("Animation_gvoy4"),
-"Eboulement": SubResource("Animation_0xeyn"),
-"Idle": SubResource("Animation_w8q8e"),
-"Impact": SubResource("Animation_kvwma"),
-"Stand": SubResource("Animation_1c8xq"),
-"Stunt": SubResource("Animation_82r5k")
+&"Dash": SubResource("Animation_xqsk3"),
+&"Death": SubResource("Animation_gvoy4"),
+&"Eboulement": SubResource("Animation_0xeyn"),
+&"Idle": SubResource("Animation_w8q8e"),
+&"Impact": SubResource("Animation_kvwma"),
+&"Stand": SubResource("Animation_1c8xq"),
+&"Stunt": SubResource("Animation_82r5k")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ld21o"]
-size = Vector2(50, 29.5)
+size = Vector2(50, 28.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b537b"]
 size = Vector2(811.5, 102.5)
@@ -151,18 +151,46 @@ size = Vector2(16, 29)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atwoa"]
 size = Vector2(15.5, 29)
 
-[node name="Boss_CVL" type="CharacterBody2D"]
+[sub_resource type="Curve" id="Curve_3bni5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.49604148), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_misxp"]
+offsets = PackedFloat32Array(0.11660079, 0.9980237)
+colors = PackedColorArray(0.26979607, 0.12053888, 0.07580175, 1, 0.27058825, 0.12156863, 0.07450981, 0.4509804)
+
+[sub_resource type="Gradient" id="Gradient_421tl"]
+offsets = PackedFloat32Array(0.07312253, 0.9940711)
+colors = PackedColorArray(0.97715014, 0.001027038, 0.078680806, 1, 0.9764706, 0, 0.078431375, 0.4509804)
+
+[sub_resource type="Gradient" id="Gradient_3bni5"]
+offsets = PackedFloat32Array(0.07312253, 1)
+colors = PackedColorArray(0.9764706, 0, 0.078431375, 1, 0.9764706, 0, 0.078431375, 0.60784316)
+
+[sub_resource type="Gradient" id="Gradient_vnw3g"]
+offsets = PackedFloat32Array(0.100790516, 1)
+colors = PackedColorArray(0.27058825, 0.12156863, 0.07450981, 1, 0.27058825, 0.12156863, 0.07450981, 0.4509804)
+
+[sub_resource type="Curve" id="Curve_vnw3g"]
+_data = [Vector2(0.0034965053, 0.98580396), 0.0, 0.0, 0, 0, Vector2(1, 0.25470924), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_qiqxb"]
+offsets = PackedFloat32Array(0.096837945, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0.4509804)
+
+[node name="Boss_CVL" type="CharacterBody2D" unique_id=213235354]
 z_as_relative = false
 scale = Vector2(2, 2)
 script = ExtResource("1_7si3l")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1953412719]
 texture_filter = 1
 position = Vector2(-1.5, -17)
 texture = ExtResource("2_dska8")
 hframes = 7
 vframes = 7
-frame = 26
+frame = 3
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -180,7 +208,7 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "57a729d0d343010dfa2bb70f1e14e012"
 
-[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=1956340611]
 position = Vector2(2, 11)
 color = Color(0.367896, 0.0896998, 0.3769, 1)
 energy = 4.0
@@ -189,58 +217,174 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_ylibx")
 texture_scale = 8.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_75os3")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=193805654]
+libraries/ = SubResource("AnimationLibrary_75os3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4.75)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1669694795]
+position = Vector2(0, -5.25)
 shape = SubResource("RectangleShape2D_ld21o")
 debug_color = Color(0.081039, 0.159472, 0.471104, 0.42)
 
-[node name="Zone de détéction" type="Area2D" parent="."]
+[node name="Zone de détéction" type="Area2D" parent="." unique_id=650222419]
 collision_layer = 0
 collision_mask = 65535
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Zone de détéction"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Zone de détéction" unique_id=279671897]
 position = Vector2(-0.75, -41.25)
 shape = SubResource("RectangleShape2D_b537b")
 debug_color = Color(0.184314, 0.215686, 0.282353, 0.203922)
 
-[node name="Above" type="Area2D" parent="."]
+[node name="Above" type="Area2D" parent="." unique_id=1677941717]
 position = Vector2(0, -15)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Above"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Above" unique_id=1974608242]
 position = Vector2(0, -5.75)
 shape = SubResource("RectangleShape2D_owica")
 debug_color = Color(0.833049, 0.0886156, 0.539656, 0.42)
 
-[node name="Below" type="Area2D" parent="."]
+[node name="Below" type="Area2D" parent="." unique_id=709605153]
 position = Vector2(0, 10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Below"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Below" unique_id=705810977]
 shape = SubResource("RectangleShape2D_b8ra8")
 debug_color = Color(0.833049, 0.0886156, 0.539656, 0.42)
 
-[node name="GravityComponent" parent="." instance=ExtResource("3_3s4ka")]
+[node name="GravityComponent" parent="." unique_id=204048171 instance=ExtResource("3_3s4ka")]
 
-[node name="JumpComponent" parent="." instance=ExtResource("4_wamul")]
+[node name="JumpComponent" parent="." unique_id=61193759 instance=ExtResource("4_wamul")]
 jump_velocity = -450.0
 
-[node name="meleeLeft" type="Area2D" parent="."]
+[node name="meleeLeft" type="Area2D" parent="." unique_id=1952993985]
 position = Vector2(-5.5, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="meleeLeft"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="meleeLeft" unique_id=966218542]
 position = Vector2(-19, -7)
 shape = SubResource("RectangleShape2D_50swa")
 
-[node name="meleeRight" type="Area2D" parent="."]
+[node name="meleeRight" type="Area2D" parent="." unique_id=1708928231]
 position = Vector2(7.5, -0.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="meleeRight"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="meleeRight" unique_id=2078247549]
 position = Vector2(19, -7)
 shape = SubResource("RectangleShape2D_atwoa")
+
+[node name="Leftparticles" type="CPUParticles2D" parent="." unique_id=1013271697]
+light_mask = 0
+visibility_layer = 7
+position = Vector2(-32.5, -14.5)
+emitting = false
+amount = 200
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.2
+lifetime_randomness = 0.2
+direction = Vector2(3, -2)
+spread = 60.0
+gravity = Vector2(0, 250)
+initial_velocity_min = 10.0
+initial_velocity_max = 200.0
+angular_velocity_min = -125.0
+angular_velocity_max = 125.0
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_3bni5")
+color_ramp = SubResource("Gradient_misxp")
+
+[node name="Leftblood" type="CPUParticles2D" parent="." unique_id=505666550]
+light_mask = 0
+visibility_layer = 7
+position = Vector2(-11, -19.5)
+emitting = false
+amount = 100
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.2
+lifetime_randomness = 0.2
+direction = Vector2(0, -1)
+spread = 100.0
+gravity = Vector2(0, 250)
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -125.0
+angular_velocity_max = 125.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_3bni5")
+color_ramp = SubResource("Gradient_421tl")
+
+[node name="Rightblood" type="CPUParticles2D" parent="." unique_id=124679469]
+light_mask = 0
+visibility_layer = 7
+position = Vector2(16, -20)
+emitting = false
+amount = 100
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.2
+lifetime_randomness = 0.2
+direction = Vector2(0, -1)
+spread = 100.0
+gravity = Vector2(0, 250)
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -125.0
+angular_velocity_max = 125.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_3bni5")
+color_ramp = SubResource("Gradient_3bni5")
+
+[node name="Rightparticles" type="CPUParticles2D" parent="." unique_id=1315636798]
+light_mask = 0
+visibility_layer = 7
+position = Vector2(34, -14.5)
+emitting = false
+amount = 200
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.2
+lifetime_randomness = 0.2
+direction = Vector2(-3, -2)
+spread = 60.0
+gravity = Vector2(0, 250)
+initial_velocity_min = 10.0
+initial_velocity_max = 200.0
+angular_velocity_min = -125.0
+angular_velocity_max = 125.0
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_3bni5")
+color_ramp = SubResource("Gradient_vnw3g")
+
+[node name="Blood1" type="CPUParticles2D" parent="." unique_id=593243799]
+position = Vector2(-16, -6)
+emitting = false
+amount = 3
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(0, 1)
+spread = 90.0
+gravity = Vector2(0, 200)
+scale_amount_max = 2.5
+scale_amount_curve = SubResource("Curve_vnw3g")
+color_ramp = SubResource("Gradient_qiqxb")
+
+[node name="Blood2" type="CPUParticles2D" parent="." unique_id=1265918192]
+position = Vector2(14.5, -6)
+emitting = false
+amount = 3
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(0, 1)
+spread = 90.0
+gravity = Vector2(0, 200)
+scale_amount_max = 2.5
+scale_amount_curve = SubResource("Curve_vnw3g")
+color_ramp = SubResource("Gradient_qiqxb")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Zone de détéction" to="." method="_on_zone_de_détéction_body_entered"]

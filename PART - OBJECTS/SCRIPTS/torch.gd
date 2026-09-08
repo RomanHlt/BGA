@@ -6,7 +6,6 @@ extends Node2D
 @export var shadow_color : String = "00000000"
 @export var power : int = 2
 @export var tex_scale : float = 1
-@export var door : Door
 @export_category("Global Settings")
 @export var layer : int = 0
 
@@ -19,12 +18,12 @@ func _ready() -> void:
 	$PointLight2D.shadow_color = shadow_color
 	$PointLight2D.energy = power
 	$PointLight2D.texture_scale = tex_scale
-	await get_tree().create_timer(0.5).timeout
-	if door:
-		if !door.canAccess:
-			$Sprite2D.hide()
-		else:
-			$Sprite2D.show()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	pass
+
 func _on_timer_timeout() -> void:
 	$PointLight2D.texture_scale = tex_scale + randf_range(-0.201,0.201)
 	$PointLight2D.color = colors[randi_range(0,len(colors)-1)]

@@ -115,6 +115,14 @@ func _takeDamages(damages):
 	else:
 		health = 0
 		get_tree().root.get_node("/root/Map/CanvasLayer/InGame/lifeController").play(str(health))
+	if health == 2:
+		$Blood1.emitting = true
+		$Blood1.amount = 3
+		$Blood2.emitting = true
+		$Blood2.amount = 3
+	if health == 1:
+		$Blood1.amount = 7
+		$Blood2.amount = 7
 	if health == 0:
 		is_attacking = false
 		is_following = false
@@ -191,6 +199,8 @@ func dash():
 
 
 func long():
+	shockwave()
+	await get_tree().create_timer(0.2).timeout
 	$AnimationPlayer.play("Eboulement")
 	await get_tree().create_timer(0.5).timeout
 	target.camera.shake(20)
@@ -211,7 +221,6 @@ func stop_follow():
 	is_idle = true
 
 func dead():	
-	
 	get_parent().get_parent().get_node("TileMapLayer2").ejectPlayer()
 	get_parent().get_parent().get_node("TileMapLayer2").end()
 	$Above.hide()
@@ -235,6 +244,8 @@ func _on_melee_left_body_entered(body: Node2D) -> void:
 		elif body.name =="TileMapLayer":
 			if not target_hit:
 				target.camera.shake(20)
+				$Leftblood.emitting = true
+				$Leftparticles.emitting = true
 				self._takeDamages(1)
 				if not is_dead:
 					stun(3.5)
@@ -263,6 +274,8 @@ func _on_melee_right_body_entered(body: Node2D) -> void:
 		elif body.name =="TileMapLayer":
 			if not target_hit:
 				target.camera.shake(20)
+				$Rightblood.emitting = true
+				$Rightparticles.emitting = true
 				self._takeDamages(1)
 				if not is_dead:
 					stun(3.5)
@@ -305,7 +318,16 @@ func _process(delta: float) -> void:
 		return
 	elif is_idle and not is_dead:
 		action()
-
+	if is_attacking or dashing or is_sleeping:
+		if $Sprite2D.flip_h:
+			$Blood1.hide()
+			$Blood2.show()
+		else:
+			$Blood2.hide()
+			$Blood1.show()
+	else:
+		$Blood1.hide()
+		$Blood2.hide()
 
 func _physics_process(delta):
 	$GravityComponent.handle_gravity(self, delta) # Applique la gravité
@@ -338,6 +360,7 @@ func handle_animation():
 		return
 	if direction_x and is_idle and not stuned:
 		$Sprite2D.flip_h = sign(self.position.x) == -1
+
 	if is_attacking:
 		if dashing:
 			$AnimationPlayer.play("Dash")
@@ -371,3 +394,14 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Death":
 		print("ok")
 		self.queue_free()
+	
+	
+func shockwave():
+	var viewport_size = get_viewport_rect().size
+	# Convertit la position monde en position écran
+	var screen_pos = get_viewport().get_canvas_transform() * global_position
+	# Passage en UV (0-1)
+	var uv_pos = screen_pos / viewport_size
+	var mat = get_node("/root/Map/shockwaveshader/ColorRect").material
+	mat.set_shader_parameter("center", uv_pos)
+	mat.set_shader_parameter("start_time", Time.get_ticks_msec() / 1000.0)

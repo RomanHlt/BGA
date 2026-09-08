@@ -2,7 +2,7 @@ extends CanvasLayer
 
 var refill:bool = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var lvl = PlayerDataSaver.PlayerStats.current_lvl
 
 	if lvl.split(".")[1] !="0": # On vérifie que le joueur soit bien en jeu et hors d'un boss
@@ -39,8 +39,6 @@ func _process(delta: float) -> void:
 		
 	if lvl.split(".")[1] == "4":
 		$InGame/NotesCount.hide()
-	else:
-		$InGame/NotesCount.show()
 
 func reloadDash():
 	$InGame/TextureDash.value = 0

@@ -1,6 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://dt1pv53ek46dl"]
+[gd_scene format=3 uid="uid://dt1pv53ek46dl"]
 
-[ext_resource type="Script" path="res://PART - BASE/SCRIPTS/door.gd" id="1_gmu4f"]
+[ext_resource type="Script" uid="uid://btbqkhggiogd2" path="res://PART - BASE/SCRIPTS/door.gd" id="1_gmu4f"]
 [ext_resource type="Texture2D" uid="uid://b8xwpvj3btgvj" path="res://PART - BASE/ASSETS/LevelDoor.png" id="2_afq11"]
 [ext_resource type="FontFile" uid="uid://dsi8plob4hdvb" path="res://GLOBAL - Font/KAPH/TrueType (.ttf)/Kaph-Regular.ttf" id="3_cwefx"]
 [ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="3_iaihw"]
@@ -162,14 +162,14 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b8xhe"]
 _data = {
-"000": SubResource("Animation_68b86"),
-"001": SubResource("Animation_l8klu"),
-"010": SubResource("Animation_cmn18"),
-"011": SubResource("Animation_d6l8s"),
-"100": SubResource("Animation_05nr1"),
-"101": SubResource("Animation_owjhf"),
-"110": SubResource("Animation_7t2rs"),
-"111": SubResource("Animation_3g0ro")
+&"000": SubResource("Animation_68b86"),
+&"001": SubResource("Animation_l8klu"),
+&"010": SubResource("Animation_cmn18"),
+&"011": SubResource("Animation_d6l8s"),
+&"100": SubResource("Animation_05nr1"),
+&"101": SubResource("Animation_owjhf"),
+&"110": SubResource("Animation_7t2rs"),
+&"111": SubResource("Animation_3g0ro")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_xvi0e"]
@@ -260,25 +260,26 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_np7xm"]
 _data = {
-"Closed": SubResource("Animation_icqrg"),
-"Closing": SubResource("Animation_6f2h8"),
-"Idle": SubResource("Animation_6rki0"),
-"Open": SubResource("Animation_bd5jn"),
-"Opening": SubResource("Animation_5qom1")
+&"Closed": SubResource("Animation_icqrg"),
+&"Closing": SubResource("Animation_6f2h8"),
+&"Idle": SubResource("Animation_6rki0"),
+&"Open": SubResource("Animation_bd5jn"),
+&"Opening": SubResource("Animation_5qom1")
 }
 
-[node name="door" type="Area2D"]
+[node name="door" type="Area2D" unique_id=466801128]
 z_index = 1
 z_as_relative = false
+y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_gmu4f")
 textController = "/"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1525549081]
 position = Vector2(-1, 9.5)
 shape = SubResource("RectangleShape2D_tgah1")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=535136582]
 visible = false
 texture_filter = 1
 anchors_preset = 8
@@ -292,7 +293,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_y65sj")
 
-[node name="Keyboard label" type="Label" parent="Panel"]
+[node name="Keyboard label" type="Label" parent="Panel" unique_id=213569134]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -311,7 +312,7 @@ label_settings = SubResource("LabelSettings_8vbf0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Controller label" type="Label" parent="Panel"]
+[node name="Controller label" type="Label" parent="Panel" unique_id=1492004947]
 visible = false
 texture_filter = 1
 layout_mode = 1
@@ -333,12 +334,12 @@ text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Hub" type="Control" parent="Panel"]
+[node name="Hub" type="Control" parent="Panel" unique_id=1695319925]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Notes" type="Sprite2D" parent="Panel/Hub"]
+[node name="Notes" type="Sprite2D" parent="Panel/Hub" unique_id=1441733174]
 texture_filter = 1
 position = Vector2(0, -20)
 scale = Vector2(0.5, 0.5)
@@ -362,13 +363,11 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "fa262533c115382163118c3701a0f0d7"
 
-[node name="NotesPlayer" type="AnimationPlayer" parent="Panel/Hub"]
+[node name="NotesPlayer" type="AnimationPlayer" parent="Panel/Hub" unique_id=1978791802]
 root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_b8xhe")
-}
+libraries/ = SubResource("AnimationLibrary_b8xhe")
 
-[node name="Label2" type="Label" parent="Panel/Hub"]
+[node name="Label2" type="Label" parent="Panel/Hub" unique_id=1012479268]
 layout_mode = 0
 offset_left = -36.0
 offset_top = -7.0
@@ -377,12 +376,10 @@ offset_bottom = 16.0
 text = "LVL : x"
 label_settings = SubResource("LabelSettings_xvi0e")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_np7xm")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=781761800]
+libraries/ = SubResource("AnimationLibrary_np7xm")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=124770804]
 self_modulate = Color(0.385188, 0.390013, 0.483938, 1)
 texture_filter = 1
 texture = ExtResource("2_afq11")
@@ -406,7 +403,7 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "8f454ec591b8384f6716ec4d53d84faf"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=297430875]
 stream = ExtResource("6_5c164")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

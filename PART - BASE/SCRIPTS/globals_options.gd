@@ -27,7 +27,7 @@ var is_dev = false
 var godmod_active = false
 var full_access = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("controllerUsed"):
 		if !controller:
 			emit_signal("controllerOn")

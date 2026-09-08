@@ -27,7 +27,7 @@ func _ready() -> void:
 	$HSlider.value = son
 	$MusicSlider2.value = music
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#Detection de l'action du joueur
 	if Input.is_action_just_pressed("ok") and visible and !justArrived:
 		for b in buttons:

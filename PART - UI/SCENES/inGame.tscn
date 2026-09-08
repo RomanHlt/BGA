@@ -1,7 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://cierfuw7plhvv"]
+[gd_scene format=3 uid="uid://cierfuw7plhvv"]
 
 [ext_resource type="Texture2D" uid="uid://0tptb4ekglf0" path="res://PART - UI/ASSETS/PlayerLife.png" id="1_7npsu"]
-[ext_resource type="Script" path="res://PART - UI/SCRIPTS/in_gameUI.gd" id="1_kk3rj"]
+[ext_resource type="Script" uid="uid://ru871qspn0vm" path="res://PART - UI/SCRIPTS/in_gameUI.gd" id="1_kk3rj"]
 [ext_resource type="FontFile" uid="uid://cobvesca8xnwg" path="res://GLOBAL - Font/LittleGuy.ttf" id="3_xjblq"]
 [ext_resource type="Texture2D" uid="uid://b33dbw6ate5r3" path="res://PART - UI/SCENES/Notes.png" id="4_20fnx"]
 [ext_resource type="Texture2D" uid="uid://ct0wvm1wqwbkb" path="res://PART - UI/ASSETS/DashIcon1.png" id="6_1cc57"]
@@ -89,11 +89,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_18jug"]
 _data = {
-"0": SubResource("Animation_fwkt5"),
-"1": SubResource("Animation_mnq3e"),
-"2": SubResource("Animation_hojvl"),
-"3": SubResource("Animation_yxk4g"),
-"4": SubResource("Animation_auksc")
+&"0": SubResource("Animation_fwkt5"),
+&"1": SubResource("Animation_mnq3e"),
+&"2": SubResource("Animation_hojvl"),
+&"3": SubResource("Animation_yxk4g"),
+&"4": SubResource("Animation_auksc")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_6voh7"]
@@ -230,26 +230,26 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b8xhe"]
 _data = {
-"000": SubResource("Animation_68b86"),
-"001": SubResource("Animation_l8klu"),
-"010": SubResource("Animation_cmn18"),
-"011": SubResource("Animation_mtiit"),
-"100": SubResource("Animation_05nr1"),
-"101": SubResource("Animation_jo5rd"),
-"110": SubResource("Animation_7t2rs"),
-"111": SubResource("Animation_3g0ro")
+&"000": SubResource("Animation_68b86"),
+&"001": SubResource("Animation_l8klu"),
+&"010": SubResource("Animation_cmn18"),
+&"011": SubResource("Animation_mtiit"),
+&"100": SubResource("Animation_05nr1"),
+&"101": SubResource("Animation_jo5rd"),
+&"110": SubResource("Animation_7t2rs"),
+&"111": SubResource("Animation_3g0ro")
 }
 
-[node name="InGame" type="CanvasLayer"]
+[node name="InGame" type="CanvasLayer" unique_id=1248741997]
 script = ExtResource("1_kk3rj")
 
-[node name="InGame" type="Control" parent="."]
+[node name="InGame" type="Control" parent="." unique_id=1267902667]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="life" type="Sprite2D" parent="InGame"]
+[node name="life" type="Sprite2D" parent="InGame" unique_id=1917282350]
 texture_filter = 1
 position = Vector2(172.5, 65.5)
 scale = Vector2(6.0625, 6.0625)
@@ -277,12 +277,10 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "a4cebe5b2e411e2f7bc87dcca3644cda"
 
-[node name="lifeController" type="AnimationPlayer" parent="InGame"]
-libraries = {
-"": SubResource("AnimationLibrary_18jug")
-}
+[node name="lifeController" type="AnimationPlayer" parent="InGame" unique_id=143693729]
+libraries/ = SubResource("AnimationLibrary_18jug")
 
-[node name="Label" type="Label" parent="InGame"]
+[node name="Label" type="Label" parent="InGame" unique_id=1265988042]
 layout_mode = 0
 offset_left = 1085.0
 offset_top = 586.0
@@ -291,8 +289,7 @@ offset_bottom = 622.0
 text = "K"
 label_settings = SubResource("LabelSettings_6voh7")
 
-[node name="NotesCount" type="Control" parent="InGame"]
-layout_mode = 3
+[node name="NotesCount" type="Control" parent="InGame" unique_id=197559766]
 anchors_preset = 0
 offset_left = 1001.0
 offset_top = 128.0
@@ -300,7 +297,7 @@ offset_right = 1041.0
 offset_bottom = 168.0
 scale = Vector2(2.59999, 2.59999)
 
-[node name="Notes" type="Sprite2D" parent="InGame/NotesCount"]
+[node name="Notes" type="Sprite2D" parent="InGame/NotesCount" unique_id=314759647]
 texture_filter = 1
 position = Vector2(0, -20)
 scale = Vector2(0.5, 0.5)
@@ -324,13 +321,11 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "fa262533c115382163118c3701a0f0d7"
 
-[node name="NotesPlayer" type="AnimationPlayer" parent="InGame/NotesCount"]
+[node name="NotesPlayer" type="AnimationPlayer" parent="InGame/NotesCount" unique_id=242706560]
 root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_b8xhe")
-}
+libraries/ = SubResource("AnimationLibrary_b8xhe")
 
-[node name="TextureDash" type="TextureProgressBar" parent="InGame"]
+[node name="TextureDash" type="TextureProgressBar" parent="InGame" unique_id=477464235]
 layout_mode = 0
 offset_left = 46.0
 offset_top = 94.0
@@ -341,6 +336,6 @@ fill_mode = 4
 texture_under = ExtResource("6_1cc57")
 texture_progress = ExtResource("7_wre7i")
 
-[node name="Timer" type="Timer" parent="InGame/TextureDash"]
+[node name="Timer" type="Timer" parent="InGame/TextureDash" unique_id=2109573679]
 wait_time = 1.5
 one_shot = true

@@ -7,6 +7,7 @@ extends Node2D
 @export var isBoss : bool = false
 @export_subgroup("Player")
 @export var player:CharacterBody2D
+@export var trail: Line2D
 var Layers:Array
 var currentPlayerLayer:int = spawnLayer
 var pathObstured:bool = true
@@ -27,7 +28,8 @@ func _ready() -> void:
 	player.get_node("Sprite2D").get_node("PointLight2D3").shadow_item_cull_mask = 2
 
 	Layers = get_children().filter(func (x): if x.is_class("TileMapLayer"): return x)
-	player.reparent(Layers[spawnLayer])
+	trail.reparent(Layers[spawnLayer]) #On ne peut pas la mettre dans le joueur directement car sinon ça ne marche plus
+	player.reparent(Layers[spawnLayer]) # Joueur après trail pour l'afficher devant celle-ci
 	if !isHome:
 		player.data.current_lvl = id
 		Main.get_node("CanvasLayer/Menus/MenuPause").canOpen = true
@@ -39,7 +41,7 @@ func _ready() -> void:
 	findRightSpawn()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player.canGoDeeper and Input.is_action_just_pressed("deeperLayer") and currentPlayerLayer < len(Layers)-1:
 		goToLayer(currentPlayerLayer+1)
 	elif player.canGoCloser and Input.is_action_just_pressed("closerLayer") and currentPlayerLayer > 0:
@@ -53,7 +55,7 @@ func _process(delta: float) -> void:
 
 func findRightSpawn():
 	var rightDoor:Door
-	var check:Checkpoint
+	var check:Checkpoint = null
 	for l in Layers:
 		for d in l.get_children().filter(func (x):if x.get_script() == preload("res://PART - BASE/SCRIPTS/door.gd"):return x):
 			if d.id_last_lvl == PlayerDataSaver.PlayerStats.last_lvl:
@@ -89,6 +91,7 @@ func goToLayer(layer:int = 0):
 		
 		if player.canGoDeeper == true and currentPlayerLayer < layer:
 			player.layerJump = true
+			trail.reparent(Layers[layer])
 			player.reparent(Layers[layer])
 			$AudioStreamPlayer.play()
 			if not Main.get_node("Globals Options").godmod_active:
@@ -116,6 +119,7 @@ func goToLayer(layer:int = 0):
 			
 		elif player.canGoCloser == true and currentPlayerLayer > layer:
 			player.layerJump = true
+			trail.reparent(Layers[layer])
 			player.reparent(Layers[layer])
 			$AudioStreamPlayer.play()
 			if not Main.get_node("Globals Options").godmod_active:

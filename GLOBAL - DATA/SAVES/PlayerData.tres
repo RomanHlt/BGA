@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PlayerData" format=3]
+
+[ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/playerStats.gd" id="1_ncy5k"]
+
+[resource]
+script = ExtResource("1_ncy5k")
+last_lvl = "1.1.0"

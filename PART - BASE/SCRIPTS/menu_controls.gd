@@ -20,12 +20,12 @@ func _ready() -> void:
 		runToggle = PlayerDataSaver.SettingsStats.runAsToggle
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	buttons = [$Right,$Left,$Deeper,$Closer,$Jump,$Dash]
-	controllerButtons = [$ControllerCloser,$ControllerDeeper,$ControllerJump,$ControllerRun,$ControllerDash]
+	controllerButtons = [$ControllerCloser,$ControllerDeeper,$ControllerJump,$ControllerRun]
 	updateControls()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("deeperLayer"):
 		print("deeper")
 	#Detection de l'action du joueur
@@ -62,7 +62,6 @@ func updateControls():
 	$ControllerCloser.text="Jump Closer: " + findKeyController("closerLayer")
 	$ControllerJump.text="Jump: " + findKeyController("jump")
 	$ControllerRun.text="Run: " + findKeyController("run")
-	$ControllerDash.text="Dash: " + findKeyController("dash")
 
 
 	
@@ -155,9 +154,6 @@ func _on_controller_jump_pressed() -> void:
 
 func _on_controller_run_pressed() -> void:
 	ListenController($ControllerRun, "run")
-
-func _on_controller_dash_pressed() -> void:
-	ListenController($ControllerDash, "dash")
 
 
 #Autres Boutons du menu

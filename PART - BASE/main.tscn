@@ -199,7 +199,7 @@ size = Vector2(40, 40)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1iuet"]
 size = Vector2(30, 30)
 
-[node name="MAIN" type="Control" unique_id=533552917]
+[node name="MAIN" type="Control" unique_id=2091982303]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -208,19 +208,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Globals Stats" type="Control" parent="." unique_id=2035293015]
+[node name="Globals Stats" type="Control" parent="." unique_id=1368664922]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_mhxmp")
 
-[node name="Globals Progres" type="Control" parent="." unique_id=1084359951]
+[node name="Globals Progres" type="Control" parent="." unique_id=352361659]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_vpaa8")
 
-[node name="Globals Levels" type="Control" parent="." unique_id=1552581702]
+[node name="Globals Levels" type="Control" parent="." unique_id=168618875]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -241,16 +241,16 @@ dico = {
 }
 loadscene_path = "res://LoadScreen.tscn"
 
-[node name="Globals Options" type="Control" parent="." unique_id=229376954]
+[node name="Globals Options" type="Control" parent="." unique_id=67793599]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_27q87")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=335026954]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1978081542]
 layer = 2
 
-[node name="Swap" type="ColorRect" parent="CanvasLayer" unique_id=1897953670]
+[node name="Swap" type="ColorRect" parent="CanvasLayer" unique_id=521383185]
 visible = false
 material = SubResource("ShaderMaterial_b3eih")
 anchors_preset = 15
@@ -260,7 +260,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Clock" type="Label" parent="CanvasLayer" unique_id=985532248]
+[node name="Clock" type="Label" parent="CanvasLayer" unique_id=1422225328]
 visible = false
 anchors_preset = 2
 anchor_top = 1.0
@@ -274,20 +274,20 @@ text = "00.00"
 label_settings = SubResource("LabelSettings_hkfqr")
 script = ExtResource("5_b55tt")
 
-[node name="Menus" type="Control" parent="CanvasLayer" unique_id=942037668]
+[node name="Menus" type="Control" parent="CanvasLayer" unique_id=241969090]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="MenuAccueil" type="Control" parent="CanvasLayer/Menus" unique_id=1828325268]
+[node name="MenuAccueil" type="Control" parent="CanvasLayer/Menus" unique_id=1555688175]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("6_mcu2i")
 
-[node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuAccueil" unique_id=58215635]
+[node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuAccueil" unique_id=1491074400]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -302,7 +302,7 @@ text = "BARRY'S GREAT ADVENTURE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Load" type="Button" parent="CanvasLayer/Menus/MenuAccueil" unique_id=1338647560]
+[node name="Load" type="Button" parent="CanvasLayer/Menus/MenuAccueil" unique_id=949330340]
 layout_mode = 0
 offset_left = 205.0
 offset_top = 257.0
@@ -312,7 +312,7 @@ focus_neighbor_bottom = NodePath("../Settings")
 text = "Load
 "
 
-[node name="Settings" type="Button" parent="CanvasLayer/Menus/MenuAccueil" unique_id=1308663803]
+[node name="Settings" type="Button" parent="CanvasLayer/Menus/MenuAccueil" unique_id=21603457]
 layout_mode = 0
 offset_left = 205.0
 offset_top = 301.0
@@ -322,7 +322,7 @@ focus_neighbor_top = NodePath("../Load")
 focus_neighbor_bottom = NodePath("../NewGame")
 text = "Settings"
 
-[node name="NewGame" type="Button" parent="CanvasLayer/Menus/MenuAccueil" unique_id=1713699502]
+[node name="NewGame" type="Button" parent="CanvasLayer/Menus/MenuAccueil" unique_id=389110484]
 layout_mode = 0
 offset_left = 205.0
 offset_top = 344.0
@@ -332,7 +332,7 @@ focus_neighbor_top = NodePath("../Settings")
 text = "New Game
 "
 
-[node name="CheckBox" type="CheckBox" parent="CanvasLayer/Menus/MenuAccueil" unique_id=678092033]
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer/Menus/MenuAccueil" unique_id=364795353]
 layout_mode = 0
 offset_left = 1046.0
 offset_top = 15.0
@@ -345,14 +345,14 @@ theme_override_icons/unchecked = ExtResource("8_ciay0")
 text = "
 "
 
-[node name="MenuPause" type="Control" parent="CanvasLayer/Menus" unique_id=899994061]
+[node name="MenuPause" type="Control" parent="CanvasLayer/Menus" unique_id=1826481396]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("8_3p656")
 
-[node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuPause" unique_id=1577495443]
+[node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuPause" unique_id=169483076]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -367,7 +367,7 @@ text = "BARRY'S GREAT ADVENTURE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Resume" type="Button" parent="CanvasLayer/Menus/MenuPause" unique_id=395643507]
+[node name="Resume" type="Button" parent="CanvasLayer/Menus/MenuPause" unique_id=1962458032]
 layout_mode = 0
 offset_left = 196.0
 offset_top = 256.0
@@ -375,7 +375,7 @@ offset_right = 266.0
 offset_bottom = 287.0
 text = "Resume"
 
-[node name="Settings" type="Button" parent="CanvasLayer/Menus/MenuPause" unique_id=1257735927]
+[node name="Settings" type="Button" parent="CanvasLayer/Menus/MenuPause" unique_id=1384021504]
 layout_mode = 0
 offset_left = 196.0
 offset_top = 301.0
@@ -383,7 +383,7 @@ offset_right = 266.0
 offset_bottom = 332.0
 text = "Settings"
 
-[node name="Quit" type="Button" parent="CanvasLayer/Menus/MenuPause" unique_id=143959446]
+[node name="Quit" type="Button" parent="CanvasLayer/Menus/MenuPause" unique_id=683795919]
 layout_mode = 0
 offset_left = 196.0
 offset_top = 344.0
@@ -391,7 +391,7 @@ offset_right = 238.0
 offset_bottom = 375.0
 text = "Quit"
 
-[node name="MenuSettings" type="Control" parent="CanvasLayer/Menus" unique_id=1218442537 node_paths=PackedStringArray("musicPlayer")]
+[node name="MenuSettings" type="Control" parent="CanvasLayer/Menus" unique_id=617679224 node_paths=PackedStringArray("musicPlayer")]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
@@ -399,7 +399,7 @@ offset_bottom = 40.0
 script = ExtResource("9_lkxfd")
 musicPlayer = NodePath("../../../AudioStreamPlayer")
 
-[node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuSettings" unique_id=572626517]
+[node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuSettings" unique_id=1765948937]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -414,7 +414,7 @@ text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Back" type="Button" parent="CanvasLayer/Menus/MenuSettings" unique_id=35420008]
+[node name="Back" type="Button" parent="CanvasLayer/Menus/MenuSettings" unique_id=2037391986]
 layout_mode = 0
 offset_left = 196.0
 offset_top = 344.0
@@ -422,7 +422,7 @@ offset_right = 241.0
 offset_bottom = 375.0
 text = "Back"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/Menus/MenuSettings" unique_id=1744117109]
+[node name="HSlider" type="HSlider" parent="CanvasLayer/Menus/MenuSettings" unique_id=1200803919]
 clip_contents = true
 layout_mode = 0
 offset_left = 310.0
@@ -434,7 +434,7 @@ min_value = -80.0
 max_value = -20.0
 value = -30.0
 
-[node name="CheckButton" type="CheckButton" parent="CanvasLayer/Menus/MenuSettings" unique_id=71943016]
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer/Menus/MenuSettings" unique_id=1526944962]
 layout_mode = 0
 offset_left = 195.0
 offset_top = 220.0
@@ -444,7 +444,7 @@ focus_neighbor_right = NodePath("../HSlider")
 button_pressed = true
 text = "Sounds"
 
-[node name="MusicSlider2" type="HSlider" parent="CanvasLayer/Menus/MenuSettings" unique_id=457435072]
+[node name="MusicSlider2" type="HSlider" parent="CanvasLayer/Menus/MenuSettings" unique_id=400651747]
 clip_contents = true
 layout_mode = 0
 offset_left = 310.0
@@ -456,7 +456,7 @@ min_value = -80.0
 max_value = -20.0
 value = -30.0
 
-[node name="MusicButton2" type="CheckButton" parent="CanvasLayer/Menus/MenuSettings" unique_id=170096946]
+[node name="MusicButton2" type="CheckButton" parent="CanvasLayer/Menus/MenuSettings" unique_id=1663140067]
 layout_mode = 0
 offset_left = 195.0
 offset_top = 264.0
@@ -466,7 +466,7 @@ focus_neighbor_right = NodePath("../MusicSlider2")
 button_pressed = true
 text = "Music"
 
-[node name="CheckBox" type="CheckBox" parent="CanvasLayer/Menus/MenuSettings" unique_id=1490941467]
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer/Menus/MenuSettings" unique_id=284027314]
 layout_mode = 0
 offset_left = 853.0
 offset_top = 550.0
@@ -475,7 +475,7 @@ offset_bottom = 581.0
 button_pressed = true
 text = "SpeedRun Mode"
 
-[node name="Controls" type="Button" parent="CanvasLayer/Menus/MenuSettings" unique_id=394355298]
+[node name="Controls" type="Button" parent="CanvasLayer/Menus/MenuSettings" unique_id=509314331]
 layout_mode = 0
 offset_left = 196.0
 offset_top = 299.0
@@ -483,14 +483,14 @@ offset_right = 270.0
 offset_bottom = 330.0
 text = "Controls"
 
-[node name="MenuControls" type="Control" parent="CanvasLayer/Menus" unique_id=918274135]
+[node name="MenuControls" type="Control" parent="CanvasLayer/Menus" unique_id=438584238]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("10_uidfn")
 
-[node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuControls" unique_id=659196663]
+[node name="Titre" type="Label" parent="CanvasLayer/Menus/MenuControls" unique_id=1872864435]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -505,7 +505,7 @@ text = "Controls"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LabelKeyboard" type="Label" parent="CanvasLayer/Menus/MenuControls" unique_id=733987368]
+[node name="LabelKeyboard" type="Label" parent="CanvasLayer/Menus/MenuControls" unique_id=92585545]
 layout_mode = 0
 offset_left = 203.0
 offset_top = 175.0
@@ -514,7 +514,7 @@ offset_bottom = 220.0
 text = "Keyboard"
 label_settings = SubResource("LabelSettings_x1s3k")
 
-[node name="LabelController" type="Label" parent="CanvasLayer/Menus/MenuControls" unique_id=472536516]
+[node name="LabelController" type="Label" parent="CanvasLayer/Menus/MenuControls" unique_id=314278035]
 layout_mode = 0
 offset_left = 603.0
 offset_top = 175.0
@@ -523,7 +523,7 @@ offset_bottom = 220.0
 text = "Controller"
 label_settings = SubResource("LabelSettings_x1s3k")
 
-[node name="Right" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=985820990]
+[node name="Right" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=1701140187]
 layout_mode = 0
 offset_left = 203.0
 offset_top = 228.0
@@ -531,7 +531,7 @@ offset_right = 299.0
 offset_bottom = 259.0
 text = "-----------------"
 
-[node name="Left" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=2065011753]
+[node name="Left" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=1271480298]
 layout_mode = 0
 offset_left = 202.0
 offset_top = 268.0
@@ -539,7 +539,7 @@ offset_right = 298.0
 offset_bottom = 299.0
 text = "-----------------"
 
-[node name="Deeper" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=1061400961]
+[node name="Deeper" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=979128786]
 layout_mode = 0
 offset_left = 202.0
 offset_top = 309.0
@@ -547,7 +547,7 @@ offset_right = 298.0
 offset_bottom = 340.0
 text = "-----------------"
 
-[node name="Closer" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=1711123577]
+[node name="Closer" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=1029213928]
 layout_mode = 0
 offset_left = 202.0
 offset_top = 350.0
@@ -555,7 +555,7 @@ offset_right = 298.0
 offset_bottom = 381.0
 text = "-----------------"
 
-[node name="Jump" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=1808204579]
+[node name="Jump" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=2012575195]
 layout_mode = 0
 offset_left = 202.0
 offset_top = 390.0
@@ -563,7 +563,7 @@ offset_right = 298.0
 offset_bottom = 421.0
 text = "-----------------"
 
-[node name="Back" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=1426333858]
+[node name="Back" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=1653468431]
 layout_mode = 0
 offset_left = 202.0
 offset_top = 464.0
@@ -571,7 +571,7 @@ offset_right = 247.0
 offset_bottom = 495.0
 text = "Back"
 
-[node name="ControllerDeeper" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=62837209]
+[node name="ControllerDeeper" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=866221221]
 layout_mode = 0
 offset_left = 603.0
 offset_top = 309.0
@@ -580,7 +580,7 @@ offset_bottom = 340.0
 disabled = true
 text = "-----------------"
 
-[node name="ControllerCloser" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=1877750797]
+[node name="ControllerCloser" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=860343700]
 layout_mode = 0
 offset_left = 603.0
 offset_top = 350.0
@@ -589,7 +589,7 @@ offset_bottom = 381.0
 disabled = true
 text = "-----------------"
 
-[node name="ControllerRun" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=1646814963]
+[node name="ControllerRun" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=883538391]
 layout_mode = 0
 offset_left = 603.0
 offset_top = 265.0
@@ -598,7 +598,7 @@ offset_bottom = 296.0
 disabled = true
 text = "-----------------"
 
-[node name="ControllerJump" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=2129447813]
+[node name="ControllerJump" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=1906953080]
 layout_mode = 0
 offset_left = 603.0
 offset_top = 390.0
@@ -607,16 +607,7 @@ offset_bottom = 421.0
 disabled = true
 text = "-----------------"
 
-[node name="ControllerDash" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=168275807]
-layout_mode = 0
-offset_left = 603.0
-offset_top = 430.0
-offset_right = 699.0
-offset_bottom = 461.0
-disabled = true
-text = "-----------------"
-
-[node name="Dash" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=706316005]
+[node name="Dash" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=1812830031]
 layout_mode = 0
 offset_left = 415.0
 offset_top = 228.0
@@ -624,7 +615,7 @@ offset_right = 511.0
 offset_bottom = 259.0
 text = "-----------------"
 
-[node name="Reset" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=1044508870]
+[node name="Reset" type="Button" parent="CanvasLayer/Menus/MenuControls" unique_id=1219363259]
 layout_mode = 0
 offset_left = 202.0
 offset_top = 427.0
@@ -632,7 +623,7 @@ offset_right = 333.0
 offset_bottom = 458.0
 text = "Reset to default"
 
-[node name="Run Toggle" type="CheckButton" parent="CanvasLayer/Menus/MenuControls" unique_id=975527419]
+[node name="Run Toggle" type="CheckButton" parent="CanvasLayer/Menus/MenuControls" unique_id=121042180]
 layout_mode = 0
 offset_left = 339.0
 offset_top = 427.0
@@ -640,7 +631,7 @@ offset_right = 473.0
 offset_bottom = 458.0
 text = "Run Toggle"
 
-[node name="Fondu" type="ColorRect" parent="CanvasLayer" unique_id=711362096]
+[node name="Fondu" type="ColorRect" parent="CanvasLayer" unique_id=1883215306]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -651,10 +642,10 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0)
 script = ExtResource("11_pxm00")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Fondu" unique_id=749969281]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Fondu" unique_id=62238828]
 position = Vector2(575, 323)
 
-[node name="Background" type="TextureRect" parent="CanvasLayer/Fondu" unique_id=2012316839]
+[node name="Background" type="TextureRect" parent="CanvasLayer/Fondu" unique_id=1037535874]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -667,7 +658,7 @@ scale = Vector2(0.5, 0.5)
 mouse_filter = 2
 texture = ExtResource("14_qvbls")
 
-[node name="Titre" type="Label" parent="CanvasLayer/Fondu" unique_id=1607334366]
+[node name="Titre" type="Label" parent="CanvasLayer/Fondu" unique_id=90368909]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -679,7 +670,7 @@ text = "Titre"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sous titre" type="Label" parent="CanvasLayer/Fondu" unique_id=1729762836]
+[node name="Sous titre" type="Label" parent="CanvasLayer/Fondu" unique_id=657124946]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -695,7 +686,7 @@ text = "Sous titre"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Loading" type="Control" parent="CanvasLayer/Fondu" unique_id=474568115]
+[node name="Loading" type="Control" parent="CanvasLayer/Fondu" unique_id=2044089805]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -709,7 +700,7 @@ offset_bottom = -48.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Fondu/Loading" unique_id=84803762]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Fondu/Loading" unique_id=1487147250]
 texture_filter = 1
 texture = ExtResource("12_xyxh5")
 hframes = 3
@@ -731,13 +722,13 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "a8cd9817894744c8baf064df5108fa46"
 
-[node name="LoadingPlayer" type="AnimationPlayer" parent="CanvasLayer/Fondu" unique_id=558580571]
+[node name="LoadingPlayer" type="AnimationPlayer" parent="CanvasLayer/Fondu" unique_id=1052111163]
 libraries/ = SubResource("AnimationLibrary_mh7ui")
 
-[node name="FonduPlayer" type="AnimationPlayer" parent="CanvasLayer/Fondu" unique_id=1555217801]
+[node name="FonduPlayer" type="AnimationPlayer" parent="CanvasLayer/Fondu" unique_id=2059672374]
 libraries/ = SubResource("AnimationLibrary_kdqog")
 
-[node name="Dead" type="ColorRect" parent="CanvasLayer" unique_id=219761659]
+[node name="Dead" type="ColorRect" parent="CanvasLayer" unique_id=864961535]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -747,11 +738,10 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0)
 script = ExtResource("13_q0hjm")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Dead" unique_id=1610083143]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Dead" unique_id=1979308263]
 libraries/ = SubResource("AnimationLibrary_ky16c")
 
-[node name="VirtualController" type="Control" parent="CanvasLayer" unique_id=1734186884]
-visible = false
+[node name="VirtualController" type="Control" parent="CanvasLayer" unique_id=68025314]
 modulate = Color(1, 1, 1, 0.635294)
 layout_mode = 3
 anchors_preset = 0
@@ -759,7 +749,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("14_q8g5t")
 
-[node name="closer" type="TouchScreenButton" parent="CanvasLayer/VirtualController" unique_id=1445519005]
+[node name="closer" type="TouchScreenButton" parent="CanvasLayer/VirtualController" unique_id=1762525989]
 position = Vector2(1004, 510)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("25_f4d58")
@@ -768,7 +758,7 @@ shape = SubResource("RectangleShape2D_ol1mu")
 passby_press = true
 visibility_mode = 1
 
-[node name="runToggle" type="TouchScreenButton" parent="CanvasLayer/VirtualController" unique_id=1282544241]
+[node name="runToggle" type="TouchScreenButton" parent="CanvasLayer/VirtualController" unique_id=141968327]
 position = Vector2(30, 370)
 scale = Vector2(2, 2)
 texture_normal = ExtResource("19_f0slm")
@@ -776,7 +766,7 @@ texture_pressed = ExtResource("20_2ww6i")
 shape = SubResource("CircleShape2D_sf5rr")
 visibility_mode = 1
 
-[node name="deeper" type="TouchScreenButton" parent="CanvasLayer/VirtualController" unique_id=985770221]
+[node name="deeper" type="TouchScreenButton" parent="CanvasLayer/VirtualController" unique_id=1080220853]
 position = Vector2(1004, 310)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("23_qpc4c")
@@ -785,7 +775,7 @@ shape = SubResource("RectangleShape2D_opsdv")
 passby_press = true
 visibility_mode = 1
 
-[node name="right" type="TouchScreenButton" parent="CanvasLayer/VirtualController" unique_id=1562832868]
+[node name="right" type="TouchScreenButton" parent="CanvasLayer/VirtualController" unique_id=935610178]
 position = Vector2(247, 448)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("15_vd2si")
@@ -794,7 +784,7 @@ shape = SubResource("RectangleShape2D_sn18e")
 passby_press = true
 visibility_mode = 1
 
-[node name="left" type="TouchScreenButton" parent="CanvasLayer/VirtualController" unique_id=331493301]
+[node name="left" type="TouchScreenButton" parent="CanvasLayer/VirtualController" unique_id=1768275548]
 position = Vector2(111, 448)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("19_qp4e5")
@@ -803,7 +793,7 @@ shape = SubResource("RectangleShape2D_7g5je")
 passby_press = true
 visibility_mode = 1
 
-[node name="jump" type="TouchScreenButton" parent="CanvasLayer/VirtualController" unique_id=1524920860]
+[node name="jump" type="TouchScreenButton" parent="CanvasLayer/VirtualController" unique_id=1370199256]
 position = Vector2(1004, 410)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("19_1x408")
@@ -812,7 +802,7 @@ shape = SubResource("RectangleShape2D_1iuet")
 passby_press = true
 visibility_mode = 1
 
-[node name="Interact" type="TouchScreenButton" parent="CanvasLayer/VirtualController" unique_id=175067142]
+[node name="Interact" type="TouchScreenButton" parent="CanvasLayer/VirtualController" unique_id=1834951809]
 position = Vector2(904, 410)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("27_ugl23")
@@ -820,7 +810,7 @@ texture_pressed = ExtResource("28_udacs")
 passby_press = true
 visibility_mode = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/VirtualController" unique_id=1385478041]
+[node name="Button" type="Button" parent="CanvasLayer/VirtualController" unique_id=1485416991]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -833,7 +823,7 @@ grow_horizontal = 2
 focus_mode = 0
 text = "|||"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=331573302]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=796852098]
 stream = ExtResource("14_ii25n")
 volume_db = -20.0
 autoplay = true
@@ -877,7 +867,6 @@ autoplay = true
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/ControllerCloser" to="CanvasLayer/Menus/MenuControls" method="_on_controller_closer_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/ControllerRun" to="CanvasLayer/Menus/MenuControls" method="_on_controller_run_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/ControllerJump" to="CanvasLayer/Menus/MenuControls" method="_on_controller_jump_pressed"]
-[connection signal="pressed" from="CanvasLayer/Menus/MenuControls/ControllerDash" to="CanvasLayer/Menus/MenuControls" method="_on_controller_dash_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Dash" to="CanvasLayer/Menus/MenuControls" method="_on_dash_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Reset" to="CanvasLayer/Menus/MenuControls" method="_on_reset_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Run Toggle" to="CanvasLayer/Menus/MenuControls" method="_on_run_toggle_pressed"]

@@ -16,7 +16,7 @@ func _ready() -> void:
 		Main.get_node("CanvasLayer/VirtualController").hide()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if ! PlayerDataSaver.dataExist:
 		$Load.disabled = true
 	else:
