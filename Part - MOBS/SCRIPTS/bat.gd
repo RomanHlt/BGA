@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export_category("Nodes")
 @export var layer:int = 0
-@export var SPEED : float
+@export var SPEED : float = 40
 @export var health_max : int = 3
 var health : int
 var animatedSprite:AnimatedSprite2D
@@ -55,16 +55,16 @@ func _process(delta: float) -> void:
 	move_and_slide()
 
 
-func _move(delta):
+func _move(_delta):
 	if is_sleeping or is_hurt or dead:
 		velocity = Vector2(0,0)
 	elif is_chasing:
 		direction.x = sign(target.position.x - position.x)
 		direction.y = sign(target.position.y - position.y -20)
 		direction = Vector2(direction.x, direction.y)
-		velocity = direction * SPEED * delta
+		velocity = direction * SPEED
 	if !is_sleeping and !is_hurt and !dead and !is_chasing and !is_attacking:
-		velocity = direction * SPEED * delta
+		velocity = direction * SPEED
 
 
 func _on_direction_timer_timeout() -> void:
