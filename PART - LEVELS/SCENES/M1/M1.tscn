@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dlfn886463mqm" path="res://PART - LEVELS/SCENES/M1/scripts M1/spawn déplacement.gd" id="11_y8xlq"]
 [ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="12_41ggo"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="14_e4u6r"]
+[ext_resource type="PackedScene" uid="uid://dlpi26fbfayf3" path="res://PART - OBJECTS/SCENES/Déco/grass.tscn" id="14_pu2tx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tx87n"]
 size = Vector2(21, 79)
@@ -72,6 +73,27 @@ id_last_lvl = "1.4.0"
 titre = "Monde 1"
 sous_titre = "Repère du sanglier"
 
+[node name="Grass" parent="TileMapLayer" unique_id=1833255821 instance=ExtResource("14_pu2tx")]
+position = Vector2(-47, 9)
+
+[node name="Grass2" parent="TileMapLayer" unique_id=1184927765 instance=ExtResource("14_pu2tx")]
+position = Vector2(-28, 9)
+
+[node name="Grass3" parent="TileMapLayer" unique_id=2084102144 instance=ExtResource("14_pu2tx")]
+position = Vector2(28, 9)
+
+[node name="Grass4" parent="TileMapLayer" unique_id=782487428 instance=ExtResource("14_pu2tx")]
+position = Vector2(42, 9)
+
+[node name="Grass5" parent="TileMapLayer" unique_id=794247172 instance=ExtResource("14_pu2tx")]
+position = Vector2(148, -7)
+
+[node name="Grass6" parent="TileMapLayer" unique_id=105851213 instance=ExtResource("14_pu2tx")]
+position = Vector2(166, 9)
+
+[node name="Grass7" parent="TileMapLayer" unique_id=476139921 instance=ExtResource("14_pu2tx")]
+position = Vector2(183, 9)
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1026615826]
 modulate = Color(0.517647, 0.517647, 0.517647, 1)
 light_mask = 2
@@ -96,6 +118,9 @@ id_next_lvl = "2.0.0"
 id_last_lvl = "2.0.0"
 id_unlocked_lvl = "2.1.0"
 titre = "Direction Monde 2"
+
+[node name="Grass8" parent="TileMapLayer2" unique_id=870249686 instance=ExtResource("14_pu2tx")]
+position = Vector2(165, -55)
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="." unique_id=1422068812]
 modulate = Color(0.305882, 0.305882, 0.305882, 1)
