@@ -1,6 +1,6 @@
-[gd_scene load_steps=174 format=3 uid="uid://0xlb2up47lnn"]
+[gd_scene format=3 uid="uid://0xlb2up47lnn"]
 
-[ext_resource type="Script" path="res://PART - MOBS/SCRIPTS/bat.gd" id="1_ex5ae"]
+[ext_resource type="Script" uid="uid://cepi0st7ceqkm" path="res://PART - MOBS/SCRIPTS/bat.gd" id="1_ex5ae"]
 [ext_resource type="Texture2D" uid="uid://bb18btju7a37e" path="res://PART - MOBS/ASSETS/Bat/Zombie/BatZombie_Attack.png" id="1_j1obv"]
 [ext_resource type="Texture2D" uid="uid://j1rpk1laquwv" path="res://PART - MOBS/ASSETS/Bat/Zombie/BatZombie_Death.png" id="2_y84jl"]
 [ext_resource type="Texture2D" uid="uid://cdqmamtjryvr2" path="res://PART - MOBS/ASSETS/Bat/Zombie/BatZombie_Flying.png" id="3_isgx6"]
@@ -1136,65 +1136,64 @@ size = Vector2(11, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lavbg"]
 size = Vector2(9, 3)
 
-[node name="bat" type="CharacterBody2D"]
+[node name="bat" type="CharacterBody2D" unique_id=112687986]
 script = ExtResource("1_ex5ae")
-SPEED = 3000.0
 
-[node name="Fire" type="AnimatedSprite2D" parent="."]
+[node name="Fire" type="AnimatedSprite2D" parent="." unique_id=1822826527]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7t2yo")
 animation = &"flying"
 
-[node name="Albino" type="AnimatedSprite2D" parent="."]
+[node name="Albino" type="AnimatedSprite2D" parent="." unique_id=468120907]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1sj5l")
 animation = &"hurt"
 
-[node name="Root" type="AnimatedSprite2D" parent="."]
+[node name="Root" type="AnimatedSprite2D" parent="." unique_id=2140922560]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nvqm8")
 animation = &"hurt"
 
-[node name="Standart" type="AnimatedSprite2D" parent="."]
+[node name="Standart" type="AnimatedSprite2D" parent="." unique_id=1896301228]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_102fq")
 animation = &"hurt"
 
-[node name="Vampire" type="AnimatedSprite2D" parent="."]
+[node name="Vampire" type="AnimatedSprite2D" parent="." unique_id=1768283540]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_rqruc")
 animation = &"hurt"
 
-[node name="Zombie" type="AnimatedSprite2D" parent="."]
+[node name="Zombie" type="AnimatedSprite2D" parent="." unique_id=523684078]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qm0vy")
 animation = &"hurt"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=601310466]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_fxfyv")
 
-[node name="DetectionPlayer" type="Area2D" parent="."]
+[node name="DetectionPlayer" type="Area2D" parent="." unique_id=512941286]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionPlayer"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionPlayer" unique_id=1224271283]
 shape = SubResource("CircleShape2D_w7jto")
 debug_color = Color(0, 0.6, 0.701961, 0.0196078)
 
-[node name="AttackArea" type="Area2D" parent="."]
+[node name="AttackArea" type="Area2D" parent="." unique_id=1997955495]
 modulate = Color(0.904563, 0.57404, 0.336438, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1498634991]
 position = Vector2(0.5, 3)
 shape = SubResource("RectangleShape2D_i18kr")
 
-[node name="TakingDamage" type="Area2D" parent="."]
+[node name="TakingDamage" type="Area2D" parent="." unique_id=560394993]
 modulate = Color(0.44682, 0.739083, 0.384082, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TakingDamage"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TakingDamage" unique_id=1220979620]
 position = Vector2(0.5, -4.5)
 shape = SubResource("RectangleShape2D_lavbg")
 
-[node name="DirectionTimer" type="Timer" parent="."]
+[node name="DirectionTimer" type="Timer" parent="." unique_id=1801896277]
 autostart = true
 
 [connection signal="body_entered" from="DetectionPlayer" to="." method="_on_detection_player_body_entered"]
