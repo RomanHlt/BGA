@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bb18btju7a37e"
-path="res://.godot/imported/BatZombie_Attack.png-7813fd05e9c9ddcefe97c8407ff1d68c.ctex"
+path="res://.godot/imported/BatZombie_Attack.png-c243671664d6408471415074a7f98fa2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - MOBS/ASSETS/Bat/Zombie/BatZombie_Attack.png"
-dest_files=["res://.godot/imported/BatZombie_Attack.png-7813fd05e9c9ddcefe97c8407ff1d68c.ctex"]
+source_file="res://Part - MOBS/ASSETS/Bat/Zombie/BatZombie_Attack.png"
+dest_files=["res://.godot/imported/BatZombie_Attack.png-c243671664d6408471415074a7f98fa2.ctex"]
 
 [params]
 

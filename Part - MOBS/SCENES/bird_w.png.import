@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b42a7u8c7o4on"
-path="res://.godot/imported/bird_w.png-5a2dd977d6ddefe04777e36649479de6.ctex"
+path="res://.godot/imported/bird_w.png-8ff02d94798d961aba16192a8f95f169.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - MOBS/SCENES/bird_w.png"
-dest_files=["res://.godot/imported/bird_w.png-5a2dd977d6ddefe04777e36649479de6.ctex"]
+source_file="res://Part - MOBS/SCENES/bird_w.png"
+dest_files=["res://.godot/imported/bird_w.png-8ff02d94798d961aba16192a8f95f169.ctex"]
 
 [params]
 

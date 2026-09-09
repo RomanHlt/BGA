@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mfqwgt6dnopg"
-path="res://.godot/imported/BatRoot_Death.png-be5f0912825c57a268c4eae06f3b2ff0.ctex"
+path="res://.godot/imported/BatRoot_Death.png-2302d5aea07565dd8de52c34539f0c9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - MOBS/ASSETS/Bat/Root/BatRoot_Death.png"
-dest_files=["res://.godot/imported/BatRoot_Death.png-be5f0912825c57a268c4eae06f3b2ff0.ctex"]
+source_file="res://Part - MOBS/ASSETS/Bat/Root/BatRoot_Death.png"
+dest_files=["res://.godot/imported/BatRoot_Death.png-2302d5aea07565dd8de52c34539f0c9a.ctex"]
 
 [params]
 
