@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://txojcsld0hlt"
-path="res://.godot/imported/smoke.png-27df3c19745e2367363bb8e3589684ce.ctex"
+path="res://.godot/imported/smoke.png-99629e6b84e6fc1c5382d0c11d2666ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - MOBS/ASSETS/smoke.png"
-dest_files=["res://.godot/imported/smoke.png-27df3c19745e2367363bb8e3589684ce.ctex"]
+source_file="res://Part - MOBS/ASSETS/smoke.png"
+dest_files=["res://.godot/imported/smoke.png-99629e6b84e6fc1c5382d0c11d2666ee.ctex"]
 
 [params]
 
