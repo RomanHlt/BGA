@@ -1511,7 +1511,7 @@ glow_bloom = 0.2
 
 [node name="Map" type="Node2D" unique_id=929465540 node_paths=PackedStringArray("player", "trail")]
 script = ExtResource("1_3lpdn")
-id = "2.9.9"
+id = "2.0.0"
 player = NodePath("Player")
 trail = NodePath("Trail")
 
@@ -1598,20 +1598,15 @@ tile_map_data = PackedByteArray("AAANAAIAAwAFAAIAAAANAAEAAwACAAEAAAANAAAAAwACAAE
 tile_set = ExtResource("4_xjjus")
 
 [node name="door" parent="TileMapLayer" unique_id=1512415947 instance=ExtResource("5_8rln3")]
-visible = false
 position = Vector2(-125, -31)
-isHub = false
-isDecorative = true
-id_next_lvl = "2.1.0"
-id_last_lvl = "2.1.0"
+hideNote = true
+id_next_lvl = "1.0.0"
+id_last_lvl = "2.0.0"
 titre = "Monde 2"
 sous_titre = "Niveau 1 | Ascension"
 
 [node name="door2" parent="TileMapLayer" unique_id=216776214 instance=ExtResource("5_8rln3")]
-visible = false
 position = Vector2(-45, -31)
-isHub = false
-isDecorative = true
 id_next_lvl = "2.2.0"
 id_last_lvl = "2.2.0"
 titre = "Monde 2"
@@ -1619,8 +1614,6 @@ sous_titre = "Niveau 2 | Chute"
 
 [node name="door3" parent="TileMapLayer" unique_id=1947749237 instance=ExtResource("5_8rln3")]
 position = Vector2(47, -31)
-isHub = false
-isDecorative = true
 id_next_lvl = "2.3.0"
 id_last_lvl = "2.3.0"
 titre = "Monde 2"
