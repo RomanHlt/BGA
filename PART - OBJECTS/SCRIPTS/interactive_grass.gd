@@ -6,8 +6,9 @@ extends Area2D
 
 func _ready() -> void:
 	collision_mask = 2**abs(get_parent().z_index)
+
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if (body is Player):
 		var direction = global_position.direction_to(body.global_position)
 		var skew : int = -direction.x * skewValue
 		
@@ -25,5 +26,4 @@ func _on_body_entered(body: Node2D) -> void:
 			0.0,
 			grassReturnAnimationSpeed
 			).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
-		
 		

@@ -114,13 +114,22 @@ modulate = Color(0.862331, 0.850805, 0.610944, 1)
 position = Vector2(372, -63)
 layer = 1
 hideNote = true
-id_next_lvl = "2.0.0"
-id_last_lvl = "2.0.0"
+id_next_lvl = "2.9.9"
+id_last_lvl = "2.9.9"
 id_unlocked_lvl = "2.1.0"
 titre = "Direction Monde 2"
 
 [node name="Grass8" parent="TileMapLayer2" unique_id=870249686 instance=ExtResource("14_pu2tx")]
 position = Vector2(165, -55)
+
+[node name="Grass9" parent="TileMapLayer2" unique_id=1944129977 instance=ExtResource("14_pu2tx")]
+position = Vector2(149, -55)
+
+[node name="Grass10" parent="TileMapLayer2" unique_id=691888831 instance=ExtResource("14_pu2tx")]
+position = Vector2(195, -39)
+
+[node name="Grass11" parent="TileMapLayer2" unique_id=944672011 instance=ExtResource("14_pu2tx")]
+position = Vector2(206, -39)
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="." unique_id=1422068812]
 modulate = Color(0.305882, 0.305882, 0.305882, 1)

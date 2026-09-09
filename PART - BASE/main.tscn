@@ -237,6 +237,7 @@ dico = {
 "2.1.0": "res://PART - LEVELS/SCENES/M2/M2L1.tscn",
 "2.2.0": "res://PART - LEVELS/SCENES/M2/M2L2.tscn",
 "2.3.0": "res://PART - LEVELS/SCENES/M2/M2L3.tscn",
+"2.9.9": "res://PART - LEVELS/SCENES/M999/M2-end.tscn",
 "999.0.0": "res://PART - LEVELS/SCENES/M999/End.tscn"
 }
 loadscene_path = "res://LoadScreen.tscn"

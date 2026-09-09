@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b5avw4mcm3obf" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/8.png" id="10_ihhs8"]
 [ext_resource type="PackedScene" uid="uid://cf2hmbbroucx1" path="res://PART - OBJECTS/SCENES/Others/TraversablePlatform.tscn" id="10_jsikg"]
 [ext_resource type="TileSet" uid="uid://cbciknwsoi8fp" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_3x3_2.tres" id="11_jmj26"]
+[ext_resource type="PackedScene" uid="uid://dlpi26fbfayf3" path="res://PART - OBJECTS/SCENES/Déco/grass.tscn" id="11_ri3yk"]
 [ext_resource type="PackedScene" uid="uid://ddkfyhcivyb8" path="res://PART - OBJECTS/SCENES/Déco/torch.tscn" id="12_op6xw"]
 [ext_resource type="TileSet" uid="uid://cncncabcbcycn" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_3x3_3.tres" id="12_ri3yk"]
 [ext_resource type="TileSet" uid="uid://dl8gsucl5wgkm" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_3x3_4.tres" id="13_qnqmb"]
@@ -138,6 +139,48 @@ position = Vector2(492, -714)
 texture = ExtResource("10_ihhs8")
 flip_h = true
 
+[node name="Grass22" parent="TileMapLayer" unique_id=1833255821 instance=ExtResource("11_ri3yk")]
+position = Vector2(347, -807)
+
+[node name="Grass23" parent="TileMapLayer" unique_id=812893674 instance=ExtResource("11_ri3yk")]
+position = Vector2(361, -807)
+
+[node name="Grass24" parent="TileMapLayer" unique_id=1570593991 instance=ExtResource("11_ri3yk")]
+position = Vector2(369, -807)
+
+[node name="Grass25" parent="TileMapLayer" unique_id=1658011344 instance=ExtResource("11_ri3yk")]
+position = Vector2(378, -807)
+
+[node name="Grass26" parent="TileMapLayer" unique_id=1459202689 instance=ExtResource("11_ri3yk")]
+position = Vector2(410, -823)
+
+[node name="Grass27" parent="TileMapLayer" unique_id=1937176153 instance=ExtResource("11_ri3yk")]
+position = Vector2(490, -855)
+
+[node name="Grass28" parent="TileMapLayer" unique_id=1049967562 instance=ExtResource("11_ri3yk")]
+position = Vector2(479, -855)
+
+[node name="Grass29" parent="TileMapLayer" unique_id=474895791 instance=ExtResource("11_ri3yk")]
+position = Vector2(554, -887)
+
+[node name="Grass30" parent="TileMapLayer" unique_id=332863336 instance=ExtResource("11_ri3yk")]
+position = Vector2(540, -887)
+
+[node name="Grass31" parent="TileMapLayer" unique_id=1733076835 instance=ExtResource("11_ri3yk")]
+position = Vector2(102, -951)
+
+[node name="Grass32" parent="TileMapLayer" unique_id=980145929 instance=ExtResource("11_ri3yk")]
+position = Vector2(73, -967)
+
+[node name="Grass33" parent="TileMapLayer" unique_id=771257047 instance=ExtResource("11_ri3yk")]
+position = Vector2(60, -967)
+
+[node name="Grass34" parent="TileMapLayer" unique_id=123449884 instance=ExtResource("11_ri3yk")]
+position = Vector2(38, -967)
+
+[node name="Grass35" parent="TileMapLayer" unique_id=176797139 instance=ExtResource("11_ri3yk")]
+position = Vector2(-106, -999)
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1139152601]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
 light_mask = 2
@@ -148,6 +191,69 @@ tile_set = ExtResource("11_jmj26")
 [node name="Note1" parent="TileMapLayer2" unique_id=603835025 instance=ExtResource("3_neib3")]
 position = Vector2(704, -662)
 layer = 1
+
+[node name="Grass" parent="TileMapLayer2" unique_id=1825492305 instance=ExtResource("11_ri3yk")]
+position = Vector2(227, -263)
+
+[node name="Grass2" parent="TileMapLayer2" unique_id=1820443522 instance=ExtResource("11_ri3yk")]
+position = Vector2(242, -263)
+
+[node name="Grass3" parent="TileMapLayer2" unique_id=837413318 instance=ExtResource("11_ri3yk")]
+position = Vector2(257, -263)
+
+[node name="Grass4" parent="TileMapLayer2" unique_id=470192554 instance=ExtResource("11_ri3yk")]
+position = Vector2(265, -263)
+
+[node name="Grass5" parent="TileMapLayer2" unique_id=575347953 instance=ExtResource("11_ri3yk")]
+position = Vector2(282, -279)
+
+[node name="Grass6" parent="TileMapLayer2" unique_id=474009192 instance=ExtResource("11_ri3yk")]
+position = Vector2(296, -279)
+
+[node name="Grass7" parent="TileMapLayer2" unique_id=1548132365 instance=ExtResource("11_ri3yk")]
+position = Vector2(311, -279)
+
+[node name="Grass8" parent="TileMapLayer2" unique_id=1432728855 instance=ExtResource("11_ri3yk")]
+position = Vector2(326, -279)
+
+[node name="Grass9" parent="TileMapLayer2" unique_id=179766468 instance=ExtResource("11_ri3yk")]
+position = Vector2(340, -279)
+
+[node name="Grass10" parent="TileMapLayer2" unique_id=1778862037 instance=ExtResource("11_ri3yk")]
+position = Vector2(458, -295)
+
+[node name="Grass11" parent="TileMapLayer2" unique_id=1586560151 instance=ExtResource("11_ri3yk")]
+position = Vector2(505, -327)
+
+[node name="Grass12" parent="TileMapLayer2" unique_id=2078974226 instance=ExtResource("11_ri3yk")]
+position = Vector2(489, -311)
+
+[node name="Grass13" parent="TileMapLayer2" unique_id=34974125 instance=ExtResource("11_ri3yk")]
+position = Vector2(86, -231)
+
+[node name="Grass14" parent="TileMapLayer2" unique_id=1482543642 instance=ExtResource("11_ri3yk")]
+position = Vector2(99, -231)
+
+[node name="Grass15" parent="TileMapLayer2" unique_id=2084956791 instance=ExtResource("11_ri3yk")]
+position = Vector2(775, -391)
+
+[node name="Grass16" parent="TileMapLayer2" unique_id=914396094 instance=ExtResource("11_ri3yk")]
+position = Vector2(789, -391)
+
+[node name="Grass17" parent="TileMapLayer2" unique_id=840327185 instance=ExtResource("11_ri3yk")]
+position = Vector2(799, -391)
+
+[node name="Grass18" parent="TileMapLayer2" unique_id=277019624 instance=ExtResource("11_ri3yk")]
+position = Vector2(985, -631)
+
+[node name="Grass19" parent="TileMapLayer2" unique_id=427543369 instance=ExtResource("11_ri3yk")]
+position = Vector2(970, -615)
+
+[node name="Grass20" parent="TileMapLayer2" unique_id=183010321 instance=ExtResource("11_ri3yk")]
+position = Vector2(362, -823)
+
+[node name="Grass21" parent="TileMapLayer2" unique_id=40955593 instance=ExtResource("11_ri3yk")]
+position = Vector2(352, -823)
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="." unique_id=1461513253]
 modulate = Color(0.305077, 0.305077, 0.305077, 1)
