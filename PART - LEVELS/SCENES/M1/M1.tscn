@@ -122,6 +122,15 @@ titre = "Direction Monde 2"
 [node name="Grass8" parent="TileMapLayer2" unique_id=870249686 instance=ExtResource("14_pu2tx")]
 position = Vector2(165, -55)
 
+[node name="Grass9" parent="TileMapLayer2" unique_id=1944129977 instance=ExtResource("14_pu2tx")]
+position = Vector2(149, -55)
+
+[node name="Grass10" parent="TileMapLayer2" unique_id=691888831 instance=ExtResource("14_pu2tx")]
+position = Vector2(195, -39)
+
+[node name="Grass11" parent="TileMapLayer2" unique_id=944672011 instance=ExtResource("14_pu2tx")]
+position = Vector2(206, -39)
+
 [node name="TileMapLayer3" type="TileMapLayer" parent="." unique_id=1422068812]
 modulate = Color(0.305882, 0.305882, 0.305882, 1)
 light_mask = 4

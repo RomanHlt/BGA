@@ -174,7 +174,6 @@ texture = ExtResource("2_1vrh0")
 flip_h = true
 hframes = 7
 vframes = 6
-frame = 37
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -194,6 +193,7 @@ metadata/_aseprite_wizard_source_file_hash_ = "e7ede8582d69fd0127559c80813a3303"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1494293798]
 libraries/ = SubResource("AnimationLibrary_0wh0t")
+autoplay = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=813733910]
 shape = SubResource("CapsuleShape2D_fy24r")

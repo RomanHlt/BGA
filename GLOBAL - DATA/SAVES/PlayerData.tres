@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="PlayerData" format=3]
+[gd_resource type="Resource" script_class="PlayerData" format=3 uid="uid://cipotwuka84tl"]
 
-[ext_resource type="Script" path="res://GLOBAL - DATA/SCRIPTS/playerStats.gd" id="1_ncy5k"]
+[ext_resource type="Script" uid="uid://bihasefxcjjlh" path="res://GLOBAL - DATA/SCRIPTS/playerStats.gd" id="1_gqpyn"]
 
 [resource]
-script = ExtResource("1_ncy5k")
+script = ExtResource("1_gqpyn")
+current_lvl = "2.0.0"
+last_lvl = "2.0.0"
