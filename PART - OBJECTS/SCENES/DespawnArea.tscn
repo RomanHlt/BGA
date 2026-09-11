@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cea55tee2054b"]
+
+[ext_resource type="Script" uid="uid://pjjbeuwuja4h" path="res://PART - OBJECTS/SCRIPTS/respawn.gd" id="1_e1u12"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggpql"]
+size = Vector2(6058, 1036)
+
+[node name="DespawnArea" type="Area2D" unique_id=1783525322]
+collision_layer = 0
+collision_mask = 15
+script = ExtResource("1_e1u12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=80544508]
+position = Vector2(2274, 895)
+shape = SubResource("RectangleShape2D_ggpql")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

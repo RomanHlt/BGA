@@ -8,14 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="6_yn8nr"]
 [ext_resource type="PackedScene" uid="uid://c1r0k08xd0ibm" path="res://PART - OBJECTS/SCENES/Others/Note.tscn" id="7_472k6"]
 [ext_resource type="Script" uid="uid://w4tmeg75ecxq" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="7_lf8bm"]
-[ext_resource type="PackedScene" uid="uid://blknhf2vevq6i" path="res://PART - MOBS/SCENES/nuage_gourmand.tscn" id="7_n8q1v"]
+[ext_resource type="PackedScene" uid="uid://blknhf2vevq6i" path="res://Part - MOBS/SCENES/nuage_gourmand.tscn" id="7_n8q1v"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="8_0sjo5"]
 [ext_resource type="PackedScene" uid="uid://ct5ytlgut187g" path="res://PART - OBJECTS/SCENES/Traps/Spear.tscn" id="8_im4un"]
 [ext_resource type="PackedScene" uid="uid://fm1aomfwwiti" path="res://PART - OBJECTS/SCENES/Traps/fallingrock.tscn" id="9_m04pm"]
 [ext_resource type="Texture2D" uid="uid://g5o0q6rxpwvs" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/2.png" id="11_m0pox"]
 [ext_resource type="TileSet" uid="uid://chtidkvt2atpj" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_M2_3x3_2.tres" id="12_dedjh"]
 [ext_resource type="Texture2D" uid="uid://b5avw4mcm3obf" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/8.png" id="12_o5wdb"]
-[ext_resource type="Script" uid="uid://pjjbeuwuja4h" path="res://PART - LEVELS/SCENES/M2/script M2/respawn.gd" id="14_0lhst"]
+[ext_resource type="Script" uid="uid://pjjbeuwuja4h" path="res://PART - OBJECTS/SCRIPTS/respawn.gd" id="14_0lhst"]
 [ext_resource type="TileSet" uid="uid://iiejj1w5xsbb" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_M2_3x3_3.tres" id="14_3rcx0"]
 [ext_resource type="PackedScene" uid="uid://ddkfyhcivyb8" path="res://PART - OBJECTS/SCENES/Déco/torch.tscn" id="15_xacsh"]
 [ext_resource type="TileSet" uid="uid://dbq3qitb3lkwg" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_M2_3x3_4.tres" id="16_t5mvr"]
@@ -381,6 +381,7 @@ position = Vector2(2862, 1057)
 layer = 2
 isHub = false
 id_next_lvl = "2.0.0"
+id_last_lvl = "2.2.0"
 id_unlocked_lvl = "2.3.0"
 titre = "Retour au Hub"
 sous_titre = "Monde 2 | Fin du niveau 2"

@@ -116,7 +116,7 @@ layer = 1
 hideNote = true
 id_next_lvl = "2.0.0"
 id_last_lvl = "2.0.0"
-id_unlocked_lvl = "2.0.0"
+id_unlocked_lvl = "2.1.0"
 titre = "Direction Monde 2"
 
 [node name="Grass8" parent="TileMapLayer2" unique_id=870249686 instance=ExtResource("14_pu2tx")]

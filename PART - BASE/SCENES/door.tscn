@@ -281,6 +281,7 @@ shape = SubResource("RectangleShape2D_tgah1")
 
 [node name="Panel" type="Panel" parent="." unique_id=535136582]
 visible = false
+z_index = 10
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5

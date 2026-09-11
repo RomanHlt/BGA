@@ -4,7 +4,7 @@ extends Node2D
 @export_category("Visuals Settings")
 @export var colors : Array = ["ff0000","ff1200","ff1d00","ff2800"]
 @export var shadow_color : String = "00000000"
-@export var power : int = 2
+@export var power : float = 2
 @export var tex_scale : float = 1
 @export_category("Global Settings")
 @export var layer : int = 0

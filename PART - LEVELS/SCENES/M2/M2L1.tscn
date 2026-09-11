@@ -11,12 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://c1r0k08xd0ibm" path="res://PART - OBJECTS/SCENES/Others/Note.tscn" id="5_os4gp"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="5_pwlyp"]
 [ext_resource type="PackedScene" uid="uid://cf2hmbbroucx1" path="res://PART - OBJECTS/SCENES/Others/TraversablePlatform.tscn" id="7_juyv1"]
-[ext_resource type="Script" uid="uid://pjjbeuwuja4h" path="res://PART - LEVELS/SCENES/M2/script M2/respawn.gd" id="9_0tl66"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="9_fsc1j"]
 [ext_resource type="PackedScene" uid="uid://digirtaqdarvr" path="res://PART - OBJECTS/SCENES/Traps/Bumper.tscn" id="12_4tqyh"]
 [ext_resource type="PackedScene" uid="uid://kucp53af1eq" path="res://PART - OBJECTS/SCENES/Others/MovingPlatform.tscn" id="13_jk5bi"]
-[ext_resource type="PackedScene" uid="uid://0xlb2up47lnn" path="res://PART - MOBS/SCENES/bat.tscn" id="13_mlxlq"]
-[ext_resource type="PackedScene" uid="uid://blknhf2vevq6i" path="res://PART - MOBS/SCENES/nuage_gourmand.tscn" id="14_f8t3s"]
+[ext_resource type="PackedScene" uid="uid://0xlb2up47lnn" path="res://Part - MOBS/SCENES/bat.tscn" id="13_mlxlq"]
+[ext_resource type="PackedScene" uid="uid://blknhf2vevq6i" path="res://Part - MOBS/SCENES/nuage_gourmand.tscn" id="14_f8t3s"]
 [ext_resource type="Texture2D" uid="uid://dalwmdqc2j3iv" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/1.png" id="14_q85mo"]
 [ext_resource type="TileSet" uid="uid://chtidkvt2atpj" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_M2_3x3_2.tres" id="15_tt8ck"]
 [ext_resource type="TileSet" uid="uid://iiejj1w5xsbb" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_M2_3x3_3.tres" id="16_ybn00"]
@@ -25,6 +24,7 @@
 [ext_resource type="Script" uid="uid://bbmes6prtd6kx" path="res://PART - LEVELS/SCENES/M2/script M2/m2l1respawnplatformgd.gd" id="21_4bfbu"]
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="22_88br3"]
 [ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="23_uexqe"]
+[ext_resource type="PackedScene" uid="uid://cea55tee2054b" path="res://PART - OBJECTS/SCENES/DespawnArea.tscn" id="26_8nsu3"]
 [ext_resource type="PackedScene" uid="uid://yeht3bsffd6h" path="res://PART - PLAYER/SCENES/trail.tscn" id="26_ybn00"]
 
 [sub_resource type="Shader" id="Shader_wghwi"]
@@ -780,9 +780,6 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_pggkh")
 sources/3 = SubResource("TileSetAtlasSource_a0c6o")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_efydt"]
-size = Vector2(6058, 1036)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icdtu"]
 size = Vector2(46.5, 721)
 
@@ -1008,6 +1005,7 @@ Force = Vector2(0, -1000)
 position = Vector2(766, -2319)
 isHub = false
 id_next_lvl = "2.0.0"
+id_last_lvl = "2.1.0"
 id_unlocked_lvl = "2.2.0"
 titre = "Retour au Hub"
 sous_titre = "Monde 2 | Fin du niveau 1"
@@ -1133,15 +1131,6 @@ playerOffset = Vector2(0, -80)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1131754852]
 stream = ExtResource("5_pwlyp")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=2084953373]
-collision_layer = 0
-collision_mask = 15
-script = ExtResource("9_0tl66")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=955837916]
-position = Vector2(2274, 895)
-shape = SubResource("RectangleShape2D_efydt")
-
 [node name="8" type="Sprite2D" parent="." unique_id=1245057839]
 position = Vector2(2881, -106)
 texture = ExtResource("19_kwgcm")
@@ -1183,5 +1172,6 @@ environment = SubResource("Environment_tt8ck")
 
 [node name="Trail" parent="." unique_id=568906839 instance=ExtResource("26_ybn00")]
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[node name="Area2D" parent="." unique_id=1783525322 instance=ExtResource("26_8nsu3")]
+
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

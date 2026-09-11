@@ -1511,7 +1511,7 @@ glow_bloom = 0.2
 
 [node name="Map" type="Node2D" unique_id=929465540 node_paths=PackedStringArray("player", "trail")]
 script = ExtResource("1_3lpdn")
-id = "2.0.0"
+id = "2.9.9"
 player = NodePath("Player")
 trail = NodePath("Trail")
 
