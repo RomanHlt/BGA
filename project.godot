@@ -22,8 +22,8 @@ config/icon="res://GLOBAL - APP/icon.svg"
 
 [autoload]
 
-Main="*res://PART - BASE/main.tscn"
 PlayerDataSaver="*res://GLOBAL - DATA/SCENES/PlayerDataSaver.tscn"
+Main="*res://PART - BASE/main.tscn"
 InGame="*res://PART - UI/SCENES/inGame.tscn"
 
 [display]

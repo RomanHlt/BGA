@@ -11,6 +11,7 @@ var sonOn:bool = true
 var music:int = -30
 var musicOn:bool = true
 
+var fullscreen:bool = true
 
 var speedRun:bool = true
 
@@ -18,14 +19,25 @@ var justArrived:bool = false
 
 var buttons = []
 
+var window
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	buttons = [$Back,$Controls,$CheckButton,$MusicButton2,$CheckBox]
+	window = get_window()
+	
+	buttons = [$Back,$Controls,$CheckButton,$MusicButton2,$CheckBox,$CheckButton2]
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	hide()
 	#initialisation locale de sliders
 	$HSlider.value = son
 	$MusicSlider2.value = music
+	#fullscreen/windowed
+	fullscreen = PlayerDataSaver.SettingsStats.fullscreen
+	$CheckButton2.button_pressed = fullscreen
+	if fullscreen:
+		window.mode = Window.MODE_FULLSCREEN
+	else:
+		window.mode = Window.MODE_WINDOWED
 
 func _process(_delta: float) -> void:
 	#Detection de l'action du joueur
@@ -125,3 +137,13 @@ func _on_music_button_2_pressed() -> void:
 	else:
 		$MusicSlider2.editable = false
 		$MusicButton2.button_pressed = false
+
+
+
+func _on_check_button_2_pressed() -> void:
+	fullscreen = ! fullscreen
+	PlayerDataSaver.SettingsStats.fullscreen = fullscreen
+	if fullscreen:
+		window.mode = Window.MODE_FULLSCREEN
+	else:
+		window.mode = Window.MODE_WINDOWED

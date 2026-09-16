@@ -1,11 +1,11 @@
 extends Node2D
-
 @export var is_new_game = true
 @export_category("Ressources")
 @export var PlayerStats:PlayerData
 @export var WorldStats:WorldData
 @export var SettingsStats:SettingsData 
 @export var dataExist:bool = false
+var dataReady:bool = false
 
 func _ready() -> void:
 	_handle_load()
@@ -38,3 +38,4 @@ func _handle_load():
 		print("World Data Created")
 		print("Settings Data Created")
 		print("-------------------")
+	dataReady = true
