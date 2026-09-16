@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://crhv8ow5bccok"]
+
+[ext_resource type="Texture2D" uid="uid://2t5x1wv7p3n2" path="res://PART - ROBERTO/SCENES/roberto vrai.png" id="1_eduxo"]
+
+[sub_resource type="Curve2D" id="Curve2D_odug7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, 1, 0, 0, 0, 0, 261, 1)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_dikaw"]
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_0gnve"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 6, 3]
+}
+
+[sub_resource type="Animation" id="Animation_314r7"]
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [7, 8, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s1x56"]
+_data = {
+&"Idle": SubResource("Animation_dikaw"),
+&"Roulement": SubResource("Animation_0gnve"),
+&"Talk": SubResource("Animation_314r7")
+}
+
+[node name="Roberto" type="Path2D" unique_id=1461065524]
+curve = SubResource("Curve2D_odug7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2039980262]
+texture_filter = 1
+texture = ExtResource("1_eduxo")
+hframes = 3
+vframes = 3
+frame = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://PART - ROBERTO/ASSETS/roberto vrai.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "1b49bc12193d991f4f5e992df95a6c70"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=582369193]
+libraries/ = SubResource("AnimationLibrary_s1x56")
+
+[node name="Dialogue" type="Node2D" parent="." unique_id=922577877]
+
+[node name="L_Bulle" type="Sprite2D" parent="Dialogue" unique_id=641386732]
+
+[node name="L_Label" type="Label" parent="Dialogue/L_Bulle" unique_id=280758200]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="R_Bulle" type="Sprite2D" parent="Dialogue" unique_id=361057704]
+
+[node name="R_Label" type="Label" parent="Dialogue/R_Bulle" unique_id=2097851411]
+offset_right = 40.0
+offset_bottom = 23.0

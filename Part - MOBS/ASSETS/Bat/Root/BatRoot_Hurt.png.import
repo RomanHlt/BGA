@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cymlu5ap00xqq"
-path="res://.godot/imported/BatRoot_Hurt.png-80d5be10e1b565677ceac03f68f3923e.ctex"
+path="res://.godot/imported/BatRoot_Hurt.png-bdc305a25d40e311b95b346c3976c87a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Part - MOBS/ASSETS/Bat/Root/BatRoot_Hurt.png"
-dest_files=["res://.godot/imported/BatRoot_Hurt.png-80d5be10e1b565677ceac03f68f3923e.ctex"]
+source_file="res://PART - MOBS/ASSETS/Bat/Root/BatRoot_Hurt.png"
+dest_files=["res://.godot/imported/BatRoot_Hurt.png-bdc305a25d40e311b95b346c3976c87a.ctex"]
 
 [params]
 

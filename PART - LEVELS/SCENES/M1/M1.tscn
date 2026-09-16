@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://w4tmeg75ecxq" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_qipye"]
 [ext_resource type="TileSet" uid="uid://cbciknwsoi8fp" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_3x3_2.tres" id="6_pu2tx"]
 [ext_resource type="TileSet" uid="uid://cncncabcbcycn" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_3x3_3.tres" id="7_3gwa2"]
+[ext_resource type="Texture2D" uid="uid://b40ynenk7xi6b" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/3.png" id="8_3gwa2"]
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="11_wwe4o"]
 [ext_resource type="Script" uid="uid://dlfn886463mqm" path="res://PART - LEVELS/SCENES/M1/scripts M1/spawn déplacement.gd" id="11_y8xlq"]
 [ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="12_41ggo"]
@@ -130,6 +131,10 @@ position = Vector2(195, -39)
 
 [node name="Grass11" parent="TileMapLayer2" unique_id=944672011 instance=ExtResource("14_pu2tx")]
 position = Vector2(206, -39)
+
+[node name="3" type="Sprite2D" parent="TileMapLayer2" unique_id=929048942]
+position = Vector2(416, -58)
+texture = ExtResource("8_3gwa2")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="." unique_id=1422068812]
 modulate = Color(0.305882, 0.305882, 0.305882, 1)
