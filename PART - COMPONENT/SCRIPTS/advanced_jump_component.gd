@@ -48,12 +48,12 @@ func handle_coyote_time(body:CharacterBody2D)->void:
 		body.velocity.y=0
 
 func handle_wall_jump_buffer(body:CharacterBody2D)->void:
-	print(body.velocity.y)
 	if not body.is_on_floor() and body.is_on_wall() and wall_jump_buffer.is_stopped() and falling_timer.is_stopped() :
 		wall_jump_buffer.start()
 		print("Start")
 	if not wall_jump_buffer.is_stopped() and body.velocity.y >40 and body.is_on_wall():
 		body.velocity.y -= body.velocity.y*0.8
+
 
 func handle_jump_buffer(body:CharacterBody2D, want_to_jump:bool) -> void:
 	if want_to_jump and not body.is_on_floor():

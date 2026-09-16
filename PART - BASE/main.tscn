@@ -285,7 +285,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="MenuAccueil" type="Control" parent="CanvasLayer/Menus" unique_id=1555688175]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -336,7 +335,7 @@ focus_neighbor_top = NodePath("../Settings")
 text = "New Game
 "
 
-[node name="NewGame2" type="Button" parent="CanvasLayer/Menus/MenuAccueil" unique_id=1683818193]
+[node name="Quit" type="Button" parent="CanvasLayer/Menus/MenuAccueil" unique_id=1683818193]
 layout_mode = 0
 offset_left = 205.0
 offset_top = 386.0
@@ -897,7 +896,7 @@ autoplay = true
 [connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/Load" to="CanvasLayer/Menus/MenuAccueil" method="_on_load_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/Settings" to="CanvasLayer/Menus/MenuAccueil" method="_on_settings_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/NewGame" to="CanvasLayer/Menus/MenuAccueil" method="_on_new_game_pressed"]
-[connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/NewGame2" to="CanvasLayer/Menus/MenuAccueil" method="_on_new_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/Quit" to="CanvasLayer/Menus/MenuAccueil" method="_on_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/CheckBox" to="CanvasLayer/Menus/MenuAccueil" method="_on_check_box_pressed"]
 [connection signal="SettingsOpened" from="CanvasLayer/Menus/MenuPause" to="CanvasLayer/Menus/MenuSettings" method="_on_menu_pause_settings_opened"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuPause/Resume" to="CanvasLayer/Menus/MenuPause" method="_on_resume_pressed"]

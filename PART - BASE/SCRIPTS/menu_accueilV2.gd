@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
 		$Load.disabled = false
 	#Detection de l'action du joueur
 	if Input.is_action_just_pressed("ok") and visible and !justArrived:
-		for b in [$Load,$Settings,$NewGame]:
+		for b in [$Load,$Settings,$NewGame,$Quit]:
 			if b.has_focus():
 				b.emit_signal("pressed")
 	elif justArrived:
@@ -69,6 +69,11 @@ func _on_new_game_pressed() -> void:
 	Main.get_node("Globals Options").onMenu = false
 	emit_signal("start")
 
+
+
+func _on_quit_pressed() -> void:
+	PlayerDataSaver._handle_save()
+	get_tree().quit()
 
 #detection manette
 func _on_globals_options_controller_on() -> void:
