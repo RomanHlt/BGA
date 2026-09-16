@@ -4,6 +4,4 @@
 
 [resource]
 script = ExtResource("1_gqpyn")
-dashUnlocked = true
-current_lvl = "2.1.0"
-last_lvl = "2.0.0"
+last_lvl = "1.0.0"
