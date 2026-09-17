@@ -851,3 +851,4 @@ inputs_events = {
 &"ui_unicode_start": [SubResource("InputEventKey_ith7o")],
 &"ui_up": [SubResource("InputEventKey_uhrcf"), SubResource("InputEventJoypadButton_ouebo"), SubResource("InputEventJoypadMotion_w2kga")]
 }
+fullscreen = false

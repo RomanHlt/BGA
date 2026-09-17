@@ -4,30 +4,32 @@ var flame = preload("res://PART - MOBS/SCENES/dragon_flame.tscn")
 
 @export var sprite:Sprite2D #??
 @export var layer : int = 0
+@export var healthplayer:AnimationPlayer
+@export var endDoor:Door
 
 @onready var is_sleeping = true
 @onready var target : CharacterBody2D = self
 @onready var lock = false
 @onready var on_spike = false
-@onready var health = 10
+@onready var health:int = 10
 @onready var is_attacked = false
 @onready var is_stun = false
 
 func _ready() -> void:
 	collision_layer = 2**layer
 	collision_mask = 2**layer
-	get_tree().root.get_node("/root/Map/CanvasLayer/InGame/lifeController").play(str(health))
+	healthplayer.play(str(health))
 	await get_tree().create_timer(1).timeout
 
-func _takeDamages(damages):
+func _takeDamages(damages:int):
 	is_attacked = true
 	if damages <= health:
 		health -= damages
-		get_tree().root.get_node("/root/Map/CanvasLayer/InGame/lifeController").play(str(health))
+		healthplayer.play(str(health))
 		print(health)
 	else:
 		health = 0
-		get_tree().root.get_node("/root/Map/CanvasLayer/InGame/lifeController").play(str(health))
+		healthplayer.play(str(health))
 
 
 func _process(delta: float) -> void:
@@ -161,6 +163,7 @@ func _on_collision_right_body_entered(body: Node2D) -> void:
 
 func _on_dragon_animator_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "explosion":
+		endDoor.isDecorative = false
 		hide()	
 		queue_free()
 	if anim_name == "ouch":

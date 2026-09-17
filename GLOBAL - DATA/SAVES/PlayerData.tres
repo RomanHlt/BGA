@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_gqpyn")
-last_lvl = "1.0.0"
+health = 2
+last_lvl = "1.9.9"
