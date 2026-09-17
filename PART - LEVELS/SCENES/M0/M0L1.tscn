@@ -4,16 +4,11 @@
 [ext_resource type="TileSet" uid="uid://bdi1d32tgjs11" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_3x3_1.tres" id="2_10quk"]
 [ext_resource type="PackedScene" uid="uid://yeht3bsffd6h" path="res://PART - PLAYER/SCENES/trail.tscn" id="2_lkp4s"]
 [ext_resource type="PackedScene" uid="uid://bog4f2sni7fny" path="res://PART - OBJECTS/SCENES/Traps/spike.tscn" id="3_l0wy3"]
-[ext_resource type="PackedScene" uid="uid://bsmv04evs2r56" path="res://PART - MOBS/SCENES/dragon.tscn" id="4_g7eit"]
+[ext_resource type="PackedScene" uid="uid://bsmv04evs2r56" path="res://Part - MOBS/SCENES/dragon.tscn" id="4_g7eit"]
 [ext_resource type="PackedScene" uid="uid://dt1pv53ek46dl" path="res://PART - BASE/SCENES/door.tscn" id="5_jcd8c"]
 [ext_resource type="PackedScene" uid="uid://dmnpm6nnnf4kg" path="res://PART - PLAYER/SCENES/Player.tscn" id="6_4x1jd"]
 [ext_resource type="TileSet" uid="uid://cbciknwsoi8fp" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_3x3_2.tres" id="6_pcd48"]
 [ext_resource type="Script" uid="uid://w4tmeg75ecxq" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="7_5ekta"]
-[ext_resource type="PackedScene" uid="uid://8cva35drpb0f" path="res://PART - UI/SCENES/menu.tscn" id="8_bx7pf"]
-[ext_resource type="PackedScene" uid="uid://bs2h0e4x7qqbw" path="res://PART - UI/SCENES/options.tscn" id="9_gy4fw"]
-[ext_resource type="PackedScene" uid="uid://cfsxrmrubahlm" path="res://PART - UI/SCENES/progrès.tscn" id="10_urqem"]
-[ext_resource type="PackedScene" uid="uid://ccyfa7snu7bof" path="res://PART - UI/SCENES/statistiques.tscn" id="11_4w6ga"]
-[ext_resource type="PackedScene" uid="uid://5q55qevow2dp" path="res://PART - UI/SCENES/Menu_d'accueil.tscn" id="12_takqa"]
 [ext_resource type="Texture2D" uid="uid://chub1yc38lwvj" path="res://PART - LEVELS/ASSETS/lifecat.png" id="13_rffow"]
 [ext_resource type="FontFile" uid="uid://tlbpimwifcpa" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Regular.otf" id="14_j47gt"]
 [ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="15_44xq7"]
@@ -1699,7 +1694,8 @@ glow_bloom = 0.2
 [node name="Map" type="Node2D" unique_id=636493144 node_paths=PackedStringArray("player", "trail")]
 modulate = Color(0.52549, 0.596078, 0.815686, 1)
 script = ExtResource("1_qvps0")
-id = "0.1.0"
+id = "1.9.9"
+isBoss = true
 player = NodePath("Player")
 trail = NodePath("Trail")
 
@@ -1715,14 +1711,26 @@ position = Vector2(405, 22)
 [node name="Spike2" parent="TileMapLayer" unique_id=1396957918 instance=ExtResource("3_l0wy3")]
 position = Vector2(1017, 23)
 
-[node name="Dragon" parent="TileMapLayer" unique_id=1864228714 instance=ExtResource("4_g7eit")]
+[node name="Dragon" parent="TileMapLayer" unique_id=1864228714 node_paths=PackedStringArray("healthplayer", "endDoor") instance=ExtResource("4_g7eit")]
 position = Vector2(749, 36)
+healthplayer = NodePath("../../CanvasLayer/InGame/lifeController")
+endDoor = NodePath("../door2")
 
 [node name="door" parent="TileMapLayer" unique_id=2059670412 instance=ExtResource("5_jcd8c")]
 position = Vector2(-69, -271)
 isHub = false
 isDecorative = true
 id_last_lvl = "1.0.0"
+
+[node name="door2" parent="TileMapLayer" unique_id=466801128 instance=ExtResource("5_jcd8c")]
+position = Vector2(1227, -15)
+isHub = false
+isDecorative = true
+hideNote = true
+id_next_lvl = "1.0.0"
+id_last_lvl = "1.9.9"
+titre = "RIP Codinsa"
+sous_titre = "un chat reste un chat"
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=890156432]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
@@ -1763,21 +1771,6 @@ playerOffset = Vector2(0, -80)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1186834098]
 process_mode = 3
 
-[node name="Menu" parent="CanvasLayer" unique_id=1176287985 instance=ExtResource("8_bx7pf")]
-visible = false
-
-[node name="Options" parent="CanvasLayer" unique_id=480041943 instance=ExtResource("9_gy4fw")]
-visible = false
-
-[node name="Progrès" parent="CanvasLayer" unique_id=164833304 instance=ExtResource("10_urqem")]
-visible = false
-
-[node name="Statistiques" parent="CanvasLayer" unique_id=251542450 instance=ExtResource("11_4w6ga")]
-visible = false
-
-[node name="Ecran d\'accueil" parent="CanvasLayer" unique_id=2067827450 instance=ExtResource("12_takqa")]
-visible = false
-
 [node name="InGame" type="Control" parent="CanvasLayer" unique_id=870691892]
 layout_mode = 3
 anchors_preset = 5
@@ -1795,7 +1788,6 @@ scale = Vector2(6.0625, 6.0625)
 texture = ExtResource("13_rffow")
 hframes = 4
 vframes = 3
-frame = 10
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
