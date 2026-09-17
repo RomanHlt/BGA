@@ -17,6 +17,8 @@
 [ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="14_4groo"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="15_eqlam"]
 [ext_resource type="PackedScene" uid="uid://yeht3bsffd6h" path="res://PART - PLAYER/SCENES/trail.tscn" id="16_itxj5"]
+[ext_resource type="PackedScene" uid="uid://bl075i7m81d4t" path="res://PART - DIALOGUES/SCENES/dialogue_trigger.tscn" id="18_iv5rn"]
+[ext_resource type="Resource" uid="uid://cmsphcs1vghbv" path="res://PART - DIALOGUES/SCRIPTS/Dialogues/Tutorial.dialogue" id="19_4qbuc"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_17lxt"]
 load_path = "res://.godot/imported/Terrain (16x16).png-965ee5e8399323c88aab03397ec562aa.ctex"
@@ -1222,6 +1224,22 @@ texture = ExtResource("13_1s77a")
 environment = SubResource("Environment_mogcd")
 
 [node name="Trail" parent="." unique_id=568906839 instance=ExtResource("16_itxj5")]
+
+[node name="DialogueTrigger" parent="." unique_id=98873958 instance=ExtResource("18_iv5rn")]
+position = Vector2(73, -56)
+dialogueResource = ExtResource("19_4qbuc")
+dialogueName = "tuto_jump"
+
+[node name="DialogueTrigger2" parent="." unique_id=1565272026 instance=ExtResource("18_iv5rn")]
+position = Vector2(1360, -65)
+dialogueResource = ExtResource("19_4qbuc")
+dialogueName = "tuto_swap"
+
+[node name="DialogueTrigger3" parent="." unique_id=1095109838 instance=ExtResource("18_iv5rn")]
+position = Vector2(1219, 49)
+dialogueResource = ExtResource("19_4qbuc")
+dialogueName = "tuto_jump_failed"
+detectionLeftUntilTrigger = 5
 
 [connection signal="body_entered" from="Zonetuto" to="Zonetuto" method="_on_body_entered"]
 [connection signal="body_exited" from="Zonetuto" to="Zonetuto" method="_on_body_exited"]

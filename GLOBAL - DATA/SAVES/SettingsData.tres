@@ -233,6 +233,10 @@ keycode = 68
 device = -1
 axis_value = 1.0
 
+[sub_resource type="InputEventKey" id="InputEventKey_oj5fb"]
+device = -1
+physical_keycode = 4194309
+
 [sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_y65j5"]
 device = -1
 
@@ -755,6 +759,7 @@ inputs_events = {
 &"menu": [SubResource("InputEventKey_6j62o"), SubResource("InputEventJoypadButton_305nh")],
 &"move_left": [SubResource("InputEventKey_gn4i5"), SubResource("InputEventJoypadMotion_0asdr")],
 &"move_right": [SubResource("InputEventKey_058od"), SubResource("InputEventJoypadMotion_kk2ck")],
+&"next_line": [SubResource("InputEventKey_oj5fb")],
 &"ok": [SubResource("InputEventJoypadButton_y65j5")],
 &"run": [SubResource("InputEventKey_dg2dm"), SubResource("InputEventJoypadButton_6j5m8")],
 &"stats": [SubResource("InputEventKey_sjjn5"), SubResource("InputEventJoypadButton_o2g4l")],

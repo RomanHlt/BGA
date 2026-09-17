@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="11_wwe4o"]
 [ext_resource type="Script" uid="uid://dlfn886463mqm" path="res://PART - LEVELS/SCENES/M1/scripts M1/spawn déplacement.gd" id="11_y8xlq"]
 [ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="12_41ggo"]
+[ext_resource type="Resource" uid="uid://cmsphcs1vghbv" path="res://PART - DIALOGUES/SCRIPTS/Dialogues/Tutorial.dialogue" id="12_ao47y"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="14_e4u6r"]
 [ext_resource type="PackedScene" uid="uid://dlpi26fbfayf3" path="res://PART - OBJECTS/SCENES/Déco/grass.tscn" id="14_pu2tx"]
 
@@ -155,6 +156,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("11_y8xlq")
+dialogueResource = ExtResource("12_ao47y")
 
 [node name="Label1" parent="Control" unique_id=1989238181 instance=ExtResource("11_wwe4o")]
 layout_mode = 0

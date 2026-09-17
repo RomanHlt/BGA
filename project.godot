@@ -25,6 +25,12 @@ config/icon="res://GLOBAL - APP/icon.svg"
 Main="*res://PART - BASE/main.tscn"
 PlayerDataSaver="*res://GLOBAL - DATA/SCENES/PlayerDataSaver.tscn"
 InGame="*res://PART - UI/SCENES/inGame.tscn"
+DialogueManager="*uid://c3rodes2l3gxb"
+TutorialManager="*uid://cx1foccbjrlag"
+
+[dialogue_manager]
+
+runtime/balloon_path="res://PART - DIALOGUES/SCRIPTS/Balloons/balloon.tscn"
 
 [display]
 
@@ -32,7 +38,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/parallax2d_preview/plugin.cfg", "res://addons/virtual_joystick/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/parallax2d_preview/plugin.cfg", "res://addons/virtual_joystick/plugin.cfg")
 
 [global_group]
 
@@ -172,6 +178,15 @@ fast_fall={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194326,"key_label":0,"unicode":0,"location":1,"echo":false,"script":null)
 ]
 }
+next_line={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://PART - DIALOGUES/SCRIPTS/Dialogues/Tutorial.dialogue")
 
 [rendering]
 
