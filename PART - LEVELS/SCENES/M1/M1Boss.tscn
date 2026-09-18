@@ -126,6 +126,7 @@ modulate = Color(0.52549, 0.596078, 0.815686, 1)
 script = ExtResource("1_yowet")
 id = "1.4.0"
 isBoss = true
+ambienteColor = Color(0.7198255, 0.08059067, 0.7815698, 1)
 player = NodePath("Player")
 trail = NodePath("Trail")
 

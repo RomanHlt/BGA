@@ -1,6 +1,6 @@
 ~ tuto_spawn
-???: [[COUCOU !|HEY !]] Je m'appelle Roberto.\nJe vais t'apprendre à jouer, tu m'as l'air perdu...[next=1]
-Roberto: Utilise "{{InputHelper.get_key_name("move_left")}}" pour te déplacer à gauche et {{InputHelper.get_key_name("move_right")}} pour aller à droite.[next=0.1]
+???: [[COUCOU !|HEY ! ]] Je m'appelle Roberto.\nJe vais t'apprendre à jouer, tu m'as l'air perdu...[next=1]
+Roberto: Utilise "{{InputHelper.get_key_name("move_left")}}" pour te déplacer à gauche et "{{InputHelper.get_key_name("move_right")}}" pour aller à droite.[next=0.1]
 do TutorialManager.wait_for_move()
 Roberto: Super ![next=1]
 Roberto: Maintenant prend la porte tout à gauche en cliquant sur {{InputHelper.get_key_name("interagir")}}.[next=0.1]
@@ -29,5 +29,6 @@ Roberto: Reste sur "{{InputHelper.get_key_name("run")}}" si tu te sens trop lent
 => END
 
 ~ tuto_jump_failed
-Roberto: MAIS SAUTE PLUS LONGTEMPS SI TU VEUX REMONTER ![next=2]
+Roberto: C'est un saut, il faut sauter deux fois.[next=1]
+Roberto: Reste appuier plus longtemps c'est pas compliqué.[next=1]
 => END

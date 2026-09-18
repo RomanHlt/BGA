@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://b04f4fv54eane"]
 
-[ext_resource type="Script" uid="uid://cnm8xsplguis6" path="res://PART - DIALOGUES/SCRIPTS/Balloons/balloon.gd" id="1_36de5"]
+[ext_resource type="Script" uid="uid://by21av72cqahy" path="res://PART - DIALOGUES/SCRIPTS/Balloons/balloon.gd" id="1_36de5"]
+[ext_resource type="FontFile" uid="uid://cobvesca8xnwg" path="res://GLOBAL - Font/LittleGuy.ttf" id="2_34wcw"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
-bg_color = Color(0, 0, 0, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -41,17 +41,19 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkmqt"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.5254902, 0, 0.5529412, 0.49803922)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
+border_color = Color(0.42167184, 0.00018511087, 0.44609308, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_qq3yp"]
+default_font = ExtResource("2_34wcw")
 default_font_size = 20
 Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
 Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
@@ -119,7 +121,9 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -219.0
+offset_left = 145.0
+offset_top = -126.0
+offset_right = -139.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -143,6 +147,7 @@ unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0.83975405, 0.83975405, 0.839754, 1)
 bbcode_enabled = true
 text = "Character"
 fit_content = true
