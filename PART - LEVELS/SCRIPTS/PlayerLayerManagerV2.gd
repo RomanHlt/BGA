@@ -43,7 +43,8 @@ func _ready() -> void:
 	
 	if ambienteColor:
 		player.ambienteParticles.color_ramp.colors[1] = ambienteColor
-	
+		player.ambienteParticles.color_ramp.colors[0] = ambienteColor - Color(0, 0, 0, 1)
+		player.ambienteParticles.color_ramp.colors[2] = ambienteColor - Color(0, 0, 0, 1)
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
