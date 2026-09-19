@@ -17,7 +17,6 @@ func randomiser():
 	0 -> on ne touche pas au parametre
 	1 -> on augmente le parametre
 	"""
-	print(color_ramp.colors)
 	var random : int
 	# Temps entre deux modifications
 	var time = randi_range(3, 8)

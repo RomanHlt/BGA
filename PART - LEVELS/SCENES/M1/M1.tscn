@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://w4tmeg75ecxq" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="4_qipye"]
 [ext_resource type="TileSet" uid="uid://cbciknwsoi8fp" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_3x3_2.tres" id="6_pu2tx"]
 [ext_resource type="TileSet" uid="uid://cncncabcbcycn" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_3x3_3.tres" id="7_3gwa2"]
+[ext_resource type="PackedScene" uid="uid://crhv8ow5bccok" path="res://PART - ROBERTO/SCENES/roberto.tscn" id="7_851su"]
 [ext_resource type="Texture2D" uid="uid://b40ynenk7xi6b" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/3.png" id="8_3gwa2"]
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="11_wwe4o"]
 [ext_resource type="Script" uid="uid://dlfn886463mqm" path="res://PART - LEVELS/SCENES/M1/scripts M1/spawn déplacement.gd" id="11_y8xlq"]
@@ -16,6 +17,12 @@
 [ext_resource type="Resource" uid="uid://cmsphcs1vghbv" path="res://PART - DIALOGUES/SCRIPTS/Dialogues/Tutorial.dialogue" id="12_ao47y"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="14_e4u6r"]
 [ext_resource type="PackedScene" uid="uid://dlpi26fbfayf3" path="res://PART - OBJECTS/SCENES/Déco/grass.tscn" id="14_pu2tx"]
+
+[sub_resource type="Curve2D" id="Curve2D_851su"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 11, -0.5)
+}
+point_count = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tx87n"]
 size = Vector2(21, 79)
@@ -95,6 +102,10 @@ position = Vector2(166, 9)
 
 [node name="Grass7" parent="TileMapLayer" unique_id=476139921 instance=ExtResource("14_pu2tx")]
 position = Vector2(183, 9)
+
+[node name="Roberto" parent="TileMapLayer" unique_id=1461065524 instance=ExtResource("7_851su")]
+position = Vector2(-61, -36)
+curve = SubResource("Curve2D_851su")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1026615826]
 modulate = Color(0.517647, 0.517647, 0.517647, 1)
