@@ -13,8 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://bh2lc23g5ohug" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/4.png" id="12_se11n"]
 [ext_resource type="Script" uid="uid://hq4v6f6bgpi8" path="res://PART - LEVELS/SCENES/M1/scripts M1/zonetuto.gd" id="12_txy00"]
 [ext_resource type="Texture2D" uid="uid://b40ynenk7xi6b" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/3.png" id="13_1s77a"]
-[ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="13_13kxi"]
-[ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="14_4groo"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="15_eqlam"]
 [ext_resource type="PackedScene" uid="uid://yeht3bsffd6h" path="res://PART - PLAYER/SCENES/trail.tscn" id="16_itxj5"]
 [ext_resource type="PackedScene" uid="uid://bl075i7m81d4t" path="res://PART - DIALOGUES/SCENES/dialogue_trigger.tscn" id="18_iv5rn"]
@@ -1014,159 +1012,6 @@ metadata/_edit_lock_ = true
 position = Vector2(1452, -188.5)
 shape = SubResource("RectangleShape2D_rdexf")
 
-[node name="Label2" parent="." unique_id=2010264766 instance=ExtResource("13_13kxi")]
-offset_left = 353.0
-offset_top = 32.0
-offset_right = 625.0
-offset_bottom = 55.0
-text = "Saut :"
-text_keyboard = "Saut : Space"
-text_controller = "Saut :"
-metadata/_edit_lock_ = true
-
-[node name="Label2b" parent="Label2" unique_id=124805946 instance=ExtResource("13_13kxi")]
-layout_mode = 0
-offset_left = 66.0
-offset_top = -12.0
-offset_right = 338.0
-offset_bottom = 39.0
-theme_override_fonts/font = ExtResource("14_4groo")
-theme_override_font_sizes/font_size = 50
-text = ","
-label_settings = null
-text_keyboard = ""
-text_controller = ","
-
-[node name="Label3" parent="." unique_id=1564543731 instance=ExtResource("13_13kxi")]
-offset_left = 1229.0
-offset_top = 23.0
-offset_right = 1503.0
-offset_bottom = 46.0
-text = "Changement de couche :"
-text_keyboard = "Changement de couche : Z/S"
-text_controller = "Changement de couche :"
-metadata/_edit_lock_ = true
-
-[node name="Label3b" parent="Label3" unique_id=1048180705 instance=ExtResource("13_13kxi")]
-layout_mode = 0
-offset_left = 193.0
-offset_top = -12.0
-offset_right = 465.0
-offset_bottom = 39.0
-theme_override_colors/font_color = Color(1, 0.270588, 1, 1)
-theme_override_fonts/font = ExtResource("14_4groo")
-theme_override_font_sizes/font_size = 50
-text = "jv"
-label_settings = null
-text_keyboard = ""
-text_controller = "jv"
-
-[node name="Label4" parent="." unique_id=1535237795 instance=ExtResource("13_13kxi")]
-offset_left = 1520.0
-offset_top = -127.0
-offset_right = 1813.0
-offset_bottom = -104.0
-text = "Il y a 3 notes"
-text_keyboard = "Il y a 3 notes"
-text_controller = "Il y a 3 notes"
-metadata/_edit_lock_ = true
-
-[node name="Label4b" parent="Label4" unique_id=167451344 instance=ExtResource("13_13kxi")]
-layout_mode = 0
-offset_left = -6.0
-offset_top = 24.0
-offset_right = 266.0
-offset_bottom = 47.0
-text = "Par niveau."
-text_keyboard = "Par niveau."
-text_controller = "Par niveau."
-
-[node name="Label4c" parent="Label4" unique_id=2143694006 instance=ExtResource("13_13kxi")]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 46.0
-offset_right = 285.0
-offset_bottom = 69.0
-text = " A vous de les"
-text_keyboard = " A vous de les"
-text_controller = " A vous de les"
-
-[node name="Label4d" parent="Label4" unique_id=489038840 instance=ExtResource("13_13kxi")]
-layout_mode = 0
-offset_left = -15.0
-offset_top = 69.0
-offset_right = 257.0
-offset_bottom = 92.0
-text = "trouver !"
-text_keyboard = "trouver !"
-text_controller = "trouver !"
-
-[node name="Label5" parent="." unique_id=29321465 instance=ExtResource("13_13kxi")]
-visible = false
-offset_left = 955.0
-offset_top = -85.0
-offset_right = 1227.0
-offset_bottom = -62.0
-text = "Walljump :"
-text_keyboard = "Walljump :"
-text_controller = "Walljump :"
-
-[node name="Label" parent="Label5" unique_id=1023158240 instance=ExtResource("13_13kxi")]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 27.0
-offset_right = 292.0
-offset_bottom = 50.0
-text = "Sautez contre"
-text_keyboard = "Sautez contre"
-text_controller = "Sautez contre"
-
-[node name="Label2" parent="Label5" unique_id=1389327057 instance=ExtResource("13_13kxi")]
-layout_mode = 0
-offset_left = -24.0
-offset_top = 53.0
-offset_right = 248.0
-offset_bottom = 76.0
-text = "le mur"
-text_keyboard = "le mur"
-text_controller = "le mur"
-
-[node name="Label6" parent="." unique_id=1052074347 instance=ExtResource("13_13kxi")]
-visible = false
-offset_left = 557.0
-offset_top = -59.0
-offset_right = 829.0
-offset_bottom = -36.0
-text = "Courir :"
-text_keyboard = "Courir : Maj"
-text_controller = "Courir :"
-metadata/_edit_lock_ = true
-
-[node name="Label5b" parent="Label6" unique_id=1251485787 instance=ExtResource("13_13kxi")]
-layout_mode = 0
-offset_left = 74.0
-offset_top = -18.0
-offset_right = 346.0
-offset_bottom = 33.0
-theme_override_colors/font_color = Color(1, 0.270588, 1, 1)
-theme_override_fonts/font = ExtResource("14_4groo")
-theme_override_font_sizes/font_size = 50
-text = "e"
-label_settings = null
-text_keyboard = ""
-text_controller = "e"
-
-[node name="Label7" parent="." unique_id=1956682510 instance=ExtResource("13_13kxi")]
-visible = false
-offset_left = -531.0
-offset_top = -100.0
-offset_right = -259.0
-offset_bottom = -77.0
-text = "Par là"
-text_keyboard = "Par là"
-text_controller = "Par là"
-metadata/_edit_lock_ = true
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=625160929 node_paths=PackedStringArray("PLAYER")]
 z_index = 1
 texture_filter = 1
@@ -1226,24 +1071,43 @@ environment = SubResource("Environment_mogcd")
 
 [node name="Trail" parent="." unique_id=568906839 instance=ExtResource("16_itxj5")]
 
-[node name="DialogueTrigger" parent="." unique_id=98873958 instance=ExtResource("18_iv5rn")]
+[node name="DialogueTrigger" parent="." unique_id=98873958 node_paths=PackedStringArray("npc") instance=ExtResource("18_iv5rn")]
 position = Vector2(73, -56)
 dialogueResource = ExtResource("19_4qbuc")
 dialogueName = "tuto_jump"
+npc = NodePath("../Roberto")
 
-[node name="DialogueTrigger2" parent="." unique_id=1565272026 instance=ExtResource("18_iv5rn")]
+[node name="DialogueTrigger2" parent="." unique_id=1565272026 node_paths=PackedStringArray("npc") instance=ExtResource("18_iv5rn")]
 position = Vector2(1360, -65)
 dialogueResource = ExtResource("19_4qbuc")
 dialogueName = "tuto_swap"
+npc = NodePath("../Roberto2")
 
-[node name="DialogueTrigger3" parent="." unique_id=1095109838 instance=ExtResource("18_iv5rn")]
+[node name="DialogueTrigger3" parent="." unique_id=1095109838 node_paths=PackedStringArray("npc") instance=ExtResource("18_iv5rn")]
 position = Vector2(1219, 49)
 dialogueResource = ExtResource("19_4qbuc")
 dialogueName = "tuto_jump_failed"
+npc = NodePath("../Roberto3")
 detectionLeftUntilTrigger = 5
 
 [node name="Roberto" parent="." unique_id=1461065524 instance=ExtResource("20_4qbuc")]
-position = Vector2(78, -91)
+position = Vector2(499, -165)
+speed = 2.0
+s0 = Vector2(500, -500)
+s1 = Vector2(265, -123)
+
+[node name="Roberto2" parent="." unique_id=1065615691 instance=ExtResource("20_4qbuc")]
+position = Vector2(1419, -543)
+speed = 3.0
+s0 = Vector2(1400, -530)
+s1 = Vector2(1500, -100)
+s2 = Vector2(1200, -250)
+
+[node name="Roberto3" parent="." unique_id=507208952 instance=ExtResource("20_4qbuc")]
+position = Vector2(1083, 262)
+speed = 4.0
+s0 = Vector2(1100, 300)
+s1 = Vector2(1150, -50)
 
 [connection signal="body_entered" from="Zonetuto" to="Zonetuto" method="_on_body_entered"]
 [connection signal="body_exited" from="Zonetuto" to="Zonetuto" method="_on_body_exited"]

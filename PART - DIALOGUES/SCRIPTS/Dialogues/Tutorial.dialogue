@@ -13,14 +13,20 @@ do end_roberto()
 => END
 
 ~ tuto_jump
+do start_roberto()
+do step(1)
 Roberto: C'est a droite qu'il faut aller, comme dans n'importe quel jeu.[next=1]
 do TutorialManager.jumped = false # Reset la var de jump
 Roberto: Saute avec "{{InputHelper.get_key_name("jump")}}". C'est plutôt utile dans un platformer.[next=0.1]
 do TutorialManager.wait_for_jump()
+Roberto: A plus.[next=0.1]
+do end_roberto()
 => END
 
 ~ tuto_swap
-Roberto: Salut c'est encore moi ! T'es vraiment assisté...[next=1]
+do start_roberto()
+do step(1)
+Roberto: Salut, c'est encore moi ! T'es vraiment assisté...[next=1]
 do TutorialManager.swaped_d = false
 do TutorialManager.swaped_c = false
 Roberto: BREF. Tu vois le trou dans le mur ?\nMet toi devant et attend 5s.[next=7]
@@ -41,10 +47,34 @@ else
 
 Roberto: Reste sur "{{InputHelper.get_key_name("run")}}" si tu te sens trop lent.[next=1.5]
 Roberto: Bon. Si tu sautes une deuxième fois contre un mur tu peux aller plus haut.[next=1.5]
+do step(2)
 Roberto: Retourne touuuuut à gauche et réfléchis un peu, tu devrais trouver la suite.[next=3]
+do end_roberto()
 => END
 
 ~ tuto_jump_failed
-Roberto: C'est un saut, il faut sauter deux fois.[next=1]
+do start_roberto()
+do step(1)
+Roberto: C'est un saut, il faut sauter deux fois.[next=2]
 Roberto: Reste appuier plus longtemps c'est pas compliqué.[next=1]
+do end_roberto()
+=> END
+
+~ tuto_boss_1
+do start_roberto()
+do step(1)
+Roberto: WOOOOWW !\nBonne chance contre cette brute.[next=1]
+do step(2)
+Roberto: Ne te prend pas pour un super hero.\nT'es trop faible pour le blesser.[next=1]
+do step(1)
+Roberto: Contente toi d'esquiver ses attaques.\nIl devrait se cogner assez fort au mur s'il ne te touche pas sur le chemin.[next=2]
+do end_roberto()
+=> END
+
+~ tuto_dash
+do start_roberto()
+do step(1)
+Roberto: Ah... Tu as survecu...[next=1]
+Roberto: Tu peux maintenant dash avec "{{InputHelper.get_key_name("dash")}}".\n Essaye de sauter à travers ce gouffre ![next=2]
+do end_roberto()
 => END

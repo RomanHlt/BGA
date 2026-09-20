@@ -17,13 +17,14 @@
 [ext_resource type="PackedScene" uid="uid://0xlb2up47lnn" path="res://PART - MOBS/SCENES/bat.tscn" id="13_mlxlq"]
 [ext_resource type="PackedScene" uid="uid://blknhf2vevq6i" path="res://PART - MOBS/SCENES/nuage_gourmand.tscn" id="14_f8t3s"]
 [ext_resource type="Texture2D" uid="uid://dalwmdqc2j3iv" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/1.png" id="14_q85mo"]
+[ext_resource type="PackedScene" uid="uid://crhv8ow5bccok" path="res://PART - ROBERTO/SCENES/roberto.tscn" id="15_8nsu3"]
 [ext_resource type="TileSet" uid="uid://chtidkvt2atpj" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_M2_3x3_2.tres" id="15_tt8ck"]
+[ext_resource type="PackedScene" uid="uid://bl075i7m81d4t" path="res://PART - DIALOGUES/SCENES/dialogue_trigger.tscn" id="16_5an0f"]
 [ext_resource type="TileSet" uid="uid://iiejj1w5xsbb" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_M2_3x3_3.tres" id="16_ybn00"]
+[ext_resource type="Resource" uid="uid://cmsphcs1vghbv" path="res://PART - DIALOGUES/SCRIPTS/Dialogues/Tutorial.dialogue" id="17_vv5o2"]
 [ext_resource type="Texture2D" uid="uid://b5avw4mcm3obf" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/8.png" id="19_kwgcm"]
 [ext_resource type="PackedScene" uid="uid://lu83b1j7bvc2" path="res://PART - OBJECTS/SCENES/Others/Flag.tscn" id="20_xyr00"]
 [ext_resource type="Script" uid="uid://bbmes6prtd6kx" path="res://PART - LEVELS/SCENES/M2/script M2/m2l1respawnplatformgd.gd" id="21_4bfbu"]
-[ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="22_88br3"]
-[ext_resource type="FontFile" uid="uid://bcoxmbqcnwfdx" path="res://PART - UI/ASSETS/Esquire_Generic_Gamepad_Font_V2/Esquire_Generic_Gamepad_Font_V2/EsquireGenericGamepdFont_CL.ttf" id="23_uexqe"]
 [ext_resource type="PackedScene" uid="uid://cea55tee2054b" path="res://PART - OBJECTS/SCENES/DespawnArea.tscn" id="26_8nsu3"]
 [ext_resource type="PackedScene" uid="uid://yeht3bsffd6h" path="res://PART - PLAYER/SCENES/trail.tscn" id="26_ybn00"]
 
@@ -1084,6 +1085,20 @@ order = 1
 position = Vector2(2685, -1392)
 order = 2
 
+[node name="Roberto" parent="TileMapLayer" unique_id=1065615691 instance=ExtResource("15_8nsu3")]
+position = Vector2(733, -162)
+speed = 4.0
+wavespeed = 1.2
+amplitude = 15.0
+s0 = Vector2(720, -400)
+s1 = Vector2(720, -50)
+
+[node name="DialogueTrigger" parent="TileMapLayer" unique_id=98873958 node_paths=PackedStringArray("npc") instance=ExtResource("16_5an0f")]
+position = Vector2(501, -142)
+dialogueResource = ExtResource("17_vv5o2")
+dialogueName = "tuto_dash"
+npc = NodePath("../Roberto")
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1942390623]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
 light_mask = 2
@@ -1144,28 +1159,6 @@ moving = NodePath("../TileMapLayer/Path2D")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1141976469]
 position = Vector2(2342.75, -171)
 shape = SubResource("RectangleShape2D_icdtu")
-
-[node name="Label2" parent="." unique_id=393722433 instance=ExtResource("22_88br3")]
-offset_left = 385.0
-offset_top = -59.0
-offset_right = 657.0
-offset_bottom = -36.0
-text = "Dash :"
-text_keyboard = "Dash : A"
-text_controller = "Dash : ??"
-
-[node name="Label2b" parent="Label2" unique_id=555582632 instance=ExtResource("22_88br3")]
-layout_mode = 0
-offset_left = 53.0
-offset_top = -12.0
-offset_right = 325.0
-offset_bottom = 39.0
-theme_override_fonts/font = ExtResource("23_uexqe")
-theme_override_font_sizes/font_size = 50
-text = ","
-label_settings = null
-text_keyboard = ""
-text_controller = ","
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=147779504]
 environment = SubResource("Environment_tt8ck")

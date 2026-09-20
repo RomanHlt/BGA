@@ -17,7 +17,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PathFollow2D/Body/Sprite2D:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -32,7 +32,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PathFollow2D/Body/Sprite2D:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -48,7 +48,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PathFollow2D/Body/Sprite2D:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -65,15 +65,10 @@ _data = {
 &"Talk": SubResource("Animation_314r7")
 }
 
-[node name="Roberto" type="Path2D" unique_id=1461065524]
+[node name="Roberto" type="Node2D" unique_id=1065615691]
 script = ExtResource("1_odug7")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=1007691108]
-rotates = false
-
-[node name="Body" type="Node2D" parent="PathFollow2D" unique_id=153709856]
-
-[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/Body" unique_id=2039980262]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2039980262]
 texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("1_eduxo")
@@ -96,7 +91,7 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "e4e6d0136305910efca715412083eb74"
 
-[node name="Left_particles" type="CPUParticles2D" parent="PathFollow2D/Body/Sprite2D" unique_id=1096506520]
+[node name="Left_particles" type="CPUParticles2D" parent="Sprite2D" unique_id=1096506520]
 position = Vector2(-4.5, 6)
 amount = 100
 lifetime = 0.5
@@ -115,7 +110,7 @@ scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_eduxo")
 color_ramp = SubResource("Gradient_odug7")
 
-[node name="Right_particles" type="CPUParticles2D" parent="PathFollow2D/Body/Sprite2D" unique_id=938272124]
+[node name="Right_particles" type="CPUParticles2D" parent="Sprite2D" unique_id=938272124]
 position = Vector2(3.5, 6)
 amount = 100
 lifetime = 0.5
@@ -134,6 +129,5 @@ scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_eduxo")
 color_ramp = SubResource("Gradient_odug7")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PathFollow2D/Body" unique_id=582369193]
-root_node = NodePath("../../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=582369193]
 libraries/ = SubResource("AnimationLibrary_s1x56")

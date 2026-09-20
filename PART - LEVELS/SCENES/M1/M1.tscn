@@ -18,12 +18,6 @@
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="14_e4u6r"]
 [ext_resource type="PackedScene" uid="uid://dlpi26fbfayf3" path="res://PART - OBJECTS/SCENES/Déco/grass.tscn" id="14_pu2tx"]
 
-[sub_resource type="Curve2D" id="Curve2D_851su"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -126, -2, 0, 0, 0, 0, 1, 0)
-}
-point_count = 3
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tx87n"]
 size = Vector2(21, 79)
 
@@ -105,11 +99,9 @@ position = Vector2(183, 9)
 
 [node name="Roberto" parent="TileMapLayer" unique_id=1461065524 instance=ExtResource("7_851su")]
 position = Vector2(56, -75)
-curve = SubResource("Curve2D_851su")
-pathspeed = 25.0
-s0 = Vector2(58, -250)
+s0 = Vector2(58, -400)
 s1 = Vector2(57, -75)
-s2 = Vector2(1, 1)
+s2 = Vector2(0, -95)
 s3 = Vector2(-120, -70)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1026615826]
