@@ -20,9 +20,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_851su"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 11, -0.5)
+"points": PackedVector2Array(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -126, -2, 0, 0, 0, 0, 1, 0)
 }
-point_count = 1
+point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tx87n"]
 size = Vector2(21, 79)
@@ -104,8 +104,13 @@ position = Vector2(166, 9)
 position = Vector2(183, 9)
 
 [node name="Roberto" parent="TileMapLayer" unique_id=1461065524 instance=ExtResource("7_851su")]
-position = Vector2(-61, -36)
+position = Vector2(56, -75)
 curve = SubResource("Curve2D_851su")
+pathspeed = 25.0
+s0 = Vector2(58, -250)
+s1 = Vector2(57, -75)
+s2 = Vector2(1, 1)
+s3 = Vector2(-120, -70)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1026615826]
 modulate = Color(0.517647, 0.517647, 0.517647, 1)
@@ -161,13 +166,14 @@ scale = Vector2(1.5, 1.5)
 collision_layer = 0
 camera = NodePath("../Camera2D")
 
-[node name="Control" type="Control" parent="." unique_id=1808120940]
+[node name="Control" type="Control" parent="." unique_id=1808120940 node_paths=PackedStringArray("npc")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("11_y8xlq")
 dialogueResource = ExtResource("12_ao47y")
+npc = NodePath("../TileMapLayer/Roberto")
 
 [node name="Label1" parent="Control" unique_id=1989238181 instance=ExtResource("11_wwe4o")]
 layout_mode = 0

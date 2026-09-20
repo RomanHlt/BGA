@@ -3,11 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://2t5x1wv7p3n2" path="res://PART - ROBERTO/SCENES/roberto vrai.png" id="1_eduxo"]
 [ext_resource type="Script" uid="uid://cadayr820devn" path="res://PART - ROBERTO/SCRIPTS/roberto.gd" id="1_odug7"]
 
-[sub_resource type="Curve2D" id="Curve2D_odug7"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1, 1, 0, 0, 0, 0, 261, 1)
-}
+[sub_resource type="Curve" id="Curve_eduxo"]
+_data = [Vector2(0.01659751, 0.9912985), 0.0, 0.0, 0, 0, Vector2(1, 0.3212852), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_odug7"]
+offsets = PackedFloat32Array(0.17067307, 1)
+colors = PackedColorArray(0.888499, 3.3691526e-06, 1.347661e-06, 1, 1, 1, 0, 0)
 
 [sub_resource type="Animation" id="Animation_dikaw"]
 length = 0.2
@@ -63,28 +65,17 @@ _data = {
 &"Talk": SubResource("Animation_314r7")
 }
 
-[sub_resource type="Curve" id="Curve_eduxo"]
-_data = [Vector2(0.01659751, 0.9912985), 0.0, 0.0, 0, 0, Vector2(1, 0.3212852), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_odug7"]
-offsets = PackedFloat32Array(0.17067307, 1)
-colors = PackedColorArray(0.888499, 3.3691526e-06, 1.347661e-06, 1, 1, 1, 0, 0)
-
 [node name="Roberto" type="Path2D" unique_id=1461065524]
-scale = Vector2(2, 2)
-curve = SubResource("Curve2D_odug7")
 script = ExtResource("1_odug7")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=1007691108]
-position = Vector2(-1, 1)
 rotates = false
 
 [node name="Body" type="Node2D" parent="PathFollow2D" unique_id=153709856]
 
 [node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/Body" unique_id=2039980262]
 texture_filter = 1
-position = Vector2(1, -1)
+scale = Vector2(2, 2)
 texture = ExtResource("1_eduxo")
 hframes = 3
 vframes = 3
@@ -105,44 +96,44 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "e4e6d0136305910efca715412083eb74"
 
+[node name="Left_particles" type="CPUParticles2D" parent="PathFollow2D/Body/Sprite2D" unique_id=1096506520]
+position = Vector2(-4.5, 6)
+amount = 100
+lifetime = 0.5
+randomness = 0.2
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(2, 0)
+direction = Vector2(0, 1)
+spread = 25.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+angular_velocity_min = -125.0
+angular_velocity_max = 125.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_eduxo")
+color_ramp = SubResource("Gradient_odug7")
+
+[node name="Right_particles" type="CPUParticles2D" parent="PathFollow2D/Body/Sprite2D" unique_id=938272124]
+position = Vector2(3.5, 6)
+amount = 100
+lifetime = 0.5
+randomness = 0.2
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(2, 0)
+direction = Vector2(0, 1)
+spread = 25.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+angular_velocity_min = -125.0
+angular_velocity_max = 125.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_eduxo")
+color_ramp = SubResource("Gradient_odug7")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PathFollow2D/Body" unique_id=582369193]
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_s1x56")
-
-[node name="Left_particles" type="CPUParticles2D" parent="PathFollow2D/Body" unique_id=1096506520]
-position = Vector2(-3, 5)
-amount = 100
-lifetime = 0.5
-randomness = 0.2
-lifetime_randomness = 0.2
-emission_shape = 3
-emission_rect_extents = Vector2(2, 0)
-direction = Vector2(0, 1)
-spread = 25.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 10.0
-initial_velocity_max = 50.0
-angular_velocity_min = -125.0
-angular_velocity_max = 125.0
-scale_amount_max = 2.0
-scale_amount_curve = SubResource("Curve_eduxo")
-color_ramp = SubResource("Gradient_odug7")
-
-[node name="Right_particles" type="CPUParticles2D" parent="PathFollow2D/Body" unique_id=938272124]
-position = Vector2(4, 5)
-amount = 100
-lifetime = 0.5
-randomness = 0.2
-lifetime_randomness = 0.2
-emission_shape = 3
-emission_rect_extents = Vector2(2, 0)
-direction = Vector2(0, 1)
-spread = 25.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 10.0
-initial_velocity_max = 50.0
-angular_velocity_min = -125.0
-angular_velocity_max = 125.0
-scale_amount_max = 2.0
-scale_amount_curve = SubResource("Curve_eduxo")
-color_ramp = SubResource("Gradient_odug7")

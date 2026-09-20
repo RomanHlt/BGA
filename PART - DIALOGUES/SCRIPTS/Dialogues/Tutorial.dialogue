@@ -1,10 +1,15 @@
 ~ tuto_spawn
+do start_roberto()
+do step(1)
 ???: [[COUCOU !|HEY ! ]] Je m'appelle Roberto.\nJe vais t'apprendre à jouer, tu m'as l'air perdu...[next=1]
+do step(2)
 Roberto: Utilise "{{InputHelper.get_key_name("move_left")}}" pour te déplacer à gauche et "{{InputHelper.get_key_name("move_right")}}" pour aller à droite.[next=0.1]
 do TutorialManager.wait_for_move()
 Roberto: Super ![next=1]
+do step(3)
 Roberto: Maintenant prend la porte tout à gauche en cliquant sur {{InputHelper.get_key_name("interagir")}}.[next=0.1]
 do TutorialManager.wait_for_interact()
+do end_roberto()
 => END
 
 ~ tuto_jump

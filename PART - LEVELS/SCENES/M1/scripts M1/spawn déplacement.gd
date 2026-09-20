@@ -1,12 +1,13 @@
 extends Control
 
 @export var dialogueResource : DialogueResource
+@export var npc : Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if not PlayerDataSaver.is_new_game:
 		hide()
 	else:
-		DialogueManager.show_dialogue_balloon(dialogueResource, "tuto_spawn")
+		DialogueManager.show_dialogue_balloon(dialogueResource, "tuto_spawn", [npc])
 
 
 
