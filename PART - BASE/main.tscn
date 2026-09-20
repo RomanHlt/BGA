@@ -68,6 +68,10 @@ Label/colors/font_shadow_color = Color(0.501961, 0, 0.376471, 1)
 Label/constants/shadow_outline_size = 20
 Label/fonts/font = ExtResource("7_spnxo")
 
+[sub_resource type="LabelSettings" id="LabelSettings_n6nmm"]
+font_size = 24
+font_color = Color(1, 0.7463237, 0.8858892, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_x1s3k"]
 font_size = 32
 font_color = Color(1, 0, 0.733333, 1)
@@ -233,6 +237,7 @@ dico = {
 "1.2.0": "res://PART - LEVELS/SCENES/M1/M1L2.tscn",
 "1.3.0": "res://PART - LEVELS/SCENES/M1/M1L3.tscn",
 "1.4.0": "res://PART - LEVELS/SCENES/M1/M1Boss.tscn",
+"1.9.9": "res://PART - LEVELS/SCENES/M0/M0L1.tscn",
 "2.0.0": "res://PART - LEVELS/SCENES/M2/M2.tscn",
 "2.1.0": "res://PART - LEVELS/SCENES/M2/M2L1.tscn",
 "2.2.0": "res://PART - LEVELS/SCENES/M2/M2L2.tscn",
@@ -281,7 +286,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="MenuAccueil" type="Control" parent="CanvasLayer/Menus" unique_id=1555688175]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -331,6 +335,15 @@ offset_bottom = 375.0
 focus_neighbor_top = NodePath("../Settings")
 text = "New Game
 "
+
+[node name="Quit" type="Button" parent="CanvasLayer/Menus/MenuAccueil" unique_id=1683818193]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 386.0
+offset_right = 298.0
+offset_bottom = 417.0
+focus_neighbor_top = NodePath("../Settings")
+text = "Quit"
 
 [node name="CheckBox" type="CheckBox" parent="CanvasLayer/Menus/MenuAccueil" unique_id=364795353]
 layout_mode = 0
@@ -414,6 +427,39 @@ text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Audio" type="Label" parent="CanvasLayer/Menus/MenuSettings" unique_id=2101408384]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 201.0
+offset_top = 159.0
+offset_right = 440.0
+offset_bottom = 217.0
+grow_horizontal = 2
+theme = SubResource("Theme_oixoq")
+theme_override_font_sizes/font_size = 50
+text = "Audio"
+label_settings = SubResource("LabelSettings_n6nmm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Video" type="Label" parent="CanvasLayer/Menus/MenuSettings" unique_id=415991776]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 695.0
+offset_top = 174.0
+offset_right = 934.0
+offset_bottom = 233.0
+grow_horizontal = 2
+theme = SubResource("Theme_oixoq")
+theme_override_font_sizes/font_size = 50
+text = "Video
+"
+label_settings = SubResource("LabelSettings_n6nmm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Back" type="Button" parent="CanvasLayer/Menus/MenuSettings" unique_id=2037391986]
 layout_mode = 0
 offset_left = 196.0
@@ -430,6 +476,7 @@ offset_top = 228.0
 offset_right = 510.0
 offset_bottom = 244.0
 focus_neighbor_left = NodePath("../CheckButton")
+focus_neighbor_right = NodePath("../CheckButton2")
 min_value = -80.0
 max_value = -20.0
 value = -30.0
@@ -482,6 +529,15 @@ offset_top = 299.0
 offset_right = 270.0
 offset_bottom = 330.0
 text = "Controls"
+
+[node name="CheckButton2" type="CheckButton" parent="CanvasLayer/Menus/MenuSettings" unique_id=1528144338]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 222.0
+offset_right = 903.0
+offset_bottom = 253.0
+button_pressed = true
+text = "Fullscreen"
 
 [node name="MenuControls" type="Control" parent="CanvasLayer/Menus" unique_id=438584238]
 visible = false
@@ -841,6 +897,7 @@ autoplay = true
 [connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/Load" to="CanvasLayer/Menus/MenuAccueil" method="_on_load_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/Settings" to="CanvasLayer/Menus/MenuAccueil" method="_on_settings_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/NewGame" to="CanvasLayer/Menus/MenuAccueil" method="_on_new_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/Quit" to="CanvasLayer/Menus/MenuAccueil" method="_on_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuAccueil/CheckBox" to="CanvasLayer/Menus/MenuAccueil" method="_on_check_box_pressed"]
 [connection signal="SettingsOpened" from="CanvasLayer/Menus/MenuPause" to="CanvasLayer/Menus/MenuSettings" method="_on_menu_pause_settings_opened"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuPause/Resume" to="CanvasLayer/Menus/MenuPause" method="_on_resume_pressed"]
@@ -856,6 +913,7 @@ autoplay = true
 [connection signal="pressed" from="CanvasLayer/Menus/MenuSettings/MusicButton2" to="CanvasLayer/Menus/MenuSettings" method="_on_music_button_2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuSettings/CheckBox" to="CanvasLayer/Menus/MenuSettings" method="_on_check_box_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuSettings/Controls" to="CanvasLayer/Menus/MenuSettings" method="_on_controls_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menus/MenuSettings/CheckButton2" to="CanvasLayer/Menus/MenuSettings" method="_on_check_button_2_pressed"]
 [connection signal="ControlsClosed" from="CanvasLayer/Menus/MenuControls" to="CanvasLayer/Menus/MenuSettings" method="_on_menu_controls_controls_closed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Right" to="CanvasLayer/Menus/MenuControls" method="_on_right_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menus/MenuControls/Left" to="CanvasLayer/Menus/MenuControls" method="_on_left_pressed"]

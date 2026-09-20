@@ -62,8 +62,8 @@ sous_titre = "Niveau 3 | Sortie"
 [node name="door3" parent="TileMapLayer" unique_id=1197385956 instance=ExtResource("3_vs5vi")]
 modulate = Color(0.491309, 0.595285, 0.814999, 1)
 position = Vector2(629, 577)
-id_next_lvl = "0.1.0"
-id_last_lvl = "0.1.0"
+id_next_lvl = "1.9.9"
+id_last_lvl = "1.0.0"
 titre = "Niveau caché"
 sous_titre = "Le méchant chat"
 

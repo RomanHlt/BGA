@@ -6,6 +6,7 @@ extends Node2D
 @export var coyote_timer: Timer
 @export var wall_jump_buffer : Timer
 @export var music:AudioStreamPlayer
+@export var falling_timer:Timer
 @export_subgroup("Player's Nodes")
 @export var sprite2D: Sprite2D
 
@@ -43,19 +44,23 @@ func handle_jump(body: CharacterBody2D, want_to_jump: bool, jump_released: bool)
 func handle_coyote_time(body:CharacterBody2D)->void:
 	if not body.is_on_floor() and last_frame_on_floor and not is_jumping:
 		coyote_timer.start()
-		
 	if not coyote_timer.is_stopped() and not is_jumping:
 		body.velocity.y=0
 
 func handle_wall_jump_buffer(body:CharacterBody2D)->void:
-	if not body.is_on_floor() and body.is_on_wall():
+	if not body.is_on_floor() and body.is_on_wall() and wall_jump_buffer.is_stopped() and falling_timer.is_stopped() :
 		wall_jump_buffer.start()
+		print("Start")
+	if not wall_jump_buffer.is_stopped() and body.velocity.y >40 and body.is_on_wall():
+		body.velocity.y -= body.velocity.y*0.8
+
 
 func handle_jump_buffer(body:CharacterBody2D, want_to_jump:bool) -> void:
 	if want_to_jump and not body.is_on_floor():
 		jump_buffer_timer.start()
 	if body.is_on_floor() and not jump_buffer_timer.is_stopped():
-		jump(body)	
+		jump(body)
+
 func handle_variable_jump_height(body:CharacterBody2D, jump_released:bool) -> void:
 	if jump_released and is_going_up and is_jumping:
 		body.velocity.y = 0
@@ -67,7 +72,7 @@ func jump(body: CharacterBody2D) -> void:
 		jump_buffer_timer.stop()
 		is_jumping=true
 		coyote_timer.stop()
-		if body.is_on_wall() and not(wall_jump_buffer.is_stopped()):
+		if body.is_on_wall() or not(wall_jump_buffer.is_stopped()):
 			if sprite2D.flip_h:
 				body.velocity.x += wall_jump_backward
 				sprite2D.flip_h = false
@@ -77,3 +82,6 @@ func jump(body: CharacterBody2D) -> void:
 				sprite2D.flip_h = true
 				sprite2D.offset.x = 4
 			wall_jump_buffer.stop()
+
+func _on_wall_jump_buffer_timeout() -> void:
+	falling_timer.start()

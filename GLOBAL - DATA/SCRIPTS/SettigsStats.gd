@@ -9,6 +9,7 @@ class_name SettingsData
 @export var events:Array = InputMap.get_actions()
 @export var inputs_events:Dictionary = {}
 @export var runAsToggle:bool = false
+@export var fullscreen:bool = true
 
 func save_game():
 	for i in InputMap.get_actions():
