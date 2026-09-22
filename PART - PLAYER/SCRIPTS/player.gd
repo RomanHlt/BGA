@@ -9,6 +9,7 @@ signal pathObstrued
 @export var advanced_jump_component: AdvancedJumpComponent
 @export var animation_component: AnimationComponent
 @export var weapon_component: WeaponComponent
+@export var ambienteParticles : CPUParticles2D
 @export_subgroup("External Nodes")
 @export var camera:Camera2D
 @export var enableLight:bool = true

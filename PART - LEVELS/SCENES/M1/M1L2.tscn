@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dlpi26fbfayf3" path="res://PART - OBJECTS/SCENES/Déco/grass.tscn" id="9_2d1dd"]
 [ext_resource type="TileSet" uid="uid://cbciknwsoi8fp" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_3x3_2.tres" id="9_y86lb"]
 [ext_resource type="Texture2D" uid="uid://b40ynenk7xi6b" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/3.png" id="10_k5jdw"]
+[ext_resource type="PackedScene" uid="uid://lu83b1j7bvc2" path="res://PART - OBJECTS/SCENES/Others/Flag.tscn" id="10_khnju"]
 [ext_resource type="TileSet" uid="uid://cncncabcbcycn" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_3x3_3.tres" id="12_7xoke"]
 [ext_resource type="PackedScene" uid="uid://ddkfyhcivyb8" path="res://PART - OBJECTS/SCENES/Déco/torch.tscn" id="13_83rys"]
 [ext_resource type="PackedScene" uid="uid://uqfpy1ee5me7" path="res://PART - BASE/SCENES/label.tscn" id="13_v6nq7"]
@@ -940,6 +941,9 @@ position = Vector2(1242, -135)
 
 [node name="Grass27" parent="TileMapLayer" unique_id=815619948 instance=ExtResource("9_2d1dd")]
 position = Vector2(1256, -135)
+
+[node name="Flag" parent="TileMapLayer" unique_id=597415901 instance=ExtResource("10_khnju")]
+position = Vector2(918, 241)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1876655525]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
