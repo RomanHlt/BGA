@@ -70,7 +70,7 @@ script = ExtResource("1_odug7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2039980262]
 texture_filter = 1
-scale = Vector2(2, 2)
+scale = Vector2(1.75, 1.75)
 texture = ExtResource("1_eduxo")
 hframes = 3
 vframes = 3
@@ -93,12 +93,12 @@ metadata/_aseprite_wizard_source_file_hash_ = "e4e6d0136305910efca715412083eb74"
 
 [node name="Left_particles" type="CPUParticles2D" parent="Sprite2D" unique_id=1096506520]
 position = Vector2(-4.5, 6)
-amount = 100
-lifetime = 0.5
+amount = 500
+lifetime = 0.2
 randomness = 0.2
 lifetime_randomness = 0.2
 emission_shape = 3
-emission_rect_extents = Vector2(2, 0)
+emission_rect_extents = Vector2(1, 0)
 direction = Vector2(0, 1)
 spread = 25.0
 gravity = Vector2(0, 0)
@@ -112,12 +112,12 @@ color_ramp = SubResource("Gradient_odug7")
 
 [node name="Right_particles" type="CPUParticles2D" parent="Sprite2D" unique_id=938272124]
 position = Vector2(3.5, 6)
-amount = 100
-lifetime = 0.5
+amount = 500
+lifetime = 0.2
 randomness = 0.2
 lifetime_randomness = 0.2
 emission_shape = 3
-emission_rect_extents = Vector2(2, 0)
+emission_rect_extents = Vector2(1, 0)
 direction = Vector2(0, 1)
 spread = 25.0
 gravity = Vector2(0, 0)

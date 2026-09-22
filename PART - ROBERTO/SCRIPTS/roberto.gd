@@ -40,7 +40,10 @@ func _physics_process(_delta: float) -> void:
 
 func move_to(target_position) -> void:
 	var distance := global_position.distance_to(target_position)
-	if distance <= 5:
+	if global_position.y - target_position.y > 50:
+		drop()
+	if distance <= 10:
+		stabilize()
 		moving = false
 		idle = true
 	var direction := global_position.direction_to(target_position)
@@ -55,6 +58,20 @@ func step(n):
 		moving = true
 		idle = false
 
+func start_roberto():
+	show()
+	set_process(true)
+	set_physics_process(true)
+	step(0)
+	
+func end_roberto():
+	"""Freez roberto en attendant le prochain dialogue"""
+	step(0)
+	await get_tree().create_timer(3).timeout
+	hide()
+	set_process(false)
+	set_physics_process(false)
+
 func boom():
 	"""C'est dans le nom."""
 	$Sprite2D/Left_particles.amount = 100000000
@@ -63,17 +80,19 @@ func boom():
 	$Sprite2D/Right_particles.amount = 100
 	$Sprite2D/Right_particles.amount = 100
 
-func start_roberto():
-	show()
-	set_process(true)
-	set_physics_process(true)
-	step(0)
-	
+func drop():
+	print("FALSE")
+	$Sprite2D/Left_particles.emitting = false
+	$Sprite2D/Right_particles.emitting = false
 
-func end_roberto():
-	"""Freez roberto en attendant le prochain dialogue"""
-	step(0)
-	await get_tree().create_timer(3).timeout
-	hide()
-	set_process(false)
-	set_physics_process(false)
+func stabilize():
+	$Sprite2D/Left_particles.emitting = true
+	$Sprite2D/Right_particles.emitting = true
+	$Sprite2D/Left_particles.gravity.y = 1000
+	$Sprite2D/Right_particles.gravity.y = 1000
+	await get_tree().create_timer(1).timeout
+	$Sprite2D/Left_particles.gravity.y = 500
+	$Sprite2D/Right_particles.gravity.y = 500
+	await get_tree().create_timer(1).timeout
+	$Sprite2D/Left_particles.gravity.y = 0
+	$Sprite2D/Right_particles.gravity.y = 0
