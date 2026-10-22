@@ -210,7 +210,7 @@ metadata/_aseprite_wizard_source_file_hash_ = "57a729d0d343010dfa2bb70f1e14e012"
 
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=1956340611]
 position = Vector2(2, 11)
-color = Color(0.367896, 0.0896998, 0.3769, 1)
+color = Color(0.36862746, 0.09019608, 0.3764706, 1)
 energy = 4.0
 range_item_cull_mask = 3
 shadow_enabled = true

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cy5mfxcv8s8wq"
-path="res://.godot/imported/BatStandard_Attack.png-96cea33dde23e7487b83ce570b0466e4.ctex"
+path="res://.godot/imported/BatStandard_Attack.png-efe91f897d91c604c96fa09871d41ca1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Part - MOBS/ASSETS/Bat/Standard/BatStandard_Attack.png"
-dest_files=["res://.godot/imported/BatStandard_Attack.png-96cea33dde23e7487b83ce570b0466e4.ctex"]
+source_file="res://PART - MOBS/ASSETS/Bat/Standard/BatStandard_Attack.png"
+dest_files=["res://.godot/imported/BatStandard_Attack.png-efe91f897d91c604c96fa09871d41ca1.ctex"]
 
 [params]
 

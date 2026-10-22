@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rgmjkx0yj7xc"
-path="res://.godot/imported/BatVampire_Sleeping.png-f4242594ac43d1c4e12d69894eb121a5.ctex"
+path="res://.godot/imported/BatVampire_Sleeping.png-622b4d0b0d6757acc6061e5f4282b375.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Part - MOBS/ASSETS/Bat/Vampire/BatVampire_Sleeping.png"
-dest_files=["res://.godot/imported/BatVampire_Sleeping.png-f4242594ac43d1c4e12d69894eb121a5.ctex"]
+source_file="res://PART - MOBS/ASSETS/Bat/Vampire/BatVampire_Sleeping.png"
+dest_files=["res://.godot/imported/BatVampire_Sleeping.png-622b4d0b0d6757acc6061e5f4282b375.ctex"]
 
 [params]
 

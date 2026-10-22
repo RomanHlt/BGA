@@ -5,6 +5,7 @@ extends Node2D
 @export var spawnLayer:int = 0
 @export var isHome:bool = false
 @export var isBoss : bool = false
+@export var ambienteColor : Color = Color(0.122, 0.506, 0.282)
 @export_subgroup("Player")
 @export var player:CharacterBody2D
 @export var trail: Line2D
@@ -39,6 +40,12 @@ func _ready() -> void:
 		Main.get_node("CanvasLayer/Menus/MenuPause").canOpen = false
 		Main.get_node("CanvasLayer/Clock").stop()
 	findRightSpawn()
+	
+	if ambienteColor:
+		player.ambienteParticles.color_ramp.colors[1] = ambienteColor
+		player.ambienteParticles.color_ramp.colors[0] = ambienteColor - Color(0, 0, 0, 1)
+		player.ambienteParticles.color_ramp.colors[2] = ambienteColor - Color(0, 0, 0, 1)
+	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

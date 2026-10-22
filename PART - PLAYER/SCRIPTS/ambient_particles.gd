@@ -56,10 +56,4 @@ func randomiser():
 		1:
 			gravity = Vector2(0, 10)
 	
-	#DEBUG
-	print("vel_min : ", initial_velocity_min,
-	"\nvel_max : ", initial_velocity_max,
-	"\ndir : ", direction,
-	"\ngravity : ", gravity)
-	#ENDDEBUG
 	randomiser()

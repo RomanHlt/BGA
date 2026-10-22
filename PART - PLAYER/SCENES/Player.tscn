@@ -306,7 +306,7 @@ fill = 1
 fill_from = Vector2(0.50085473, 0.64102566)
 fill_to = Vector2(0.9111111, 0.1897436)
 
-[node name="Player" type="CharacterBody2D" unique_id=1995235914 node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "advanced_jump_component", "animation_component", "weapon_component")]
+[node name="Player" type="CharacterBody2D" unique_id=1995235914 node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "advanced_jump_component", "animation_component", "weapon_component", "ambienteParticles")]
 z_as_relative = false
 slide_on_ceiling = false
 script = ExtResource("1_1sa3q")
@@ -316,6 +316,7 @@ movement_component = NodePath("MovementComponent")
 advanced_jump_component = NodePath("AdvancedJumpComponent")
 animation_component = NodePath("AnimationComponent")
 weapon_component = NodePath("WeaponComponent")
+ambienteParticles = NodePath("AmbientParticles")
 data = SubResource("Resource_ft5p8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1976146763]

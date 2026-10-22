@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bl075i7m81d4t"]
+
+[ext_resource type="Script" uid="uid://byxs5bpbgaaqj" path="res://PART - DIALOGUES/SCRIPTS/dialogue_trigger.gd" id="1_4qule"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwcut"]
+size = Vector2(20, 141)
+
+[node name="DialogueTrigger" type="Node2D" unique_id=98873958]
+script = ExtResource("1_4qule")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1957906112]
+collision_layer = 0
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=556548863]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_uwcut")
+debug_color = Color(0.7967122, 0.20373014, 0.9056529, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

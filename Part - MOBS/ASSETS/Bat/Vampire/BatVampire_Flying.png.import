@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://827p5s4cm0nq"
-path="res://.godot/imported/BatVampire_Flying.png-7ad0fcef1e25111720ed379133a73d32.ctex"
+path="res://.godot/imported/BatVampire_Flying.png-03dc833f2b0b48587dfd0f7597364557.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Part - MOBS/ASSETS/Bat/Vampire/BatVampire_Flying.png"
-dest_files=["res://.godot/imported/BatVampire_Flying.png-7ad0fcef1e25111720ed379133a73d32.ctex"]
+source_file="res://PART - MOBS/ASSETS/Bat/Vampire/BatVampire_Flying.png"
+dest_files=["res://.godot/imported/BatVampire_Flying.png-03dc833f2b0b48587dfd0f7597364557.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1v1ogse615ko"
-path="res://.godot/imported/BatVampire_Death.png-ab4be318d0f16c489396384fd10bfc72.ctex"
+path="res://.godot/imported/BatVampire_Death.png-3cdf58d8a9f3f87f8a49b3d40aadee75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Part - MOBS/ASSETS/Bat/Vampire/BatVampire_Death.png"
-dest_files=["res://.godot/imported/BatVampire_Death.png-ab4be318d0f16c489396384fd10bfc72.ctex"]
+source_file="res://PART - MOBS/ASSETS/Bat/Vampire/BatVampire_Death.png"
+dest_files=["res://.godot/imported/BatVampire_Death.png-3cdf58d8a9f3f87f8a49b3d40aadee75.ctex"]
 
 [params]
 

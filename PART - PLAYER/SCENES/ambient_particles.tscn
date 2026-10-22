@@ -9,7 +9,7 @@ point_count = 4
 
 [sub_resource type="Gradient" id="Gradient_iv4of"]
 offsets = PackedFloat32Array(0, 0.48317307, 1)
-colors = PackedColorArray(0.12156863, 0.5058824, 0.28235295, 0, 0.12156863, 0.5058824, 0.28235295, 1, 0.12156863, 0.5058824, 0.28235295, 0)
+colors = PackedColorArray(0.12156863, 0.5058824, 0.28235295, 0, 0.122, 0.506, 0.282, 1, 0.12156863, 0.5058824, 0.28235295, 0)
 
 [sub_resource type="Gradient" id="Gradient_edn3k"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)

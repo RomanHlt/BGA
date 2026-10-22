@@ -4,7 +4,7 @@ extends Node2D
 @export_category("Visuals Settings")
 @export var colors : Array = ["ff0000","ff1200","ff1d00","ff2800"]
 @export var shadow_color : String = "00000000"
-@export var power : float = 2
+@export var power : float = 4
 @export var tex_scale : float = 1
 @export_category("Global Settings")
 @export var layer : int = 0
@@ -18,11 +18,6 @@ func _ready() -> void:
 	$PointLight2D.shadow_color = shadow_color
 	$PointLight2D.energy = power
 	$PointLight2D.texture_scale = tex_scale
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
 
 func _on_timer_timeout() -> void:
 	$PointLight2D.texture_scale = tex_scale + randf_range(-0.201,0.201)
