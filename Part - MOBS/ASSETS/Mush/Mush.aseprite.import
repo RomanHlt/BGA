@@ -3,12 +3,12 @@
 importer="aseprite_wizard.plugin.noop"
 type="PackedDataContainer"
 uid="uid://coafrodwak6wf"
-path="res://.godot/imported/Mush.aseprite-ee5eb23e54d61293e24989a402bfe1c6.res"
+path="res://.godot/imported/Mush.aseprite-b96fdd12444836faa304d8e8ef2723e4.res"
 
 [deps]
 
-source_file="res://PART - MOBS/ASSETS/Mush/Mush.aseprite"
-dest_files=["res://.godot/imported/Mush.aseprite-ee5eb23e54d61293e24989a402bfe1c6.res"]
+source_file="res://Part - MOBS/ASSETS/Mush/Mush.aseprite"
+dest_files=["res://.godot/imported/Mush.aseprite-b96fdd12444836faa304d8e8ef2723e4.res"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dj7arm6ndykjx"
-path="res://.godot/imported/heads.png-413821973c634428c481f582414cd3c1.ctex"
+path="res://.godot/imported/heads.png-f461ad83f4595452b3996463ddad8587.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PART - MOBS/SCENES/Totem/heads.png"
-dest_files=["res://.godot/imported/heads.png-413821973c634428c481f582414cd3c1.ctex"]
+source_file="res://Part - MOBS/SCENES/Totem/heads.png"
+dest_files=["res://.godot/imported/heads.png-f461ad83f4595452b3996463ddad8587.ctex"]
 
 [params]
 
