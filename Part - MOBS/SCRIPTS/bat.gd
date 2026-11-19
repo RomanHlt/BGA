@@ -1,9 +1,10 @@
+class_name Ennemi
 extends CharacterBody2D
 
 @export_category("Nodes")
 @export var layer:int = 0
 @export var SPEED : float = 40
-@export var health_max : int = 3
+@export var health_max : int = 2
 var health : int
 var animatedSprite:AnimatedSprite2D
 var map
