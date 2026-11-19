@@ -18,7 +18,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="WallJumpBuffer" type="Timer" parent="." unique_id=88792996]
-wait_time = 2.0
+wait_time = 0.5
 one_shot = true
 
 [node name="FallingTimer" type="Timer" parent="." unique_id=331473993]
