@@ -143,34 +143,39 @@ position = Vector2(-80, -63)
 power = 0.5
 
 [node name="Grass" parent="TileMapLayer" unique_id=1833255821 instance=ExtResource("7_8842e")]
-position = Vector2(39, -8)
+position = Vector2(41, -7)
+scale = Vector2(0.8, 0.8)
 
 [node name="Grass2" parent="TileMapLayer" unique_id=779470489 instance=ExtResource("7_8842e")]
 position = Vector2(53, -8)
 
 [node name="Grass3" parent="TileMapLayer" unique_id=737777929 instance=ExtResource("7_8842e")]
-position = Vector2(64, -8)
+position = Vector2(64, -6)
+scale = Vector2(0.9, 0.9)
 
 [node name="Grass4" parent="TileMapLayer" unique_id=1718239215 instance=ExtResource("7_8842e")]
-position = Vector2(78, -8)
+position = Vector2(76, -7)
+scale = Vector2(0.8, 0.8)
 
 [node name="Grass5" parent="TileMapLayer" unique_id=1809102545 instance=ExtResource("7_8842e")]
-position = Vector2(-105, -232)
+position = Vector2(-105, -231)
 
 [node name="Grass6" parent="TileMapLayer" unique_id=899148986 instance=ExtResource("7_8842e")]
 position = Vector2(185, -40)
 
 [node name="Grass7" parent="TileMapLayer" unique_id=1555887607 instance=ExtResource("7_8842e")]
-position = Vector2(279, -232)
+position = Vector2(279, -231)
 
 [node name="Grass8" parent="TileMapLayer" unique_id=2042102019 instance=ExtResource("7_8842e")]
-position = Vector2(293, -232)
+position = Vector2(291, -233.00002)
+scale = Vector2(1.2, 1.2)
 
 [node name="Grass9" parent="TileMapLayer" unique_id=1854377831 instance=ExtResource("7_8842e")]
-position = Vector2(303, -232)
+position = Vector2(304, -232)
+scale = Vector2(1.1, 1.1)
 
 [node name="Grass10" parent="TileMapLayer" unique_id=75916409 instance=ExtResource("7_8842e")]
-position = Vector2(329, -232)
+position = Vector2(329, -231)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1370600426]
 modulate = Color(0.519162, 0.519162, 0.519162, 1)
@@ -191,13 +196,16 @@ sous_titre = "Niveau 2 | Chute"
 position = Vector2(166, -184)
 
 [node name="Grass12" parent="TileMapLayer2" unique_id=1686922300 instance=ExtResource("7_8842e")]
-position = Vector2(155, -184)
+position = Vector2(155, -183)
+scale = Vector2(0.9, 0.9)
 
 [node name="Grass13" parent="TileMapLayer2" unique_id=2054030700 instance=ExtResource("7_8842e")]
-position = Vector2(-41, -104)
+position = Vector2(-40, -103)
+scale = Vector2(0.9, 0.9)
 
 [node name="Grass14" parent="TileMapLayer2" unique_id=362302532 instance=ExtResource("7_8842e")]
 position = Vector2(-28, -104)
+scale = Vector2(1.1, 1.1)
 
 [node name="Player" parent="." unique_id=1945684855 node_paths=PackedStringArray("camera") instance=ExtResource("4_7ny1q")]
 position = Vector2(-4, -108)
