@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b5avw4mcm3obf" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/8.png" id="12_ncp6i"]
 [ext_resource type="Texture2D" uid="uid://bh2lc23g5ohug" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/4.png" id="14_rdskj"]
 [ext_resource type="Texture2D" uid="uid://su7teg26n2nv" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/7.png" id="15_2pmb3"]
-[ext_resource type="PackedScene" uid="uid://0xlb2up47lnn" path="res://PART - MOBS/SCENES/bat.tscn" id="16_bctjm"]
+[ext_resource type="PackedScene" uid="uid://0xlb2up47lnn" path="res://Part - MOBS/SCENES/bat.tscn" id="16_bctjm"]
 [ext_resource type="Texture2D" uid="uid://bq0e3xkureajb" path="res://PART - LEVELS/ASSETS/Map/3 Objects/Pointers/5.png" id="17_7oheq"]
 [ext_resource type="TileSet" uid="uid://chtidkvt2atpj" path="res://PART - LEVELS/ASSETS/Map/1 Tiles/Tile_set_M2_3x3_2.tres" id="17_t2sex"]
 [ext_resource type="PackedScene" uid="uid://digirtaqdarvr" path="res://PART - OBJECTS/SCENES/Traps/Bumper.tscn" id="18_07krk"]

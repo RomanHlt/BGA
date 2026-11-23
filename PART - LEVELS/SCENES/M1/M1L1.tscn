@@ -808,7 +808,8 @@ position = Vector2(116, -7)
 position = Vector2(-1098, -7)
 
 [node name="Grass43" parent="TileMapLayer" unique_id=1718059169 instance=ExtResource("4_2hc1j")]
-position = Vector2(-1084, -7)
+position = Vector2(-1086, -6)
+scale = Vector2(0.8, 0.8)
 
 [node name="Grass44" parent="TileMapLayer" unique_id=1868460107 instance=ExtResource("4_2hc1j")]
 position = Vector2(-1258, -7)
@@ -829,58 +830,72 @@ position = Vector2(-1818, 137)
 position = Vector2(-1426, -535)
 
 [node name="Grass50" parent="TileMapLayer" unique_id=439640235 instance=ExtResource("4_2hc1j")]
-position = Vector2(-1412, -535)
+position = Vector2(-1415, -533)
+scale = Vector2(0.6, 0.6)
 
 [node name="Grass51" parent="TileMapLayer" unique_id=1180275858 instance=ExtResource("4_2hc1j")]
-position = Vector2(-1398, -535)
+position = Vector2(-1397, -536)
+scale = Vector2(1.1, 1.1)
 
 [node name="Grass52" parent="TileMapLayer" unique_id=1897999283 instance=ExtResource("4_2hc1j")]
-position = Vector2(-1406, -535)
+position = Vector2(-1407, -534)
+scale = Vector2(0.8, 0.8)
 
 [node name="Grass53" parent="TileMapLayer" unique_id=19229887 instance=ExtResource("4_2hc1j")]
 position = Vector2(-1174, -551)
 
 [node name="Grass2" parent="TileMapLayer" unique_id=343632459 instance=ExtResource("4_2hc1j")]
-position = Vector2(130, -7)
+position = Vector2(129, -6)
+scale = Vector2(0.8, 0.8)
 
 [node name="Grass3" parent="TileMapLayer" unique_id=1303979178 instance=ExtResource("4_2hc1j")]
-position = Vector2(139, -7)
+position = Vector2(141.00002, -7)
+scale = Vector2(0.9, 0.9)
 
 [node name="Grass4" parent="TileMapLayer" unique_id=810940270 instance=ExtResource("4_2hc1j")]
-position = Vector2(155, -7)
+position = Vector2(155, -8)
+scale = Vector2(1.1, 1.1)
 
 [node name="Grass5" parent="TileMapLayer" unique_id=1224488360 instance=ExtResource("4_2hc1j")]
 position = Vector2(170, -7)
 
 [node name="Grass6" parent="TileMapLayer" unique_id=414535545 instance=ExtResource("4_2hc1j")]
-position = Vector2(184, -7)
+position = Vector2(182, -5)
+scale = Vector2(0.6, 0.6)
 
 [node name="Grass7" parent="TileMapLayer" unique_id=486317312 instance=ExtResource("4_2hc1j")]
-position = Vector2(194, -7)
+position = Vector2(192.00002, -6.0000005)
+scale = Vector2(0.8, 0.8)
 
 [node name="Grass8" parent="TileMapLayer" unique_id=1163864006 instance=ExtResource("4_2hc1j")]
 position = Vector2(221, -7)
+scale = Vector2(0.9, 0.9)
 
 [node name="Grass9" parent="TileMapLayer" unique_id=502955242 instance=ExtResource("4_2hc1j")]
-position = Vector2(235, -7)
+position = Vector2(236, -5)
+scale = Vector2(0.7, 0.7)
 
 [node name="Grass10" parent="TileMapLayer" unique_id=844316420 instance=ExtResource("4_2hc1j")]
-position = Vector2(248, -7)
+position = Vector2(247, -6)
+scale = Vector2(0.8, 0.8)
 
 [node name="Grass11" parent="TileMapLayer" unique_id=258332894 instance=ExtResource("4_2hc1j")]
-position = Vector2(262, -7)
+position = Vector2(260, -7)
 
 [node name="Grass12" parent="TileMapLayer" unique_id=1899490205 instance=ExtResource("4_2hc1j")]
-position = Vector2(276, -7)
+position = Vector2(274, -7)
+scale = Vector2(0.9, 0.9)
 
 [node name="Grass13" parent="TileMapLayer" unique_id=2121079359 instance=ExtResource("4_2hc1j")]
-position = Vector2(297, -7)
+position = Vector2(296, -9)
+scale = Vector2(1.2, 1.2)
 
 [node name="Grass14" parent="TileMapLayer" unique_id=1916603325 instance=ExtResource("4_2hc1j")]
 position = Vector2(327, -7)
 
 [node name="Grass15" parent="TileMapLayer" unique_id=1452965920 instance=ExtResource("4_2hc1j")]
-position = Vector2(340, -7)
+position = Vector2(340.00003, -7)
+scale = Vector2(0.9, 0.9)
 
 [node name="Grass16" parent="TileMapLayer" unique_id=1532816104 instance=ExtResource("4_2hc1j")]
 position = Vector2(387, -7)
@@ -889,22 +904,27 @@ position = Vector2(387, -7)
 position = Vector2(436, -7)
 
 [node name="Grass18" parent="TileMapLayer" unique_id=794486291 instance=ExtResource("4_2hc1j")]
-position = Vector2(451, -7)
+position = Vector2(448.00003, -7)
+scale = Vector2(0.9, 0.9)
 
 [node name="Grass19" parent="TileMapLayer" unique_id=561904787 instance=ExtResource("4_2hc1j")]
-position = Vector2(457, -7)
+position = Vector2(457, -8)
+scale = Vector2(1.1, 1.1)
 
 [node name="Grass20" parent="TileMapLayer" unique_id=974446646 instance=ExtResource("4_2hc1j")]
-position = Vector2(556, -55)
+position = Vector2(555, -51)
+scale = Vector2(0.5, 0.5)
 
 [node name="Grass21" parent="TileMapLayer" unique_id=78543270 instance=ExtResource("4_2hc1j")]
-position = Vector2(570, -55)
+position = Vector2(564, -53)
+scale = Vector2(0.7, 0.7)
 
 [node name="Grass22" parent="TileMapLayer" unique_id=725596701 instance=ExtResource("4_2hc1j")]
 position = Vector2(655, -87)
 
 [node name="Grass23" parent="TileMapLayer" unique_id=1346131817 instance=ExtResource("4_2hc1j")]
-position = Vector2(669, -87)
+position = Vector2(669, -88)
+scale = Vector2(1.1, 1.1)
 
 [node name="Grass24" parent="TileMapLayer" unique_id=1412116566 instance=ExtResource("4_2hc1j")]
 position = Vector2(680, -87)
@@ -917,48 +937,59 @@ position = Vector2(1094, -135)
 
 [node name="Grass27" parent="TileMapLayer" unique_id=1406158981 instance=ExtResource("4_2hc1j")]
 position = Vector2(1108, -135)
+scale = Vector2(0.9, 0.9)
 
 [node name="Grass28" parent="TileMapLayer" unique_id=1175093690 instance=ExtResource("4_2hc1j")]
-position = Vector2(1122, -135)
+position = Vector2(1124, -136)
+scale = Vector2(1.1, 1.1)
 
 [node name="Grass29" parent="TileMapLayer" unique_id=1730734910 instance=ExtResource("4_2hc1j")]
-position = Vector2(1102, -135)
+position = Vector2(1102.0001, -134.00002)
+scale = Vector2(0.8, 0.8)
 
 [node name="Grass30" parent="TileMapLayer" unique_id=738237455 instance=ExtResource("4_2hc1j")]
 position = Vector2(1190, -119)
 
 [node name="Grass31" parent="TileMapLayer" unique_id=976004649 instance=ExtResource("4_2hc1j")]
-position = Vector2(1339, -7)
+position = Vector2(1339, -4)
+scale = Vector2(0.6, 0.6)
 
 [node name="Grass32" parent="TileMapLayer" unique_id=221400643 instance=ExtResource("4_2hc1j")]
 position = Vector2(1353, -7)
 
 [node name="Grass33" parent="TileMapLayer" unique_id=523302204 instance=ExtResource("4_2hc1j")]
 position = Vector2(1367, -7)
+scale = Vector2(0.9, 0.9)
 
 [node name="Grass34" parent="TileMapLayer" unique_id=571644820 instance=ExtResource("4_2hc1j")]
-position = Vector2(1381, -7)
+position = Vector2(1381, -6)
+scale = Vector2(0.8, 0.8)
 
 [node name="Grass35" parent="TileMapLayer" unique_id=1857990745 instance=ExtResource("4_2hc1j")]
-position = Vector2(1359, -7)
+position = Vector2(1359, -5)
+scale = Vector2(0.7, 0.7)
 
 [node name="Grass36" parent="TileMapLayer" unique_id=1509052158 instance=ExtResource("4_2hc1j")]
 position = Vector2(1321, -7)
 
 [node name="Grass37" parent="TileMapLayer" unique_id=2008167025 instance=ExtResource("4_2hc1j")]
-position = Vector2(1307, -7)
+position = Vector2(1307, -8)
+scale = Vector2(1.1, 1.1)
 
 [node name="Grass38" parent="TileMapLayer" unique_id=285822952 instance=ExtResource("4_2hc1j")]
 position = Vector2(1284, -7)
 
 [node name="Grass39" parent="TileMapLayer" unique_id=40340396 instance=ExtResource("4_2hc1j")]
-position = Vector2(1223, -7)
+position = Vector2(1223, -5)
+scale = Vector2(0.7, 0.7)
 
 [node name="Grass40" parent="TileMapLayer" unique_id=1948150439 instance=ExtResource("4_2hc1j")]
-position = Vector2(1237, -7)
+position = Vector2(1235, -7)
+scale = Vector2(0.9, 0.9)
 
 [node name="Grass41" parent="TileMapLayer" unique_id=1476007699 instance=ExtResource("4_2hc1j")]
-position = Vector2(1251, -8)
+position = Vector2(1248, -6)
+scale = Vector2(0.8, 0.8)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1610615139]
 modulate = Color(0.517647, 0.517647, 0.517647, 1)
