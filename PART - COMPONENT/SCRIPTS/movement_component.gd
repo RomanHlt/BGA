@@ -36,9 +36,9 @@ func handle_dash(body:CharacterBody2D,flipH:bool,onDash:bool):
 			body.velocity.x = dashForce
 		body.velocity.y = 0
 		await get_tree().create_timer(0.3).timeout
-		dash = false
 		animate_dash()
 		body.velocity.x = 0
+		dash = false
 
 func choose_right_speed(isRunning:bool):
 	if PlayerDataSaver.PlayerStats.is_dead:

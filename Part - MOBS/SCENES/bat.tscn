@@ -1125,7 +1125,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxfyv"]
-size = Vector2(9, 4)
+size = Vector2(10, 5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w7jto"]
 radius = 270.0
@@ -1136,7 +1136,7 @@ size = Vector2(11, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lavbg"]
 size = Vector2(9, 3)
 
-[node name="bat" type="CharacterBody2D" unique_id=112687986]
+[node name="bat" type="CharacterBody2D" unique_id=112687986 groups=["Ennemi"]]
 script = ExtResource("1_ex5ae")
 
 [node name="Fire" type="AnimatedSprite2D" parent="." unique_id=1822826527]
@@ -1170,8 +1170,9 @@ sprite_frames = SubResource("SpriteFrames_qm0vy")
 animation = &"hurt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=601310466]
-position = Vector2(0.5, 0)
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_fxfyv")
+debug_color = Color(0.9873679, 0, 0.31874946, 0.41960785)
 
 [node name="DetectionPlayer" type="Area2D" parent="." unique_id=512941286]
 

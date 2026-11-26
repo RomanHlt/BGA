@@ -21,6 +21,7 @@ var closerChecker
 var dealingDamages
 var closerRight
 var closerLeft
+var DashAttack
 var was_on_floor:bool = false
 var canGoDeeper:bool = true
 var canGoCloser:bool = true
@@ -57,6 +58,7 @@ func _ready():
 	dealingDamages = $PlayerDealingDamageZone
 	closerLeft = $CloserLeft
 	closerRight = $CloserRight
+	DashAttack = $DashAttack
 	
 	$Sprite2D/PointLight2D.enabled = enableLight
 	$Sprite2D/PointLight2D2.enabled = enableLight
@@ -217,3 +219,8 @@ func _on_air():
 	while $Sprite2D.scale != Vector2.ONE:
 		await get_tree().process_frame
 		if movement_component.dash: t.stop()
+
+
+func _on_dash_attack_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Ennemi") and movement_component.dash:
+		body._takeDamages(1)

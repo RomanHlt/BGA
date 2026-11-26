@@ -157,13 +157,14 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fy24r"]
+radius = 14.0
+height = 66.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lt266"]
 radius = 79.4292
 
-[node name="Boss" type="CharacterBody2D" unique_id=443601291]
+[node name="Boss" type="CharacterBody2D" unique_id=443601291 groups=["Ennemi"]]
 z_as_relative = false
-collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_w4kxn")
 
@@ -174,6 +175,7 @@ texture = ExtResource("2_1vrh0")
 flip_h = true
 hframes = 7
 vframes = 6
+frame = 10
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }

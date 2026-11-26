@@ -103,20 +103,19 @@ func _animation():
 
 func _on_taking_damage_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		_takes_damages(1)
+		_takeDamages(1)
 		dir = _choose([-1, 1])
 		target.velocity.x = dir*200
 		target.velocity.y = -500
 
 
-func _takes_damages(damages):
+func _takeDamages(damages):
 	health -= damages
 	if health > 0 :
 		is_hurt = true
-	elif health <= 0: 
+	elif health <= 0:
 		dead = true
 		_death()
-
 
 func _death():
 	if dead == true:

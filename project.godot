@@ -43,6 +43,7 @@ enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addon
 [global_group]
 
 MovingPlatform=""
+Ennemi="Peut prendre des dégats venant du joueur"
 
 [input]
 

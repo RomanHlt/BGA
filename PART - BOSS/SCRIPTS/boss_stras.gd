@@ -40,6 +40,8 @@ var dir = 1
 func _ready() -> void:
 	$Sprite2D.flip_h = true
 	$AnimationPlayer.play("vol stationnaire")
+	get_tree().root.get_node("/root/Map/CanvasLayer/InGame/lifeController").play("3")
+	collision_layer = 0
 # --
 # --
 # --
@@ -99,12 +101,14 @@ func pic():
 		$AnimationPlayer.play("redressage")
 		RightUpPath.progress_ratio = 0
 		await $AnimationPlayer.animation_finished
+		collision_layer = 1 # Boss vulnérable
 		$AnimationPlayer.play("vol montant")
 		while RightUpPath.progress_ratio < 0.99:
 			RightUpPath.progress_ratio += speed * get_process_delta_time()
 			await get_tree().process_frame
 		self.global_position = TR.global_position
 		$AnimationPlayer.play("vol stationnaire")
+		collision_layer = 0 # Boss invulnérable
 		$Sprite2D.flip_h = false
 		is_idle = true
 		is_attacking = false
@@ -216,12 +220,11 @@ func backdash():
 func _takeDamages(damages):
 	if damages <= health:
 		health -= damages
-		# Retirer les dégats à la barre de vie du boss
 	else:
 		health = 0
-		# Retirer les dégats à la barre de vie du boss
 		is_dead = true
 		dead()
+	get_tree().root.get_node("/root/Map/CanvasLayer/InGame/lifeController").play(str(health))
 	evolve() # Vérifier le changement de phase
 
 

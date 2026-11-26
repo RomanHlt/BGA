@@ -306,6 +306,10 @@ fill = 1
 fill_from = Vector2(0.50085473, 0.64102566)
 fill_to = Vector2(0.9111111, 0.1897436)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j04sm"]
+radius = 6.0
+height = 22.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1995235914 node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "advanced_jump_component", "animation_component", "weapon_component", "ambienteParticles")]
 z_as_relative = false
 slide_on_ceiling = false
@@ -325,7 +329,7 @@ position = Vector2(-2, -11)
 texture = ExtResource("2_3iiil")
 hframes = 8
 vframes = 8
-frame = 43
+frame = 37
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -515,6 +519,14 @@ texture = SubResource("GradientTexture2D_j04sm")
 
 [node name="AmbientParticles" parent="." unique_id=778597950 instance=ExtResource("11_j04sm")]
 
+[node name="DashAttack" type="Area2D" parent="." unique_id=1898243498]
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DashAttack" unique_id=1458391895]
+position = Vector2(-7, 3.059797e-07)
+shape = SubResource("CapsuleShape2D_j04sm")
+debug_color = Color(0.9732544, 0, 0.43865556, 0.41960785)
+
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationComponent" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="deeperChecker" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="deeperChecker" to="." method="_on_area_2d_body_exited"]
@@ -526,3 +538,4 @@ texture = SubResource("GradientTexture2D_j04sm")
 [connection signal="body_exited" from="CloserRight" to="." method="_on_closer_right_body_exited"]
 [connection signal="awaken" from="AnimationComponent" to="." method="_on_animation_component_awaken"]
 [connection signal="body_entered" from="Destroy" to="." method="_on_destroy_body_entered"]
+[connection signal="body_entered" from="DashAttack" to="." method="_on_dash_attack_body_entered"]

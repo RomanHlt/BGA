@@ -10,8 +10,11 @@
 [ext_resource type="Script" uid="uid://w4tmeg75ecxq" path="res://PART - PLAYER/SCRIPTS/followPlayer.gd" id="7_qb7iy"]
 [ext_resource type="PackedScene" uid="uid://dmwc4dgmjldxn" path="res://PART - BOSS/SCENES/boss_stras.tscn" id="7_ybgx1"]
 [ext_resource type="AudioStream" uid="uid://cevyamclualmd" path="res://PART - OBJECTS/ASSETS/Sounds/Switch layer.mp3" id="8_2yyw2"]
+[ext_resource type="Texture2D" uid="uid://bk6sa8t1mcrb6" path="res://PART - LEVELS/SCENES/M2/Stras_life.png" id="12_133eb"]
 [ext_resource type="PackedScene" uid="uid://yeht3bsffd6h" path="res://PART - PLAYER/SCENES/trail.tscn" id="12_f1m0t"]
 [ext_resource type="Script" uid="uid://c2ldayng1fvt3" path="res://PART - LEVELS/SCENES/M2/script M2/death_zone_boss.gd" id="12_le7q5"]
+[ext_resource type="FontFile" uid="uid://tlbpimwifcpa" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Regular.otf" id="13_d3ilk"]
+[ext_resource type="FontFile" uid="uid://bn43t0lpdvrl4" path="res://GLOBAL - Font/KAPH/OpenType (.otf)/Kaph-Italic.otf" id="14_dny4a"]
 
 [sub_resource type="Shader" id="Shader_wghwi"]
 
@@ -2278,6 +2281,78 @@ size = Vector2(738.417, 121.603)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2vji"]
 size = Vector2(2069, 236)
 
+[sub_resource type="Animation" id="Animation_fwkt5"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_mnq3e"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_hojvl"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_yxk4g"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("life:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kpw13"]
+_data = {
+&"0": SubResource("Animation_fwkt5"),
+&"1": SubResource("Animation_mnq3e"),
+&"2": SubResource("Animation_hojvl"),
+&"3": SubResource("Animation_yxk4g")
+}
+
 [sub_resource type="Environment" id="Environment_dtnfm"]
 background_mode = 3
 tonemap_mode = 1
@@ -2562,6 +2637,74 @@ script = ExtResource("12_le7q5")
 position = Vector2(2, 663)
 shape = SubResource("RectangleShape2D_c2vji")
 debug_color = Color(0.809273, 0.104741, 0.955136, 0.42)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1833006360]
+
+[node name="InGame" type="Control" parent="CanvasLayer" unique_id=1680155328]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="life" type="Sprite2D" parent="CanvasLayer/InGame" unique_id=988029063]
+texture_filter = 1
+position = Vector2(100, 125)
+scale = Vector2(6.0625, 6.0625)
+texture = ExtResource("12_133eb")
+hframes = 2
+vframes = 2
+frame = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "CanvasLayer/InGame/lifeController",
+"slice": "",
+"source": "res://PART - BOSS/ASSETS/Stras_life.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "e306961a2c4fdf42015ad812e8af19e9"
+
+[node name="lifeController" type="AnimationPlayer" parent="CanvasLayer/InGame" unique_id=1276214091]
+libraries/ = SubResource("AnimationLibrary_kpw13")
+
+[node name="Label" type="Label" parent="CanvasLayer/InGame" unique_id=2053799097]
+layout_mode = 0
+offset_left = -83.0
+offset_top = 29.0
+offset_right = 142.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0.043137256, 0.56078434, 0.043137256, 1)
+theme_override_fonts/font = ExtResource("13_d3ilk")
+theme_override_font_sizes/font_size = 30
+text = "Sunny"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/InGame/Label" unique_id=504320562]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 50.0
+offset_right = 228.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0.043137256, 0.56078434, 0.043137256, 1)
+theme_override_fonts/font = ExtResource("14_dny4a")
+theme_override_font_sizes/font_size = 15
+text = "De l'INSA Strasbourg"
+horizontal_alignment = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=115063021]
 environment = SubResource("Environment_dtnfm")
